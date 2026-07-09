@@ -52,17 +52,9 @@
   --on-blue-soft: #b9c6ec;    /* secondary text on blue */
   --hairline-blue: rgba(255,255,255,0.16);
 
-  /* --- Depth on blue bands (very restrained) ---
-     A soft off-centre light "pool" + an even vignette give the flat blue
-     dimensionality without gradient-soup. --glow-x moves the light per
-     section so the bands stop reading as identical stamped panels. --- */
-  --blue-lift: rgba(120,150,240,0.20);
-  --blue-vignette: rgba(0,16,60,0.42);
-  --glow-x: 78%;
-
   /* --- Problem / severity red — used to flag the status-quo problem
          (severity coding, on-brand). Distinct from the orange accent. --- */
-  --problem: #FF6B6B;
+  --problem: #C0392B;
 
   /* --- Functional signal colours (product visuals ONLY) --- */
   --sig-revenue: #1f9d6b;     /* green  */
@@ -157,22 +149,12 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--hairline);
   color: var(--orange);          /* drives the inline SVG via currentColor */
 }
-.section--blue .icon-chip { background: rgba(255,255,255,.06); border-color: var(--hairline-blue); }
-
 /* -----------------------------------------------------------------
    Section scaffolding + alternating backgrounds
    ----------------------------------------------------------------- */
 .section { padding-block: var(--section-y); position: relative; }
 .section--white { background: var(--white); }
 .section--grey { background: var(--grey-50); }
-.section--blue {
-  background-color: var(--blue);
-  background-image:
-    radial-gradient(90% 70% at var(--glow-x) -12%, var(--blue-lift), transparent 62%),
-    radial-gradient(140% 120% at 50% 45%, transparent 52%, var(--blue-vignette));
-  color: var(--on-blue);
-  overflow: hidden;
-}
 .section--blue-deep { background: var(--blue-deep); color: var(--on-blue); }
 
 .section__title {
@@ -184,15 +166,12 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink);
   max-width: 18ch;
 }
-.section__title--light { color: var(--on-blue); }
 .section__sub {
   margin-top: 14px;
   font-size: clamp(15px, 1.4vw, 18px);
   color: var(--ink-soft);
   max-width: 60ch;
 }
-.section__sub--light { color: var(--on-blue-soft); }
-
 .section__head-center { text-align: center; margin-inline: auto; margin-bottom: clamp(32px, 4.5vw, 52px); display: flex; flex-direction: column; align-items: center; }
 .section__head-center .section__title { max-width: 22ch; }
 
@@ -220,7 +199,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border-left: 1px solid var(--hairline-blue);
+  border-left: 1px solid var(--hairline);
   padding-left: clamp(20px, 2.4vw, 34px);
 }
 .section__lead {
@@ -228,27 +207,17 @@ a { color: inherit; text-decoration: none; }
   font-weight: 500;
   font-size: clamp(18px, 1.9vw, 22px);
   line-height: 1.25;
-  color: var(--on-blue);
+  color: var(--ink);
   text-wrap: balance;
 }
 .section__aside-sub {
   margin-top: 12px;
   font-size: 15px;
   line-height: 1.55;
-  color: var(--on-blue-soft);
+  color: var(--ink-soft);
   max-width: 44ch;
 }
-.section__aside-sub .mono { color: #dbe4ff; }
-
-/* Quiet dot-grid texture, only on blue bands, very low opacity */
-.hero__grid-bg {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1.4px);
-  background-size: 26px 26px;
-  opacity: .5;
-  pointer-events: none;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 85%);
-}
+.section__aside-sub .mono { color: var(--ink); }
 
 /* -----------------------------------------------------------------
    Buttons — built once, reused. Orange fill + black bold label,
@@ -274,10 +243,6 @@ a { color: inherit; text-decoration: none; }
   color: var(--orange);
   border-color: var(--orange);
 }
-/* On blue bands the outline-hover needs a visible label */
-.section--blue .btn--primary:hover,
-.section--blue-deep .btn--primary:hover { color: var(--orange); }
-
 .btn--lg { padding: 17px 30px; font-size: 17px; }
 .btn--block { width: 100%; }
 
@@ -287,7 +252,7 @@ a { color: inherit; text-decoration: none; }
 .eyebrow-trust {
   list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 14px;
   text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 700;
-  color: var(--on-blue-soft);
+  color: var(--ink-soft);
 }
 .eyebrow-trust li { display: inline-flex; align-items: center; }
 .eyebrow-trust li::before {
@@ -331,7 +296,9 @@ a { color: inherit; text-decoration: none; }
 /* =================================================================
    1 — HERO
    ================================================================= */
-.hero { position: relative; padding-block: clamp(40px, 5.5vw, 72px); }
+/* overflow:hidden clips the .hero__viz::before bleed (was inherited from
+   the old blue band treatment) — without it the page scrolls sideways. */
+.hero { position: relative; padding-block: clamp(40px, 5.5vw, 72px); overflow: hidden; }
 .hero__inner {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(28px, 4vw, 56px);
@@ -344,7 +311,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.06;
   letter-spacing: -.025em;
   margin-top: 18px;
-  color: var(--on-blue);
+  color: var(--ink);
   text-wrap: balance;
 }
 /* 2nd sentence reads as the problem (red). The bad metric stays red too —
@@ -352,7 +319,7 @@ a { color: inherit; text-decoration: none; }
    orange 100%, muted <2%). The span only holds the no-wrap. */
 .hero__problem { display: block; color: var(--problem); }
 .hero__metric { white-space: nowrap; }
-.hero__subhead { margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: #e4ebff; max-width: 54ch; }
+.hero__subhead { margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: var(--ink-soft); max-width: 54ch; }
 
 /* Outcomes checklist — makes the four results tangible at first glance */
 .hero__outcomes {
@@ -360,7 +327,7 @@ a { color: inherit; text-decoration: none; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px;
   max-width: 56ch;
 }
-.hero__outcomes li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: #eef3ff; }
+.hero__outcomes li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--ink); }
 .hero__tick {
   flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
   background: var(--orange); color: #000;
@@ -379,27 +346,26 @@ a { color: inherit; text-decoration: none; }
   z-index: 0;
   inset: 22px -22px -26px 30px;
   border-radius: var(--r-media);
-  background: rgba(255,255,255,.025);
-  border: 1px solid var(--hairline-blue);
+  background: var(--grey-50);
+  border: 1px solid var(--hairline);
 }
 .coverage-card {
   position: relative;
   z-index: 1;
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--hairline-blue);
+  background: var(--white);
+  border: 1px solid var(--hairline);
   border-radius: var(--r-media);
   padding: 22px;
-  box-shadow: 0 20px 50px rgba(0,0,0,.25);
-  backdrop-filter: blur(2px);
+  box-shadow: var(--shadow-md);
 }
 .coverage-card__head { display: flex; justify-content: space-between; margin-bottom: 18px; }
-.coverage-card__label { font-size: 11px; letter-spacing: .14em; color: var(--on-blue-soft); }
-.coverage-meter__row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: #dbe4ff; margin-bottom: 7px; }
+.coverage-card__label { font-size: 11px; letter-spacing: .14em; color: var(--ink-soft); }
+.coverage-meter__row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: var(--ink-soft); margin-bottom: 7px; }
 .coverage-meter__val { font-weight: 600; }
-.coverage-bar { height: 8px; background: rgba(255,255,255,.10); border-radius: 999px; overflow: hidden; margin-bottom: 18px; }
+.coverage-bar { height: 8px; background: var(--grey-100); border-radius: 999px; overflow: hidden; margin-bottom: 18px; }
 /* No-JS baseline: bars render filled to their target (--w) immediately. */
 .coverage-bar__fill { display: block; height: 100%; border-radius: 999px; width: var(--w, 0); }
-.coverage-bar__fill.is-old { background: var(--on-blue-soft); }
+.coverage-bar__fill.is-old { background: #b9c2d4; }
 .coverage-bar__fill.is-new { background: var(--orange); }
 
 /* Enhancement: with JS, hold the bars at zero, then fill on scroll-in.
@@ -411,13 +377,14 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .coverage-bar__fill { width: var(--w); transition: none; }
 }
-.coverage-card__signals { list-style: none; padding: 14px 0 0; margin-top: 6px; border-top: 1px solid var(--hairline-blue); display: flex; flex-wrap: wrap; gap: 8px; }
-.sig { font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 6px; color: #fff; }
+.coverage-card__signals { list-style: none; padding: 14px 0 0; margin-top: 6px; border-top: 1px solid var(--hairline); display: flex; flex-wrap: wrap; gap: 8px; }
+.sig { font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 6px; }
 .sig::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 7px; vertical-align: middle; background: currentColor; }
-.sig--revenue { background: rgba(31,157,107,.18); color: #5fd6a3; }
-.sig--risk { background: rgba(217,130,43,.18); color: #f0ab63; }
-.sig--life { background: rgba(47,109,240,.18); color: #84a8ff; }
-.sig--comp { background: rgba(122,79,208,.18); color: #b79bf0; }
+/* Light-tint chip + solid dark text of the same signal hue (AA on white). */
+.sig--revenue { background: rgba(31,157,107,.12); color: #177a53; }
+.sig--risk { background: rgba(217,130,43,.14); color: #a05a10; }
+.sig--life { background: rgba(47,109,240,.12); color: #2456c4; }
+.sig--comp { background: rgba(122,79,208,.12); color: #633faa; }
 
 /* =================================================================
    2 — PROOF (immediate)
@@ -446,7 +413,7 @@ a { color: inherit; text-decoration: none; }
 }
 .ba__head { padding: 16px 24px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; }
 .ba__head--today { color: var(--ink-soft); background: var(--grey-100); }
-.ba__head--with { color: var(--white); background: var(--blue); }
+.ba__head--with { color: #000; background: var(--orange); }
 .ba__cell {
   padding: 20px 24px; font-size: clamp(15px, 1.6vw, 17px);
   border-top: 1px solid var(--hairline);
@@ -472,20 +439,21 @@ a { color: inherit; text-decoration: none; }
 
 .outcomes { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.4vw, 18px); }
 .outcome {
-  background: rgba(255,255,255,.05);
-  border: 1px solid var(--hairline-blue);
+  background: var(--white);
+  border: 1px solid var(--hairline);
   border-top: 3px solid var(--orange);
   border-radius: var(--r-card);
   padding: clamp(22px, 2.4vw, 30px);
   display: flex; flex-direction: column; gap: 14px;
   position: relative;
-  transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
 }
-.outcome:hover { transform: translateY(-4px); background: rgba(255,255,255,.08); box-shadow: 0 16px 40px rgba(0,0,0,.28); }
-.outcome__num { position: absolute; top: 14px; right: 16px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.26); letter-spacing: .05em; }
-.outcome__title { font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--on-blue); line-height: 1.2; }
-.outcome__body { font-size: 14.5px; color: var(--on-blue-soft); line-height: 1.55; }
-.outcome__body .mono { color: #dbe4ff; font-size: .95em; }
+.outcome:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.outcome__num { position: absolute; top: 14px; right: 16px; font-size: 13px; font-weight: 600; color: #9aa3b5; letter-spacing: .05em; }
+.outcome__title { font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--ink); line-height: 1.2; }
+.outcome__body { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+.outcome__body .mono { color: var(--ink); font-size: .95em; }
 /* Signal taxonomy chips (reuse .sig). margin-top:auto seats them at the card
    foot so the colour band aligns no matter the body length. */
 .outcome__signals { list-style: none; padding: 0; margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -518,21 +486,24 @@ a { color: inherit; text-decoration: none; }
 .case__list dd { margin: 0; font-size: 15.5px; color: var(--ink-soft); line-height: 1.6; }
 .case__stat {
   position: sticky; top: 92px;
-  background: var(--blue); color: var(--on-blue);
+  background: var(--white); color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-top: 3px solid var(--orange);
+  box-shadow: var(--shadow-sm);
   border-radius: var(--r-card); padding: clamp(26px, 3vw, 38px);
   text-align: left; overflow: hidden;
 }
 .case__stat-num { font-size: clamp(46px, 7vw, 66px); font-weight: 600; line-height: 1; }
 .case__stat-label { font-size: 17px; font-weight: 700; margin-top: 8px; }
-.case__stat-sub { font-size: 14px; color: var(--on-blue-soft); margin-top: 12px; }
+.case__stat-sub { font-size: 14px; color: var(--ink-soft); margin-top: 12px; }
 
 /* =================================================================
    7 — FITS YOUR STACK
    ================================================================= */
 .stack { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 24px); }
-.stack__item { border: 1px solid var(--hairline-blue); border-radius: var(--r-card); padding: clamp(24px, 3vw, 34px); background: rgba(255,255,255,.03); display: flex; flex-direction: column; gap: 12px; }
-.stack__title { font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--on-blue); }
-.stack__body { font-size: 15px; color: var(--on-blue-soft); line-height: 1.6; }
+.stack__item { border: 1px solid var(--hairline); border-radius: var(--r-card); padding: clamp(24px, 3vw, 34px); background: var(--grey-50); display: flex; flex-direction: column; gap: 12px; }
+.stack__title { font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--ink); }
+.stack__body { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
 
 /* =================================================================
    8 — FINAL CTA + form
@@ -549,7 +520,7 @@ a { color: inherit; text-decoration: none; }
   padding: 12px 14px; background: var(--white); width: 100%;
   transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
-.demo-form input:focus, .demo-form textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,44,138,.12); }
+.demo-form input:focus, .demo-form textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,85,57,.15); }
 .demo-form textarea { resize: vertical; }
 .demo-form__note { margin-top: 14px; font-size: 14px; min-height: 1em; }
 .demo-form__note.is-ok { color: var(--sig-revenue); }
@@ -605,7 +576,7 @@ a { color: inherit; text-decoration: none; }
   /* Split head folds to a stack; divider moves to the top edge. */
   .section__head--split { grid-template-columns: 1fr; gap: 18px; align-items: start; }
   .section__head--split .section__title { max-width: 22ch; }
-  .section__head-aside { border-left: 0; border-top: 1px solid var(--hairline-blue); padding-left: 0; padding-top: 18px; }
+  .section__head-aside { border-left: 0; border-top: 1px solid var(--hairline); padding-left: 0; padding-top: 18px; }
 
   .flow { grid-template-columns: 1fr; gap: 0; }
   .flow__connector { width: 2px; height: 30px; justify-self: center; background: linear-gradient(180deg, var(--hairline), #cdd4e0); margin: 6px 0; }
