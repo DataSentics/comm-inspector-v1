@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Communication Inspector — read 100% of your customer conversations | DataSentics, a Bull company</title>
+  <meta name="description" content="AI Communication Inspector reads 100% of your calls, chats, and emails inside your own cloud, and turns them into signals your revenue, compliance, and CX teams can act on. Built for banks, insurers, and telcos." />
+
+  <!-- Fonts: Tosh A (brand headlines, self-hosted in Assets/Fonts, see styles.css) -->
+  <!-- + Roboto (body) + Roboto Mono (metrics/regulatory tokens). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Set a `js` flag before first paint so enhancement-only styles
+       (e.g. the coverage bars animating up from zero) never flash
+       their final state for non-JS / pre-script renders. -->
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+  <!-- ============================================================= -->
+  <!-- SKIP LINK (accessibility)                                     -->
+  <!-- ============================================================= -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================================================= -->
+  <!-- HEADER / NAV                                                  -->
+  <!-- ============================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="nav__brand" href="#top" aria-label="AI Communication Inspector — DataSentics, a Bull company">
+        <img src="Assets/comm-inspector-logo.svg" alt="Comm Inspector" class="nav__logo" width="232" height="19" />
+        <span class="nav__divider" aria-hidden="true"></span>
+        <span class="nav__byline"><span class="nav__backed">Backed by</span> <img src="Assets/BULL_LOGO_COLOR_RGB.svg" alt="Bull" class="nav__bull" /></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#delivers">What it delivers</a>
+        <a href="#proof-deep">Evidence</a>
+        <a href="#stack">Your stack</a>
+      </nav>
+
+      <!-- Primary CTA (built once, reused everywhere via .btn--primary) -->
+      <a href="#demo" class="btn btn--primary nav__cta" data-demo-open>Request a Demo</a>
+
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile nav drawer -->
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a href="#how">How it works</a>
+      <a href="#delivers">What it delivers</a>
+      <a href="#proof-deep">Evidence</a>
+      <a href="#stack">Your stack</a>
+      <a href="#demo" class="btn btn--primary" data-demo-open>Request a Demo</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ============================================================= -->
+    <!-- 1 — HERO                                                      -->
+    <!-- Outcome: in one screen, grasp what this is, that it runs in   -->
+    <!-- their own environment, and what to do next.                   -->
+    <!-- ============================================================= -->
+    <section class="hero section--blue" aria-labelledby="heroHeading">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <!-- Eyebrow / trust signals -->
+          <!-- Three distinct signals only — kept to one line by cutting
+               redundancy, not by shrinking. "Your data never leaves" was the
+               same promise as "Runs in your cloud" (and the stack section
+               covers data residency in full). -->
+          <ul class="eyebrow-trust" aria-label="Trust signals">
+            <li>EU-based</li>
+            <li>GDPR by design</li>
+            <li>Runs in your cloud</li>
+          </ul>
+
+          <!-- ===================================================== -->
+          <!-- HERO H1 — ISOLATED, SWAPPABLE A/B BLOCK.              -->
+          <!-- To A/B test, replace ONLY the contents of <h1>.       -->
+          <!-- The 2nd sentence is coloured as the PROBLEM (red), and -->
+          <!-- "under 2%" is red too — it's the BAD number. Orange is -->
+          <!-- reserved for positive metrics only. The span on        -->
+          <!-- "under 2%" exists only to keep it on one line.         -->
+          <!-- ===================================================== -->
+          <h1 id="heroHeading" class="hero__h1">
+            <span class="t-light">Your customers tell you everything.</span>
+            <span class="hero__problem">You analyse <span class="hero__metric">under 2%</span> of it.</span>
+          </h1>
+          <!-- END HERO H1 SWAPPABLE BLOCK -->
+
+          <p class="hero__subhead">
+            AI Communication Inspector analyses every customer conversation and
+            automatically surfaces what matters to your business.
+          </p>
+
+          <!-- Outcomes made tangible right in the hero (skim-readable) -->
+          <ul class="hero__outcomes" aria-label="What it produces">
+            <li><span class="hero__tick" aria-hidden="true">✓</span> Sales opportunities identified</li>
+            <li><span class="hero__tick" aria-hidden="true">✓</span> Client profiles enriched</li>
+            <li><span class="hero__tick" aria-hidden="true">✓</span> Compliance checked</li>
+            <li><span class="hero__tick" aria-hidden="true">✓</span> Agent feedback generated</li>
+          </ul>
+
+          <div class="hero__cta">
+            <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Request a Demo</a>
+          </div>
+        </div>
+
+        <!-- Hero visual: brand-styled signal coverage graphic (not a stock photo, not a fabricated dashboard) -->
+        <aside class="hero__viz" aria-hidden="true">
+          <div class="coverage-card">
+            <div class="coverage-card__head">
+              <span class="coverage-card__label mono">CONVERSATION COVERAGE</span>
+            </div>
+            <div class="coverage-meter">
+              <div class="coverage-meter__row">
+                <span class="coverage-meter__name">Reviewed today, manually</span>
+                <span class="coverage-meter__val mono" data-count data-count-to="2" data-count-prefix="&lt;" data-count-suffix="%">&lt;2%</span>
+              </div>
+              <div class="coverage-bar"><span class="coverage-bar__fill is-old" style="--w:2%"></span></div>
+
+              <div class="coverage-meter__row">
+                <span class="coverage-meter__name">Read by AI Communication Inspector</span>
+                <span class="coverage-meter__val mono accent" data-count data-count-to="100" data-count-suffix="%">100%</span>
+              </div>
+              <div class="coverage-bar"><span class="coverage-bar__fill is-new" style="--w:100%"></span></div>
+            </div>
+            <ul class="coverage-card__signals">
+              <li class="sig sig--revenue">Revenue signal</li>
+              <li class="sig sig--risk">Compliance flag</li>
+              <li class="sig sig--life">Life event</li>
+              <li class="sig sig--comp">Competitor mention</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 2 — PROOF (immediate)                                         -->
+    <!-- Outcome: credibility before any detailed claim.               -->
+    <!-- ============================================================= -->
+    <section class="proof-strip section--white" aria-label="Proof">
+      <div class="container proof-strip__inner">
+        <p class="proof-strip__line">Already in production at European banks and financial institutions.</p>
+        <!-- TODO_LOGOS: replace these placeholders with the real, cleared ACI-deployment customer logos.
+             Required for launch. Keep them greyscale/monochrome for an even, enterprise look. -->
+        <ul class="logo-row" aria-label="Customer logos">
+          <li class="logo-row__item logo-placeholder">Raiffeisenbank</li>
+          <li class="logo-row__item logo-placeholder">Customer logo</li>
+          <li class="logo-row__item logo-placeholder">Customer logo</li>
+          <li class="logo-row__item logo-placeholder">Customer logo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 3 — BEFORE -> WITH                                            -->
+    <!-- Outcome: scannable shift from status quo to outcome.          -->
+    <!-- ============================================================= -->
+    <section class="section section--grey reveal" id="before" aria-labelledby="beforeHeading">
+      <div class="container">
+        <span class="eyebrow-label">The shift</span>
+        <h2 id="beforeHeading" class="section__title">What changes when you read every conversation</h2>
+
+        <div class="ba">
+          <div class="ba__head ba__head--today">Today</div>
+          <div class="ba__head ba__head--with">With AI Communication Inspector</div>
+
+          <!-- Pair 1 -->
+          <div class="ba__cell ba__cell--today">
+            <span class="ba__icon" aria-hidden="true">&minus;</span>
+            QA reviews <span class="mono">under 2%</span> of calls
+          </div>
+          <div class="ba__cell ba__cell--with">
+            <span class="ba__tick" aria-hidden="true">✓</span>
+            Every call scored — <strong>100% coverage</strong>
+          </div>
+
+          <!-- Pair 2 -->
+          <div class="ba__cell ba__cell--today">
+            <span class="ba__icon" aria-hidden="true">&minus;</span>
+            Revenue signals lost in recordings
+          </div>
+          <div class="ba__cell ba__cell--with">
+            <span class="ba__tick" aria-hidden="true">✓</span>
+            Cross-sell and life-event signals pushed to your CRM
+          </div>
+
+          <!-- Pair 3 -->
+          <div class="ba__cell ba__cell--today">
+            <span class="ba__icon" aria-hidden="true">&minus;</span>
+            Compliance gaps found when regulators audit
+          </div>
+          <div class="ba__cell ba__cell--with">
+            <span class="ba__tick" aria-hidden="true">✓</span>
+            Issues flagged as they happen, with evidence
+          </div>
+
+          <!-- Pair 4 -->
+          <div class="ba__cell ba__cell--today">
+            <span class="ba__icon" aria-hidden="true">&minus;</span>
+            After-call notes written by hand
+          </div>
+          <div class="ba__cell ba__cell--with">
+            <span class="ba__tick" aria-hidden="true">✓</span>
+            Summaries and classification generated automatically
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 4 — WHAT IT DELIVERS  (signature colour-block panel)          -->
+    <!-- Outcome: four equally-weighted, concrete deliverables.        -->
+    <!-- ============================================================= -->
+    <section class="section section--blue reveal" id="delivers" aria-labelledby="deliversHeading" style="--glow-x:24%">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section__head--split">
+          <div class="section__head-main">
+            <span class="eyebrow-label">What it delivers</span>
+            <h2 id="deliversHeading" class="section__title section__title--light section__title--xl"><span class="t-light">One engine.</span> <span class="accent">Four outcomes.</span></h2>
+            <p class="section__sub section__sub--light">Same solution, configured to the questions your business actually asks.</p>
+          </div>
+          <div class="section__head-aside">
+            <p class="section__lead">Not four tools. One pipeline.</p>
+            <p class="section__aside-sub">Every outcome is the same analysed conversation answering a different question — so coverage, taxonomy, and audit trail stay identical across all four. One read of <span class="mono">100%</span> of your communication, not four systems to buy and reconcile.</p>
+          </div>
+        </div>
+
+        <div class="outcomes">
+          <article class="outcome">
+            <span class="outcome__num mono">01</span>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+            </span>
+            <h3 class="outcome__title">Signals feed</h3>
+            <p class="outcome__body">A live feed of what needs attention: revenue opportunities, life events, risk indicators, competitive mentions. Routed to the right team.</p>
+            <!-- The same signal taxonomy (and colours) as the hero coverage
+                 card — reused with intent so the four signal types read as
+                 one consistent product language across the page. Decorative
+                 echo of the body copy, hence aria-hidden. -->
+            <ul class="outcome__signals" aria-hidden="true">
+              <li class="sig sig--revenue">Revenue</li>
+              <li class="sig sig--life">Life event</li>
+              <li class="sig sig--risk">Risk</li>
+              <li class="sig sig--comp">Competitor</li>
+            </ul>
+          </article>
+
+          <article class="outcome">
+            <span class="outcome__num mono">02</span>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+            </span>
+            <h3 class="outcome__title">Client profile enrichment</h3>
+            <p class="outcome__body">Needs, intent, and life events detected in conversations flow straight into your CRM, enriching each client profile automatically.</p>
+          </article>
+
+          <article class="outcome">
+            <span class="outcome__num mono">03</span>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <h3 class="outcome__title">Automated QA &amp; compliance</h3>
+            <p class="outcome__body">Every interaction scored against your quality scripts and compliance rules (<span class="mono">MiFID</span>, <span class="mono">IDD</span>, internal policy). Low-confidence cases flagged for review, never force-fit.</p>
+          </article>
+
+          <article class="outcome">
+            <span class="outcome__num mono">04</span>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+            </span>
+            <h3 class="outcome__title">Full-coverage analytics</h3>
+            <p class="outcome__body">Every conversation transcribed, classified, and searchable. Managers and compliance see what's actually happening across teams, products, and time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 5 — HOW IT WORKS  (priority visual: horizontal flow)          -->
+    <!-- Outcome: understand the flow in under 5s; clearly more        -->
+    <!-- than transcription.                                           -->
+    <!-- ============================================================= -->
+    <section class="section section--white reveal" id="how" aria-labelledby="howHeading">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow-label">How it works</span>
+          <h2 id="howHeading" class="section__title">From raw conversations to ready-to-use insights</h2>
+          <p class="section__sub">It captures the full context of each interaction — not just a transcript, but what it means for your business.</p>
+        </div>
+
+        <ol class="flow" aria-label="How it works: four steps">
+          <li class="flow__step">
+            <div class="flow__num mono">01</div>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg>
+            </span>
+            <h3 class="flow__title">Capture</h3>
+            <p class="flow__body">Calls, chats, emails, notes — audio or existing transcripts.</p>
+          </li>
+          <li class="flow__connector" aria-hidden="true"></li>
+          <li class="flow__step">
+            <div class="flow__num mono">02</div>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg>
+            </span>
+            <h3 class="flow__title">Process</h3>
+            <p class="flow__body">Speech-to-text with noise reduction and speaker identification; EU-sovereign, cost-optimised.</p>
+          </li>
+          <li class="flow__connector" aria-hidden="true"></li>
+          <li class="flow__step">
+            <div class="flow__num mono">03</div>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
+            </span>
+            <h3 class="flow__title">Inspect</h3>
+            <p class="flow__body">An LLM runs your library of business and compliance questions against every interaction.</p>
+          </li>
+          <li class="flow__connector" aria-hidden="true"></li>
+          <li class="flow__step">
+            <div class="flow__num mono">04</div>
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+            </span>
+            <h3 class="flow__title">Deliver</h3>
+            <p class="flow__body">Structured fields, dashboards, and signals pushed into your CRM, campaign tools, and BI.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 6 — PROOF (deep)                                              -->
+    <!-- Outcome: verifiable, specific, named-institution evidence.    -->
+    <!-- Raiffeisenbank text is LEGALLY LOCKED — verbatim only.        -->
+    <!-- ============================================================= -->
+    <section class="section section--grey reveal" id="proof-deep" aria-labelledby="proofHeading">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow-label">Evidence</span>
+          <h2 id="proofHeading" class="section__title">Proven on real customer communication</h2>
+        </div>
+
+        <div class="case">
+          <div class="case__main">
+            <div class="case__tag mono">RAIFFEISENBANK · CZECHIA</div>
+
+            <!-- ===================================================== -->
+            <!-- RAIFFEISENBANK CASE — LOCKED. Reproduce verbatim.     -->
+            <!-- Do NOT paraphrase, summarise, reorder, or edit.       -->
+            <!-- ===================================================== -->
+            <dl class="case__list">
+              <dt>Business Challenge</dt>
+              <dd>Raiffeisenbank in Czechia generates a large volume of customer calls every year. These conversations contain valuable signals about customer needs, product interest, and potential cross-sell / up-sell opportunities. The challenge was to analyse this communication at scale and transform unstructured call data into usable sales insights and predictors for ML-driven recommendations.</dd>
+
+              <dt>Solution</dt>
+              <dd>AI Communication Inspector was used to automatically analyze customer calls and detect cross-sell and up-sell signals from client communication with the bank. Using AI/LLM capabilities in Databricks, the solution identified relevant customer needs and product-related signals, which were then transformed into structured insights for CRM campaigns.</dd>
+
+              <dt>Benefits</dt>
+              <dd>Detected insights are automatically sent to marketing automation tool for direct communications campaigns execution.</dd>
+
+              <dt>Results</dt>
+              <dd>Valuable cross-sell and up-sell insights are extracted from customer conversations with Contact Centre. Above-average conversion rates in campaigns where AI-generated insights were used.</dd>
+            </dl>
+            <!-- END RAIFFEISENBANK LOCKED BLOCK -->
+          </div>
+
+          <aside class="case__stat">
+            <!-- ===================================================== -->
+            <!-- UNVERIFIED CALL-VOLUME FIGURE — sources conflict      -->
+            <!-- (30M vs 50M). One-line edit point. Do not round/guess.-->
+            <!-- TODO_STAT_VERIFY: confirm exact figure before launch. -->
+            <!-- ===================================================== -->
+            <div class="case__stat-num mono accent" data-count data-count-to="30" data-count-suffix="M+">30M+</div>
+            <!-- END UNVERIFIED FIGURE -->
+            <div class="case__stat-label">calls analysed per year</div>
+            <p class="case__stat-sub">at one financial-services customer — every call, not a sample.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 7 — FITS YOUR STACK  (trust section: most restrained)         -->
+    <!-- Outcome: pre-empt run-it-safely / adoption / build-it-myself. -->
+    <!-- ============================================================= -->
+    <section class="section section--blue reveal" id="stack" aria-labelledby="stackHeading" style="--glow-x:55%">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section__head-center">
+          <h2 id="stackHeading" class="section__title section__title--light">Built to run inside your business, not beside it</h2>
+        </div>
+
+        <div class="stack">
+          <article class="stack__item">
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 4v4"/><path d="M2 8h20"/><path d="M6 4v4"/></svg>
+            </span>
+            <h3 class="stack__title">No new app to adopt.</h3>
+            <p class="stack__body">Your teams keep working where they already work — insights land in your CRM and tools. Managers and compliance get a dedicated console for analytics and configuration.</p>
+          </article>
+
+          <article class="stack__item">
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            </span>
+            <h3 class="stack__title">In your own cloud.</h3>
+            <p class="stack__body">Runs entirely inside your Azure, AWS, or GCP tenant on Databricks. Your data never leaves your infrastructure, and you own the IP.</p>
+          </article>
+
+          <article class="stack__item">
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13"/><path d="M2 12h8.5"/><path d="M20 6V4a2 2 0 1 0-4 0v2"/><rect width="8" height="5" x="14" y="6" rx="1"/></svg>
+            </span>
+            <h3 class="stack__title">EU-sovereign by design.</h3>
+            <p class="stack__body">GDPR from the ground up. Backed by Bull's own GPU and open-source model infrastructure — so you're not exposed to a single US model being retired or repriced.</p>
+          </article>
+
+          <article class="stack__item">
+            <span class="icon-chip" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect x="14" y="2" width="8" height="8" rx="1"/></svg>
+            </span>
+            <h3 class="stack__title">Proven accelerators, customised to you.</h3>
+            <p class="stack__body">You start from production-tested building blocks, not a blank page, then configure the taxonomy and questions to your business. Faster and lower-risk than building in-house.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 8 — FINAL CTA                                                 -->
+    <!-- Outcome: single, obvious next step.                           -->
+    <!-- ============================================================= -->
+    <section class="section section--white final-cta reveal" id="demo" aria-labelledby="finalHeading">
+      <div class="container final-cta__inner">
+        <div class="final-cta__copy">
+          <h2 id="finalHeading" class="section__title">See what your conversations are telling you.</h2>
+          <p class="section__sub">Book a walkthrough of AI Communication Inspector with our team.</p>
+        </div>
+
+        <!-- Demo request form.
+             TODO_FORM_ENDPOINT: wire `action` to the real demo-request / booking endpoint.
+             Single-step only. No competing CTAs. -->
+        <form class="demo-form" id="demoForm" action="TODO_FORM_ENDPOINT" method="post" novalidate>
+          <div class="demo-form__row">
+            <label for="df-name">Full name</label>
+            <input id="df-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="demo-form__row">
+            <label for="df-email">Work email</label>
+            <input id="df-email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="demo-form__row">
+            <label for="df-company">Company</label>
+            <input id="df-company" name="company" type="text" autocomplete="organization" required />
+          </div>
+          <div class="demo-form__row">
+            <label for="df-message">Message <span class="optional">(optional)</span></label>
+            <textarea id="df-message" name="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--block">Request a Demo</button>
+          <p class="demo-form__note" id="demoFormNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================= -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================= -->
+  <footer class="site-footer section--blue-deep">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <!-- Full "DataSentics, a Bull company" lockup -->
+        <img src="Assets/comm-inspector-logo.svg" alt="Comm Inspector" class="footer__logo" />
+        <p class="footer__lockup">
+          DataSentics, a <img src="Assets/BULL_LOGO_WHITE_RGB.svg" alt="Bull" class="footer__bull" /> company
+        </p>
+      </div>
+
+      <nav class="footer__links" aria-label="Footer">
+        <!-- TODO_PRIVACY_URL: link to the real Privacy Policy. -->
+        <a href="#" class="footer__link">Privacy Policy</a>
+        <!-- Webinar link: subordinate to the demo CTA, footer-only. -->
+        <!-- TODO_WEBINAR_URL: link to the webinar recording. -->
+        <a href="#" class="footer__link footer__link--subtle">Download the webinar recording</a>
+      </nav>
+    </div>
+    <div class="footer__base">
+      <div class="container">
+        <span>&copy; <span id="year"></span> DataSentics, a Bull company. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

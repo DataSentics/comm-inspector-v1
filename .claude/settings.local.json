@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "Bash(powershell -ExecutionPolicy Bypass -File ./install.ps1)",
+      "Read(//c/Users/Kristian/.claude/skills/**)",
+      "Read(//c/Users/Kristian/.cursor/skills/**)",
+      "Read(//c/Users/Kristian/.agents/skills/**)",
+      "Read(//c/Users/Kristian/**)",
+      "Bash(npx -y skills add mattpocock/skills/skills/productivity/grill-me -y)",
+      "Bash(rm -rf 'C:\\\\Users\\\\Kristian/.claude/skills/idea-to-demo')",
+      "Bash(mkdir -p 'C:\\\\Users\\\\Kristian/.claude/skills/idea-to-demo')",
+      "Bash(cp -r 'C:/Users/Kristian/Desktop/ACI/ACI Web/idea-to-demo/skills/idea-to-demo/.' 'C:\\\\Users\\\\Kristian/.claude/skills/idea-to-demo/')"
+    ]
+  }
+}
