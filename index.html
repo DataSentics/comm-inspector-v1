@@ -40,8 +40,7 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="#how">How it works</a>
         <a href="#delivers">What it delivers</a>
-        <a href="#proof-deep">Evidence</a>
-        <a href="#stack">Your stack</a>
+        <a href="#stack">Deployment</a>
       </nav>
 
       <!-- Primary CTA (built once, reused everywhere via .btn--primary) -->
@@ -56,8 +55,7 @@
     <div class="mobile-nav" id="mobileNav" hidden>
       <a href="#how">How it works</a>
       <a href="#delivers">What it delivers</a>
-      <a href="#proof-deep">Evidence</a>
-      <a href="#stack">Your stack</a>
+      <a href="#stack">Deployment</a>
       <a href="#demo" class="btn btn--primary" data-demo-open>Request a Demo</a>
     </div>
   </header>
@@ -87,14 +85,11 @@
           <!-- ===================================================== -->
           <!-- HERO H1 — ISOLATED, SWAPPABLE A/B BLOCK.              -->
           <!-- To A/B test, replace ONLY the contents of <h1>.       -->
-          <!-- The 2nd sentence is coloured as the PROBLEM (red), and -->
-          <!-- "under 2%" is red too — it's the BAD number. Orange is -->
-          <!-- reserved for positive metrics only. The span on        -->
-          <!-- "under 2%" exists only to keep it on one line.         -->
+          <!-- Sentence case per Bull tone of voice; "every" carries  -->
+          <!-- the single orange accent (the positive emphasis).      -->
           <!-- ===================================================== -->
           <h1 id="heroHeading" class="hero__h1">
-            <span class="t-light">Your customers tell you everything.</span>
-            <span class="hero__problem">You analyse <span class="hero__metric">under 2%</span> of it.</span>
+            Find insights in <span class="accent">every</span> interaction with clients
           </h1>
           <!-- END HERO H1 SWAPPABLE BLOCK -->
 
@@ -143,24 +138,6 @@
             </ul>
           </div>
         </aside>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 2 — PROOF (immediate)                                         -->
-    <!-- Outcome: credibility before any detailed claim.               -->
-    <!-- ============================================================= -->
-    <section class="proof-strip section--white" aria-label="Proof">
-      <div class="container proof-strip__inner">
-        <p class="proof-strip__line">Already in production at European banks and financial institutions.</p>
-        <!-- TODO_LOGOS: replace these placeholders with the real, cleared ACI-deployment customer logos.
-             Required for launch. Keep them greyscale/monochrome for an even, enterprise look. -->
-        <ul class="logo-row" aria-label="Customer logos">
-          <li class="logo-row__item logo-placeholder">Raiffeisenbank</li>
-          <li class="logo-row__item logo-placeholder">Customer logo</li>
-          <li class="logo-row__item logo-placeholder">Customer logo</li>
-          <li class="logo-row__item logo-placeholder">Customer logo</li>
-        </ul>
       </div>
     </section>
 
@@ -342,64 +319,13 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- 6 — PROOF (deep)                                              -->
-    <!-- Outcome: verifiable, specific, named-institution evidence.    -->
-    <!-- Raiffeisenbank text is LEGALLY LOCKED — verbatim only.        -->
-    <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="proof-deep" aria-labelledby="proofHeading">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow-label">Evidence</span>
-          <h2 id="proofHeading" class="section__title">Proven on real customer communication</h2>
-        </div>
-
-        <div class="case">
-          <div class="case__main">
-            <div class="case__tag mono">RAIFFEISENBANK · CZECHIA</div>
-
-            <!-- ===================================================== -->
-            <!-- RAIFFEISENBANK CASE — LOCKED. Reproduce verbatim.     -->
-            <!-- Do NOT paraphrase, summarise, reorder, or edit.       -->
-            <!-- ===================================================== -->
-            <dl class="case__list">
-              <dt>Business Challenge</dt>
-              <dd>Raiffeisenbank in Czechia generates a large volume of customer calls every year. These conversations contain valuable signals about customer needs, product interest, and potential cross-sell / up-sell opportunities. The challenge was to analyse this communication at scale and transform unstructured call data into usable sales insights and predictors for ML-driven recommendations.</dd>
-
-              <dt>Solution</dt>
-              <dd>AI Communication Inspector was used to automatically analyze customer calls and detect cross-sell and up-sell signals from client communication with the bank. Using AI/LLM capabilities in Databricks, the solution identified relevant customer needs and product-related signals, which were then transformed into structured insights for CRM campaigns.</dd>
-
-              <dt>Benefits</dt>
-              <dd>Detected insights are automatically sent to marketing automation tool for direct communications campaigns execution.</dd>
-
-              <dt>Results</dt>
-              <dd>Valuable cross-sell and up-sell insights are extracted from customer conversations with Contact Centre. Above-average conversion rates in campaigns where AI-generated insights were used.</dd>
-            </dl>
-            <!-- END RAIFFEISENBANK LOCKED BLOCK -->
-          </div>
-
-          <aside class="case__stat">
-            <!-- ===================================================== -->
-            <!-- UNVERIFIED CALL-VOLUME FIGURE — sources conflict      -->
-            <!-- (30M vs 50M). One-line edit point. Do not round/guess.-->
-            <!-- TODO_STAT_VERIFY: confirm exact figure before launch. -->
-            <!-- ===================================================== -->
-            <div class="case__stat-num mono accent" data-count data-count-to="30" data-count-suffix="M+">30M+</div>
-            <!-- END UNVERIFIED FIGURE -->
-            <div class="case__stat-label">calls analysed per year</div>
-            <p class="case__stat-sub">at one financial-services customer — every call, not a sample.</p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 7 — FITS YOUR STACK  (trust section: most restrained)         -->
+    <!-- 6 — FITS YOUR STACK  (trust section: most restrained)         -->
     <!-- Outcome: pre-empt run-it-safely / adoption / build-it-myself. -->
     <!-- ============================================================= -->
     <section class="section section--white reveal" id="stack" aria-labelledby="stackHeading">
       <div class="container">
         <div class="section__head-center">
-          <h2 id="stackHeading" class="section__title">Built to run inside your business, not beside it</h2>
+          <h2 id="stackHeading" class="section__title">Deployed your way, customised to your needs</h2>
         </div>
 
         <div class="stack">
@@ -415,8 +341,8 @@
             <span class="icon-chip" aria-hidden="true">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
             </span>
-            <h3 class="stack__title">In your own cloud.</h3>
-            <p class="stack__body">Runs entirely inside your Azure, AWS, or GCP tenant on Databricks. Your data never leaves your infrastructure, and you own the IP.</p>
+            <h3 class="stack__title">Your cloud or ours.</h3>
+            <p class="stack__body">Run it inside your own Azure, AWS, or GCP tenant on Databricks, or let us host it for you as a managed deployment. Either way, you keep control of your data and own the IP.</p>
           </article>
 
           <article class="stack__item">
