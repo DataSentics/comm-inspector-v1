@@ -65,6 +65,7 @@
   --r-btn: 8px;
   --r-chip: 10px;
   --r-card: 12px;
+  --r-card-lg: 18px;          /* Bull-style module cards */
   --r-media: 14px;
 
   /* --- Elevation (very subtle) --- */
@@ -400,9 +401,10 @@ a { color: inherit; text-decoration: none; }
 .ba__cell--with strong { font-weight: 700; }
 
 /* =================================================================
-   4 — WHAT IT DELIVERS (signature colour-block panel)
-   The page's signature device — deliberately made to stand out:
-   four strong blocks, persistent orange top accent, hover lift.
+   4 — MODULES (Bull-style use-case cards)
+   Photo-topped card language from bull.com: graphic media header,
+   title + orange chevron, description, "best for" footer. Whole card
+   is the link; hover lifts the card and turns the title orange.
    ================================================================= */
 .eyebrow-label {
   display: inline-block; font-size: 12px; font-weight: 700;
@@ -411,27 +413,54 @@ a { color: inherit; text-decoration: none; }
 }
 .section__title--xl { font-size: clamp(30px, 4.4vw, 52px); max-width: 24ch; }
 
-.outcomes { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.4vw, 18px); }
-.outcome {
+.modules { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 1.8vw, 22px); }
+.module-card {
+  display: flex; flex-direction: column;
   background: var(--white);
   border: 1px solid var(--hairline);
-  border-top: 3px solid var(--orange);
-  border-radius: var(--r-card);
-  padding: clamp(22px, 2.4vw, 30px);
-  display: flex; flex-direction: column; gap: 14px;
-  position: relative;
+  border-radius: var(--r-card-lg);
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
+  color: inherit;
   transition: transform .2s var(--ease), box-shadow .2s var(--ease);
 }
-.outcome:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.outcome__num { position: absolute; top: 14px; right: 16px; font-size: 13px; font-weight: 600; color: #9aa3b5; letter-spacing: .05em; }
-.outcome__title { font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--ink); line-height: 1.2; }
-.outcome__body { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
-.outcome__body .mono { color: var(--ink); font-size: .95em; }
-/* Signal taxonomy chips (reuse .sig). margin-top:auto seats them at the card
-   foot so the colour band aligns no matter the body length. */
-.outcome__signals { list-style: none; padding: 0; margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
-.outcome__signals .sig { font-size: 11.5px; padding: 4px 9px; }
+.module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* Graphic media header — per-module brand gradient + white line icon.
+   Swap the gradient for a real photo later; markup stays the same. */
+.module-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: grid; place-items: center;
+  overflow: hidden;
+}
+.module-card__media::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(120% 100% at 22% 12%, rgba(255,255,255,.30), transparent 55%);
+}
+.module-card__glyph { position: relative; z-index: 1; width: 46px; height: 46px; color: #fff; }
+.module-card:hover .module-card__media { }
+.module-card__media--comm  { background: linear-gradient(135deg, #FF5539, #FF9280); }
+.module-card__media--call  { background: linear-gradient(135deg, #00B290, #0a8f7c); }
+.module-card__media--qa    { background: linear-gradient(135deg, #FFB600, #F5820A); }
+.module-card__media--coach { background: linear-gradient(135deg, #3a3b49, #565872); }
+
+.module-card__body { padding: clamp(18px, 2vw, 24px); display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.module-card__title {
+  font-family: var(--font-display); font-weight: 500; font-size: 19px;
+  color: var(--ink); line-height: 1.2;
+  display: flex; align-items: center; gap: 7px;
+  transition: color .2s var(--ease);
+}
+.module-card__chevron { color: var(--orange); font-size: 1.15em; line-height: 1; transition: transform .2s var(--ease); }
+.module-card:hover .module-card__title { color: var(--orange); }
+.module-card:hover .module-card__chevron { transform: translateX(3px); }
+.module-card__desc { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+.module-card__desc .mono { color: var(--ink); font-size: .92em; }
+.module-card__bestfor { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--hairline); }
+.module-card__bestfor-label { display: block; margin-bottom: 7px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #9aa3b5; }
+.module-card__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.module-card__tag { background: var(--grey-100); border-radius: 6px; padding: 3px 9px; font-size: 11px; font-weight: 600; color: var(--ink-soft); }
 
 /* =================================================================
    5 — HOW IT WORKS (horizontal flow)
@@ -493,6 +522,38 @@ a { color: inherit; text-decoration: none; }
 .footer__base { border-top: 1px solid var(--hairline-blue); padding-block: 22px; font-size: 13px; color: var(--on-blue-soft); }
 
 /* =================================================================
+   SUB-PAGES (module detail pages)
+   Shared header/footer + a light hero, back link, and feature list.
+   ================================================================= */
+.subpage-hero { padding-block: clamp(40px, 5vw, 72px); background: var(--white); }
+.backlink {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--ink-soft); margin-bottom: 22px;
+  transition: color .2s var(--ease);
+}
+.backlink:hover { color: var(--orange); }
+.backlink__chevron { color: var(--orange); }
+.subpage-hero__eyebrow { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: var(--orange); margin-bottom: 14px; }
+.subpage-hero__title {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(30px, 4.4vw, 50px); line-height: 1.06; letter-spacing: -.025em;
+  color: var(--ink); max-width: 20ch;
+}
+.subpage-hero__lead { margin-top: 16px; font-size: clamp(16px, 1.5vw, 19px); color: var(--ink-soft); max-width: 62ch; }
+.subpage-hero__cta { margin-top: 26px; }
+
+/* Feature list — reuses the hero orange-check pattern (.hero__tick) */
+.feature-list { list-style: none; padding: 0; display: grid; gap: 16px; }
+.feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 16px; color: var(--ink); line-height: 1.5; }
+.feature-list__tick {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--orange); color: #000;
+  display: grid; place-items: center; font-size: 12px; font-weight: 700; line-height: 1;
+  margin-top: 1px;
+}
+
+/* =================================================================
    Scroll-reveal (subtle, 200ms-family). Disabled if reduced-motion.
    ================================================================= */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
@@ -504,6 +565,10 @@ a { color: inherit; text-decoration: none; }
 /* =================================================================
    RESPONSIVE
    ================================================================= */
+@media (max-width: 1080px) {
+  .modules { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 920px) {
   .nav__links { display: none; }
   .nav__toggle { display: flex; }
@@ -517,8 +582,6 @@ a { color: inherit; text-decoration: none; }
   .hero__inner { grid-template-columns: 1fr; }
   .hero__viz { order: 2; max-width: 460px; }
   .hero__viz::before { inset: 14px -12px -18px 14px; }
-
-  .outcomes { grid-template-columns: repeat(2, 1fr); }
 
   /* Split head folds to a stack; divider moves to the top edge. */
   .section__head--split { grid-template-columns: 1fr; gap: 18px; align-items: start; }
@@ -541,7 +604,7 @@ a { color: inherit; text-decoration: none; }
   .ba__cell--today { background: var(--grey-50); }
   .nav__byline { display: none; }
   .nav__divider { display: none; }
-  .outcomes { grid-template-columns: 1fr; }
+  .modules { grid-template-columns: 1fr; }
   .stack { grid-template-columns: 1fr; }
   .hero__outcomes { grid-template-columns: 1fr; gap: 10px; }
   .eyebrow-trust { gap: 8px 12px; font-size: 11px; }

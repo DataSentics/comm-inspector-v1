@@ -100,10 +100,10 @@
 
           <!-- Outcomes made tangible right in the hero (skim-readable) -->
           <ul class="hero__outcomes" aria-label="What it produces">
-            <li><span class="hero__tick" aria-hidden="true">✓</span> Sales opportunities identified</li>
-            <li><span class="hero__tick" aria-hidden="true">✓</span> Client profiles enriched</li>
+            <li><span class="hero__tick" aria-hidden="true">✓</span> Sales &amp; engagement insights</li>
             <li><span class="hero__tick" aria-hidden="true">✓</span> Compliance checked</li>
-            <li><span class="hero__tick" aria-hidden="true">✓</span> Agent feedback generated</li>
+            <li><span class="hero__tick" aria-hidden="true">✓</span> Quality supervised</li>
+            <li><span class="hero__tick" aria-hidden="true">✓</span> Agents coached</li>
           </ul>
 
           <div class="hero__cta">
@@ -198,69 +198,99 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- 4 — WHAT IT DELIVERS  (signature colour-block panel)          -->
-    <!-- Outcome: four equally-weighted, concrete deliverables.        -->
+    <!-- 4 — MODULES  (Bull-style use-case cards, each links to a sub-page) -->
+    <!-- Outcome: four modules of one platform, each explorable.        -->
     <!-- ============================================================= -->
     <section class="section section--white reveal" id="delivers" aria-labelledby="deliversHeading">
       <div class="container">
         <div class="section__head--split">
           <div class="section__head-main">
-            <span class="eyebrow-label">What it delivers</span>
-            <h2 id="deliversHeading" class="section__title section__title--xl"><span class="t-light">One engine.</span> <span class="accent">Four outcomes.</span></h2>
+            <span class="eyebrow-label">Modules</span>
+            <h2 id="deliversHeading" class="section__title section__title--xl"><span class="t-light">One platform.</span> <span class="accent">Four modules.</span></h2>
             <p class="section__sub">Same solution, configured to the questions your business actually asks.</p>
           </div>
           <div class="section__head-aside">
             <p class="section__lead">Not four tools. One pipeline.</p>
-            <p class="section__aside-sub">Every outcome is the same analysed conversation answering a different question — so coverage, taxonomy, and audit trail stay identical across all four. One read of <span class="mono">100%</span> of your communication, not four systems to buy and reconcile.</p>
+            <p class="section__aside-sub">Each module is the same analysed conversation answering a different question — so coverage, taxonomy, and audit trail stay identical across all four. One read of <span class="mono">100%</span> of your communication, not four systems to buy and reconcile.</p>
           </div>
         </div>
 
-        <div class="outcomes">
-          <article class="outcome">
-            <span class="outcome__num mono">01</span>
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+        <div class="modules">
+          <!-- 1 — Comm Inspector -->
+          <a class="module-card" href="comm-inspector.html">
+            <span class="module-card__media module-card__media--comm" aria-hidden="true">
+              <svg class="module-card__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>
             </span>
-            <h3 class="outcome__title">Signals feed</h3>
-            <p class="outcome__body">A live feed of what needs attention: revenue opportunities, life events, risk indicators, competitive mentions. Routed to the right team.</p>
-            <!-- The same signal taxonomy (and colours) as the hero coverage
-                 card — reused with intent so the four signal types read as
-                 one consistent product language across the page. Decorative
-                 echo of the body copy, hence aria-hidden. -->
-            <ul class="outcome__signals" aria-hidden="true">
-              <li class="sig sig--revenue">Revenue</li>
-              <li class="sig sig--life">Life event</li>
-              <li class="sig sig--risk">Risk</li>
-              <li class="sig sig--comp">Competitor</li>
-            </ul>
-          </article>
+            <div class="module-card__body">
+              <h3 class="module-card__title">Comm Inspector <span class="module-card__chevron" aria-hidden="true">›</span></h3>
+              <p class="module-card__desc">Automated communication analyser that detects sales and engagement insights — life events, financial needs, and voice of customer — from every conversation.</p>
+              <div class="module-card__bestfor">
+                <span class="module-card__bestfor-label">Best for</span>
+                <span class="module-card__tags">
+                  <span class="module-card__tag">CRM / Products</span>
+                  <span class="module-card__tag">CX / Research</span>
+                  <span class="module-card__tag">Data Science</span>
+                </span>
+              </div>
+            </div>
+          </a>
 
-          <article class="outcome">
-            <span class="outcome__num mono">02</span>
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+          <!-- 2 — AI Call Inspector -->
+          <a class="module-card" href="ai-call-inspector.html">
+            <span class="module-card__media module-card__media--call" aria-hidden="true">
+              <svg class="module-card__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.062 6.13z"/></svg>
             </span>
-            <h3 class="outcome__title">Client profile enrichment</h3>
-            <p class="outcome__body">Needs, intent, and life events detected in conversations flow straight into your CRM, enriching each client profile automatically.</p>
-          </article>
+            <div class="module-card__body">
+              <h3 class="module-card__title">AI Call Inspector <span class="module-card__chevron" aria-hidden="true">›</span></h3>
+              <p class="module-card__desc">Multi-level call categorisation and identification of clients, products, and regulated processes — <span class="mono">KYC</span>, <span class="mono">MiFID&nbsp;II</span>, <span class="mono">GDPR</span>, and promotion-condition checks.</p>
+              <div class="module-card__bestfor">
+                <span class="module-card__bestfor-label">Ideal for</span>
+                <span class="module-card__tags">
+                  <span class="module-card__tag">Compliance</span>
+                  <span class="module-card__tag">Product Management</span>
+                  <span class="module-card__tag">Contact Centre</span>
+                </span>
+              </div>
+            </div>
+          </a>
 
-          <article class="outcome">
-            <span class="outcome__num mono">03</span>
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <!-- 3 — AI Quality Assurance -->
+          <a class="module-card" href="ai-quality-assurance.html">
+            <span class="module-card__media module-card__media--qa" aria-hidden="true">
+              <svg class="module-card__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
             </span>
-            <h3 class="outcome__title">Automated QA &amp; compliance</h3>
-            <p class="outcome__body">Every interaction scored against your quality scripts and compliance rules (<span class="mono">MiFID</span>, <span class="mono">IDD</span>, internal policy). Low-confidence cases flagged for review, never force-fit.</p>
-          </article>
+            <div class="module-card__body">
+              <h3 class="module-card__title">AI Quality Assurance <span class="module-card__chevron" aria-hidden="true">›</span></h3>
+              <p class="module-card__desc">Checks agents follow your sales or support process, supervises chat and sales-conversation quality, and monitors performance across teams and agents.</p>
+              <div class="module-card__bestfor">
+                <span class="module-card__bestfor-label">Built for</span>
+                <span class="module-card__tags">
+                  <span class="module-card__tag">Sales Support</span>
+                  <span class="module-card__tag">Contact Centre</span>
+                  <span class="module-card__tag">Operations</span>
+                </span>
+              </div>
+            </div>
+          </a>
 
-          <article class="outcome">
-            <span class="outcome__num mono">04</span>
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          <!-- 4 — AI Coach -->
+          <a class="module-card" href="ai-coach.html">
+            <span class="module-card__media module-card__media--coach" aria-hidden="true">
+              <svg class="module-card__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
             </span>
-            <h3 class="outcome__title">Full-coverage analytics</h3>
-            <p class="outcome__body">Every conversation transcribed, classified, and searchable. Managers and compliance see what's actually happening across teams, products, and time.</p>
-          </article>
+            <div class="module-card__body">
+              <h3 class="module-card__title">AI Coach <span class="module-card__chevron" aria-hidden="true">›</span></h3>
+              <p class="module-card__desc">Automated call feedback sent to each operator, with summaries and recommendations tailored to your call scripts and calling propositions.</p>
+              <div class="module-card__bestfor">
+                <span class="module-card__bestfor-label">Recommended for</span>
+                <span class="module-card__tags">
+                  <span class="module-card__tag">Contact Centre</span>
+                  <span class="module-card__tag">Operations</span>
+                  <span class="module-card__tag">Collections</span>
+                </span>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
