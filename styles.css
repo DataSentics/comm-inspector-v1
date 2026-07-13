@@ -37,6 +37,7 @@
   /* --- Identity carriers (KEEP) --- */
   --orange: #FF5539;          /* Bull Orange — single accent, CTA + sparing emphasis */
   --orange-hover: #e6492f;
+  --orange-tint: #FFE4DF;     /* Bull orange tint — warm accent band (trust strip) */
   --blue-deep: #001f63;       /* deep blue — footer band only */
 
   /* --- Neutrals (≈75% of the page) --- */
@@ -377,6 +378,36 @@ a { color: inherit; text-decoration: none; }
 .sig--comp { background: rgba(122,79,208,.12); color: #633faa; }
 
 /* =================================================================
+   2 — BUILT BY BULL (vendor trust strip)
+   Warm Bull-tint band with dark-ink figures; the one orange-tinted
+   surface on an otherwise white/grey page. No blue (footer only).
+   ================================================================= */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.trust { background: var(--orange-tint); padding-block: clamp(28px, 3.6vw, 46px); }
+.trust__inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: clamp(16px, 2.6vw, 38px);
+  align-items: center;
+}
+.trust__eyebrow {
+  display: inline-block; font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .18em; color: #b5341f;
+}
+.trust__logo { height: 30px; width: auto; margin: 10px 0 12px; }
+.trust__desc { font-size: 15px; color: var(--ink-soft); line-height: 1.5; max-width: 30ch; }
+.trust__stat { border-left: 1px solid rgba(160,48,26,.16); padding-left: clamp(16px, 2.6vw, 38px); }
+.trust__num {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(30px, 4vw, 46px); line-height: 1; letter-spacing: -.02em;
+  color: var(--ink);
+}
+.trust__label { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+
+/* =================================================================
    3 — BEFORE -> WITH
    ================================================================= */
 .ba {
@@ -661,6 +692,11 @@ a { color: inherit; text-decoration: none; }
   .hero__viz { order: 2; max-width: 460px; }
   .hero__viz::before { inset: 14px -12px -18px 14px; }
 
+  /* Trust strip: brand on its own row, three stats beneath it. */
+  .trust__inner { grid-template-columns: repeat(3, 1fr); row-gap: 24px; }
+  .trust__brand { grid-column: 1 / -1; }
+  .trust__stat--first { border-left: 0; padding-left: 0; }
+
   /* Split head folds to a stack; divider moves to the top edge. */
   .section__head--split { grid-template-columns: 1fr; gap: 18px; align-items: start; }
   .section__head--split .section__title { max-width: 22ch; }
@@ -689,6 +725,9 @@ a { color: inherit; text-decoration: none; }
   .modules { grid-template-columns: 1fr; }
   .stack { grid-template-columns: 1fr; }
   .feature-list { grid-template-columns: 1fr; }
+  /* Trust strip fully stacks; dividers become top hairlines. */
+  .trust__inner { grid-template-columns: 1fr; }
+  .trust__stat, .trust__stat--first { border-left: 0; padding-left: 0; border-top: 1px solid rgba(160,48,26,.16); padding-top: 16px; }
   .hero__outcomes { grid-template-columns: 1fr; gap: 10px; }
   .eyebrow-trust { gap: 8px 12px; font-size: 11px; }
   .footer__inner { flex-direction: column; }
