@@ -178,43 +178,6 @@ a { color: inherit; text-decoration: none; }
 .section__head { margin-bottom: clamp(32px, 4.5vw, 52px); }
 .section__head .section__title { max-width: 20ch; }
 
-/* Split head — currently scoped to the signature "What it delivers" panel.
-   Left column carries the title; right column carries a real point (the
-   single-pipeline differentiator), separated by a hairline. This breaks
-   the centred-box cadence where distinctiveness actually pays off. */
-.section__head--split {
-  margin-bottom: clamp(32px, 4.5vw, 52px);
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: clamp(24px, 4vw, 56px);
-  align-items: stretch;
-  text-align: left;
-}
-.section__head--split .section__title { max-width: 16ch; }
-.section__head-aside {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border-left: 1px solid var(--hairline);
-  padding-left: clamp(20px, 2.4vw, 34px);
-}
-.section__lead {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(18px, 1.9vw, 22px);
-  line-height: 1.25;
-  color: var(--ink);
-  text-wrap: balance;
-}
-.section__aside-sub {
-  margin-top: 12px;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  max-width: 44ch;
-}
-.section__aside-sub .mono { color: var(--ink); }
-
 /* -----------------------------------------------------------------
    Buttons — built once, reused. Orange fill + black bold label,
    8px radius, outline-on-hover.
@@ -696,11 +659,6 @@ a { color: inherit; text-decoration: none; }
   .trust__inner { grid-template-columns: repeat(3, 1fr); row-gap: 24px; }
   .trust__brand { grid-column: 1 / -1; }
   .trust__stat--first { border-left: 0; padding-left: 0; }
-
-  /* Split head folds to a stack; divider moves to the top edge. */
-  .section__head--split { grid-template-columns: 1fr; gap: 18px; align-items: start; }
-  .section__head--split .section__title { max-width: 22ch; }
-  .section__head-aside { border-left: 0; border-top: 1px solid var(--hairline); padding-left: 0; padding-top: 18px; }
 
   .flow { grid-template-columns: 1fr; gap: 0; }
   .flow__connector { width: 2px; height: 30px; justify-self: center; background: linear-gradient(180deg, var(--hairline), #cdd4e0); margin: 6px 0; }
