@@ -531,8 +531,19 @@
     <section class="section section--grey final-cta reveal" id="demo" aria-labelledby="finalHeading">
       <div class="container final-cta__inner">
         <div class="final-cta__copy">
-          <h2 id="finalHeading" class="section__title">See what your conversations are telling you.</h2>
-          <p class="section__sub">Book a walkthrough of AI Communication Inspector with our team.</p>
+          <!-- Put a face to the demo. Photo file lives at Assets/jirina-nedbalkova.jpg;
+               if it's missing, the avatar falls back to the "JN" initials via onerror. -->
+          <div class="presenter">
+            <span class="presenter__avatar" data-initials="JN" aria-hidden="true">
+              <img class="presenter__photo" src="Assets/jirina-nedbalkova.jpg" alt="" width="84" height="84" onerror="this.remove()" />
+            </span>
+            <span class="presenter__id">
+              <span class="presenter__name">Jiřina Nedbálková</span>
+              <span class="presenter__role">AI Use Case Architect &amp; Customer Intelligence Lead</span>
+            </span>
+          </div>
+          <h2 id="finalHeading" class="section__title">Get a walkthrough from an AI use-case architect</h2>
+          <p class="section__sub">With 20+ years across banking and telecom, Jiřina designs customer-intelligence and AI use cases every day — she'll show you what's possible on your own communication.</p>
         </div>
 
         <!-- Demo request form.
@@ -555,7 +566,7 @@
             <label for="df-message">Message <span class="optional">(optional)</span></label>
             <textarea id="df-message" name="message" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn btn--primary btn--lg btn--block">Request a Demo</button>
+          <button type="submit" class="btn btn--primary btn--lg btn--block">See it on your data</button>
           <p class="demo-form__note" id="demoFormNote" role="status" aria-live="polite"></p>
         </form>
       </div>
