@@ -528,6 +528,23 @@ a { color: inherit; text-decoration: none; }
 .stack__body { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
 
 /* =================================================================
+   7b — COST CAP (slim commercial-fact strip)
+   Quieter than the module cards: one row, generous whitespace, no
+   card chrome. Bottom hairline delineates it from the grey demo band.
+   ================================================================= */
+.cost-cap { padding-block: clamp(30px, 3.6vw, 48px); border-bottom: 1px solid var(--hairline); }
+.cost-cap__row { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(20px, 4vw, 56px); align-items: center; }
+.cost-cap .eyebrow-label { margin-bottom: 14px; }
+.cost-cap__title { display: flex; align-items: flex-start; gap: 12px; max-width: 18ch; }
+.cost-cap__tick {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--orange); color: #000;
+  display: grid; place-items: center; font-size: 15px; font-weight: 700; line-height: 1;
+  margin-top: 3px;
+}
+.cost-cap__body { font-size: clamp(15px, 1.4vw, 17px); color: var(--ink-soft); line-height: 1.6; max-width: 54ch; }
+
+/* =================================================================
    8 — FINAL CTA + form
    ================================================================= */
 .final-cta__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
@@ -667,6 +684,9 @@ a { color: inherit; text-decoration: none; }
   /* Showcase stacks to a single column; arrows rotate to point down. */
   .showcase__grid { grid-template-columns: 1fr; }
   .showcase__arrow { justify-self: center; transform: rotate(90deg); margin: 2px 0; }
+
+  .cost-cap__row { grid-template-columns: 1fr; gap: 16px; }
+  .cost-cap__title { max-width: none; }
 
   .final-cta__inner { grid-template-columns: 1fr; }
   .final-cta .section__title { max-width: none; }
