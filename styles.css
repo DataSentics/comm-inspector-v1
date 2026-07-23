@@ -247,9 +247,12 @@ a { color: inherit; text-decoration: none; }
 .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; padding: 8px; cursor: pointer; }
 .nav__toggle span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: .2s var(--ease); }
 
-.mobile-nav { display: none; flex-direction: column; gap: 4px; padding: 12px var(--gutter) 22px; border-bottom: 1px solid var(--hairline); background: var(--white); }
-.mobile-nav a { padding: 12px 4px; font-size: 16px; color: var(--ink); border-bottom: 1px solid var(--hairline); }
-.mobile-nav a:last-child { border: 0; margin-top: 8px; }
+.mobile-nav { display: none; flex-direction: column; gap: 2px; padding: 12px var(--gutter) 22px; border-bottom: 1px solid var(--hairline); background: var(--white); }
+.mobile-nav a { padding: 12px; border-radius: 10px; font-size: 16px; color: var(--ink); transition: background .2s var(--ease), color .2s var(--ease); }
+/* Rounded tint + accent-orange text on tap/hover, matching the desktop
+   dropdown links. Excludes the CTA button, which keeps its own .btn hover. */
+.mobile-nav a:not(.btn):hover { background: rgba(255,85,57,.08); color: var(--orange); }
+.mobile-nav a:last-child { margin-top: 10px; }
 .mobile-nav .btn { color: #000; }
 
 /* Desktop "Modules" dropdown — click-toggle, reuses the card tokens
@@ -299,10 +302,10 @@ a { color: inherit; text-decoration: none; }
 /* Mobile drawer: "Modules" group — uppercase eyebrow label + the four
    module links, then a divider before the remaining nav links. */
 .mobile-nav__label {
-  padding: 10px 4px 2px; font-size: 12px; font-weight: 700;
+  padding: 10px 12px 2px; font-size: 12px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .14em; color: #9aa3b5;
 }
-.mobile-nav__divider { height: 1px; background: var(--hairline); margin: 10px 0 4px; }
+.mobile-nav__divider { height: 1px; background: var(--hairline); margin: 10px 8px 4px; }
 
 /* =================================================================
    1 — HERO
