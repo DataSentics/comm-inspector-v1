@@ -427,24 +427,20 @@ a { color: inherit; text-decoration: none; }
 }
 .module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 
-/* Graphic media header — per-module brand gradient + white line icon.
-   Swap the gradient for a real photo later; markup stays the same. */
+/* Graphic media header — per-module brand colour + white line icon.
+   Swap the flat colour for a real photo later; markup stays the same. */
 .module-card__media {
   position: relative;
   aspect-ratio: 16 / 10;
   display: grid; place-items: center;
   overflow: hidden;
 }
-.module-card__media::before {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(120% 100% at 22% 12%, rgba(255,255,255,.30), transparent 55%);
-}
 .module-card__glyph { position: relative; z-index: 1; width: 46px; height: 46px; color: #fff; }
 .module-card:hover .module-card__media { }
-.module-card__media--comm  { background: linear-gradient(135deg, #FF5539, #FF9280); }
-.module-card__media--call  { background: linear-gradient(135deg, #00B290, #0a8f7c); }
-.module-card__media--qa    { background: linear-gradient(135deg, #FFB600, #F5820A); }
-.module-card__media--coach { background: linear-gradient(135deg, #3a3b49, #565872); }
+.module-card__media--comm  { background: var(--orange); }
+.module-card__media--call  { background: #00B290; }
+.module-card__media--qa    { background: #FFB600; }
+.module-card__media--coach { background: #3a3b49; }
 
 .module-card__body { padding: clamp(18px, 2vw, 24px); display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .module-card__title {
