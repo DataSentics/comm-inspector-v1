@@ -37,6 +37,36 @@
     });
   }
 
+  /* --- Desktop "Modules" dropdown ---
+     Same setOpen idiom as the mobile drawer: flip aria-expanded + an
+     .is-open class (no inline styles). Closes on: toggle again, click
+     outside, Escape (returns focus to the button), or a link click. */
+  var moduleToggle = document.querySelector(".nav__dropdown-toggle");
+  var moduleMenu = document.getElementById("modulesMenu");
+  var moduleDropdown = moduleToggle ? moduleToggle.closest(".nav__dropdown") : null;
+  if (moduleToggle && moduleMenu && moduleDropdown) {
+    var setModulesOpen = function (open) {
+      moduleDropdown.classList.toggle("is-open", open);
+      moduleToggle.setAttribute("aria-expanded", String(open));
+    };
+    moduleToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setModulesOpen(moduleToggle.getAttribute("aria-expanded") !== "true");
+    });
+    moduleMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { setModulesOpen(false); });
+    });
+    document.addEventListener("click", function (e) {
+      if (!moduleDropdown.contains(e.target)) setModulesOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && moduleToggle.getAttribute("aria-expanded") === "true") {
+        setModulesOpen(false);
+        moduleToggle.focus();
+      }
+    });
+  }
+
   /* --- Scroll-reveal (IntersectionObserver), respects reduced-motion --- */
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var reveals = document.querySelectorAll(".reveal");

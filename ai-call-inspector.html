@@ -25,7 +25,18 @@
       </a>
       <nav class="nav__links" aria-label="Primary">
         <a href="index.html#how">How it works</a>
-        <a href="index.html#delivers">Modules</a>
+        <div class="nav__dropdown">
+          <button class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="modulesMenu">
+            Modules
+            <svg class="nav__dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="nav__dropdown-menu" id="modulesMenu">
+            <a href="comm-inspector.html">AI Customer Insights</a>
+            <a href="ai-call-inspector.html">AI Call Inspector</a>
+            <a href="ai-quality-assurance.html">AI Quality Assurance</a>
+            <a href="ai-coach.html">AI Coach</a>
+          </div>
+        </div>
         <a href="index.html#stack">Deployment</a>
       </nav>
       <a href="index.html#demo" class="btn btn--primary nav__cta" data-demo-open>Request a Demo</a>
@@ -34,8 +45,13 @@
       </button>
     </div>
     <div class="mobile-nav" id="mobileNav" hidden>
+      <span class="mobile-nav__label">Modules</span>
+      <a href="comm-inspector.html">AI Customer Insights</a>
+      <a href="ai-call-inspector.html">AI Call Inspector</a>
+      <a href="ai-quality-assurance.html">AI Quality Assurance</a>
+      <a href="ai-coach.html">AI Coach</a>
+      <span class="mobile-nav__divider" aria-hidden="true"></span>
       <a href="index.html#how">How it works</a>
-      <a href="index.html#delivers">Modules</a>
       <a href="index.html#stack">Deployment</a>
       <a href="index.html#demo" class="btn btn--primary" data-demo-open>Request a Demo</a>
     </div>
