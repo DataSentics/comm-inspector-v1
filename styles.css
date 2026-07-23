@@ -74,9 +74,9 @@
   --shadow-md: 0 6px 24px rgba(13,27,62,.08);
 
   /* --- Rhythm --- */
-  --maxw: 1160px;
+  --maxw: 1140px;
   --gutter: clamp(20px, 5vw, 48px);
-  --section-y: clamp(48px, 6vw, 84px);
+  --section-y: clamp(48px, 6vw, 80px);
 
   --ease: cubic-bezier(.22,.61,.36,1);
 }
@@ -155,10 +155,10 @@ a { color: inherit; text-decoration: none; }
 
 .section__title {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 500;                 /* Tosh A Medium — section H2s match Bull's own headline weight; Black (900) is reserved for the hero H1 */
   line-height: 1.08;
   letter-spacing: -.02em;
-  font-size: clamp(25px, 3.2vw, 38px);
+  font-size: clamp(25px, 3.2vw, 40px);
   color: var(--ink);
   max-width: 18ch;
 }
@@ -257,7 +257,7 @@ a { color: inherit; text-decoration: none; }
    ================================================================= */
 /* overflow:hidden clips the .hero__viz::before bleed (was inherited from
    the old blue band treatment) — without it the page scrolls sideways. */
-.hero { position: relative; padding-block: clamp(40px, 5.5vw, 72px); overflow: hidden; }
+.hero { position: relative; padding-block: clamp(40px, 5.5vw, 80px); overflow: hidden; }
 .hero__inner {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(28px, 4vw, 56px);
@@ -273,7 +273,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink);
   text-wrap: balance;
 }
-.hero__subhead { margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: var(--ink-soft); max-width: 54ch; }
+.hero__subhead { margin-top: 18px; font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-soft); max-width: 54ch; }
 
 /* Outcomes checklist — makes the four results tangible at first glance */
 .hero__outcomes {
@@ -281,7 +281,7 @@ a { color: inherit; text-decoration: none; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px;
   max-width: 56ch;
 }
-.hero__outcomes li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--ink); }
+.hero__outcomes li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--ink); }
 .hero__tick {
   flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
   background: var(--orange); color: #000;
@@ -290,7 +290,7 @@ a { color: inherit; text-decoration: none; }
 .hero__cta { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
 /* Secondary CTA — quiet text link, clearly subordinate to the button. */
 .hero__cta-alt {
-  font-size: 15px; font-weight: 500; color: var(--ink-soft);
+  font-size: 14px; font-weight: 500; color: var(--ink-soft);
   text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--hairline);
   transition: color .2s var(--ease), text-decoration-color .2s var(--ease);
 }
@@ -368,11 +368,11 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase; letter-spacing: .18em; color: #b5341f;
 }
 .trust__logo { height: 30px; width: auto; margin: 10px 0 12px; }
-.trust__desc { font-size: 15px; color: var(--ink-soft); line-height: 1.5; max-width: 30ch; }
+.trust__desc { font-size: 14px; color: var(--ink-soft); line-height: 1.5; max-width: 30ch; }
 .trust__stat { border-left: 1px solid rgba(160,48,26,.16); padding-left: clamp(16px, 2.6vw, 38px); }
 .trust__num {
   font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(30px, 4vw, 46px); line-height: 1; letter-spacing: -.02em;
+  font-size: clamp(28px, 4vw, 40px); line-height: 1; letter-spacing: -.02em;
   color: var(--ink);
 }
 .trust__label { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
@@ -412,9 +412,9 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase; letter-spacing: .18em; color: var(--orange);
   margin-bottom: 14px;
 }
-.section__title--xl { font-size: clamp(30px, 4.4vw, 52px); max-width: 24ch; }
+.section__title--xl { font-size: clamp(25px, 3.2vw, 40px); max-width: 24ch; }  /* section H2 = 40px, same scale as every other H2 */
 
-.modules { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 1.8vw, 22px); }
+.modules { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 1.8vw, 24px); }
 .module-card {
   display: flex; flex-direction: column;
   background: var(--white);
@@ -473,9 +473,10 @@ a { color: inherit; text-decoration: none; }
   display: flex; flex-direction: column; gap: 12px; box-shadow: var(--shadow-sm);
   position: relative;
 }
+.flow__head { display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 12px; }  /* icon left, step number right */
 .flow__num { font-size: 13px; font-weight: 600; color: var(--orange); letter-spacing: .08em; }
 .flow__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); }
-.flow__body { font-size: 14.5px; color: var(--ink-soft); }
+.flow__body { font-size: 14px; color: var(--ink-soft); }
 .flow__connector { align-self: center; width: 38px; height: 2px; position: relative; background: linear-gradient(90deg, var(--hairline), #cdd4e0); }
 .flow__connector::after { content: ""; position: absolute; right: -2px; top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-left-color: #cdd4e0; }
 
@@ -483,10 +484,10 @@ a { color: inherit; text-decoration: none; }
    Worked example showcase: transcript -> AI analysis -> business value.
    Reuses tokens + .sig + .icon-chip so it reads as one product language.
    ----------------------------------------------------------------- */
-.showcase { margin-top: clamp(44px, 5.5vw, 72px); }
+.showcase { margin-top: clamp(40px, 5.5vw, 56px); }
 .showcase__head { text-align: center; margin-bottom: clamp(24px, 3vw, 38px); }
 .showcase__head .eyebrow-label { margin-bottom: 10px; }
-.showcase__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.6vw, 30px); color: var(--ink); }
+.showcase__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, 2.6vw, 22px); color: var(--ink); }
 .showcase__grid {
   display: grid;
   grid-template-columns: 1.05fr auto 1fr auto .95fr;
@@ -529,10 +530,22 @@ a { color: inherit; text-decoration: none; }
 /* =================================================================
    6 — FITS YOUR STACK
    ================================================================= */
-.stack { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 24px); }
-.stack__item { border: 1px solid var(--hairline); border-radius: var(--r-card); padding: clamp(24px, 3vw, 34px); background: var(--grey-50); display: flex; flex-direction: column; gap: 12px; }
-.stack__title { font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--ink); }
-.stack__body { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
+/* Card grid — 3 cols × 2 rows (six cards). This section is the page's
+   SCALE REFERENCE. Its container (1140px), section padding (80px) and H2
+   (40px) now come from the shared global tokens (--maxw, --section-y,
+   .section__title), so no #stack-scoped overrides are needed. The card
+   values below (24px gap, 32px padding, 40px icon tile, 21px title, 16px
+   body) are the reference the rest of the page was aligned to. Scale only —
+   colours / fonts / card treatment are unchanged from the shared tokens. */
+.stack { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.stack__item { border: 1px solid var(--hairline); border-radius: var(--r-card); padding: 32px; background: var(--grey-50); display: flex; flex-direction: column; }
+.stack__item .icon-chip { width: 40px; height: 40px; margin-bottom: 20px; }   /* 40px tile, 20px gap → title */
+.stack__item .icon-chip .icon { width: 20px; height: 20px; }
+.stack__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); margin-bottom: 10px; }
+.stack__body { font-size: 16px; color: var(--ink-soft); line-height: 1.55; }
+
+@media (max-width: 1023px) { .stack { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 639px)  { .stack { grid-template-columns: 1fr; } }
 
 /* =================================================================
    7b — COST CAP (pricing strip) — reuses the .trust band verbatim
@@ -541,12 +554,52 @@ a { color: inherit; text-decoration: none; }
    trust strip, so those two overrides are scoped to #pricing.
    ================================================================= */
 .trust__title {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(21px, 2.6vw, 28px); line-height: 1.12; letter-spacing: -.02em;
+  font-family: var(--font-display); font-weight: 500;   /* Tosh A Medium — same as section H2s */
+  font-size: clamp(20px, 2.6vw, 22px); line-height: 1.12; letter-spacing: -.02em;
   color: var(--ink); margin-top: 12px; max-width: 20ch;
 }
-#pricing .trust__desc { margin-top: 10px; }
-#pricing .trust__num { font-size: clamp(17px, 1.9vw, 21px); }
+#pricing .trust__desc { margin-top: 10px; max-width: 34ch; }
+
+/* --- Tier columns as one implicit table ------------------------------------
+   The three tier columns share four row tracks — name, volume, price, coverage —
+   so equivalent facts line up across columns regardless of how each value wraps.
+   Scoped to #pricing so the numeric "Built by Bull" band is untouched. */
+#pricing .trust__inner {
+  grid-template-rows: auto auto auto auto;   /* name · volume · price · coverage */
+  row-gap: 0;                                 /* row rhythm comes from .tier__row padding */
+  align-items: stretch;                       /* let tier columns fill the shared tracks */
+}
+#pricing .trust__brand { grid-row: 1 / -1; align-self: center; }
+#pricing .trust__stat {
+  grid-row: 1 / span 4;
+  display: grid;
+  grid-template-rows: subgrid;                /* adopt the parent's four tracks */
+}
+/* Tier name: leads the column through size + space, not weight. Tosh A Medium
+   (500) — the brand's own headline weight — reads calm and premium at this size,
+   where the display Black (900) looked shouty. */
+.tier__name {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(22px, 2.3vw, 27px); line-height: 1.05; letter-spacing: -.015em;
+  color: var(--ink); align-self: start; margin-bottom: 8px;
+}
+/* Spec rows: a muted key above its value, with a hairline hinting table rows.
+   The hairlines align across columns because the rows share subgrid tracks. */
+.tier__row {
+  display: flex; flex-direction: column; gap: 3px;
+  padding-top: 12px; border-top: 1px solid rgba(160,48,26,.16);
+}
+.tier__key {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .14em; color: var(--ink-soft);
+}
+.tier__val { font-size: 14px; color: var(--ink-soft); line-height: 1.4; }
+/* Price is the one row set in ink rather than muted grey — distinct as the
+   commercial figure, but far below the tier name in scale so it never competes. */
+.tier__val--price {
+  font-family: var(--font-body); font-weight: 700;
+  font-size: 16px; line-height: 1.2; letter-spacing: -.01em; color: var(--ink);
+}
 
 /* =================================================================
    8 — FINAL CTA + form
@@ -600,7 +653,7 @@ a { color: inherit; text-decoration: none; }
 .footer__lockup { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 14px; color: var(--on-blue-soft); }
 .footer__bull { height: 16px; width: auto; }
 .footer__links { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-.footer__link { font-size: 15px; color: #d6deff; transition: color .2s var(--ease); }
+.footer__link { font-size: 14px; color: #d6deff; transition: color .2s var(--ease); }
 .footer__link:hover { color: #fff; }
 .footer__link--subtle { font-size: 13px; color: var(--on-blue-soft); }
 .footer__base { border-top: 1px solid var(--hairline-blue); padding-block: 22px; font-size: 13px; color: var(--on-blue-soft); }
@@ -617,6 +670,8 @@ a { color: inherit; text-decoration: none; }
 .footer__rule { display: block; height: 1px; background: var(--hairline-blue); margin: 22px 0; max-width: 300px; }
 .footer__built { display: flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.5; color: var(--on-blue-soft); max-width: 40ch; }
 .footer__built .footer__bull { flex-shrink: 0; height: 18px; }
+.footer__bull-link { display: inline-flex; flex-shrink: 0; border-radius: var(--r-chip); transition: opacity .2s var(--ease); }
+.footer__bull-link:hover { opacity: .78; }
 .footer__heading { font-family: var(--font-body); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--on-blue); margin-bottom: 16px; }
 .footer__list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .footer__base-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
@@ -700,6 +755,11 @@ a { color: inherit; text-decoration: none; }
   .trust__inner { grid-template-columns: repeat(3, 1fr); row-gap: 24px; }
   .trust__brand { grid-column: 1 / -1; }
   .trust__stat--first { border-left: 0; padding-left: 0; }
+  /* Pricing subgrid re-flows: brand takes row 1 full width, the three tiers
+     span the four shared tracks (rows 2–5) so their rows still align. */
+  #pricing .trust__inner { grid-template-rows: auto auto auto auto auto; }
+  #pricing .trust__brand { grid-row: 1; align-self: start; margin-bottom: 22px; }
+  #pricing .trust__stat { grid-row: 2 / span 4; }
 
   .flow { grid-template-columns: 1fr; gap: 0; }
   .flow__connector { width: 2px; height: 30px; justify-self: center; background: linear-gradient(180deg, var(--hairline), #cdd4e0); margin: 6px 0; }
@@ -722,11 +782,15 @@ a { color: inherit; text-decoration: none; }
   .nav__byline { display: none; }
   .nav__divider { display: none; }
   .modules { grid-template-columns: 1fr; }
-  .stack { grid-template-columns: 1fr; }
   .feature-list { grid-template-columns: 1fr; }
   /* Trust strip fully stacks; dividers become top hairlines. */
   .trust__inner { grid-template-columns: 1fr; }
   .trust__stat, .trust__stat--first { border-left: 0; padding-left: 0; border-top: 1px solid rgba(160,48,26,.16); padding-top: 16px; }
+  /* One column: drop the subgrid so tiers flow normally instead of fighting
+     for the same shared row tracks. */
+  #pricing .trust__inner { grid-template-rows: none; }
+  #pricing .trust__brand { grid-row: auto; margin-bottom: 0; }
+  #pricing .trust__stat { grid-row: auto; display: block; }
   .hero__outcomes { grid-template-columns: 1fr; gap: 10px; }
   .eyebrow-trust { gap: 8px 12px; font-size: 11px; }
   .footer__inner { flex-direction: column; }
@@ -734,3 +798,246 @@ a { color: inherit; text-decoration: none; }
   /* On phones the offset backdrop reads as misalignment, not depth — drop it. */
   .hero__viz::before { display: none; }
 }
+
+/* =================================================================
+   PATCH — branding fix + new content sections + section-rhythm fix
+   Appended by Claude per Petr's review; see chat for rationale.
+   Reuses the site's own tokens (--ink, --orange, --grey-50,
+   --blue-deep, --font-display/body, --r-card, --hairline-blue, …)
+   throughout, rather than introducing parallel hardcoded values.
+   ================================================================= */
+
+/* --- Header: "built by Bull" byline, moved next to the CTA --- */
+.nav__byline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+.nav__backed {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.nav__bull {
+  height: 26px;
+  width: auto;
+}
+.nav__cta-divider {
+  width: 1px;
+  align-self: stretch;
+  min-height: 26px;
+  background: var(--hairline);
+  margin: 0 20px;
+}
+
+/* --- Footer: Bull symbol watermark --- */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+.footer__watermark {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: 220px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* --- Hero: subtle warm tint instead of flat white, per claimsense.app --- */
+.hero.section--white {
+  background: linear-gradient(180deg, #FFF7F5 0%, var(--white) 70%);
+}
+
+/* --- Positioning callout — lives right before Business Value now.
+   It used to sit directly under the hero, back-to-back with .trust
+   (both on --orange-tint): two bold statements in identical colour,
+   fighting for the same attention. Quieter --grey-50 + more distance
+   from .trust fixes both the colour clash and the adjacency clash. --- */
+.positioning-bar {
+  background: var(--grey-50);
+  padding: 20px 0;
+}
+.positioning-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.positioning-bar__label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--orange);
+  white-space: nowrap;
+}
+.positioning-bar__text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* --- 2b. Proof bar (3 cards, after the Built-by-Bull strip) --- */
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.proof-card {
+  background: var(--grey-50);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-card);
+  padding: 24px;
+}
+.proof-card__body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.proof-card__body strong { color: var(--ink); }
+@media (max-width: 860px) {
+  .proof-grid { grid-template-columns: 1fr; }
+}
+
+/* --- 5b. Proven Results: case study + secondary reference --- */
+.case-study {
+  margin-top: 32px;
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 32px;
+}
+.case-study__tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--orange);
+}
+.case-study__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+.case-study__label {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.case-study__col p {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.secondary-reference {
+  margin-top: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-card);
+}
+.secondary-reference__tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--ink-soft);
+}
+.secondary-reference__body {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+@media (max-width: 860px) {
+  .case-study__grid { grid-template-columns: 1fr; }
+}
+
+/* --- 5c. Business value pillars (quiet chip row) --- */
+.value-pillars {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+}
+.value-pillar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink);
+}
+.value-pillar__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex: 0 0 auto;
+}
+
+/* --- 6b. Stack section re-themed as a dark "signature panel" —
+   this was already the stated design intent (see the .section__head
+   comment above: "the centred heads are then reserved for the blue
+   signature panels"), just never implemented for any section.
+   .stack uses .section__head-center, so it was the one section
+   already earmarked for this treatment. --- */
+.section--blue-deep .section__title { color: var(--on-blue); }
+.section--blue-deep .section__sub { color: var(--on-blue-soft); }
+.section--blue-deep .stack__item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hairline-blue);
+}
+.section--blue-deep .stack__title { color: var(--on-blue); }
+.section--blue-deep .stack__body { color: var(--on-blue-soft); }
+.section--blue-deep .icon-chip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--hairline-blue);
+  color: var(--orange);
+}
+
+/* --- 7b. FAQ teaser (quiet link-out, not a competing CTA) --- */
+.faq-teaser__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.faq-teaser__heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink);
+  margin: 0;
+}
+.faq-teaser__link {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--orange);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.faq-teaser__link:hover { text-decoration: underline; }
