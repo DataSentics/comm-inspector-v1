@@ -588,12 +588,17 @@ a { color: inherit; text-decoration: none; }
    values below (24px gap, 32px padding, 40px icon tile, 21px title, 16px
    body) are the reference the rest of the page was aligned to. Scale only —
    colours / fonts / card treatment are unchanged from the shared tokens. */
-.stack { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.stack { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .stack__item { border: 1px solid var(--hairline); border-radius: var(--r-card); padding: 32px; background: var(--grey-50); display: flex; flex-direction: column; }
 .stack__item .icon-chip { width: 40px; height: 40px; margin-bottom: 20px; }   /* 40px tile, 20px gap → title */
 .stack__item .icon-chip .icon { width: 20px; height: 20px; }
 .stack__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); margin-bottom: 10px; }
 .stack__body { font-size: 16px; color: var(--ink-soft); line-height: 1.55; }
+/* Keep card bodies full on the first line (greedy), only avoiding a lone
+   last word — `pretty`, not `balance` (balance shortens line 1 to equalize
+   and orphans words that would still fit). Scoped to #stack so the sub-page
+   .cards that reuse .stack__body are untouched. */
+#stack .stack__body { text-wrap: pretty; }
 
 @media (max-width: 1023px) { .stack { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 639px)  { .stack { grid-template-columns: 1fr; } }
