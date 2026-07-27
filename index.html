@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=20260727" />
+  <link rel="stylesheet" href="styles.css?v=20260728" />
 
   <!-- Set a `js` flag before first paint so enhancement-only styles
        (e.g. the coverage bars animating up from zero) never flash
@@ -433,8 +433,12 @@
           <div class="showcase__seq">
             <!-- Provenance shown once for the whole sequence, not per cluster. -->
             <div class="showcase__caption reveal">
-              <span class="showcase__caption-label mono">Analysed by Comm Inspector</span>
-              <span class="showcase__caption-steps">Speech-to-text · LLM analysis · Insight detection</span>
+              <ul class="showcase__caption-steps">
+                <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Speech-to-text</li>
+                <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> LLM analysis</li>
+                <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Insight detection</li>
+              </ul>
+              <p class="showcase__caption-sentence">See how each part of a real conversation becomes insight your teams can act on.</p>
             </div>
 
             <!-- Agent — greeting (no signal) -->
