@@ -38,6 +38,7 @@
   --orange: #FF5539;          /* Bull Orange — single accent, CTA + sparing emphasis */
   --orange-hover: #e6492f;
   --orange-tint: #FFE4DF;     /* Bull orange tint — warm accent band (trust strip) */
+  --tint-50: #FFF7F5;         /* lightest warm tint — section alternate (à la claimsense) */
   --blue-deep: #001f63;       /* deep blue — footer band only */
 
   /* --- Neutrals (≈75% of the page) --- */
@@ -151,6 +152,7 @@ a { color: inherit; text-decoration: none; }
 .section { padding-block: var(--section-y); position: relative; }
 .section--white { background: var(--white); }
 .section--grey { background: var(--grey-50); }
+.section--tint { background: var(--tint-50); }
 .section--blue-deep { background: var(--blue-deep); color: var(--on-blue); }
 
 .section__title {
@@ -493,7 +495,7 @@ a { color: inherit; text-decoration: none; }
    Worked example showcase: transcript -> AI analysis -> business value.
    Reuses tokens + .sig + .icon-chip so it reads as one product language.
    ----------------------------------------------------------------- */
-.showcase { margin-top: clamp(40px, 5.5vw, 56px); }
+.showcase { margin-top: 0; }
 .showcase__head { text-align: center; margin-bottom: clamp(24px, 3vw, 38px); }
 .showcase__head .eyebrow-label { margin-bottom: 10px; }
 .showcase__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(25px, 3.2vw, 40px); line-height: 1.08; letter-spacing: -.02em; color: var(--ink); }
@@ -520,7 +522,7 @@ a { color: inherit; text-decoration: none; }
 .showcase__bridge-arrow { color: var(--orange); }
 .showcase__bridge-arrow svg { display: block; width: 22px; height: 22px; }
 .showcase__bridge-text { margin: 0; font-size: 14px; font-weight: 500; color: var(--ink-soft); }
-#how { padding-bottom: clamp(24px, 3vw, 40px); }
+#worked-example { padding-bottom: clamp(24px, 3vw, 40px); }
 #business-value { padding-top: clamp(20px, 2.6vw, 36px); }
 
 /* Staggered reveal cascade (~60ms/step, ≤540ms). Inert under
