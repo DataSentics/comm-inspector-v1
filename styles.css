@@ -63,6 +63,13 @@
   --font-display: "Tosh A", "Roboto", system-ui, sans-serif;
   --font-mono: "Roboto Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
+  /* --- Body/prose type scale --- */
+  --fs-body: 16px;      /* primary reading prose + lead/primer sentences */
+  --fs-compact: 15px;   /* dense contexts: worked-example transcript & AI analysis, compact card bodies */
+  --fs-meta: 14px;      /* secondary meta (footer, form labels, table values) */
+  --fs-eyebrow: 13px;   /* section eyebrows (lifted from 12px) */
+  --lh-prose: 1.625;    /* airy prose line-height, matches Bull's 16/26 */
+
   /* --- Radius system (tightened: product, not marketing) --- */
   --r-btn: 8px;
   --r-chip: 10px;
@@ -383,7 +390,7 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase; letter-spacing: .12em; color: #9a4434;
 }
 .trust__logo { height: 46px; width: auto; margin: 12px 0; }
-.trust__desc { font-size: 14px; color: #6b7280; line-height: 1.45; max-width: 340px; }
+.trust__desc { font-size: var(--fs-compact); color: #6b7280; line-height: 1.5; max-width: 340px; }
 .trust__stat { border-left: 1px solid rgba(154,68,52,.22); padding-left: clamp(16px, 2.6vw, 38px); }
 .trust__num {
   font-family: var(--font-display); font-weight: 900;
@@ -423,7 +430,7 @@ a { color: inherit; text-decoration: none; }
    is the link; hover lifts the card and turns the title orange.
    ================================================================= */
 .eyebrow-label {
-  display: inline-block; font-size: 12px; font-weight: 700;
+  display: inline-block; font-size: var(--fs-eyebrow); font-weight: 700;
   text-transform: uppercase; letter-spacing: .18em; color: var(--orange);
   margin-bottom: 14px;
 }
@@ -467,7 +474,7 @@ a { color: inherit; text-decoration: none; }
 .module-card__chevron { color: var(--orange); font-size: 1.15em; line-height: 1; transition: transform .2s var(--ease); }
 .module-card:hover .module-card__title { color: var(--orange); }
 .module-card:hover .module-card__chevron { transform: translateX(3px); }
-.module-card__desc { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+.module-card__desc { font-size: var(--fs-body); color: var(--ink-soft); line-height: var(--lh-prose); }
 .module-card__desc .mono { color: var(--ink); font-size: .92em; }
 
 /* Modules on the dark band: 2px white frame so the dark AI Coach banner
@@ -512,7 +519,7 @@ a { color: inherit; text-decoration: none; }
 .flow__head { display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 12px; }  /* icon left, step number right */
 .flow__num { font-size: 13px; font-weight: 600; color: var(--orange); letter-spacing: .08em; }
 .flow__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); }
-.flow__body { font-size: 14px; color: var(--ink-soft); }
+.flow__body { font-size: var(--fs-body); color: var(--ink-soft); line-height: var(--lh-prose); }
 .flow__connector { align-self: center; width: 38px; height: 2px; position: relative; background: linear-gradient(90deg, var(--hairline), #cdd4e0); }
 .flow__connector::after { content: ""; position: absolute; right: -2px; top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-left-color: #cdd4e0; }
 
@@ -526,9 +533,14 @@ a { color: inherit; text-decoration: none; }
 .showcase__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(25px, 3.2vw, 40px); line-height: 1.08; letter-spacing: -.02em; color: var(--ink); }
 /* Single-column interleaved sequence — same layout at every width. */
 .showcase__seq { display: flex; flex-direction: column; gap: 12px; max-width: 680px; margin: 0 auto; }
-.showcase__caption { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; margin-bottom: 6px; }
-.showcase__caption-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); font-weight: 700; }
-.showcase__caption-steps { font-size: 12px; color: var(--ink-soft); }
+.showcase__caption { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-block: clamp(28px, 4.5vw, 52px); }
+.showcase__caption-steps {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  column-gap: 22px; row-gap: 10px;
+}
+.showcase__caption-steps li { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 400; color: var(--ink); }
+.showcase__caption-sentence { font-size: var(--fs-body); color: var(--ink-soft); max-width: 46ch; margin-inline: auto; line-height: var(--lh-prose); }
 
 /* Insight cluster — machine annotation, broken out of the bubble alignment
    and tied to the line above by an orange left rule + a downward cue. */
@@ -546,7 +558,7 @@ a { color: inherit; text-decoration: none; }
 .showcase__bridge { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: clamp(32px, 5vw, 56px); text-align: center; }
 .showcase__bridge-arrow { color: var(--orange); }
 .showcase__bridge-arrow svg { display: block; width: 22px; height: 22px; }
-.showcase__bridge-text { margin: 0; font-size: 14px; font-weight: 500; color: var(--ink-soft); }
+.showcase__bridge-text { margin: 0; font-size: var(--fs-body); font-weight: 500; color: var(--ink-soft); line-height: var(--lh-prose); }
 #worked-example { padding-bottom: clamp(24px, 3vw, 40px); }
 #business-value { padding-top: clamp(20px, 2.6vw, 36px); }
 
@@ -565,7 +577,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Chat-bubble transcript */
 .chat { display: flex; flex-direction: column; gap: 10px; background: var(--white); border: 1px solid var(--hairline); border-radius: var(--r-card); padding: 16px; box-shadow: var(--shadow-sm); flex: 1; }
-.chat__bubble { max-width: 90%; border-radius: 12px; padding: 10px 13px; font-size: 13.5px; line-height: 1.45; }
+.chat__bubble { max-width: 90%; border-radius: 12px; padding: 10px 13px; font-size: var(--fs-compact); line-height: 1.5; }
 .chat__bubble--agent { align-self: flex-start; background: var(--grey-100); color: var(--ink); border-bottom-left-radius: 4px; }
 .chat__bubble--client { align-self: flex-end; background: var(--white); border: 1px solid var(--hairline); color: var(--ink); border-bottom-right-radius: 4px; }
 .chat__speaker { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 3px; }
@@ -575,7 +587,7 @@ a { color: inherit; text-decoration: none; }
 /* Insight rows — the chip + value pair, reused inside .insight clusters. */
 .analysis-row { display: flex; flex-direction: column; gap: 5px; }
 .analysis-row .sig { align-self: flex-start; }
-.analysis-row__val { font-size: 13.5px; color: var(--ink); line-height: 1.4; }
+.analysis-row__val { font-size: var(--fs-compact); color: var(--ink); line-height: 1.5; }
 .analysis-row__val .mono { color: var(--ink-soft); font-size: .92em; }
 
 /* Business value list (reuses .icon-chip) */
@@ -588,8 +600,8 @@ a { color: inherit; text-decoration: none; }
 .value-item { display: flex; gap: 12px; align-items: flex-start; }
 .value-item .icon-chip { width: 40px; height: 40px; }
 .value-item .icon { width: 20px; height: 20px; }
-.value-item__title { font-family: var(--font-display); font-weight: 500; font-size: 15px; color: var(--ink); line-height: 1.2; }
-.value-item__body { font-size: 13px; color: var(--ink-soft); margin-top: 3px; line-height: 1.45; }
+.value-item__title { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-body); color: var(--ink); line-height: 1.2; }
+.value-item__body { font-size: var(--fs-compact); color: var(--ink-soft); margin-top: 3px; line-height: 1.5; }
 
 /* =================================================================
    6 — FITS YOUR STACK
@@ -606,7 +618,7 @@ a { color: inherit; text-decoration: none; }
 .stack__item .icon-chip { width: 40px; height: 40px; margin-bottom: 20px; }   /* 40px tile, 20px gap → title */
 .stack__item .icon-chip .icon { width: 20px; height: 20px; }
 .stack__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); margin-bottom: 10px; }
-.stack__body { font-size: 16px; color: var(--ink-soft); line-height: 1.55; }
+.stack__body { font-size: 16px; color: var(--ink-soft); line-height: var(--lh-prose); }
 /* Keep card bodies full on the first line (greedy), only avoiding a lone
    last word — `pretty`, not `balance` (balance shortens line 1 to equalize
    and orphans words that would still fit). Scoped to #stack so the sub-page
@@ -770,7 +782,7 @@ a { color: inherit; text-decoration: none; }
 /* Feature list — reuses the hero orange-check pattern (.hero__tick).
    Two columns on wide viewports, single column on phones. */
 .feature-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px clamp(24px, 4vw, 48px); }
-.feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 16px; color: var(--ink); line-height: 1.5; }
+.feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 16px; color: var(--ink); line-height: var(--lh-prose); }
 .feature-list__tick {
   flex-shrink: 0; width: 22px; height: 22px; color: var(--orange); margin-top: 1px;
 }
@@ -1008,8 +1020,8 @@ a { color: inherit; text-decoration: none; }
 }
 .case-study__col p {
   font-family: var(--font-body);
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-size: var(--fs-body);
+  line-height: var(--lh-prose);
   color: var(--ink-soft);
   margin: 0;
 }
@@ -1029,7 +1041,7 @@ a { color: inherit; text-decoration: none; }
 .secondary-reference__body {
   margin: 8px 0 0;
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: var(--fs-compact);
   line-height: 1.6;
   color: var(--ink-soft);
 }
