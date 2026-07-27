@@ -533,7 +533,7 @@ a { color: inherit; text-decoration: none; }
 .showcase__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(25px, 3.2vw, 40px); line-height: 1.08; letter-spacing: -.02em; color: var(--ink); }
 /* Single-column interleaved sequence — same layout at every width. */
 .showcase__seq { display: flex; flex-direction: column; gap: 12px; max-width: 680px; margin: 0 auto; }
-.showcase__caption { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-top: clamp(8px, 1vw, 16px); margin-bottom: clamp(24px, 3vw, 38px); }
+.showcase__caption { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-top: clamp(16px, 2vw, 32px); margin-bottom: clamp(16px, 2vw, 32px); }
 .showcase__caption-steps {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; justify-content: center;
