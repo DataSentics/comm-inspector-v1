@@ -546,11 +546,11 @@ a { color: inherit; text-decoration: none; }
   column-gap: 22px; row-gap: 10px;
 }
 .showcase__caption-steps li { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 400; color: var(--ink); }
-.showcase__caption-sentence { font-size: var(--fs-body); color: var(--ink-soft); max-width: 46ch; margin-inline: auto; line-height: var(--lh-prose); margin-block: clamp(28px, 4.5vw, 48px); }
+.showcase__caption-sentence { font-size: var(--fs-body); color: var(--ink-soft); max-width: 35ch; margin-inline: auto; line-height: var(--lh-prose); margin-block: clamp(28px, 4.5vw, 48px); }
 
 /* Insight cluster — machine annotation, broken out of the bubble alignment
    and tied to the line above by an orange left rule + a downward cue. */
-.insight { align-self: stretch; position: relative; margin: 2px 0 8px; padding: 2px 0 2px 18px; border-left: 2px solid var(--orange); margin-left: clamp(20px, 5%, 44px); }
+.insight { align-self: stretch; position: relative; margin: 2px 0 8px; padding: 2px 0 2px 18px; border-left: 2px solid var(--orange); margin-left: clamp(40px, 10%, 88px); }
 .insight__cue { position: absolute; left: 4px; top: -2px; color: var(--orange); font-size: 15px; line-height: 1; font-weight: 700; }
 /* Header line above the chips marking the block as machine output — orange, so
    it's unambiguously the source of the analysis below, not a caption on the
