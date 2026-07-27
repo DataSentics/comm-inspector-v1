@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260727" />
 
   <!-- Set a `js` flag before first paint so enhancement-only styles
        (e.g. the coverage bars animating up from zero) never flash
@@ -619,24 +619,6 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- 1b — POSITIONING CALLOUT                                      -->
-    <!-- The single sentence every ICP and every other page is written  -->
-    <!-- to stay consistent with (per content-draft-v1 §5) — kept quiet -->
-    <!-- and short, not a competing headline. Moved here (was right     -->
-    <!-- after the hero) because back-to-back with .trust — same       -->
-    <!-- --orange-tint background, both "bold statement" sections —    -->
-    <!-- read as two things fighting for attention. Sitting right      -->
-    <!-- before Business Value instead, it sets up "who benefits" just -->
-    <!-- before "what they get".                                        -->
-    <!-- ============================================================= -->
-    <section class="positioning-bar" aria-label="Who this is for">
-      <div class="container positioning-bar__inner">
-        <span class="positioning-bar__label mono">WHO IT'S FOR</span>
-        <p class="positioning-bar__text">Highest value for <strong>non-primary clients</strong> and clients with limited internal data — the customers you know least about.</p>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
     <!-- 6 — FITS YOUR STACK  (dark "signature panel")                 -->
     <!-- Outcome: pre-empt run-it-safely / adoption / build-it-myself. -->
     <!-- Re-themed --blue-deep per Petr's request — matches            -->
@@ -684,6 +666,15 @@
             <p class="stack__body">Full context, no black‑box scores. Each detection links to transcript, question asked, and confidence.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- Positioning callout — a quiet visual pause between the dark stack
+         panel and the pricing band; sets up "who benefits" before "the price". -->
+    <section class="positioning-bar" aria-label="Who this is for">
+      <div class="container positioning-bar__inner">
+        <span class="positioning-bar__label mono">WHO IT'S FOR</span>
+        <p class="positioning-bar__text">Highest value for <strong>non-primary clients</strong> and clients with limited internal data — the customers you know least about.</p>
       </div>
     </section>
 
