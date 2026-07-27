@@ -535,23 +535,22 @@ a { color: inherit; text-decoration: none; }
    Reuses tokens + .sig + .icon-chip so it reads as one product language.
    ----------------------------------------------------------------- */
 .showcase { margin-top: 0; }
-.showcase__head { text-align: center; margin-bottom: clamp(8px, 1vw, 16px); }
+.showcase__head { text-align: center; margin-bottom: 0; }
 .showcase__head .eyebrow-label { margin-bottom: 10px; }
 .showcase__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(25px, 3.2vw, 40px); line-height: 1.08; letter-spacing: -.02em; color: var(--ink); }
 /* Single-column interleaved sequence — same layout at every width. */
 .showcase__seq { display: flex; flex-direction: column; gap: 12px; max-width: 680px; margin: 0 auto; }
-.showcase__caption { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-top: clamp(16px, 2vw, 32px); margin-bottom: clamp(16px, 2vw, 32px); }
 .showcase__caption-steps {
-  list-style: none; margin: 0; padding: 0;
+  list-style: none; margin: 10px 0 0; padding: 0;
   display: flex; flex-wrap: wrap; justify-content: center;
   column-gap: 22px; row-gap: 10px;
 }
 .showcase__caption-steps li { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 400; color: var(--ink); }
-.showcase__caption-sentence { font-size: var(--fs-body); color: var(--ink-soft); max-width: 46ch; margin-inline: auto; line-height: var(--lh-prose); }
+.showcase__caption-sentence { font-size: var(--fs-body); color: var(--ink-soft); max-width: 46ch; margin-inline: auto; line-height: var(--lh-prose); margin-block: clamp(28px, 4.5vw, 48px); }
 
 /* Insight cluster — machine annotation, broken out of the bubble alignment
    and tied to the line above by an orange left rule + a downward cue. */
-.insight { align-self: stretch; position: relative; margin: 2px 0 8px; padding: 2px 0 2px 18px; border-left: 2px solid var(--orange); }
+.insight { align-self: stretch; position: relative; margin: 2px 0 8px; padding: 2px 0 2px 18px; border-left: 2px solid var(--orange); margin-left: clamp(20px, 5%, 44px); }
 .insight__cue { position: absolute; left: 4px; top: -2px; color: var(--orange); font-size: 15px; line-height: 1; font-weight: 700; }
 /* Header line above the chips marking the block as machine output — orange, so
    it's unambiguously the source of the analysis below, not a caption on the
@@ -586,7 +585,7 @@ a { color: inherit; text-decoration: none; }
 .chat { display: flex; flex-direction: column; gap: 10px; background: var(--white); border: 1px solid var(--hairline); border-radius: var(--r-card); padding: 16px; box-shadow: var(--shadow-sm); flex: 1; }
 .chat__bubble { max-width: 90%; border-radius: 12px; padding: 10px 13px; font-size: var(--fs-compact); line-height: 1.5; }
 .chat__bubble--agent { align-self: flex-start; background: var(--grey-100); color: var(--ink); border-bottom-left-radius: 4px; }
-.chat__bubble--client { align-self: flex-end; background: var(--white); border: 1px solid var(--hairline); color: var(--ink); border-bottom-right-radius: 4px; }
+.chat__bubble--client { align-self: flex-start; background: var(--white); border: 1px solid var(--hairline); color: var(--ink); border-bottom-left-radius: 4px; }
 .chat__speaker { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 3px; }
 .chat__text { margin: 0; }
 .chat__hl { background: rgba(255,85,57,.14); color: #a0301a; border-radius: 4px; padding: 0 3px; font-weight: 600; }
