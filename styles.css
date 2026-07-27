@@ -193,7 +193,7 @@ a { color: inherit; text-decoration: none; }
    ----------------------------------------------------------------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  font-family: var(--font-body); font-weight: 700; font-size: 16px;
+  font-family: var(--font-body); font-weight: 600; font-size: 16px;
   line-height: 1; cursor: pointer;
   border: 2px solid transparent; border-radius: var(--r-btn);
   padding: 14px 22px;
@@ -208,7 +208,7 @@ a { color: inherit; text-decoration: none; }
 }
 .btn--primary:hover {
   background: transparent;
-  color: var(--orange);
+  color: #000;
   border-color: var(--orange);
 }
 .btn--lg { padding: 17px 30px; font-size: 17px; }
