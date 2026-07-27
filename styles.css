@@ -458,6 +458,10 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 .module-card__glyph { position: relative; z-index: 1; width: 120px; height: auto; color: #fff; object-fit: contain; object-position: center; }
+.module-card__media--comm .module-card__glyph { width: 60px; }
+.module-card__media--call .module-card__glyph { width: 120px; }
+.module-card__media--qa .module-card__glyph { width: 288px; }
+.module-card__media--coach .module-card__glyph { width: 264px; }
 .module-card:hover .module-card__media { }
 .module-card__media--comm  { background: var(--orange); }
 .module-card__media--call  { background: #00B290; }
