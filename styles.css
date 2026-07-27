@@ -469,6 +469,26 @@ a { color: inherit; text-decoration: none; }
 .module-card:hover .module-card__chevron { transform: translateX(3px); }
 .module-card__desc { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
 .module-card__desc .mono { color: var(--ink); font-size: .92em; }
+
+/* Modules on the dark band: 2px white frame so the dark AI Coach banner
+   (#3a3b49) never melts into the deep-blue section. */
+.section--blue-deep .module-card { border-color: transparent; box-shadow: 0 0 0 2px #fff, 0 16px 36px -20px rgba(0,0,0,.55); }
+.section--blue-deep .module-card:hover { box-shadow: 0 0 0 2px #fff, 0 26px 50px -22px rgba(0,0,0,.6); }
+/* Quiet springboard link that keeps the eye moving DOWN the funnel — no
+   horizontal/pinned motion: the 4 modules are peer products a buyer wants
+   to compare, so they stay a static, scannable grid. */
+.modules__more { text-align: center; margin-top: clamp(32px, 4vw, 52px); }
+.modules__more-link { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; font-weight: 500; font-size: 15px; color: var(--on-blue); transition: color .2s var(--ease); }
+.modules__more-text { border-bottom: 1px solid var(--hairline-blue); padding-bottom: 3px; transition: border-color .2s var(--ease); }
+.modules__more-arrow { display: block; line-height: 0; }
+.modules__more-arrow svg { width: 26px; height: 26px; animation: cue-bob 1.8s var(--ease) infinite; }
+.modules__more-link:hover { color: #fff; }
+.modules__more-link:hover .modules__more-text { border-color: rgba(255,255,255,.55); }
+/* Pull the springboard toward the blue section's bottom edge (it points down). */
+#delivers { padding-bottom: clamp(36px, 4vw, 56px); }
+
+@keyframes cue-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+@media (prefers-reduced-motion: reduce) { .modules__more-arrow svg { animation: none; } }
 .module-card__bestfor { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--hairline); }
 .module-card__bestfor-label { display: block; margin-bottom: 7px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #9aa3b5; }
 .module-card__tags { display: flex; flex-wrap: wrap; gap: 6px; }
