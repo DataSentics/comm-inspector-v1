@@ -710,61 +710,50 @@
     <!-- token bill" objection. Reads as a contractual guarantee.       -->
     <!-- ============================================================= -->
     <section class="trust reveal" id="pricing" aria-labelledby="costHeading">
-      <div class="container trust__inner">
-        <div class="trust__brand">
-          <span class="trust__eyebrow">Pricing model</span>
+      <div class="container">
+        <div class="pricing__head">
+          <span class="eyebrow-label">Pricing model</span>
           <h2 id="costHeading" class="trust__title">One annual price, sized by your call volume</h2>
-          <!-- TODO_AI_ASSURANCE_URL: wrap "Bull's AI Assurance model" in a link once the AI Assurance page is live. -->
-          <p class="trust__desc">Everything included — services, infrastructure, and model tokens. Part of Bull's AI Assurance model.</p>
         </div>
-        <!-- Each tier is one implicit table column: the tier name is the headline,
-             then volume / price / coverage sit beneath as aligned spec rows. The three
-             .trust__stat columns share row tracks via subgrid so equivalent facts line up. -->
-        <div class="trust__stat trust__stat--first tier">
-          <div class="tier__name">Essential</div>
-          <div class="tier__row">
-            <span class="tier__key">Volume</span>
-            <span class="tier__val">Up to 10,000 calls / year</span>
+
+        <div class="pricing__grid">
+          <div class="pricing-card">
+            <div class="pricing-card__name">Essential</div>
+            <p class="pricing-card__for">For smaller teams</p>
+            <p class="pricing-card__price">€833<span class="pricing-card__unit"> / month</span></p>
+            <p class="pricing-card__billed">Billed annually at €10,000</p>
+            <ul class="pricing-card__list">
+              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 10,000 calls / year</li>
+              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 10 questions on every call</li>
+            </ul>
           </div>
-          <div class="tier__row">
-            <span class="tier__key">Price</span>
-            <span class="tier__val tier__val--price">€10k / year</span>
+
+          <div class="pricing-card">
+            <div class="pricing-card__name">Advanced</div>
+            <p class="pricing-card__for">For growing operations</p>
+            <p class="pricing-card__price">€1,667<span class="pricing-card__unit"> / month</span></p>
+            <p class="pricing-card__billed">Billed annually at €20,000</p>
+            <ul class="pricing-card__list">
+              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 20,000 calls / year</li>
+              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 10 questions on every call</li>
+            </ul>
           </div>
-          <div class="tier__row">
-            <span class="tier__key">Coverage</span>
-            <span class="tier__val">10 questions answered on every call</span>
-          </div>
-        </div>
-        <div class="trust__stat tier">
-          <div class="tier__name">Advanced</div>
-          <div class="tier__row">
-            <span class="tier__key">Volume</span>
-            <span class="tier__val">Up to 20,000 calls / year</span>
-          </div>
-          <div class="tier__row">
-            <span class="tier__key">Price</span>
-            <span class="tier__val tier__val--price">€20k / year</span>
-          </div>
-          <div class="tier__row">
-            <span class="tier__key">Coverage</span>
-            <span class="tier__val">10 questions answered on every call</span>
-          </div>
-        </div>
-        <div class="trust__stat tier">
-          <div class="tier__name">Enterprise</div>
-          <div class="tier__row">
-            <span class="tier__key">Volume</span>
-            <span class="tier__val">Up to 100,000 calls / year</span>
-          </div>
-          <div class="tier__row">
-            <span class="tier__key">Price</span>
-            <span class="tier__val tier__val--price">€50k / year</span>
-          </div>
-          <div class="tier__row">
-            <span class="tier__key">Coverage</span>
-            <span class="tier__val">100 questions answered on every call</span>
+
+          <div class="pricing-card">
+            <div class="pricing-card__name">Enterprise</div>
+            <p class="pricing-card__for">For high-volume organizations</p>
+            <p class="pricing-card__price">€4,167<span class="pricing-card__unit"> / month</span></p>
+            <p class="pricing-card__billed">Billed annually at €50,000</p>
+            <ul class="pricing-card__list">
+              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 100,000 calls / year</li>
+              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 100 questions on every call</li>
+            </ul>
           </div>
         </div>
+
+        <!-- TODO_AI_ASSURANCE_URL: wrap "Bull's AI Assurance model" in a link once the AI Assurance page is live. -->
+        <p class="pricing__shared">Every plan includes services, infrastructure and model tokens — part of <span class="accent">Bull's AI Assurance model</span>.</p>
+        <p class="pricing__note">All prices shown are monthly equivalents, billed annually.</p>
       </div>
     </section>
 

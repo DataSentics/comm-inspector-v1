@@ -669,58 +669,60 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 639px)  { .stack { grid-template-columns: 1fr; } }
 
 /* =================================================================
-   7b — COST CAP (pricing strip) — reuses the .trust band verbatim
-   (background, padding, dividers, responsive stacking). Only the left
-   block's headline and the text column leads differ from the numeric
-   trust strip, so those two overrides are scoped to #pricing.
+   7b — COST CAP (pricing) — hybrid-light block: full-width intro head
+   + three lightweight cards, sitting on the shared .trust peach band
+   (background only). Everything else is its own #pricing/.pricing*
+   layout so the numeric "Built by Bull" trust band is untouched.
    ================================================================= */
 .trust__title {
   font-family: var(--font-display); font-weight: 500;   /* Tosh A Medium — same as section H2s */
   font-size: clamp(20px, 2.6vw, 22px); line-height: 1.12; letter-spacing: -.02em;
   color: var(--ink); margin-top: 12px; max-width: 20ch;
 }
-#pricing .trust__desc { margin-top: 10px; max-width: 34ch; }
+/* --- Pricing cards ----------------------------------------------------------
+   Hybrid-light layout: full-width intro head, then three lightweight cards on
+   the shared peach band. Scoped to #pricing / .pricing* so the numeric
+   "Built by Bull" trust band (which shares the .trust class) is untouched. */
+#pricing { padding-block: clamp(56px, 7vw, 88px); }
+.pricing__head { margin-bottom: clamp(28px, 4vw, 44px); }
+.pricing__head .eyebrow-label { margin-bottom: 10px; }
 
-/* --- Tier columns as one implicit table ------------------------------------
-   The three tier columns share four row tracks — name, volume, price, coverage —
-   so equivalent facts line up across columns regardless of how each value wraps.
-   Scoped to #pricing so the numeric "Built by Bull" band is untouched. */
-#pricing .trust__inner {
-  grid-template-rows: auto auto auto auto;   /* name · volume · price · coverage */
-  row-gap: 0;                                 /* row rhythm comes from .tier__row padding */
-  align-items: stretch;                       /* let tier columns fill the shared tracks */
+.pricing__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px); align-items: stretch;
 }
-#pricing .trust__brand { grid-row: 1 / -1; align-self: center; }
-#pricing .trust__stat {
-  grid-row: 1 / span 4;
-  display: grid;
-  grid-template-rows: subgrid;                /* adopt the parent's four tracks */
+.pricing-card {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1px solid var(--hairline); border-radius: var(--r-card);
+  padding: clamp(24px, 2.4vw, 32px); box-shadow: var(--shadow-sm);
 }
-/* Tier name: leads the column through size + space, not weight. Tosh A Medium
-   (500) — the brand's own headline weight — reads calm and premium at this size,
-   where the display Black (900) looked shouty. */
-.tier__name {
+.pricing-card__name {
   font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(22px, 2.3vw, 27px); line-height: 1.05; letter-spacing: -.015em;
-  color: var(--ink); align-self: start; margin-bottom: 8px;
+  font-size: clamp(18px, 1.8vw, 20px); line-height: 1.15; letter-spacing: -.01em;
+  color: var(--ink);
 }
-/* Spec rows: a muted key above its value, with a hairline hinting table rows.
-   The hairlines align across columns because the rows share subgrid tracks. */
-.tier__row {
-  display: flex; flex-direction: column; gap: 3px;
-  padding-top: 12px; border-top: 1px solid rgba(160,48,26,.16);
+.pricing-card__for { margin-top: 4px; font-size: 14px; font-weight: 500; color: var(--orange); }
+/* Price is the hero of the card — the monthly-equivalent figure, large and in
+   ink, with the annual figure kept just below as the contractual anchor. */
+.pricing-card__price {
+  margin-top: 20px; font-family: var(--font-body); font-weight: 700;
+  font-size: clamp(30px, 3.4vw, 40px); line-height: 1.1; letter-spacing: -.02em; color: var(--ink);
 }
-.tier__key {
-  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .14em; color: var(--ink-soft);
+.pricing-card__unit { font-size: 14px; font-weight: 500; letter-spacing: normal; color: var(--ink-soft); }
+.pricing-card__billed { margin-top: 4px; font-size: 13px; color: var(--ink-soft); }
+.pricing-card__list {
+  list-style: none; margin: 20px 0 0; padding-top: 20px; border-top: 1px solid var(--hairline);
+  display: flex; flex-direction: column; gap: 10px;
 }
-.tier__val { font-size: 14px; color: var(--ink-soft); line-height: 1.4; }
-/* Price is the one row set in ink rather than muted grey — distinct as the
-   commercial figure, but far below the tier name in scale so it never competes. */
-.tier__val--price {
-  font-family: var(--font-body); font-weight: 700;
-  font-size: 16px; line-height: 1.2; letter-spacing: -.01em; color: var(--ink);
+.pricing-card__list li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--ink); }
+.pricing-card__list .hero__tick { width: 20px; height: 20px; }
+
+.pricing__shared {
+  margin-top: clamp(28px, 3.5vw, 40px); padding-top: 20px; border-top: 1px solid rgba(160,48,26,.16);
+  font-size: 14px; color: var(--ink-soft); line-height: 1.5;
 }
+.pricing__shared .accent { font-weight: 600; }
+.pricing__note { margin-top: 8px; font-size: 12.5px; color: var(--ink-soft); }
 
 /* =================================================================
    8 — FINAL CTA + form
@@ -853,6 +855,7 @@ a { color: inherit; text-decoration: none; }
    ================================================================= */
 @media (max-width: 1080px) {
   .modules { grid-template-columns: repeat(2, 1fr); }
+  .pricing__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 920px) {
@@ -882,11 +885,6 @@ a { color: inherit; text-decoration: none; }
   .trust:not(#pricing) .trust__logo { margin-inline: auto; }
   .trust:not(#pricing) .trust__desc { margin-inline: auto; }
   .trust:not(#pricing) .trust__stat { border-left: 0; padding-left: 0; text-align: center; }
-  /* Pricing subgrid re-flows: brand takes row 1 full width, the three tiers
-     span the four shared tracks (rows 2–5) so their rows still align. */
-  #pricing .trust__inner { grid-template-rows: auto auto auto auto auto; }
-  #pricing .trust__brand { grid-row: 1; align-self: start; margin-bottom: 22px; }
-  #pricing .trust__stat { grid-row: 2 / span 4; }
 
   .flow { grid-template-columns: 1fr; gap: 0; }
   .flow__connector { width: 2px; height: 30px; justify-self: center; background: linear-gradient(180deg, var(--hairline), #cdd4e0); margin: 6px 0; }
@@ -907,13 +905,10 @@ a { color: inherit; text-decoration: none; }
   .nav__divider { display: none; }
   .modules { grid-template-columns: 1fr; }
   .feature-list { grid-template-columns: 1fr; }
-  /* Pricing tiers stack to one column with hairline separators. The Bull
-     trust bar keeps its three stats on one row (see the ≤920 rule) — like
-     claimsense.app, which never drops the trust stats to a lone-stat row. */
-  #pricing .trust__inner { grid-template-columns: 1fr; grid-template-rows: none; }
-  #pricing .trust__stat, #pricing .trust__stat--first { border-left: 0; padding-left: 0; border-top: 1px solid rgba(160,48,26,.16); padding-top: 16px; }
-  #pricing .trust__brand { grid-row: auto; margin-bottom: 0; }
-  #pricing .trust__stat { grid-row: auto; display: block; }
+  /* Pricing cards stack to one column. The Bull trust bar keeps its three
+     stats on one row (see the ≤920 rule) — like claimsense.app, which never
+     drops the trust stats to a lone-stat row. */
+  .pricing__grid { grid-template-columns: 1fr; }
   .hero__outcomes { grid-template-columns: 1fr; gap: 10px; }
   .eyebrow-trust { gap: 8px 12px; font-size: 11px; }
   .footer__inner { flex-direction: column; }
