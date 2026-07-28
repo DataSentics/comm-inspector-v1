@@ -677,7 +677,7 @@ a { color: inherit; text-decoration: none; }
 .trust__title {
   font-family: var(--font-display); font-weight: 500;   /* Tosh A Medium — same as section H2s */
   font-size: clamp(20px, 2.6vw, 22px); line-height: 1.12; letter-spacing: -.02em;
-  color: var(--ink); margin-top: 12px; max-width: 20ch;
+  color: var(--ink); margin-top: 12px;
 }
 /* --- Pricing cards ----------------------------------------------------------
    Hybrid-light layout: full-width intro head, then three lightweight cards on
@@ -711,7 +711,7 @@ a { color: inherit; text-decoration: none; }
 .pricing-card__unit { font-size: 14px; font-weight: 500; letter-spacing: normal; color: var(--ink-soft); }
 .pricing-card__billed { margin-top: 4px; font-size: 13px; color: var(--ink-soft); }
 .pricing-card__list {
-  list-style: none; margin: 20px 0 0; padding-top: 20px; border-top: 1px solid var(--hairline);
+  list-style: none; margin: 20px 0 0; padding: 20px 0 0; border-top: 1px solid var(--hairline);
   display: flex; flex-direction: column; gap: 10px;
 }
 .pricing-card__list li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--ink); }
