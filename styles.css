@@ -989,19 +989,25 @@ a { color: inherit; text-decoration: none; }
   background: var(--grey-50);
   padding: clamp(28px, 4vw, 44px) 0;
 }
+/* Label sits in its own fixed column, top-aligned to the first line of copy
+   (the text is now multi-paragraph, so centring would float the label into
+   the middle of the block). */
 .positioning-bar__inner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  column-gap: 24px;
+  align-items: start;
 }
 .positioning-bar__label {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: var(--fs-eyebrow);
   font-weight: 700;
   letter-spacing: 1.2px;
   color: var(--orange);
   white-space: nowrap;
+  /* Optical nudge: aligns the 13px label's cap-height to the first line of the
+     16px copy beside it (matching cap tops, not line-box tops). */
+  padding-top: 2px;
 }
 .positioning-bar__text {
   font-family: var(--font-body);
@@ -1009,13 +1015,24 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink);
   margin: 0;
 }
+.positioning-bar__text + .positioning-bar__text { margin-top: 14px; }
+/* Kept here (not in the shared ≤620px block further up the file) so it lands
+   after the base rule above and actually wins the cascade. */
+@media (max-width: 620px) {
+  .positioning-bar__inner { grid-template-columns: 1fr; row-gap: 10px; }
+  .positioning-bar__label { padding-top: 0; }
+}
 
-/* --- 2b. Proof bar (3 cards, after the Built-by-Bull strip) --- */
+/* --- 2b. Proof bar (4 cards, after the Built-by-Bull strip) ---
+   3 tracks so the featured card spans the full width and the remaining
+   three sit in one clean row beneath it (a 2-track grid would strand the
+   fourth card alone on its own row). */
 .proof-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 32px;
+  align-items: start;
 }
 .proof-card {
   background: var(--grey-50);
