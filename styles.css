@@ -722,7 +722,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 14px; color: var(--ink-soft); line-height: 1.5;
 }
 .pricing__shared .accent { font-weight: 600; }
-.pricing__note { margin-top: 8px; font-size: 12.5px; color: var(--ink-soft); }
 
 /* =================================================================
    8 — FINAL CTA + form
