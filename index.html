@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=20260740" />
+  <link rel="stylesheet" href="styles.css?v=20260741" />
 
   <!-- Set a `js` flag before first paint so enhancement-only styles
        (e.g. the coverage bars animating up from zero) never flash
@@ -127,6 +127,13 @@
             <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Request a Demo</a>
             <a class="hero__cta-alt" href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">or watch the 30-min webinar ↗</a>
           </div>
+        </div>
+
+        <!-- Decorative hero illustration (column 2). Purely visual — empty alt
+             + aria-hidden. Intrinsic 1536×1024 set as width/height to reserve
+             the aspect ratio and avoid layout shift. Hidden ≤920px. -->
+        <div class="hero__viz" aria-hidden="true">
+          <img class="hero__viz-img" src="Assets/hero-illustration.png" alt="" width="1536" height="1024" decoding="async" />
         </div>
       </div>
     </section>
