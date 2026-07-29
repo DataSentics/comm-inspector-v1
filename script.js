@@ -134,6 +134,40 @@
     counters.forEach(function (el) { mio.observe(el); });
   }
 
+  /* --- FAQ: per-question accordions + "view all" list disclosure ---
+     Two independent layers. Each question toggles only its own answer
+     (several can be open at once), and separately the list shows 4 of
+     12 until expanded. Both are CSS-gated behind .js, so this script
+     only flips classes and aria state. */
+  var faq = document.getElementById("faq");
+  if (faq) {
+    faq.querySelectorAll(".faq__q").forEach(function (q) {
+      q.addEventListener("click", function () {
+        var item = q.closest(".faq__item");
+        if (!item) return;
+        var open = !item.classList.contains("is-open");
+        item.classList.toggle("is-open", open);
+        q.setAttribute("aria-expanded", String(open));
+      });
+    });
+
+    var moreBtn = faq.querySelector("[data-faq-more]");
+    var lessBtn = faq.querySelector("[data-faq-less]");
+    if (moreBtn && lessBtn) {
+      var setFaqExpanded = function (expanded) {
+        faq.classList.toggle("faq--expanded", expanded);
+        moreBtn.setAttribute("aria-expanded", String(expanded));
+      };
+      moreBtn.addEventListener("click", function () { setFaqExpanded(true); });
+      lessBtn.addEventListener("click", function () {
+        setFaqExpanded(false);
+        // The collapse button sits far down the page; without this the
+        // viewport would be left below the now-shorter section.
+        moreBtn.scrollIntoView({ block: "center" });
+      });
+    }
+  }
+
   /* --- "Request a Demo" jumps to the form and focuses the first field --- */
   document.querySelectorAll("[data-demo-open]").forEach(function (btn) {
     btn.addEventListener("click", function () {

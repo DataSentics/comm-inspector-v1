@@ -705,14 +705,175 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- 7b — FAQ TEASER                                               -->
-    <!-- Outcome: quiet link-out, not a competing CTA — per            -->
-    <!-- content-draft-v1 §13.                                          -->
+    <!-- 7b — FAQ                                                      -->
+    <!-- Outcome: answer the recurring evaluation questions on-page.   -->
+    <!-- Two independent disclosure layers: each question is its own   -->
+    <!-- accordion, and the list itself shows 4 of 12 until expanded.  -->
+    <!-- Both are .js-gated, so with JS off all 12 Q&As are visible.   -->
     <!-- ============================================================= -->
-    <section class="section section--white faq-teaser reveal" aria-labelledby="faqTeaserHeading">
-      <div class="container faq-teaser__inner">
-        <p id="faqTeaserHeading" class="faq-teaser__heading">Have more questions?</p>
-        <a href="/faq/" class="faq-teaser__link">View all frequently asked questions →</a>
+    <section class="section section--white reveal" id="faq" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="faqHeading" class="section__title">Common questions</h2>
+          <p class="section__sub">Quick answers to the questions we hear most from teams evaluating AI Communication Inspector.</p>
+        </div>
+
+        <div class="faq__list">
+          <div class="faq__item">
+            <h3 class="faq__q-wrap">
+              <button class="faq__q" aria-expanded="false" aria-controls="faqA-1">
+                <span class="faq__q-text">What is AI Communication Inspector?</span>
+                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </h3>
+            <div class="faq__a" id="faqA-1" role="region">
+              <p>AI Communication Inspector analyses customer conversations and turns them into structured, actionable insights for CRM, contact centre, customer experience, sales, compliance and risk processes.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__q-wrap">
+              <button class="faq__q" aria-expanded="false" aria-controls="faqA-2">
+                <span class="faq__q-text">What types of communication can it analyse?</span>
+                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </h3>
+            <div class="faq__a" id="faqA-2" role="region">
+              <p>It can process call recordings, meeting recordings, existing transcripts, chats, emails and agent notes. Audio can be converted into text before analysis.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__q-wrap">
+              <button class="faq__q" aria-expanded="false" aria-controls="faqA-3">
+                <span class="faq__q-text">What can the solution identify?</span>
+                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </h3>
+            <div class="faq__a" id="faqA-3" role="region">
+              <p>It can detect customer needs, life events, sales opportunities, product feedback, service issues, compliance risks and process gaps based on business questions defined with your team.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__q-wrap">
+              <button class="faq__q" aria-expanded="false" aria-controls="faqA-4">
+                <span class="faq__q-text">How does AI Communication Inspector work?</span>
+                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </h3>
+            <div class="faq__a" id="faqA-4" role="region">
+              <p>The solution captures communication data, prepares and analyses it against predefined questions, and delivers the results as structured data, dashboards, alerts or signals for other business systems.</p>
+            </div>
+          </div>
+
+          <button class="faq__toggle" data-faq-more aria-expanded="false" aria-controls="faqMore">
+            View all frequently asked questions
+            <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="faq__more" id="faqMore">
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-5">
+                  <span class="faq__q-text">Can it classify and summarise conversations?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-5" role="region">
+                <p>Yes. It can automatically generate conversation summaries and classify interactions using a tailored, multi-level taxonomy.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-6">
+                  <span class="faq__q-text">Can it support quality assurance and compliance monitoring?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-6" role="region">
+                <p>Yes. The solution can evaluate whether agents follow required scripts, processes and regulatory rules, while providing the relevant conversation context as supporting evidence.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-7">
+                  <span class="faq__q-text">Are the results explainable?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-7" role="region">
+                <p>Yes. Each detected insight can be linked to the relevant part of the conversation, the question evaluated and other supporting information, allowing users to review the result.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-8">
+                  <span class="faq__q-text">Can the outputs be integrated into our existing systems?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-8" role="region">
+                <p>Yes. Results can be delivered to CRM, data warehouses, campaign tools, reporting platforms and dashboards as structured fields, files or other agreed formats.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-9">
+                  <span class="faq__q-text">Can the solution be customised for different business teams?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-9" role="region">
+                <p>Yes. The same platform can be configured for different use cases across sales, service, contact centre operations, compliance, risk, product management, customer experience and data teams.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-10">
+                  <span class="faq__q-text">Where can AI Communication Inspector be deployed?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-10" role="region">
+                <p>It can be deployed in your Azure, AWS or GCP environment and integrated with your existing communication sources, data platform and business applications. The delivery can include analysis, configuration, integration, testing, training, monitoring and ongoing support.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-11">
+                  <span class="faq__q-text">Can the AI understand different languages and dialects?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-11" role="region">
+                <p>Yes. For instance, in one implementation, the AI successfully supervised millions of calls in "Taglish" (a mix of Tagalog and English) for a large-scale collections centre.</p>
+              </div>
+            </div>
+
+            <div class="faq__item">
+              <h3 class="faq__q-wrap">
+                <button class="faq__q" aria-expanded="false" aria-controls="faqA-12">
+                  <span class="faq__q-text">What are the specific deliverables of the implementation package?</span>
+                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </h3>
+              <div class="faq__a" id="faqA-12" role="region">
+                <p>The package includes data ingestion support, prompt definition, report customisation, monitoring setup, and full team enablement.</p>
+              </div>
+            </div>
+
+            <button class="faq__collapse" data-faq-less aria-label="Show fewer questions">
+              <svg class="faq__chevron faq__chevron--up" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -801,6 +962,7 @@
       <nav class="footer__col" aria-label="Resources">
         <h2 class="footer__heading">Resources</h2>
         <ul class="footer__list">
+          <li><a class="footer__link" href="#faq">FAQ</a></li>
           <li><a class="footer__link" href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">Webinar: Find insights in every interaction ↗</a></li>
           <!-- TODO_PRIVACY_URL: link to the real Privacy Policy. -->
           <li><a class="footer__link" href="#">Privacy Policy</a></li>
