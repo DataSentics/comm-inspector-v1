@@ -1054,6 +1054,9 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-soft);
   margin: 0;
 }
+/* Real paragraph gap where a column body is split into two beats —
+   plain margin:0 above would leave them visually run-together. */
+.case-study__col p + p { margin-top: 10px; }
 .case-study__label {
   font-family: var(--font-body);
   font-weight: 700;
