@@ -1183,10 +1183,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   padding: 6px 16px; border-radius: 999px; white-space: nowrap;
 }
-/* Bull logo inline with the featured card's own title — top-aligned so the
-   logo anchors correctly even if the title wraps to 2-3 lines. */
-.bpb-card__brand { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
-.bpb-card__brand-logo { height: 40px; width: auto; flex-shrink: 0; margin-top: 1px; }
 .bpb-card__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); margin-bottom: 10px; }
 .bpb-card__lead { font-size: 15px; color: var(--ink-soft); line-height: var(--lh-prose); margin: 0 0 20px; }
 .bpb-card__list {
@@ -1209,7 +1205,7 @@ a { color: inherit; text-decoration: none; }
 /* Pinned to the card bottom (margin-top: auto in a flex column) so the
    rating row lines up across all three cards regardless of list length —
    same trick .module-card__bestfor already uses. */
-.bpb-card__rating { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.bpb-card__rating { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline); display: flex; align-items: center; justify-content: center; gap: 12px; }
 .bpb-card__rating-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); }
 .value-rating { display: flex; gap: 6px; }
 .value-rating__dot { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #cdd4e0; background: transparent; }
