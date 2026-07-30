@@ -168,6 +168,25 @@
     }
   }
 
+  /* --- Build vs. Partner vs. Buy: sync Build/Buy SaaS to equal height,
+     excluding the (deliberately taller) featured card. CSS Grid has no
+     way to match two siblings' height while excluding a third from the
+     same row's height calculation, so this is a one-time static
+     measurement, re-run on resize — not an animation. --- */
+  var bpbGrid = document.querySelector(".bpb__grid");
+  if (bpbGrid) {
+    var syncBpbHeights = function () {
+      var cards = bpbGrid.querySelectorAll(".bpb-card:not(.bpb-card--featured)");
+      if (cards.length < 2) return;
+      cards.forEach(function (c) { c.style.minHeight = ""; });
+      if (window.matchMedia("(max-width: 860px)").matches) return; // single-column stack, nothing to sync
+      var max = Math.max.apply(null, Array.prototype.map.call(cards, function (c) { return c.offsetHeight; }));
+      cards.forEach(function (c) { c.style.minHeight = max + "px"; });
+    };
+    window.addEventListener("load", syncBpbHeights);
+    window.addEventListener("resize", syncBpbHeights);
+  }
+
   /* --- "Request a Demo" jumps to the form and focuses the first field --- */
   document.querySelectorAll("[data-demo-open]").forEach(function (btn) {
     btn.addEventListener("click", function () {

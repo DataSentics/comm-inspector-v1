@@ -1151,6 +1151,10 @@ a { color: inherit; text-decoration: none; }
    third colour state. The middle card is lifted with an orange border +
    shadow + pill, not a full dark card, so "recommended" reads through
    border/shadow/label, never colour alone. --- */
+/* Only "partner" is orange in this section's eyebrow (via the shared
+   .accent utility) — the shared .eyebrow-label rule stays untouched
+   everywhere else on the page. */
+.eyebrow-label--bpb { color: var(--ink-soft); }
 .bpb__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1182,11 +1186,11 @@ a { color: inherit; text-decoration: none; }
 /* Bull logo inline with the featured card's own title — top-aligned so the
    logo anchors correctly even if the title wraps to 2-3 lines. */
 .bpb-card__brand { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
-.bpb-card__brand-logo { height: 28px; width: auto; flex-shrink: 0; margin-top: 2px; }
+.bpb-card__brand-logo { height: 40px; width: auto; flex-shrink: 0; margin-top: 1px; }
 .bpb-card__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); margin-bottom: 10px; }
 .bpb-card__lead { font-size: 15px; color: var(--ink-soft); line-height: var(--lh-prose); margin: 0 0 20px; }
 .bpb-card__list {
-  list-style: none; margin: 0 0 20px; padding-top: 18px; border-top: 1px solid var(--hairline);
+  list-style: none; margin: 0 0 20px; padding: 18px 0 0; border-top: 1px solid var(--hairline);
   display: flex; flex-direction: column; gap: 12px;
 }
 .bpb-card__list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.4; }
@@ -1214,9 +1218,11 @@ a { color: inherit; text-decoration: none; }
 /* Featured card goes dark navy — reuse the same light-on-dark recipe
    .section--blue-deep already establishes for .stack__item, scoped here
    instead since the section itself stays .section--grey. */
-.bpb-card--featured .bpb-card__title { color: var(--on-blue); }
+.bpb-card--featured .bpb-card__title { color: var(--orange); }
 .bpb-card--featured .bpb-card__lead { color: var(--on-blue-soft); }
-.bpb-card--featured .bpb-card__list { border-top-color: var(--hairline-blue); }
+/* This card's list also gets distinctly more breathing room than the
+   side cards' compact spacing. */
+.bpb-card--featured .bpb-card__list { border-top-color: var(--hairline-blue); padding-top: 32px; margin-bottom: 32px; }
 .bpb-card--featured .bpb-card__list li { color: var(--on-blue); }
 .bpb-card--featured .bpb-card__why {
   background: rgba(255, 255, 255, 0.06);
