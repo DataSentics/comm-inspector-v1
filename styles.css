@@ -770,6 +770,10 @@ a { color: inherit; text-decoration: none; }
 .feature-list__tick {
   flex-shrink: 0; width: 22px; height: 22px; color: var(--orange); margin-top: 1px;
 }
+/* Single flex item for the label text — without this, .feature-list li's
+   flex/gap treats every inline .mono span inside as its own flex item,
+   scattering multi-term labels and inserting the gap between them. */
+.feature-list__text { flex: 1; min-width: 0; }
 
 /* 3-up capability cards on sub-pages (reuse .stack__item visuals) */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 24px); }
