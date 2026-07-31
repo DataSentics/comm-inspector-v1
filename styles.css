@@ -744,10 +744,10 @@ a { color: inherit; text-decoration: none; }
 .backlink {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
-  color: var(--ink-soft); margin-bottom: 22px;
+  color: var(--orange); margin-bottom: 22px;
   transition: color .2s var(--ease);
 }
-.backlink:hover { color: var(--orange); }
+.backlink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .backlink__chevron { color: var(--orange); }
 .subpage-hero__eyebrow { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: var(--orange); margin-bottom: 14px; }
 .subpage-hero__title {
