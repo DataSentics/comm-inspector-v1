@@ -1280,3 +1280,47 @@ a { color: inherit; text-decoration: none; }
 .js .faq__toggle { display: inline-flex; }
 .js .faq--expanded .faq__toggle { display: none; }
 .js .faq--expanded .faq__collapse { display: inline-flex; }
+
+/* =================================================================
+   PRICING PAGE (pricing.html)
+   ================================================================= */
+/* Reserved tier-table slot note — centred, quiet, until real figures
+   land in the TIER TABLE SLOT comment above it. */
+.pricing-tier-note {
+  text-align: center; max-width: 60ch; margin: clamp(32px, 4vw, 48px) auto 0;
+  font-size: var(--fs-body); color: var(--ink-soft); line-height: var(--lh-prose);
+}
+
+/* --- "Let's talk pricing" conversion section: dark panel, a faded Bull
+   monogram bleeding off the bottom-right corner (same recipe as
+   .footer__watermark), two columns — copy+ticks, then the quote form. --- */
+.quote { position: relative; overflow: hidden; }
+.quote__monogram {
+  position: absolute; right: -20px; bottom: -20px;
+  width: 240px; opacity: .12; pointer-events: none;
+}
+@media (max-width: 768px) {
+  .quote__monogram { width: 120px; opacity: .07; }
+}
+.quote__grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 64px); align-items: start;
+}
+@media (max-width: 820px) { .quote__grid { grid-template-columns: 1fr; } }
+.quote__ticks { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 14px; }
+.quote__ticks li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--on-blue); line-height: var(--lh-prose); }
+.quote__ticks .hero__tick { margin-top: 1px; }
+
+/* Heading inside the white .demo-form card — the form itself already
+   supplies the card's border/radius/shadow, this just labels it. */
+.quote-form__heading { font-family: var(--font-display); font-weight: 500; font-size: 20px; color: var(--ink); margin: 0 0 18px; }
+
+/* Modules-of-interest checkboxes, reusing .demo-form's field language.
+   <fieldset> ships browser default border/padding/margin — reset both
+   so it sits flush like every other .demo-form__row. */
+.demo-form fieldset { border: 0; padding: 0; margin: 0; }
+.demo-form legend { padding: 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+.demo-form__hint { margin: 4px 0 10px; font-size: 13px; color: var(--ink-soft); }
+.checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 15px; font-weight: 400; color: var(--ink); cursor: pointer; }
+.checkbox-row input[type="checkbox"] { flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--orange); }

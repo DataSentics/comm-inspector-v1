@@ -223,4 +223,28 @@
       // If the endpoint IS wired, we do nothing and let the form post normally.
     });
   }
+
+  /* --- Custom quote form handling (pricing.html) — mirrors the demo
+     form guard above. Distinct var names (quoteForm/quoteNote rather
+     than reusing form/note) so the two submit closures never share
+     state if a future page ever carried both forms. --- */
+  var quoteForm = document.getElementById("quoteForm");
+  var quoteNote = document.getElementById("quoteFormNote");
+  if (quoteForm && quoteNote) {
+    quoteForm.addEventListener("submit", function (e) {
+      if (!quoteForm.checkValidity()) {
+        return; // let the browser show its messages
+      }
+
+      var quoteEndpointWired = quoteForm.getAttribute("action") !== "TODO_FORM_ENDPOINT";
+      if (!quoteEndpointWired) {
+        e.preventDefault();
+        quoteNote.textContent =
+          "Thank you — this is a demo placeholder. Wire TODO_FORM_ENDPOINT to send this request.";
+        quoteNote.className = "demo-form__note is-ok";
+        quoteForm.reset();
+      }
+      // If the endpoint IS wired, we do nothing and let the form post normally.
+    });
+  }
 })();
