@@ -650,6 +650,11 @@ a { color: inherit; text-decoration: none; }
 .stack__item { border: 1px solid var(--hairline); border-radius: var(--r-card); padding: 32px; background: var(--grey-50); display: flex; flex-direction: column; }
 .stack__item .icon-chip { width: 40px; height: 40px; margin-bottom: 20px; }   /* 40px tile, 20px gap → title */
 .stack__item .icon-chip .icon { width: 20px; height: 20px; }
+/* #stack's cards dropped their icon-chips (title-only now), so they need
+   less padding than the sub-pages' 3-up capability cards, which keep the
+   icon and the base 32px. Scoped to #stack only — .stack__item/.icon-chip
+   stay untouched for the sub-pages. */
+#stack .stack__item { padding: 24px; }
 .stack__title { font-family: var(--font-display); font-weight: 500; font-size: 21px; color: var(--ink); margin-bottom: 10px; }
 .stack__body { font-size: 16px; color: var(--ink-soft); line-height: var(--lh-prose); }
 /* Keep card bodies full on the first line (greedy), only avoiding a lone
