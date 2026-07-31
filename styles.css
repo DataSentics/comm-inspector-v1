@@ -341,7 +341,13 @@ a { color: inherit; text-decoration: none; }
 .hero__viz-img {
   display: block;
   width: 100%;
-  max-width: clamp(320px, 34vw, 420px);   /* photo is 425px native — don't upscale past it (keeps it crisp) */
+  /* Sized (not just capped) so the photo's own height — driven purely by
+     this width via its locked aspect ratio, no cropping — sits inside the
+     copy column's own vertical span. .hero__inner centers the two columns
+     (align-items: center), so as long as the photo is shorter than the
+     copy block, centering alone keeps its top above the eyebrow row and
+     its bottom above the CTA — no separate top/bottom rules needed. */
+  max-width: clamp(260px, 27vw, 330px);
   height: auto;
   border-radius: var(--r-card-lg);         /* rounded corners to match the Bull photo (~16–20px) */
   object-fit: cover;
