@@ -667,23 +667,29 @@ a { color: inherit; text-decoration: none; }
 .final-cta__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
 .final-cta .section__title { max-width: 16ch; }
 
-/* Presenter — puts a face to the demo. Circular avatar with a soft orange
-   ring; falls back to initials on the gradient if the photo can't load. */
-.presenter { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-.presenter__avatar {
-  position: relative; flex-shrink: 0;
-  width: 84px; height: 84px; border-radius: 50%;
-  display: grid; place-items: center;
-  background: linear-gradient(135deg, #FF5539, #FF9280);
-  color: #fff; font-family: var(--font-display); font-weight: 500; font-size: 30px; letter-spacing: .02em;
-  border: 3px solid var(--white);
-  box-shadow: 0 0 0 2px rgba(255,85,57,.35), var(--shadow-md);
+/* CTA points — ClaimSense-style numbered "what you'll get on the call"
+   list, replacing the old presenter card. Semantic <ol>: the order is
+   meaningful, so the number badges themselves are aria-hidden. */
+.cta-points {
+  list-style: none; padding: 0; margin: clamp(24px, 3vw, 32px) 0 0;
+  display: flex; flex-direction: column; gap: 18px;
 }
-.presenter__avatar::before { content: attr(data-initials); }
-.presenter__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-.presenter__id { display: flex; flex-direction: column; gap: 2px; }
-.presenter__name { font-family: var(--font-display); font-weight: 500; font-size: 18px; color: var(--ink); }
-.presenter__role { font-size: 13px; color: var(--ink-soft); line-height: 1.35; }
+.cta-point { display: flex; gap: 14px; align-items: flex-start; }
+.cta-point__num {
+  flex: none;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  background: var(--orange); border-radius: 7px;
+  color: var(--ink); font-family: var(--font-body); font-weight: 700; font-size: 13px;
+}
+.cta-point__body { display: flex; flex-direction: column; gap: 3px; }
+.cta-point__title { font-weight: 700; color: var(--ink); font-size: 15px; }
+.cta-point__desc { font-size: var(--fs-compact); color: var(--ink-soft); line-height: 1.5; }
+/* Quiet trust line — hairline separation, no icon, no colour emphasis. */
+.cta-trust {
+  margin-top: clamp(20px, 2.6vw, 28px); padding-top: 18px; border-top: 1px solid var(--hairline);
+  font-size: 13px; color: var(--ink-soft); line-height: 1.5;
+}
 .demo-form { background: var(--white); border: 1px solid var(--hairline); border-radius: var(--r-card); padding: clamp(24px, 3vw, 34px); box-shadow: var(--shadow-md); }
 .demo-form__row { margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
 .demo-form label { font-size: 14px; font-weight: 600; color: var(--ink); }
