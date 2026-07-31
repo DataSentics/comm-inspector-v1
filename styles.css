@@ -834,6 +834,7 @@ a { color: inherit; text-decoration: none; }
 
   .final-cta__inner { grid-template-columns: 1fr; }
   .final-cta .section__title { max-width: none; }
+  .final-cta__title-break { display: none; }
 }
 
 @media (max-width: 620px) {
