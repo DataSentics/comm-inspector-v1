@@ -247,7 +247,7 @@ a { color: inherit; text-decoration: none; }
 .nav__backed { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); }
 .nav__bull { height: 18px; width: auto; }
 
-.nav__links { display: flex; gap: 28px; margin-left: auto; }
+.nav__links { display: flex; align-items: center; gap: 28px; margin-left: auto; }
 .nav__links a { font-size: 15px; color: var(--ink-soft); font-weight: 500; transition: color .2s var(--ease); }
 .nav__links a:hover { color: var(--ink); }
 
@@ -1319,7 +1319,12 @@ a { color: inherit; text-decoration: none; }
 /* Modules-of-interest checkboxes, reusing .demo-form's field language.
    <fieldset> ships browser default border/padding/margin — reset both
    so it sits flush like every other .demo-form__row. */
-.demo-form fieldset { border: 0; padding: 0; margin: 0; }
+/* Higher specificity than .demo-form__row (class+element beats class
+   alone), so the reset must restate the row's own bottom margin rather
+   than zeroing it out — otherwise the next row (the message textarea)
+   crowds straight up against the last checkbox. Slightly more than the
+   other rows' 16px, since this block is visually denser. */
+.demo-form fieldset { border: 0; padding: 0; margin: 0 0 24px; }
 .demo-form legend { padding: 0; font-size: 14px; font-weight: 600; color: var(--ink); }
 .demo-form__hint { margin: 4px 0 10px; font-size: 13px; color: var(--ink-soft); }
 .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 15px; font-weight: 400; color: var(--ink); cursor: pointer; }
