@@ -340,25 +340,12 @@ a { color: inherit; text-decoration: none; }
 .hero__viz { display: flex; justify-content: flex-end; }
 .hero__viz-img {
   display: block;
-  /* The asset carries ~47% empty transparent padding on its left (and 20/25%
-     top/bottom), so the artwork is only about half the file's width. To render
-     the art at a usable size we deliberately oversize the box past its grid
-     column and let it hang left — the overhanging region is fully transparent,
-     so it never visually collides with the copy. pointer-events:none keeps the
-     invisible overhang from swallowing clicks on the CTA underneath.
-     If the asset is ever cropped to its artwork, drop this back to
-     width:100% + max-width:clamp(360px,42vw,560px). */
-  width: clamp(480px, 56vw, 820px);
-  max-width: none;
-  flex: none;
+  width: 100%;
+  max-width: clamp(320px, 34vw, 420px);   /* photo is 425px native — don't upscale past it (keeps it crisp) */
   height: auto;
-  object-fit: contain;
-  pointer-events: none;
-  /* The asset also has ~2% empty padding on its right edge, which would leave
-     the artwork sitting short of the gutter. Nudge by that 2% (translate % is
-     relative to the element's own width) so the artwork — not the file's empty
-     bounding box — lines up with the nav CTA above it. */
-  transform: translateX(2%);
+  border-radius: var(--r-card-lg);         /* rounded corners to match the Bull photo (~16–20px) */
+  object-fit: cover;
+  box-shadow: var(--shadow-md);            /* subtle depth for the framed look — drop if you prefer flat */
 }
 .hero__h1 {
   font-family: var(--font-display);
