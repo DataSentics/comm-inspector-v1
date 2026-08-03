@@ -199,28 +199,50 @@
   });
 
   /* --- Demo form handling ---
-     If TODO_FORM_ENDPOINT has not been wired to a real endpoint, we
-     intercept the submit and show a friendly placeholder confirmation
-     instead of posting to a non-existent URL. Once the endpoint is set,
-     remove the guard below (or it will simply pass through). */
+     Submits to Web3Forms via fetch so we can show the inline confirmation
+     copy below instead of a page redirect. */
   var form = document.getElementById("demoForm");
   var note = document.getElementById("demoFormNote");
   if (form && note) {
     form.addEventListener("submit", function (e) {
-      // Native validation first.
+      e.preventDefault();
       if (!form.checkValidity()) {
-        return; // let the browser show its messages
+        form.reportValidity();
+        return;
       }
 
-      var endpointWired = form.getAttribute("action") !== "TODO_FORM_ENDPOINT";
-      if (!endpointWired) {
-        e.preventDefault();
-        note.textContent =
-          "Thank you — this is a demo placeholder. Wire TODO_FORM_ENDPOINT to send this request.";
-        note.className = "demo-form__note is-ok";
-        form.reset();
-      }
-      // If the endpoint IS wired, we do nothing and let the form post normally.
+      var submitBtn = form.querySelector("button[type=submit]");
+      var data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
+
+      note.textContent = "";
+      note.className = "demo-form__note";
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.getAttribute("action"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (result) {
+          if (result.success) {
+            note.innerHTML =
+              "Thank you. Your walkthrough request is in.<br><br>We will email you within one business day to schedule it. A confirmation is on its way to your inbox now.";
+            note.className = "demo-form__note is-ok";
+            form.reset();
+          } else {
+            note.textContent = "Something went wrong. Please try again or email us directly.";
+            note.className = "demo-form__note is-err";
+          }
+        })
+        .catch(function () {
+          note.textContent = "Something went wrong. Please try again or email us directly.";
+          note.className = "demo-form__note is-err";
+        })
+        .then(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
   }
 

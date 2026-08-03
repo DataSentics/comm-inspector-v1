@@ -1000,10 +1000,12 @@
           <p class="cta-trust">Trusted where every conversation counts — including a 30M+ calls-a-year production deployment, built by Bull.</p>
         </div>
 
-        <!-- Demo request form.
-             TODO_FORM_ENDPOINT: wire `action` to the real demo-request / booking endpoint.
+        <!-- Demo request form. Submits to Web3Forms; script.js intercepts
+             the submit to show the inline confirmation copy below.
              Single-step only. No competing CTAs. -->
-        <form class="demo-form" id="demoForm" action="TODO_FORM_ENDPOINT" method="post" novalidate>
+        <form class="demo-form" id="demoForm" action="https://api.web3forms.com/submit" method="post" novalidate>
+          <input type="hidden" name="access_key" value="8cf94256-3ecf-442a-9c0c-69c4c50f3c9d" />
+          <input type="hidden" name="subject" value="New walkthrough request — AI Communication Inspector" />
           <div class="demo-form__row">
             <label for="df-name">Full name</label>
             <input id="df-name" name="name" type="text" autocomplete="name" required />
@@ -1020,8 +1022,9 @@
             <label for="df-message">Message <span class="optional">(optional)</span></label>
             <textarea id="df-message" name="message" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn btn--primary btn--lg btn--block">See it on your data</button>
+          <button type="submit" class="btn btn--primary btn--lg btn--block">Book a walkthrough</button>
           <p class="demo-form__note" id="demoFormNote" role="status" aria-live="polite"></p>
+          <p class="demo-form__privacy">By submitting this form, you agree to our <a href="#">Privacy Policy</a>. We'll never share your information.</p>
         </form>
       </div>
     </section>
