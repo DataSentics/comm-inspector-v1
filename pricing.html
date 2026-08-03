@@ -153,9 +153,11 @@
           </ul>
         </div>
 
-        <!-- Custom quote request form.
-             TODO_FORM_ENDPOINT: wire `action` to the real quote-request endpoint. -->
-        <form class="demo-form" id="quoteForm" action="TODO_FORM_ENDPOINT" method="post" novalidate>
+        <!-- Custom quote request form. Submits to Web3Forms; script.js
+             intercepts the submit to show the inline confirmation copy below. -->
+        <form class="demo-form" id="quoteForm" action="https://api.web3forms.com/submit" method="post" novalidate>
+          <input type="hidden" name="access_key" value="d099f0c5-cac8-4d59-aed2-92ccf5ca698e" />
+          <input type="hidden" name="subject" value="New quote request — AI Communication Inspector" />
           <h3 class="quote-form__heading">Request a custom quote</h3>
           <div class="demo-form__row">
             <label for="qf-name">Full name</label>

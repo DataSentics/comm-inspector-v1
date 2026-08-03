@@ -247,26 +247,57 @@
   }
 
   /* --- Custom quote form handling (pricing.html) — mirrors the demo
-     form guard above. Distinct var names (quoteForm/quoteNote rather
-     than reusing form/note) so the two submit closures never share
-     state if a future page ever carried both forms. --- */
+     form's Web3Forms fetch submit above. Distinct var names
+     (quoteForm/quoteNote rather than reusing form/note) so the two
+     submit closures never share state. --- */
   var quoteForm = document.getElementById("quoteForm");
   var quoteNote = document.getElementById("quoteFormNote");
   if (quoteForm && quoteNote) {
     quoteForm.addEventListener("submit", function (e) {
+      e.preventDefault();
       if (!quoteForm.checkValidity()) {
-        return; // let the browser show its messages
+        quoteForm.reportValidity();
+        return;
       }
 
-      var quoteEndpointWired = quoteForm.getAttribute("action") !== "TODO_FORM_ENDPOINT";
-      if (!quoteEndpointWired) {
-        e.preventDefault();
-        quoteNote.textContent =
-          "Thank you — this is a demo placeholder. Wire TODO_FORM_ENDPOINT to send this request.";
-        quoteNote.className = "demo-form__note is-ok";
-        quoteForm.reset();
-      }
-      // If the endpoint IS wired, we do nothing and let the form post normally.
+      var quoteSubmitBtn = quoteForm.querySelector("button[type=submit]");
+      var quoteData = {};
+      new FormData(quoteForm).forEach(function (value, key) {
+        if (key === "modules") {
+          quoteData.modules = quoteData.modules ? quoteData.modules + ", " + value : value;
+        } else {
+          quoteData[key] = value;
+        }
+      });
+
+      quoteNote.textContent = "";
+      quoteNote.className = "demo-form__note";
+      if (quoteSubmitBtn) quoteSubmitBtn.disabled = true;
+
+      fetch(quoteForm.getAttribute("action"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(quoteData)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (result) {
+          if (result.success) {
+            quoteNote.innerHTML =
+              "Thank you. Your quote request is in.<br><br>We will email you within one business day to confirm what we need in order to price it accurately. A confirmation is on its way to your inbox now.";
+            quoteNote.className = "demo-form__note is-ok";
+            quoteForm.reset();
+          } else {
+            quoteNote.textContent = "Something went wrong. Please try again or email us directly.";
+            quoteNote.className = "demo-form__note is-err";
+          }
+        })
+        .catch(function () {
+          quoteNote.textContent = "Something went wrong. Please try again or email us directly.";
+          quoteNote.className = "demo-form__note is-err";
+        })
+        .then(function () {
+          if (quoteSubmitBtn) quoteSubmitBtn.disabled = false;
+        });
     });
   }
 })();
