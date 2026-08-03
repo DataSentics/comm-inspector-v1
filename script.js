@@ -198,6 +198,29 @@
     });
   });
 
+  /* --- Force English validation-bubble copy ---
+     The native "Please fill in this field." bubble is localized by the
+     browser/OS language, not by this page's lang="en" — so a Czech-locale
+     browser shows Czech text regardless. Override with setCustomValidity
+     so the bubble always reads in English, and clear it on input so the
+     field still revalidates normally once corrected. */
+  var validatedFields = document.querySelectorAll(
+    "#demoForm input[required], #demoForm textarea[required], " +
+    "#quoteForm input[required], #quoteForm textarea[required]"
+  );
+  validatedFields.forEach(function (field) {
+    field.addEventListener("invalid", function () {
+      if (field.validity.valueMissing) {
+        field.setCustomValidity("Please fill in this field.");
+      } else if (field.validity.typeMismatch && field.type === "email") {
+        field.setCustomValidity("Please enter a valid email address.");
+      }
+    });
+    field.addEventListener("input", function () {
+      field.setCustomValidity("");
+    });
+  });
+
   /* --- Demo form handling ---
      Submits to Web3Forms via fetch so we can show the inline confirmation
      copy below instead of a page redirect. */
