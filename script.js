@@ -226,7 +226,9 @@
      copy below instead of a page redirect. */
   var form = document.getElementById("demoForm");
   var note = document.getElementById("demoFormNote");
-  if (form && note) {
+  var fields = document.getElementById("demoFormFields");
+  var success = document.getElementById("demoFormSuccess");
+  if (form && note && fields && success) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) {
@@ -250,10 +252,9 @@
         .then(function (res) { return res.json(); })
         .then(function (result) {
           if (result.success) {
-            note.innerHTML =
-              "Thank you. Your walkthrough request is in.<br><br>We will email you within one business day to schedule it. A confirmation is on its way to your inbox now.";
-            note.className = "demo-form__note is-ok";
             form.reset();
+            fields.hidden = true;
+            success.hidden = false;
           } else {
             note.textContent = "Something went wrong. Please try again or email us directly.";
             note.className = "demo-form__note is-err";
@@ -275,7 +276,9 @@
      submit closures never share state. --- */
   var quoteForm = document.getElementById("quoteForm");
   var quoteNote = document.getElementById("quoteFormNote");
-  if (quoteForm && quoteNote) {
+  var quoteFields = document.getElementById("quoteFormFields");
+  var quoteSuccess = document.getElementById("quoteFormSuccess");
+  if (quoteForm && quoteNote && quoteFields && quoteSuccess) {
     quoteForm.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!quoteForm.checkValidity()) {
@@ -305,10 +308,9 @@
         .then(function (res) { return res.json(); })
         .then(function (result) {
           if (result.success) {
-            quoteNote.innerHTML =
-              "Thank you. Your quote request is in.<br><br>We will email you within one business day to confirm what we need in order to price it accurately. A confirmation is on its way to your inbox now.";
-            quoteNote.className = "demo-form__note is-ok";
             quoteForm.reset();
+            quoteFields.hidden = true;
+            quoteSuccess.hidden = false;
           } else {
             quoteNote.textContent = "Something went wrong. Please try again or email us directly.";
             quoteNote.className = "demo-form__note is-err";

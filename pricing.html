@@ -158,34 +158,43 @@
         <form class="demo-form" id="quoteForm" action="https://api.web3forms.com/submit" method="post" novalidate>
           <input type="hidden" name="access_key" value="d099f0c5-cac8-4d59-aed2-92ccf5ca698e" />
           <input type="hidden" name="subject" value="New quote request — AI Communication Inspector" />
-          <h3 class="quote-form__heading">Request a custom quote</h3>
-          <div class="demo-form__row">
-            <label for="qf-name">Full name</label>
-            <input id="qf-name" name="name" type="text" autocomplete="name" required />
+          <div class="demo-form__fields" id="quoteFormFields">
+            <h3 class="quote-form__heading">Request a custom quote</h3>
+            <div class="demo-form__row">
+              <label for="qf-name">Full name</label>
+              <input id="qf-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="demo-form__row">
+              <label for="qf-email">Work email</label>
+              <input id="qf-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="demo-form__row">
+              <label for="qf-company">Company</label>
+              <input id="qf-company" name="company" type="text" autocomplete="organization" required />
+            </div>
+            <fieldset class="demo-form__row demo-form__fieldset">
+              <legend>Modules of interest <span class="optional">(optional)</span></legend>
+              <p class="demo-form__hint">Select any that apply</p>
+              <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Communication Insights" /> AI Communication Insights</label>
+              <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Call Inspector" /> AI Call Inspector</label>
+              <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Quality Assurance" /> AI Quality Assurance</label>
+              <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Coach" /> AI Coach</label>
+            </fieldset>
+            <div class="demo-form__row">
+              <label for="qf-message">Tell us about your needs <span class="optional">(optional)</span></label>
+              <textarea id="qf-message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Request a custom quote</button>
+            <p class="demo-form__note" id="quoteFormNote" role="status" aria-live="polite"></p>
+            <p class="demo-form__privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We'll never share your information.</p>
           </div>
-          <div class="demo-form__row">
-            <label for="qf-email">Work email</label>
-            <input id="qf-email" name="email" type="email" autocomplete="email" required />
+          <div class="demo-form__success" id="quoteFormSuccess" role="status" aria-live="polite" hidden>
+            <div class="demo-form__success-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13L11 19L21 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="demo-form__success-title">Thank you. Your quote request is in.</h3>
+            <p class="demo-form__success-sub">We will email you within one business day to confirm what we need in order to price it accurately. A confirmation is on its way to your inbox now.</p>
           </div>
-          <div class="demo-form__row">
-            <label for="qf-company">Company</label>
-            <input id="qf-company" name="company" type="text" autocomplete="organization" required />
-          </div>
-          <fieldset class="demo-form__row demo-form__fieldset">
-            <legend>Modules of interest <span class="optional">(optional)</span></legend>
-            <p class="demo-form__hint">Select any that apply</p>
-            <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Communication Insights" /> AI Communication Insights</label>
-            <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Call Inspector" /> AI Call Inspector</label>
-            <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Quality Assurance" /> AI Quality Assurance</label>
-            <label class="checkbox-row"><input type="checkbox" name="modules" value="AI Coach" /> AI Coach</label>
-          </fieldset>
-          <div class="demo-form__row">
-            <label for="qf-message">Tell us about your needs <span class="optional">(optional)</span></label>
-            <textarea id="qf-message" name="message" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--block">Request a custom quote</button>
-          <p class="demo-form__note" id="quoteFormNote" role="status" aria-live="polite"></p>
-          <p class="demo-form__privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We'll never share your information.</p>
         </form>
       </div>
     </section>

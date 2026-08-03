@@ -1007,25 +1007,34 @@
         <form class="demo-form" id="demoForm" action="https://api.web3forms.com/submit" method="post" novalidate>
           <input type="hidden" name="access_key" value="8cf94256-3ecf-442a-9c0c-69c4c50f3c9d" />
           <input type="hidden" name="subject" value="New walkthrough request — AI Communication Inspector" />
-          <div class="demo-form__row">
-            <label for="df-name">Full name</label>
-            <input id="df-name" name="name" type="text" autocomplete="name" required />
+          <div class="demo-form__fields" id="demoFormFields">
+            <div class="demo-form__row">
+              <label for="df-name">Full name</label>
+              <input id="df-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="demo-form__row">
+              <label for="df-email">Work email</label>
+              <input id="df-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="demo-form__row">
+              <label for="df-company">Company</label>
+              <input id="df-company" name="company" type="text" autocomplete="organization" required />
+            </div>
+            <div class="demo-form__row">
+              <label for="df-message">Message <span class="optional">(optional)</span></label>
+              <textarea id="df-message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">Book a walkthrough</button>
+            <p class="demo-form__note" id="demoFormNote" role="status" aria-live="polite"></p>
+            <p class="demo-form__privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We'll never share your information.</p>
           </div>
-          <div class="demo-form__row">
-            <label for="df-email">Work email</label>
-            <input id="df-email" name="email" type="email" autocomplete="email" required />
+          <div class="demo-form__success" id="demoFormSuccess" role="status" aria-live="polite" hidden>
+            <div class="demo-form__success-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13L11 19L21 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="demo-form__success-title">Thank you. Your walkthrough request is in.</h3>
+            <p class="demo-form__success-sub">We will email you within one business day to schedule it. A confirmation is on its way to your inbox now.</p>
           </div>
-          <div class="demo-form__row">
-            <label for="df-company">Company</label>
-            <input id="df-company" name="company" type="text" autocomplete="organization" required />
-          </div>
-          <div class="demo-form__row">
-            <label for="df-message">Message <span class="optional">(optional)</span></label>
-            <textarea id="df-message" name="message" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--lg btn--block">Book a walkthrough</button>
-          <p class="demo-form__note" id="demoFormNote" role="status" aria-live="polite"></p>
-          <p class="demo-form__privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We'll never share your information.</p>
         </form>
       </div>
     </section>

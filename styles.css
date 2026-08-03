@@ -710,6 +710,22 @@ a { color: inherit; text-decoration: none; }
 .demo-form__note { margin-top: 14px; font-size: 14px; min-height: 1em; }
 .demo-form__note.is-ok { color: var(--sig-revenue); }
 .demo-form__note.is-err { color: #c0392b; }
+
+/* Success state: on submit, .demo-form__fields is hidden and this
+   replaces it entirely — no leftover button or fields sitting above
+   the confirmation copy. */
+.demo-form__success { text-align: center; padding: 40px 10px; }
+.demo-form__success-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(31, 157, 107, .12); color: var(--sig-revenue);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+}
+.demo-form__success-title {
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  color: var(--ink); margin: 0 0 8px;
+}
+.demo-form__success-sub { font-size: 16px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
 .demo-form__privacy {
   margin-top: 12px; font-family: "Roboto", sans-serif; font-style: normal;
   font-weight: 400; font-size: 12px; line-height: 18px; color: rgb(154, 144, 139);
