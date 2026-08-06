@@ -832,18 +832,38 @@ a { color: inherit; text-decoration: none; }
 
 /* "Why we built it" — human-voice quote + demo-video facade
    (ai-call-inspector.html only). Namespaced .voice rather than .quote:
-   .quote is already the pricing page's dark conversion panel. */
-.voice { display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 4vw, 40px); align-items: start; margin-top: clamp(28px, 4vw, 40px); }
-@media (max-width: 767px) {
-  .voice { grid-template-columns: 1fr; }
-  .voice__avatar { justify-self: center; }
+   .quote is already the pricing page's dark conversion panel.
+
+   .voice is itself the <figure> — avatar, blockquote and figcaption are
+   its three direct grid children, in that DOM order (unchanged from
+   before: quote still precedes its caption). Placement is done purely
+   with grid-column/grid-row so the photo+attribution read as one left
+   column without touching source order. */
+.voice {
+  display: grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto auto;
+  column-gap: clamp(40px, 5vw, 56px); row-gap: 12px;
+  align-content: start;
+  margin: clamp(28px, 4vw, 40px) 0 0;
 }
-.voice__avatar img { display: block; width: clamp(96px, 10vw, 112px); height: clamp(96px, 10vw, 112px); border-radius: 50%; object-fit: cover; border: 1px solid var(--hairline); }
-.voice__body blockquote { margin: 0; }
-.voice__body blockquote > p { font-size: var(--fs-body); color: var(--ink); line-height: var(--lh-prose); margin: 0 0 16px; }
-.voice__list { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 10px; }
-.voice__list li { display: flex; align-items: flex-start; gap: 12px; }
-.voice__by { margin-top: 18px; display: flex; flex-direction: column; gap: 2px; }
+.voice__avatar { grid-column: 1; grid-row: 1; align-self: start; }
+.voice__body { grid-column: 2; grid-row: 1 / span 2; align-self: start; margin: 0; }
+.voice__by { grid-column: 1; grid-row: 2; align-self: start; }
+@media (max-width: 767px) {
+  .voice { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+  .voice__avatar, .voice__body, .voice__by { grid-column: 1; }
+  .voice__avatar { grid-row: 1; justify-self: center; }
+  .voice__body { grid-row: 2; }
+  .voice__by { grid-row: 3; }
+}
+.voice__avatar img { display: block; width: clamp(160px, 14vw, 180px); height: clamp(160px, 14vw, 180px); border-radius: 50%; object-fit: cover; border: 1px solid var(--hairline); }
+@media (max-width: 767px) {
+  .voice__avatar img { width: 112px; height: 112px; }
+}
+.voice__body { max-width: 62ch; }
+.voice__body > p { font-size: var(--fs-body); color: var(--ink); line-height: var(--lh-prose); margin: 0 0 16px; }
+.voice__list { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 12px; }
+.voice__list li { font-size: var(--fs-body); color: var(--ink); line-height: var(--lh-prose); }
+.voice__by { display: flex; flex-direction: column; gap: 2px; }
 .voice__by cite { font-style: normal; font-weight: 700; font-size: 15px; color: var(--ink); }
 .voice__by cite a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .voice__by cite a:hover { color: var(--orange); }
