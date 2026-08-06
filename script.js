@@ -325,4 +325,20 @@
         });
     });
   }
+
+  /* --- Call Inspector demo video facade (ai-call-inspector.html) ---
+     No iframe, and so no request to Google, until the visitor clicks.
+     This page covers GDPR compliance and the site carries no cookie
+     banner, so a standard youtube.com/embed firing on page load would
+     set cookies without consent. youtube-nocookie.com only loads once
+     the visitor explicitly asks for the video. */
+  var videoPlay = document.getElementById("callInspectorVideoPlay");
+  var videoFrame = document.getElementById("callInspectorVideoFrame");
+  if (videoPlay && videoFrame) {
+    videoPlay.addEventListener("click", function () {
+      videoFrame.innerHTML =
+        '<iframe src="https://www.youtube-nocookie.com/embed/Rx2tAZUPuXI?autoplay=1" ' +
+        'title="Call Inspector demo" allowfullscreen loading="lazy"></iframe>';
+    });
+  }
 })();
