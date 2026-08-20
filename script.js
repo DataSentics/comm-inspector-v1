@@ -37,33 +37,62 @@
     });
   }
 
-  /* --- Desktop "Modules" dropdown ---
+  /* --- Desktop nav dropdowns ("Modules", "Resources") ---
      Same setOpen idiom as the mobile drawer: flip aria-expanded + an
-     .is-open class (no inline styles). Closes on: toggle again, click
-     outside, Escape (returns focus to the button), or a link click. */
-  var moduleToggle = document.querySelector(".nav__dropdown-toggle");
-  var moduleMenu = document.getElementById("modulesMenu");
-  var moduleDropdown = moduleToggle ? moduleToggle.closest(".nav__dropdown") : null;
-  if (moduleToggle && moduleMenu && moduleDropdown) {
-    var setModulesOpen = function (open) {
-      moduleDropdown.classList.toggle("is-open", open);
-      moduleToggle.setAttribute("aria-expanded", String(open));
+     .is-open class (no inline styles). Each closes on: toggle again,
+     click outside, Escape (returns focus to the button), or a link
+     click. Opening one closes the others, so only ever one panel is
+     open. Driven off every .nav__dropdown in the markup rather than a
+     single hard-coded menu id, so adding a dropdown needs no JS change. */
+  var navDropdowns = document.querySelectorAll(".nav__dropdown");
+  if (navDropdowns.length) {
+    var dropdowns = [];
+
+    var closeDropdowns = function (except) {
+      dropdowns.forEach(function (d) {
+        if (d !== except) d.setOpen(false);
+      });
     };
-    moduleToggle.addEventListener("click", function (e) {
-      e.stopPropagation();
-      setModulesOpen(moduleToggle.getAttribute("aria-expanded") !== "true");
+
+    navDropdowns.forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".nav__dropdown-toggle");
+      var menu = dropdown.querySelector(".nav__dropdown-menu");
+      if (!toggle || !menu) return;
+
+      var d = {
+        dropdown: dropdown,
+        toggle: toggle,
+        isOpen: function () { return toggle.getAttribute("aria-expanded") === "true"; },
+        setOpen: function (open) {
+          dropdown.classList.toggle("is-open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+        }
+      };
+      dropdowns.push(d);
+
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = !d.isOpen();
+        closeDropdowns(d);
+        d.setOpen(open);
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { d.setOpen(false); });
+      });
     });
-    moduleMenu.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () { setModulesOpen(false); });
-    });
+
     document.addEventListener("click", function (e) {
-      if (!moduleDropdown.contains(e.target)) setModulesOpen(false);
+      dropdowns.forEach(function (d) {
+        if (!d.dropdown.contains(e.target)) d.setOpen(false);
+      });
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && moduleToggle.getAttribute("aria-expanded") === "true") {
-        setModulesOpen(false);
-        moduleToggle.focus();
-      }
+      if (e.key !== "Escape") return;
+      dropdowns.forEach(function (d) {
+        if (!d.isOpen()) return;
+        d.setOpen(false);
+        d.toggle.focus();
+      });
     });
   }
 
@@ -339,6 +368,174 @@
       videoFrame.innerHTML =
         '<iframe src="https://www.youtube-nocookie.com/embed/Rx2tAZUPuXI?autoplay=1" ' +
         'title="Call Inspector demo" allowfullscreen loading="lazy"></iframe>';
+    });
+  }
+
+  /* --- Processing pipeline: one-shot trace, 01 -> 05 (architecture.html) ---
+     Draws each stage card's outline in turn, growing the connector across
+     to the next one in between, in the order the stages actually happen.
+     This section is a real chronological sequence, which is why it carries
+     the trace; the ecosystem diagram deliberately does not, being
+     concurrent primary and supporting flows rather than a timeline.
+
+     Deliberately simpler than one unbroken path: each card is a closed
+     rounded rect and each connector a scaleX bar, chained by timing, with
+     the connector starting shortly before its card finishes so there is no
+     visible seam at the handover. A linear chain needs nothing more.
+
+     Measured from the live layout, so it follows the grid and survives
+     resize. Below 1024px .flow--five drops its connectors, so the
+     connector legs are skipped and the timeline tightens automatically.
+     Decorative only: aria-hidden, pointer-events none, injected after the
+     section scrolls into view, and card text never waits on it. Plays once
+     per visit — no perpetual animation over five seconds needing a pause
+     control (WCAG 2.2 SC 2.2.2) — and is skipped under
+     prefers-reduced-motion. */
+  var flowTrace = document.querySelector(".flow-trace");
+  var flowList = flowTrace && flowTrace.querySelector(".flow--five");
+  if (flowTrace && flowList && !reduceMotion) {
+    var TSVGNS = "http://www.w3.org/2000/svg";
+    var CARD_MS = 2400;    // drawing one card outline
+    var CONN_MS = 400;     // growing one connector across
+    var OVERLAP = 0.1;     // connector starts this fraction before the card ends
+
+    var steps = flowList.querySelectorAll(".flow__step");
+    var conns = flowList.querySelectorAll(".flow__connector");
+
+    var tSvg = null, tLinks = [], tPaths = [], tPlayed = false, tReady = false;
+    var q = function (v) { return Math.round(v * 10) / 10; };
+
+    var relTo = function (el, origin) {
+      var r = el.getBoundingClientRect();
+      return { x: r.left - origin.left, y: r.top - origin.top, w: r.width, h: r.height };
+    };
+
+    /* Closed rounded rectangle, clockwise from the start of the top edge:
+       across the top, down the right, back along the bottom, up the left. */
+    var closedRect = function (b, rad) {
+      var x = b.x, y = b.y, x2 = b.x + b.w, y2 = b.y + b.h;
+      var r = Math.max(0, Math.min(rad, Math.min(b.w, b.h) / 2));
+      var arc = function (ex, ey) {
+        return "A " + q(r) + " " + q(r) + " 0 0 1 " + q(ex) + " " + q(ey);
+      };
+      return [
+        "M " + q(x + r) + " " + q(y),
+        "L " + q(x2 - r) + " " + q(y), arc(x2, y + r),
+        "L " + q(x2) + " " + q(y2 - r), arc(x2 - r, y2),
+        "L " + q(x + r) + " " + q(y2), arc(x, y2 - r),
+        "L " + q(x) + " " + q(y + r), arc(x + r, y),
+        "Z"
+      ].join(" ");
+    };
+
+    var buildTrace = function () {
+      var origin = flowTrace.getBoundingClientRect();
+      if (!origin.width || !steps.length) return false;
+
+      if (!tSvg) {
+        tSvg = document.createElementNS(TSVGNS, "svg");
+        tSvg.setAttribute("class", "flow-trace__svg");
+        tSvg.setAttribute("aria-hidden", "true");
+        tSvg.setAttribute("focusable", "false");
+        flowTrace.appendChild(tSvg);
+      }
+      tSvg.setAttribute("width", q(origin.width));
+      tSvg.setAttribute("height", q(origin.height));
+      tSvg.setAttribute("viewBox", "0 0 " + q(origin.width) + " " + q(origin.height));
+      while (tSvg.firstChild) tSvg.removeChild(tSvg.firstChild);
+      tLinks.forEach(function (el) { el.remove(); });
+      tPaths = [];
+      tLinks = [];
+
+      // Connectors are display:none below 1024px; with none rendered the
+      // sequence is cards only and the connector legs cost no time.
+      var connLive = conns.length > 0 && conns[0].getBoundingClientRect().width > 0;
+      var connStep = connLive ? CONN_MS : 0;
+
+      Array.prototype.forEach.call(steps, function (step, i) {
+        var b = relTo(step, origin);
+        var rad = parseFloat(getComputedStyle(step).borderTopLeftRadius) || 0;
+        var path = document.createElementNS(TSVGNS, "path");
+        path.setAttribute("d", closedRect(b, rad));
+        tSvg.appendChild(path);
+        var len = path.getTotalLength();
+        path.style.strokeDasharray = len;
+        // A rebuild after the run comes back drawn rather than replaying.
+        path.style.strokeDashoffset = tPlayed ? 0 : len;
+        tPaths.push({ el: path, len: len, at: i * (CARD_MS * (1 - OVERLAP) + connStep) });
+      });
+
+      if (connLive) {
+        Array.prototype.forEach.call(conns, function (conn, i) {
+          var b = relTo(conn, origin);
+          var bar = document.createElement("span");
+          bar.className = "flow-trace__link";
+          bar.setAttribute("aria-hidden", "true");
+          bar.style.left = q(b.x) + "px";
+          bar.style.top = q(b.y) + "px";
+          bar.style.width = q(b.w) + "px";
+          bar.style.height = q(b.h) + "px";
+          bar.style.transform = tPlayed ? "scaleX(1)" : "scaleX(0)";
+          flowTrace.appendChild(bar);
+          tLinks.push(bar);
+          // Starts just before card i finishes, so the handover has no gap.
+          tPaths.push({
+            el: bar, bar: true,
+            at: i * (CARD_MS * (1 - OVERLAP) + connStep) + CARD_MS * (1 - OVERLAP)
+          });
+        });
+      }
+      return true;
+    };
+
+    var playTrace = function () {
+      tPlayed = true;
+      tPaths.forEach(function (p) {
+        if (typeof p.el.animate !== "function") {
+          if (p.bar) p.el.style.transform = "scaleX(1)";
+          else p.el.style.strokeDashoffset = 0;
+          return;
+        }
+        if (p.bar) {
+          p.el.animate(
+            [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
+            { duration: CONN_MS, delay: p.at, easing: "linear", fill: "forwards" }
+          );
+        } else {
+          p.el.animate(
+            [{ strokeDashoffset: p.len }, { strokeDashoffset: 0 }],
+            { duration: CARD_MS, delay: p.at, easing: "ease-in-out", fill: "forwards" }
+          );
+        }
+      });
+    };
+
+    /* Measured when it is needed rather than up front, so web fonts have
+       settled and the card boxes are at their final size. */
+    var startFlowTrace = function () {
+      if (tPlayed || !buildTrace()) return;
+      tReady = true;
+      playTrace();
+    };
+
+    if ("IntersectionObserver" in window) {
+      var flowIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting || tPlayed) return;
+          flowIO.unobserve(entry.target);   // one shot, never a loop
+          startFlowTrace();
+        });
+      }, { threshold: 0.15 });
+      flowIO.observe(flowTrace);
+    } else {
+      window.addEventListener("load", startFlowTrace);
+    }
+
+    var flowResize = null;
+    window.addEventListener("resize", function () {
+      if (!tReady) return;
+      window.clearTimeout(flowResize);
+      flowResize = window.setTimeout(buildTrace, 150);
     });
   }
 })();

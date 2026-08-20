@@ -1449,3 +1449,179 @@ a { color: inherit; text-decoration: none; }
 .demo-form__hint { margin: 4px 0 10px; font-size: 13px; color: var(--ink-soft); }
 .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 15px; font-weight: 400; color: var(--ink); cursor: pointer; }
 .checkbox-row input[type="checkbox"] { flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--orange); }
+
+/* =================================================================
+   ARCHITECTURE PAGE (architecture.html)
+   Two new blocks: the .eco ecosystem diagram and a five-step .flow
+   variant. Both are additive — the shared .flow used by the homepage
+   #how section (four steps) is left untouched.
+   ================================================================= */
+
+/* --- Ecosystem diagram — "Where it fits".
+   A real responsive grid of cards rather than a fixed-coordinate SVG, so
+   it reflows to one column on phones. Cards reuse the translucent-on-blue
+   recipe already established for .section--blue-deep .stack__item; the
+   one solid-orange card is the deliberate single exception, marking where
+   our product sits in the client's own stack. --- */
+.eco { display: flex; flex-direction: column; }
+.eco__card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hairline-blue);
+  border-radius: var(--r-card);
+  padding: clamp(16px, 1.8vw, 22px);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.eco__card-title { font-family: var(--font-display); font-weight: 500; font-size: 18px; line-height: 1.25; color: var(--on-blue); }
+.eco__card-note { font-size: var(--fs-meta); color: var(--on-blue-soft); line-height: 1.5; }
+.eco__card-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; font-size: var(--fs-meta); color: var(--on-blue-soft); line-height: 1.45; }
+
+/* The product card: solid orange, the only card that is not translucent.
+   Its text is the page's own navy rather than white — that carries the
+   surrounding background colour inside the card so it reads as
+   encapsulated, and it clears AA on orange (~4.8:1) where white does
+   not (~3.2:1). */
+.eco__card--accent { background: var(--orange); border-color: var(--orange); }
+.eco__card--accent .eco__card-title,
+.eco__card--accent .eco__card-note,
+.eco__card--accent .eco__card-list { color: var(--blue-deep); }
+
+/* Nested card (Customer 360 inside the warehouse card) — one step further
+   in, so it stays translucent but drops to the smaller radius. */
+.eco__subcard {
+  margin-top: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hairline-blue);
+  border-radius: var(--r-btn);
+  padding: 10px 12px;
+}
+.eco__subcard-title { font-size: var(--fs-meta); font-weight: 500; color: var(--on-blue); }
+
+/* Dashed boundary = the client's own infrastructure. The label is a
+   <fieldset>/<legend>-style tag straddling the top border: it carries the
+   section's own background so it interrupts the dashed line itself. Sat
+   inside the top-right corner previously, where it read as a caption for
+   the card beneath it rather than for the whole boundary. Sentence case,
+   not all-caps, so the "IT" acronym stands out from its neighbours. */
+.eco__infra {
+  position: relative;
+  border: 1px dashed var(--hairline-blue);
+  border-radius: var(--r-card-lg);
+  padding: clamp(26px, 3vw, 34px) clamp(14px, 2vw, 24px) clamp(18px, 2.2vw, 26px);
+  display: flex; flex-direction: column; gap: clamp(4px, 1vw, 10px);
+}
+.eco__infra-label {
+  position: absolute; top: 0; left: 50%;
+  transform: translate(-50%, -50%);
+  padding-inline: 12px;
+  background: var(--blue-deep);
+  font-size: 12px; font-weight: 600; letter-spacing: .02em;
+  color: var(--on-blue-soft);
+  white-space: nowrap;
+}
+.eco__primary { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; }
+.eco__support { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 24px); }
+.eco__support-item { display: flex; flex-direction: column; }
+
+/* Connectors. Line and arrowhead both inherit currentColor, so a single
+   modifier recolours the whole connector: orange for the primary
+   Communication -> product -> database flow, muted for supporting feeds. */
+.eco__link { display: block; position: relative; background: currentColor; }
+.eco__link--h { align-self: center; width: clamp(18px, 2.4vw, 34px); height: 2px; margin-inline: clamp(8px, 1.2vw, 14px); }
+.eco__link--h::after {
+  content: ""; position: absolute; right: -2px; top: 50%; transform: translateY(-50%);
+  border: 5px solid transparent; border-left-color: currentColor;
+}
+.eco__link--v { align-self: center; width: 2px; height: 26px; margin-block: 10px; }
+.eco__link--down::after {
+  content: ""; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: currentColor;
+}
+.eco__link--up::after {
+  content: ""; position: absolute; top: -2px; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-bottom-color: currentColor;
+}
+.eco__link--primary { color: var(--orange); }
+.eco__link--muted { color: var(--on-blue-soft); opacity: .55; }
+
+.eco__disclaimer { margin-top: clamp(16px, 2vw, 22px); font-size: 13px; color: var(--on-blue-soft); opacity: .8; }
+
+
+/* Single column on phones. DOM order already is the intended mobile
+   reading order (contact center -> communication -> product -> database
+   -> warehouse -> knowledge base), so nothing needs reordering; the
+   horizontal arrows just stand up and point down, same trick as
+   .flow__connector. */
+@media (max-width: 860px) {
+  .eco__primary, .eco__support { grid-template-columns: 1fr; }
+  .eco__link--h {
+    width: 2px; height: 26px; justify-self: center;
+    margin-inline: auto; margin-block: 10px;
+  }
+  .eco__link--h::after {
+    right: auto; left: 50%; top: auto; bottom: -2px;
+    transform: translateX(-50%);
+    border-left-color: transparent; border-top-color: currentColor;
+  }
+}
+
+/* --- Five-step .flow variant. The base .flow grid is hard-wired to
+   4 steps + 3 connectors, so this adds the two extra tracks instead of
+   changing it. Five cards get tight at desktop widths, hence the smaller
+   padding/title here and the wrap below 1024px, where the connectors are
+   dropped (an arrow that wraps mid-row points nowhere). That wrap rule
+   also supersedes the shared 860px single-column rule for this variant,
+   which is fine — auto-fit lands on one column on phones anyway. --- */
+.flow--five { grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr; }
+.flow--five .flow__step { padding: clamp(16px, 1.6vw, 22px); gap: 10px; }
+.flow--five .flow__title { font-size: 18px; line-height: 1.25; }
+.flow--five .flow__body { font-size: var(--fs-meta); }
+.flow--five .flow__connector { width: clamp(14px, 1.6vw, 24px); }
+
+@media (max-width: 1024px) {
+  .flow--five { grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); gap: clamp(14px, 2vw, 20px); }
+  .flow--five .flow__connector { display: none; }
+}
+
+/* --- Pipeline trace: one-shot draw-on following the 01 -> 05 order.
+   This section is a genuine chronological sequence, which is why it gets
+   the trace and the ecosystem diagram (concurrent primary and supporting
+   flows, not a timeline) does not.
+
+   Two simple pieces rather than one continuous path: each card is a
+   closed rounded rect drawn clockwise from its top-left, and each
+   connector is a bar grown with scaleX. Timing alone chains them, with
+   the connector starting just before its card finishes so the handover
+   has no visible gap — enough for a strictly linear chain.
+
+   Injected and measured by script.js, so it follows the live grid and is
+   skipped entirely under prefers-reduced-motion. Decorative only:
+   aria-hidden, pointer-events none, and card text never waits on it. --- */
+.flow-trace { position: relative; }
+.flow-trace__svg { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: visible; }
+.flow-trace__svg path {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Orange overlay grown across the static connector beneath it. */
+.flow-trace__link {
+  position: absolute;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Compact supporting bullets under a flow step's body. Muted and dotted
+   rather than ticked — these are mechanics, not selling points, so they
+   must not borrow the orange tick reserved for positive listicles. */
+.flow__list { list-style: none; padding: 0; margin: 2px 0 0; display: flex; flex-direction: column; gap: 7px; }
+.flow__list li { position: relative; padding-left: 14px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+.flow__list li::before {
+  content: ""; position: absolute; left: 0; top: .58em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--orange); opacity: .5;
+}
