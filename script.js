@@ -370,4 +370,189 @@
         'title="Call Inspector demo" allowfullscreen loading="lazy"></iframe>';
     });
   }
+
+  /* --- Ecosystem diagram: one-shot outline trace (architecture.html) ---
+     Draws an orange line around each card and straight on along its
+     outgoing connector into the next one, following the data flow. Each
+     hop is a single <path> — perimeter then connector, so there is no seam
+     where one becomes the other — revealed with the usual
+     stroke-dasharray/dashoffset draw-on technique.
+
+     Geometry is measured from the live layout rather than hard-coded, so it
+     survives the grid reflowing (below 860px the horizontal connectors
+     stand up and become vertical) and is re-measured on resize. The layer
+     is decorative only: aria-hidden, pointer-events none, and card text
+     never waits on it — content still appears via .reveal like everywhere
+     else. It plays once per visit, so there is no perpetual animation over
+     five seconds that would need a pause control (WCAG 2.2 SC 2.2.2), and
+     it is skipped outright under prefers-reduced-motion. */
+  var eco = document.querySelector(".eco");
+  var ecoPrimary = eco && eco.querySelector(".eco__primary");
+  var ecoSupport = eco && eco.querySelector(".eco__support");
+  if (eco && ecoPrimary && ecoSupport && !reduceMotion) {
+    var SVGNS = "http://www.w3.org/2000/svg";
+    var HOP_MS = 2800;    // one card outline plus its outgoing connector
+    var HOP_GAP = 200;    // beat between sequential hops
+    var FORK_MS = 400;    // offset between the two feeds into the product card
+
+    // Direct children only — nested cards (the Customer 360 sub-card) and
+    // the cards inside .eco__support must not be picked up here.
+    var kids = function (parent, selector) {
+      return Array.prototype.filter.call(parent.children, function (el) {
+        return el.matches(selector);
+      });
+    };
+
+    var pCards = kids(ecoPrimary, ".eco__card");
+    var pLinks = kids(ecoPrimary, ".eco__link");
+    var feed = function (i) {
+      var item = kids(ecoSupport, ".eco__support-item")[i];
+      return item
+        ? { card: kids(item, ".eco__card")[0], link: kids(item, ".eco__link")[0] }
+        : {};
+    };
+
+    /* Data-flow order, with each hop's start time spelled out. The two
+       supporting feeds (t2/t3) land on the same card, so they trace
+       together — offset by FORK_MS — instead of queueing, which keeps the
+       whole run to ~12s rather than dragging it past 15s. */
+    var t0 = 0;                            // contact centre -> into the boundary
+    var t1 = HOP_MS + HOP_GAP;             // communication  -> product
+    var t2 = t1 + HOP_MS + HOP_GAP;        // data warehouse -> product
+    var t3 = t2 + FORK_MS;                 // knowledge base -> product
+    var t4 = t3 + HOP_MS + HOP_GAP;        // product        -> database
+
+    var hops = [
+      { card: kids(eco, ".eco__card")[0], link: kids(eco, ".eco__link")[0], at: t0 },
+      { card: pCards[0],    link: pLinks[0],    at: t1 },
+      { card: feed(0).card, link: feed(0).link, at: t2 },
+      { card: feed(1).card, link: feed(1).link, at: t3 },
+      { card: pCards[1],    link: pLinks[1],    at: t4 }
+    ].filter(function (h) { return h.card && h.link; });
+
+    var svg = null, drawn = [], played = false, ready = false;
+    var n = function (v) { return Math.round(v * 10) / 10; };
+    var relRect = function (el, origin) {
+      var r = el.getBoundingClientRect();
+      return { x: r.left - origin.left, y: r.top - origin.top, w: r.width, h: r.height };
+    };
+
+    /* Card perimeter, clockwise, starting and finishing at the exact point
+       where the outgoing connector meets the edge, so the connector can be
+       appended to the same path. */
+    var perimeter = function (b, rad, side, at) {
+      var x = b.x, y = b.y, x2 = b.x + b.w, y2 = b.y + b.h;
+      var r = Math.max(0, Math.min(rad, Math.min(b.w, b.h) / 2));
+      var arc = function (ex, ey) {
+        return "A " + n(r) + " " + n(r) + " 0 0 1 " + n(ex) + " " + n(ey);
+      };
+      var aTR = arc(x2, y + r), aBR = arc(x2 - r, y2),
+          aBL = arc(x, y2 - r), aTL = arc(x + r, y);
+      var cx = Math.min(Math.max(at, x + r), x2 - r);
+      var cy = Math.min(Math.max(at, y + r), y2 - r);
+      if (side === "top") {
+        return ["M " + n(cx) + " " + n(y), "L " + n(x2 - r) + " " + n(y), aTR,
+                "L " + n(x2) + " " + n(y2 - r), aBR, "L " + n(x + r) + " " + n(y2), aBL,
+                "L " + n(x) + " " + n(y + r), aTL, "L " + n(cx) + " " + n(y)].join(" ");
+      }
+      if (side === "right") {
+        return ["M " + n(x2) + " " + n(cy), "L " + n(x2) + " " + n(y2 - r), aBR,
+                "L " + n(x + r) + " " + n(y2), aBL, "L " + n(x) + " " + n(y + r), aTL,
+                "L " + n(x2 - r) + " " + n(y), aTR, "L " + n(x2) + " " + n(cy)].join(" ");
+      }
+      if (side === "bottom") {
+        return ["M " + n(cx) + " " + n(y2), "L " + n(x + r) + " " + n(y2), aBL,
+                "L " + n(x) + " " + n(y + r), aTL, "L " + n(x2 - r) + " " + n(y), aTR,
+                "L " + n(x2) + " " + n(y2 - r), aBR, "L " + n(cx) + " " + n(y2)].join(" ");
+      }
+      return ["M " + n(x) + " " + n(cy), "L " + n(x) + " " + n(y + r), aTL,
+              "L " + n(x2 - r) + " " + n(y), aTR, "L " + n(x2) + " " + n(y2 - r), aBR,
+              "L " + n(x + r) + " " + n(y2), aBL, "L " + n(x) + " " + n(cy)].join(" ");
+    };
+
+    var build = function () {
+      var origin = eco.getBoundingClientRect();
+      if (!origin.width) return false;
+      if (!svg) {
+        svg = document.createElementNS(SVGNS, "svg");
+        svg.setAttribute("class", "eco__trace");
+        svg.setAttribute("aria-hidden", "true");
+        svg.setAttribute("focusable", "false");
+        eco.appendChild(svg);
+      }
+      svg.setAttribute("width", n(origin.width));
+      svg.setAttribute("height", n(origin.height));
+      svg.setAttribute("viewBox", "0 0 " + n(origin.width) + " " + n(origin.height));
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      drawn = [];
+
+      hops.forEach(function (hop) {
+        var c = relRect(hop.card, origin);
+        var l = relRect(hop.link, origin);
+        var lcx = l.x + l.w / 2, lcy = l.y + l.h / 2;
+
+        /* Which edge the connector leaves from is derived from where the
+           connector actually sits, which is what lets the mobile reflow
+           (arrows rotating from horizontal to vertical) work with no
+           special-casing. */
+        var side, at, endX, endY;
+        if (lcx > c.x + c.w)      { side = "right";  at = lcy; endX = l.x + l.w; endY = lcy; }
+        else if (lcx < c.x)       { side = "left";   at = lcy; endX = l.x;       endY = lcy; }
+        else if (lcy > c.y + c.h) { side = "bottom"; at = lcx; endX = lcx; endY = l.y + l.h; }
+        else                      { side = "top";    at = lcx; endX = lcx; endY = l.y; }
+
+        var radius = parseFloat(getComputedStyle(hop.card).borderTopLeftRadius) || 0;
+        var path = document.createElementNS(SVGNS, "path");
+        path.setAttribute("d", perimeter(c, radius, side, at) + " L " + n(endX) + " " + n(endY));
+        svg.appendChild(path);
+
+        var len = path.getTotalLength();
+        path.style.strokeDasharray = len;
+        // A rebuild after the run (resize) comes back already drawn rather
+        // than replaying the whole sequence.
+        path.style.strokeDashoffset = played ? 0 : len;
+        drawn.push({ el: path, len: len, at: hop.at });
+      });
+      return true;
+    };
+
+    var play = function () {
+      played = true;
+      drawn.forEach(function (p) {
+        if (typeof p.el.animate !== "function") { p.el.style.strokeDashoffset = 0; return; }
+        p.el.animate(
+          [{ strokeDashoffset: p.len }, { strokeDashoffset: 0 }],
+          { duration: HOP_MS, delay: p.at, easing: "ease-in-out", fill: "forwards" }
+        );
+      });
+    };
+
+    /* Measured at the moment it is needed rather than up front, so web
+       fonts have settled and the card boxes are at their final size. */
+    var startTrace = function () {
+      if (played || !build()) return;
+      ready = true;
+      play();
+    };
+
+    if ("IntersectionObserver" in window) {
+      var traceIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting || played) return;
+          traceIO.unobserve(entry.target);   // one shot, never a loop
+          startTrace();
+        });
+      }, { threshold: 0.15 });
+      traceIO.observe(eco);
+    } else {
+      window.addEventListener("load", startTrace);
+    }
+
+    var traceResize = null;
+    window.addEventListener("resize", function () {
+      if (!ready) return;
+      window.clearTimeout(traceResize);
+      traceResize = window.setTimeout(build, 150);
+    });
+  }
 })();

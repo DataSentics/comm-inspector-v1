@@ -105,8 +105,10 @@
 
           <span class="eco__link eco__link--v eco__link--down eco__link--primary" aria-hidden="true"></span>
 
-          <div class="eco__infra" role="group" aria-label="Your own IT infrastructure">
-            <span class="eco__infra-label">Your own IT infrastructure</span>
+          <!-- Labelled by the visible legend below rather than a duplicate
+               aria-label, so the boundary has exactly one accessible name. -->
+          <div class="eco__infra" role="group" aria-labelledby="ecoInfraLabel">
+            <span class="eco__infra-label" id="ecoInfraLabel">your own IT infrastructure</span>
 
             <div class="eco__primary">
               <div class="eco__card">
@@ -117,7 +119,7 @@
               <span class="eco__link eco__link--h eco__link--primary" aria-hidden="true"></span>
 
               <div class="eco__card eco__card--accent">
-                <h3 class="eco__card-title">AI Comms Inspector <span class="eco__card-by">by Bull</span></h3>
+                <h3 class="eco__card-title">AI Comms Inspector</h3>
                 <ul class="eco__card-list">
                   <li>Quality dashboard</li>
                   <li>Chat over results</li>
