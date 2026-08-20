@@ -37,7 +37,7 @@
     });
   }
 
-  /* --- Desktop nav dropdowns ("Modules", "Product") ---
+  /* --- Desktop nav dropdowns ("Modules", "Resources") ---
      Same setOpen idiom as the mobile drawer: flip aria-expanded + an
      .is-open class (no inline styles). Each closes on: toggle again,
      click outside, Escape (returns focus to the button), or a link
