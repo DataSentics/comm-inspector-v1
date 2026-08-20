@@ -1463,7 +1463,7 @@ a { color: inherit; text-decoration: none; }
    recipe already established for .section--blue-deep .stack__item; the
    one solid-orange card is the deliberate single exception, marking where
    our product sits in the client's own stack. --- */
-.eco { position: relative; display: flex; flex-direction: column; }
+.eco { display: flex; flex-direction: column; }
 .eco__card {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--hairline-blue);
@@ -1545,21 +1545,6 @@ a { color: inherit; text-decoration: none; }
 
 .eco__disclaimer { margin-top: clamp(16px, 2vw, 22px); font-size: 13px; color: var(--on-blue-soft); opacity: .8; }
 
-/* One-shot outline trace. A decorative layer above the cards (never
-   intercepting clicks), injected and measured by script.js so it follows
-   the live grid instead of hard-coded coordinates. Card text is not gated
-   on it — content appears with .reveal as everywhere else. */
-.eco__trace { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: visible; }
-.eco__trace path {
-  fill: none;
-  stroke: var(--orange);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  /* Dark rim keeps the orange line readable on the one stretch where it
-     crosses the solid-orange product card, without recolouring the trace. */
-  filter: drop-shadow(0 0 1.5px rgba(0, 12, 40, .95));
-}
 
 /* Single column on phones. DOM order already is the intended mobile
    reading order (contact center -> communication -> product -> database
@@ -1595,6 +1580,39 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 1024px) {
   .flow--five { grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); gap: clamp(14px, 2vw, 20px); }
   .flow--five .flow__connector { display: none; }
+}
+
+/* --- Pipeline trace: one-shot draw-on following the 01 -> 05 order.
+   This section is a genuine chronological sequence, which is why it gets
+   the trace and the ecosystem diagram (concurrent primary and supporting
+   flows, not a timeline) does not.
+
+   Two simple pieces rather than one continuous path: each card is a
+   closed rounded rect drawn clockwise from its top-left, and each
+   connector is a bar grown with scaleX. Timing alone chains them, with
+   the connector starting just before its card finishes so the handover
+   has no visible gap — enough for a strictly linear chain.
+
+   Injected and measured by script.js, so it follows the live grid and is
+   skipped entirely under prefers-reduced-motion. Decorative only:
+   aria-hidden, pointer-events none, and card text never waits on it. --- */
+.flow-trace { position: relative; }
+.flow-trace__svg { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: visible; }
+.flow-trace__svg path {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Orange overlay grown across the static connector beneath it. */
+.flow-trace__link {
+  position: absolute;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* Compact supporting bullets under a flow step's body. Muted and dotted

@@ -176,6 +176,9 @@
           <p class="section__sub">Every call, chat or email goes through the same five stages. The pipeline runs inside your own environment end to end.</p>
         </div>
 
+        <!-- Wrapper exists purely to host the absolutely-positioned trace
+             overlay: an <svg> is not valid as a direct child of <ol>. -->
+        <div class="flow-trace">
         <ol class="flow flow--five" aria-label="Processing pipeline: five stages">
           <li class="flow__step">
             <div class="flow__head">
@@ -257,6 +260,7 @@
             </ul>
           </li>
         </ol>
+        </div>
       </div>
     </section>
 
