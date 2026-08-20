@@ -37,33 +37,62 @@
     });
   }
 
-  /* --- Desktop "Modules" dropdown ---
+  /* --- Desktop nav dropdowns ("Modules", "Product") ---
      Same setOpen idiom as the mobile drawer: flip aria-expanded + an
-     .is-open class (no inline styles). Closes on: toggle again, click
-     outside, Escape (returns focus to the button), or a link click. */
-  var moduleToggle = document.querySelector(".nav__dropdown-toggle");
-  var moduleMenu = document.getElementById("modulesMenu");
-  var moduleDropdown = moduleToggle ? moduleToggle.closest(".nav__dropdown") : null;
-  if (moduleToggle && moduleMenu && moduleDropdown) {
-    var setModulesOpen = function (open) {
-      moduleDropdown.classList.toggle("is-open", open);
-      moduleToggle.setAttribute("aria-expanded", String(open));
+     .is-open class (no inline styles). Each closes on: toggle again,
+     click outside, Escape (returns focus to the button), or a link
+     click. Opening one closes the others, so only ever one panel is
+     open. Driven off every .nav__dropdown in the markup rather than a
+     single hard-coded menu id, so adding a dropdown needs no JS change. */
+  var navDropdowns = document.querySelectorAll(".nav__dropdown");
+  if (navDropdowns.length) {
+    var dropdowns = [];
+
+    var closeDropdowns = function (except) {
+      dropdowns.forEach(function (d) {
+        if (d !== except) d.setOpen(false);
+      });
     };
-    moduleToggle.addEventListener("click", function (e) {
-      e.stopPropagation();
-      setModulesOpen(moduleToggle.getAttribute("aria-expanded") !== "true");
+
+    navDropdowns.forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".nav__dropdown-toggle");
+      var menu = dropdown.querySelector(".nav__dropdown-menu");
+      if (!toggle || !menu) return;
+
+      var d = {
+        dropdown: dropdown,
+        toggle: toggle,
+        isOpen: function () { return toggle.getAttribute("aria-expanded") === "true"; },
+        setOpen: function (open) {
+          dropdown.classList.toggle("is-open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+        }
+      };
+      dropdowns.push(d);
+
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = !d.isOpen();
+        closeDropdowns(d);
+        d.setOpen(open);
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { d.setOpen(false); });
+      });
     });
-    moduleMenu.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () { setModulesOpen(false); });
-    });
+
     document.addEventListener("click", function (e) {
-      if (!moduleDropdown.contains(e.target)) setModulesOpen(false);
+      dropdowns.forEach(function (d) {
+        if (!d.dropdown.contains(e.target)) d.setOpen(false);
+      });
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && moduleToggle.getAttribute("aria-expanded") === "true") {
-        setModulesOpen(false);
-        moduleToggle.focus();
-      }
+      if (e.key !== "Escape") return;
+      dropdowns.forEach(function (d) {
+        if (!d.isOpen()) return;
+        d.setOpen(false);
+        d.toggle.focus();
+      });
     });
   }
 
