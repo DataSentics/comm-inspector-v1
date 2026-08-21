@@ -1652,6 +1652,13 @@ a { color: inherit; text-decoration: none; }
    rather than reusing .quote__grid, which the "Let's talk pricing"
    panel further down the same page already owns.
    ================================================================= */
+/* Pulled up close to the hero: the hero's own bottom padding already
+   supplies the breathing room, and with no CTA button in the hero and no
+   price figure in the card, a full --section-y on top of that left an
+   obviously empty band between the lead line and the card. Top only —
+   the section keeps its standard bottom padding. */
+.price-model { padding-top: clamp(8px, 2vw, 24px); }
+
 /* center, not stretch: the card keeps its own compact height and sits
    centred against the taller inclusions list. Stretching it instead would
    force navy over the leftover height, turning the slack into dead space
@@ -1672,17 +1679,8 @@ a { color: inherit; text-decoration: none; }
   padding: clamp(28px, 3.4vw, 40px);
 }
 .price-model__card .section__title { color: var(--on-blue); max-width: 22ch; }
-.price-model__figure {
-  margin-top: clamp(20px, 2.6vw, 28px);
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(38px, 5.2vw, 58px); line-height: 1; letter-spacing: -.03em;
-  color: var(--on-blue);
-}
-.price-model__unit {
-  font-family: var(--font-body); font-weight: 400;
-  font-size: .36em; letter-spacing: 0; color: var(--on-blue-soft);
-}
-.price-model__sub { margin-top: 14px; font-size: var(--fs-meta); color: var(--on-blue-soft); line-height: var(--lh-prose); }
+.price-model__cta { margin-top: clamp(20px, 2.6vw, 28px); }
+.price-model__sub { margin-top: 16px; font-size: var(--fs-meta); color: var(--on-blue-soft); line-height: var(--lh-prose); }
 
 .price-model__included-title {
   font-family: var(--font-display); font-weight: 500; font-size: 21px;
