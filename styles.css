@@ -1504,16 +1504,21 @@ a { color: inherit; text-decoration: none; }
    not all-caps, so the "IT" acronym stands out from its neighbours. */
 .eco__infra {
   position: relative;
-  border: 1px dashed var(--hairline-blue);
+  /* Was 1px of --hairline-blue (0.16 alpha), near invisible on --blue-deep.
+     2px rather than 1.5px because fractional border widths get snapped
+     inconsistently, and a brighter line: 0.38 alpha resolves to roughly
+     #61749E over that background. */
+  border: 2px dashed rgba(255, 255, 255, .38);
   border-radius: var(--r-card-lg);
   padding: clamp(26px, 3vw, 34px) clamp(14px, 2vw, 24px) clamp(18px, 2.2vw, 26px);
   display: flex; flex-direction: column; gap: clamp(4px, 1vw, 10px);
 }
+/* Sits fully outside the frame, above its top-right corner. Inside the
+   frame it read as a caption for whichever box it happened to touch;
+   completely outside, it can only refer to the boundary itself. */
 .eco__infra-label {
-  position: absolute; top: 0; left: 50%;
-  transform: translate(-50%, -50%);
-  padding-inline: 12px;
-  background: var(--blue-deep);
+  position: absolute;
+  bottom: calc(100% + 7px); right: 2px;
   font-size: 12px; font-weight: 600; letter-spacing: .02em;
   color: var(--on-blue-soft);
   white-space: nowrap;
@@ -1543,16 +1548,30 @@ a { color: inherit; text-decoration: none; }
 .eco__link--primary { color: var(--orange); }
 .eco__link--muted { color: var(--on-blue-soft); opacity: .55; }
 
+/* The two supporting feeds have to land in the body of the product card.
+   Their support columns (1fr each) are far wider than the card (the middle
+   1fr of a 5-track row), so centring each arrow in its own column dropped
+   them on the seams with the neighbouring boxes instead. Pulling each one
+   in from its inner edge by a proportional offset puts it on the card's
+   near third; percentage rather than px so it holds as the grid scales. */
+.eco__support-item:first-child .eco__link--up { align-self: flex-end; margin-right: 7.5%; }
+.eco__support-item:last-child .eco__link--up { align-self: flex-start; margin-left: 7.5%; }
+
 .eco__disclaimer { margin-top: clamp(16px, 2vw, 22px); font-size: 13px; color: var(--on-blue-soft); opacity: .8; }
 
 
 /* Single column on phones. DOM order already is the intended mobile
-   reading order (contact center -> communication -> product -> database
+   reading order (contact centre -> communication -> product -> database
    -> warehouse -> knowledge base), so nothing needs reordering; the
    horizontal arrows just stand up and point down, same trick as
    .flow__connector. */
 @media (max-width: 860px) {
   .eco__primary, .eco__support { grid-template-columns: 1fr; }
+  /* Stacked, each feed sits directly above its target, so the offset that
+     aimed it at the product card in the two-column layout is dropped.
+     Selectors match the base rules' specificity so this actually wins. */
+  .eco__support-item:first-child .eco__link--up,
+  .eco__support-item:last-child .eco__link--up { align-self: center; margin-inline: 0; }
   .eco__link--h {
     width: 2px; height: 26px; justify-self: center;
     margin-inline: auto; margin-block: 10px;
