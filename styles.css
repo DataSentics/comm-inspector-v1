@@ -1625,3 +1625,79 @@ a { color: inherit; text-decoration: none; }
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--orange); opacity: .5;
 }
+
+/* =================================================================
+   PRICING MODEL (pricing.html)
+   Navy figure card beside the five numbered inclusions, with the
+   volume limits called out full-width beneath. Its own grid class
+   rather than reusing .quote__grid, which the "Let's talk pricing"
+   panel further down the same page already owns.
+   ================================================================= */
+.price-model__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 64px); align-items: start;
+}
+@media (max-width: 820px) { .price-model__grid { grid-template-columns: 1fr; } }
+
+/* Navy card. The shared .section__title defaults to --ink, which would be
+   all but invisible here, so it is restated for the dark ground. The
+   orange eyebrow clears AA on navy (4.8:1) and is left alone. */
+.price-model__card {
+  background: var(--blue-deep); color: var(--on-blue);
+  border-radius: var(--r-card);
+  padding: clamp(28px, 3.4vw, 40px);
+}
+.price-model__card .section__title { color: var(--on-blue); max-width: 22ch; }
+.price-model__figure {
+  margin-top: clamp(20px, 2.6vw, 28px);
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(38px, 5.2vw, 58px); line-height: 1; letter-spacing: -.03em;
+  color: var(--on-blue);
+}
+.price-model__unit {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: .36em; letter-spacing: 0; color: var(--on-blue-soft);
+}
+.price-model__sub { margin-top: 14px; font-size: var(--fs-meta); color: var(--on-blue-soft); line-height: var(--lh-prose); }
+
+.price-model__included-title {
+  font-family: var(--font-display); font-weight: 500; font-size: 21px;
+  color: var(--ink); margin-bottom: clamp(18px, 2vw, 24px);
+}
+.price-item-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: clamp(16px, 1.8vw, 22px); }
+.price-item { display: flex; align-items: flex-start; gap: 16px; }
+
+/* Numbered square, one colour per step. 20px/700 so the numeral counts as
+   large text, where 3:1 is the AA bar — orange (3.18) and teal (3.45) pass
+   there but would fail the 4.5:1 normal-text bar. */
+.price-item__num {
+  flex-shrink: 0;
+  width: 42px; height: 42px; border-radius: 8px;
+  display: grid; place-items: center;
+  font-family: var(--font-body); font-weight: 700; font-size: 20px; line-height: 1;
+  color: #fff;
+}
+.price-item__num--1 { background: var(--orange); }
+.price-item__num--2 { background: var(--blue-deep); }
+.price-item__num--3 { background: var(--sig-revenue); }
+/* Gold is too light to carry a white numeral (2.03:1), so this one takes
+   the navy treatment instead (7.5:1) rather than being darkened away from
+   the intended colour. */
+.price-item__num--4 { background: #F5A623; color: var(--blue-deep); }
+.price-item__num--5 { background: #2F4FDB; }
+
+.price-item__title { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.35; }
+.price-item__body { margin-top: 5px; font-size: var(--fs-meta); color: var(--ink-soft); line-height: var(--lh-prose); }
+
+/* Limits band. The eyebrow drops to --ink here: orange on --orange-tint is
+   only 2.63:1, following the same per-context recolour as
+   .eyebrow-label--bpb. */
+.price-model__limits {
+  margin-top: clamp(36px, 4.5vw, 56px);
+  background: var(--orange-tint);
+  border-radius: var(--r-card);
+  padding: clamp(22px, 2.6vw, 30px) clamp(22px, 3vw, 34px);
+}
+.price-model__limits .eyebrow-label { color: var(--ink); margin-bottom: 10px; }
+.price-model__limits-body { font-size: clamp(16px, 1.6vw, 19px); font-weight: 500; color: var(--ink); line-height: var(--lh-prose); }
+.price-model__footnote { margin-top: 14px; font-size: 13px; font-style: italic; color: var(--ink-soft); }
