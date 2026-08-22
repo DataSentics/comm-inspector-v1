@@ -1519,7 +1519,7 @@ a { color: inherit; text-decoration: none; }
 .eco__infra-label {
   position: absolute;
   bottom: calc(100% + 7px); right: 2px;
-  font-size: 12px; font-weight: 600; letter-spacing: .02em;
+  font-family: var(--font-body); font-weight: 400; font-size: 13px; line-height: 20px;
   color: var(--on-blue-soft);
   white-space: nowrap;
 }
@@ -1562,7 +1562,14 @@ a { color: inherit; text-decoration: none; }
   left: 0; transform: translateX(-50%);
 }
 .eco__gap .eco__link--down { left: 33%; }
-.eco__gap .eco__link--to-contact { left: 74.34%; }
+/* Was 74.34% (Knowledge base's horizontal centre) - a misreading of the
+   reference mockup. The actual rule, confirmed against the KB->AI arrow's
+   own live position, is: same offset from Knowledge base's left edge as
+   that arrow already uses (37px of a 484px tile = 7.5%, i.e. the same
+   7.5% margin .eco__support-item:last-child .eco__link--up gets). In
+   .eco's own coordinate space that lands at 54.7% (measured: 571px of
+   1044px) - directly above the KB->AI arrow, so the two now stack. */
+.eco__gap .eco__link--to-contact { left: 54.7%; }
 
 @media (max-width: 860px) {
   /* No left/right relationship once the diagram is a single column, so
@@ -1570,6 +1577,22 @@ a { color: inherit; text-decoration: none; }
      desktop landmarks. */
   .eco__gap .eco__link--down { left: 42%; }
   .eco__gap .eco__link--to-contact { left: 58%; }
+}
+
+/* Below the site's own phone breakpoint the 42%/58% pair sits close enough
+   together that the right-aligned label (still floating above the frame)
+   collides with it - confirmed overlapping at 375px. Dropping the label
+   into normal flow removes the possibility of overlap altogether, rather
+   than chasing a narrower arrow split: it becomes the frame's first line,
+   below the arrows and above Communication, left-aligned. */
+@media (max-width: 620px) {
+  .eco__infra-label {
+    position: static;
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    white-space: normal;
+  }
 }
 
 /* The two supporting feeds have to land in the body of the product card.
@@ -1581,7 +1604,10 @@ a { color: inherit; text-decoration: none; }
 .eco__support-item:first-child .eco__link--up { align-self: flex-end; margin-right: 7.5%; }
 .eco__support-item:last-child .eco__link--up { align-self: flex-start; margin-left: 7.5%; }
 
-.eco__disclaimer { margin-top: clamp(16px, 2vw, 22px); font-size: 13px; color: var(--on-blue-soft); opacity: .8; }
+/* Identical type treatment to .eco__infra-label - both are the same kind
+   of quiet annotation text, so opacity is dropped rather than stacking a
+   second dimming on top of --on-blue-soft's own contrast. */
+.eco__disclaimer { margin-top: clamp(16px, 2vw, 22px); font-family: var(--font-body); font-weight: 400; font-size: 13px; line-height: 20px; color: var(--on-blue-soft); }
 
 
 /* Single column on phones. DOM order already is the intended mobile
