@@ -1537,6 +1537,12 @@ a { color: inherit; text-decoration: none; }
   border: 5px solid transparent; border-left-color: currentColor;
 }
 .eco__link--v { align-self: center; width: 2px; height: 26px; margin-block: 10px; }
+/* Shifted left off dead-centre so it sits over the Communication/AI seam
+   rather than the frame's midpoint. Measured: the seam sits at ~33% of
+   .eco's width (347px of 1044px at desktop); margin-left is a % of the
+   containing block's width even inside a column flex container, so this
+   tracks that as the layout scales. */
+.eco__link--down { align-self: flex-start; margin-left: 33%; }
 .eco__link--down::after {
   content: ""; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
   border: 5px solid transparent; border-top-color: currentColor;
@@ -1572,6 +1578,10 @@ a { color: inherit; text-decoration: none; }
      Selectors match the base rules' specificity so this actually wins. */
   .eco__support-item:first-child .eco__link--up,
   .eco__support-item:last-child .eco__link--up { align-self: center; margin-inline: 0; }
+  /* Stacked single-column reading order puts Contact centre directly above
+     Communication, so the seam-aligned offset from the two-column layout
+     no longer applies. */
+  .eco__link--down { align-self: center; margin-left: 0; }
   .eco__link--h {
     width: 2px; height: 26px; justify-self: center;
     margin-inline: auto; margin-block: 10px;
