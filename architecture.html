@@ -103,7 +103,14 @@
             <p class="eco__card-note">e.g., Daktela, Genesys, NICE CXone, …</p>
           </div>
 
-          <span class="eco__link eco__link--v eco__link--down eco__link--primary" aria-hidden="true"></span>
+          <!-- Two independent x-positions in the same gap band: down into
+               the primary flow at the Communication/AI seam, and back up
+               from Knowledge base — both orange, since this is the primary
+               flow's entry and its return leg, not a supporting feed. -->
+          <div class="eco__gap">
+            <span class="eco__link eco__link--v eco__link--down eco__link--primary" aria-hidden="true"></span>
+            <span class="eco__link eco__link--v eco__link--up eco__link--primary eco__link--to-contact" aria-hidden="true"></span>
+          </div>
 
           <!-- Labelled by the visible legend below rather than a duplicate
                aria-label, so the boundary has exactly one accessible name. -->
