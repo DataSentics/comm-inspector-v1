@@ -1619,7 +1619,9 @@ a { color: inherit; text-decoration: none; }
   .eco__primary, .eco__support { grid-template-columns: 1fr; }
   /* Stacked, each feed sits directly above its target, so the offset that
      aimed it at the product card in the two-column layout is dropped.
-     Selectors match the base rules' specificity so this actually wins. */
+     Selectors match the base rules' specificity so this actually wins.
+     This is also the no-JS fallback for the long routed connectors below:
+     a short centred arrow, same as today, if script.js never runs. */
   .eco__support-item:first-child .eco__link--up,
   .eco__support-item:last-child .eco__link--up { align-self: center; margin-inline: 0; }
   .eco__link--h {
@@ -1631,6 +1633,38 @@ a { color: inherit; text-decoration: none; }
     transform: translateX(-50%);
     border-left-color: transparent; border-top-color: currentColor;
   }
+
+  /* Lanes for the long connectors below are cut out of the tiles
+     themselves, not the frame's padding: routing them at the frame edge
+     left them visually stranded, too far from the boxes to read as
+     connected to anything. Each tile is inset only as far as the arrows
+     that actually have to get past it, so the insets are staggered rather
+     than uniform - Comms Inspector database sits between both feeds and
+     their target, Data warehouse only blocks Knowledge base's, and
+     Knowledge base blocks nothing and keeps full width. */
+  .eco__primary > .eco__card:last-child { margin-right: 48px; }
+  .eco__support-item:first-child .eco__card { margin-right: 24px; }
+}
+
+/* Data warehouse and Knowledge base's feeds into the product card: once
+   the diagram is a single column, Comms Inspector database sits between
+   each of them and their target, so a short arrow just points into empty
+   space. script.js measures the real gap (card heights are content-driven
+   and not predictable from CSS alone) and stretches each arrow - via a
+   .eco__link--long class it adds - into a long line running through the
+   side lane above, left for Data warehouse and right for Knowledge base
+   mirroring their desktop positions, reaching up to the product card's
+   bottom edge. Position/height are set inline by JS; this just neutralises
+   the base .eco__link--v rule's own margin, which would otherwise offset
+   an absolutely positioned element away from its computed top. */
+.eco__link--long { margin: 0 !important; }
+
+@media (max-width: 860px) {
+  /* Restores the gap the arrow used to supply by occupying flow height
+     above Data warehouse's card - only when JS has actually pulled it out
+     of flow (see the .has-long-connectors toggle in script.js), so the
+     no-JS fallback above isn't left with a doubled-up gap. */
+  .eco__support.has-long-connectors { margin-top: 22px; }
 }
 
 /* --- Five-step .flow variant. The base .flow grid is hard-wired to
