@@ -538,4 +538,123 @@
       flowResize = window.setTimeout(buildTrace, 150);
     });
   }
+
+  /* --- Ecosystem diagram: route Data warehouse/Knowledge base's feeds up
+     to the product card on mobile (architecture.html) ---
+     Below 860px the diagram is a single column, so Comms Inspector
+     database ends up sitting between each of these two supporting feeds
+     and the product card they actually feed - a short arrow just points
+     into empty space. Card heights in between are content-driven, so the
+     real gap is measured live rather than guessed: each arrow is
+     stretched into a long line reaching the product card's bottom edge,
+     routed in the side padding lane reserved for this in CSS (left for
+     Data warehouse, right for Knowledge base - mirrors their desktop
+     positions, and keeps the two lines visibly apart). Above 860px this is
+     a no-op and the short arrows work exactly as they did before. */
+  var ecoInfra = document.querySelector(".eco__infra");
+  var ecoAiCard = document.querySelector(".eco__card--accent");
+  var ecoSupport = document.querySelector(".eco__support");
+  var ecoSupportItems = document.querySelectorAll(".eco__support-item");
+  if (ecoInfra && ecoAiCard && ecoSupport && ecoSupportItems.length === 2) {
+    var ecoFeeds = [
+      { item: ecoSupportItems[0], side: "left" },
+      { item: ecoSupportItems[1], side: "right" }
+    ]
+      .map(function (f) {
+        var arrow = f.item.querySelector(".eco__link--up");
+        var card = f.item.querySelector(".eco__card");
+        return arrow && card ? { arrow: arrow, card: card, side: f.side } : null;
+      })
+      .filter(Boolean);
+
+    var resetEcoFeeds = function () {
+      ecoSupport.classList.remove("has-long-connectors");
+      ecoFeeds.forEach(function (f) {
+        f.arrow.classList.remove("eco__link--long");
+        f.arrow.style.position = "";
+        f.arrow.style.top = "";
+        f.arrow.style.height = "";
+        f.arrow.style.left = "";
+        f.arrow.style.right = "";
+      });
+    };
+
+    var layoutEcoFeeds = function () {
+      if (!window.matchMedia("(max-width: 860px)").matches) {
+        resetEcoFeeds();
+        return;
+      }
+      var infraRect = ecoInfra.getBoundingClientRect();
+      var aiBottom = ecoAiCard.getBoundingClientRect().bottom - infraRect.top;
+      var clearance = 8; // breathing room off both the card and the arrowhead's target edge
+
+      /* Read every card's position before writing anything: taking the
+         first arrow out of flow shifts its own card (and the grid row
+         after it) upward immediately, which would make a card read here
+         after that write already stale - measure-then-mutate in two
+         separate passes avoids that entirely. */
+      /* `left` on an absolutely positioned element resolves against the
+         containing block's padding box, so the frame's border has to come
+         out of the maths for the arrow to line up with tile geometry. */
+      var infraBorderLeft = parseFloat(getComputedStyle(ecoInfra).borderLeftWidth) || 0;
+      var padBoxLeft = infraRect.left + infraBorderLeft;
+      var inset = 12; // how far inside its own tile's right edge each line runs
+
+      var targets = ecoFeeds
+        .map(function (f) {
+          var cardRect = f.card.getBoundingClientRect();
+          var top = aiBottom + clearance;
+          return {
+            f: f,
+            top: top,
+            height: cardRect.top - infraRect.top - clearance - top,
+            /* Sits just inside its own source tile, which is what ties the
+               line to the box it comes from. The staggered tile insets in
+               CSS are what let it clear the tiles in between: each arrow is
+               further right than the tiles it has to pass. */
+            left: cardRect.right - inset - padBoxLeft
+          };
+        })
+        .filter(function (t) { return t.height > 0; }); // else mid-reflow; next pass corrects it
+
+      targets.forEach(function (t) {
+        t.f.arrow.classList.add("eco__link--long");
+        t.f.arrow.style.position = "absolute";
+        t.f.arrow.style.top = t.top + "px";
+        t.f.arrow.style.height = t.height + "px";
+        t.f.arrow.style.left = t.left + "px";
+        t.f.arrow.style.right = "auto";
+      });
+      ecoSupport.classList.add("has-long-connectors");
+    };
+
+    layoutEcoFeeds();
+    window.addEventListener("load", layoutEcoFeeds);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(layoutEcoFeeds);
+    }
+
+    /* The containing section is itself a .reveal: it slides up 18px over
+       0.5s (see .reveal/.reveal.is-in) the moment it scrolls into view.
+       getBoundingClientRect() reflects that transform at whatever point
+       mid-transition it's called, so a measurement taken while it's still
+       animating is reading a moving target - confirmed live: two
+       measurements 100ms apart during the transition disagreed by ~24px.
+       Re-running once the transition actually finishes is what makes the
+       result trustworthy; the calls above still fire for the
+       reduced-motion path, where .is-in lands with no transition at all
+       and the very first measurement is already correct. */
+    var ecoSection = document.getElementById("fit");
+    if (ecoSection) {
+      ecoSection.addEventListener("transitionend", function (e) {
+        if (e.target === ecoSection) layoutEcoFeeds();
+      });
+    }
+
+    var ecoFeedsResize = null;
+    window.addEventListener("resize", function () {
+      window.clearTimeout(ecoFeedsResize);
+      ecoFeedsResize = window.setTimeout(layoutEcoFeeds, 150);
+    });
+  }
 })();

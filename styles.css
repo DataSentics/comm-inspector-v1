@@ -1519,7 +1519,7 @@ a { color: inherit; text-decoration: none; }
 .eco__infra-label {
   position: absolute;
   bottom: calc(100% + 7px); right: 2px;
-  font-size: 12px; font-weight: 600; letter-spacing: .02em;
+  font-family: var(--font-body); font-weight: 400; font-size: 13px; line-height: 20px;
   color: var(--on-blue-soft);
   white-space: nowrap;
 }
@@ -1548,6 +1548,53 @@ a { color: inherit; text-decoration: none; }
 .eco__link--primary { color: var(--orange); }
 .eco__link--muted { color: var(--on-blue-soft); opacity: .55; }
 
+/* Contact centre's gap band holds two independently-placed arrows rather
+   than one centred connector: the primary flow's entry (down, at the
+   Communication/AI seam) and its return leg (up, from Knowledge base).
+   Absolutely positioned within their own relative wrapper so each gets an
+   exact x-position regardless of the other - a plain flex/block layout
+   can't put two items at two arbitrary points in the same row. Percentages
+   measured live against .eco's width: the seam sits at 33%, Knowledge
+   base's horizontal centre at 74.34%. */
+.eco__gap { position: relative; height: 26px; margin-block: 10px; }
+.eco__gap .eco__link--v {
+  position: absolute; top: 0; margin: 0;
+  left: 0; transform: translateX(-50%);
+}
+.eco__gap .eco__link--down { left: 33%; }
+/* Was 74.34% (Knowledge base's horizontal centre) - a misreading of the
+   reference mockup. The actual rule, confirmed against the KB->AI arrow's
+   own live position, is: same offset from Knowledge base's left edge as
+   that arrow already uses (37px of a 484px tile = 7.5%, i.e. the same
+   7.5% margin .eco__support-item:last-child .eco__link--up gets). In
+   .eco's own coordinate space that lands at 54.7% (measured: 571px of
+   1044px) - directly above the KB->AI arrow, so the two now stack. */
+.eco__gap .eco__link--to-contact { left: 54.7%; }
+
+@media (max-width: 860px) {
+  /* No left/right relationship once the diagram is a single column, so
+     the two arrows sit as a centred, symmetric pair instead of at their
+     desktop landmarks. */
+  .eco__gap .eco__link--down { left: 42%; }
+  .eco__gap .eco__link--to-contact { left: 58%; }
+}
+
+/* Below the site's own phone breakpoint the 42%/58% pair sits close enough
+   together that the right-aligned label (still floating above the frame)
+   collides with it - confirmed overlapping at 375px. Dropping the label
+   into normal flow removes the possibility of overlap altogether, rather
+   than chasing a narrower arrow split: it becomes the frame's first line,
+   below the arrows and above Communication, left-aligned. */
+@media (max-width: 620px) {
+  .eco__infra-label {
+    position: static;
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    white-space: normal;
+  }
+}
+
 /* The two supporting feeds have to land in the body of the product card.
    Their support columns (1fr each) are far wider than the card (the middle
    1fr of a 5-track row), so centring each arrow in its own column dropped
@@ -1557,7 +1604,10 @@ a { color: inherit; text-decoration: none; }
 .eco__support-item:first-child .eco__link--up { align-self: flex-end; margin-right: 7.5%; }
 .eco__support-item:last-child .eco__link--up { align-self: flex-start; margin-left: 7.5%; }
 
-.eco__disclaimer { margin-top: clamp(16px, 2vw, 22px); font-size: 13px; color: var(--on-blue-soft); opacity: .8; }
+/* Identical type treatment to .eco__infra-label - both are the same kind
+   of quiet annotation text, so opacity is dropped rather than stacking a
+   second dimming on top of --on-blue-soft's own contrast. */
+.eco__disclaimer { margin-top: clamp(16px, 2vw, 22px); font-family: var(--font-body); font-weight: 400; font-size: 13px; line-height: 20px; color: var(--on-blue-soft); }
 
 
 /* Single column on phones. DOM order already is the intended mobile
@@ -1569,7 +1619,9 @@ a { color: inherit; text-decoration: none; }
   .eco__primary, .eco__support { grid-template-columns: 1fr; }
   /* Stacked, each feed sits directly above its target, so the offset that
      aimed it at the product card in the two-column layout is dropped.
-     Selectors match the base rules' specificity so this actually wins. */
+     Selectors match the base rules' specificity so this actually wins.
+     This is also the no-JS fallback for the long routed connectors below:
+     a short centred arrow, same as today, if script.js never runs. */
   .eco__support-item:first-child .eco__link--up,
   .eco__support-item:last-child .eco__link--up { align-self: center; margin-inline: 0; }
   .eco__link--h {
@@ -1581,6 +1633,38 @@ a { color: inherit; text-decoration: none; }
     transform: translateX(-50%);
     border-left-color: transparent; border-top-color: currentColor;
   }
+
+  /* Lanes for the long connectors below are cut out of the tiles
+     themselves, not the frame's padding: routing them at the frame edge
+     left them visually stranded, too far from the boxes to read as
+     connected to anything. Each tile is inset only as far as the arrows
+     that actually have to get past it, so the insets are staggered rather
+     than uniform - Comms Inspector database sits between both feeds and
+     their target, Data warehouse only blocks Knowledge base's, and
+     Knowledge base blocks nothing and keeps full width. */
+  .eco__primary > .eco__card:last-child { margin-right: 48px; }
+  .eco__support-item:first-child .eco__card { margin-right: 24px; }
+}
+
+/* Data warehouse and Knowledge base's feeds into the product card: once
+   the diagram is a single column, Comms Inspector database sits between
+   each of them and their target, so a short arrow just points into empty
+   space. script.js measures the real gap (card heights are content-driven
+   and not predictable from CSS alone) and stretches each arrow - via a
+   .eco__link--long class it adds - into a long line running through the
+   side lane above, left for Data warehouse and right for Knowledge base
+   mirroring their desktop positions, reaching up to the product card's
+   bottom edge. Position/height are set inline by JS; this just neutralises
+   the base .eco__link--v rule's own margin, which would otherwise offset
+   an absolutely positioned element away from its computed top. */
+.eco__link--long { margin: 0 !important; }
+
+@media (max-width: 860px) {
+  /* Restores the gap the arrow used to supply by occupying flow height
+     above Data warehouse's card - only when JS has actually pulled it out
+     of flow (see the .has-long-connectors toggle in script.js), so the
+     no-JS fallback above isn't left with a doubled-up gap. */
+  .eco__support.has-long-connectors { margin-top: 22px; }
 }
 
 /* --- Five-step .flow variant. The base .flow grid is hard-wired to
