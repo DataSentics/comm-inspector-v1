@@ -139,16 +139,22 @@
           <p class="case-body__text">Home Credit went from reviewing under 2% of calls by hand to evaluating 100% of them automatically &mdash; giving quality and compliance teams full visibility instead of a small sample, and giving every agent detailed, actionable feedback on every call, not just the rare few that got manually reviewed.</p>
         </div>
 
-        <!-- No portrait for this quote, so .voice--no-avatar collapses the
-             grid to a single column rather than leaving the avatar track
-             standing empty. -->
-        <figure class="voice voice--no-avatar">
-          <blockquote class="voice__body">
-            <p>&ldquo;With our automated QA solution, our team can now evaluate a significantly higher volume of meaningful calls, allowing us to provide more detailed and actionable feedback to agents.&rdquo;</p>
+        <!-- Testimonial card, same shape as the Tuito/Pillow cards on
+             claimsense.app: tinted panel, oversized quote mark, divider,
+             then portrait and attribution. No company blurb under the name
+             - "About the client" above already covers it. -->
+        <figure class="testimonial">
+          <span class="testimonial__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="testimonial__quote">
+            <p>With our automated QA solution, our team can now evaluate a significantly higher volume of meaningful calls, allowing us to provide more detailed and actionable feedback to agents.</p>
           </blockquote>
-          <figcaption class="voice__by">
-            <cite>Wojciech Antoni Krotoszynski</cite>
-            <span class="voice__role">Head of Collections, Home Credit</span>
+          <div class="testimonial__divider" aria-hidden="true"></div>
+          <figcaption class="testimonial__by">
+            <img src="Assets/testimonial-home-credit-manager-Wojciech-Krotoszynski-facing-r.jpg" alt="Wojciech Antoni Krotoszynski" class="testimonial__avatar" width="64" height="64" loading="lazy" />
+            <div>
+              <cite class="testimonial__name">Wojciech Antoni Krotoszynski</cite>
+              <span class="testimonial__role">Head of Collections, Home Credit</span>
+            </div>
           </figcaption>
         </figure>
       </div>
