@@ -5,9 +5,9 @@
   <!-- Cookiebot consent - must stay the first script in <head>, ahead of every other script and tracking tag, so data-blockingmode="auto" can hold them until consent. -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Coach — Automated Post-Call Feedback for Operators</title>
+  <title>Case Studies — AI Comms Inspector</title>
   <link rel="icon" type="image/svg+xml" href="Assets/comm-inspector-favicon_color.svg" />
-  <meta name="description" content="AI Coach sends every operator automated feedback after each call, with summaries and recommendations tailored to your call scripts." />
+  <meta name="description" content="See how AI Comms Inspector performs in production — real deployments, real results." />
   <meta name="robots" content="index, follow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,7 @@
           <div class="nav__dropdown-menu" id="resourcesMenu">
             <a href="index.html#how">How it works</a>
             <a href="architecture.html">Architecture</a>
-            <a href="case-studies.html">Case studies</a>
+            <a href="case-studies.html" aria-current="page">Case studies</a>
           </div>
         </div>
         <a href="pricing.html">Pricing</a>
@@ -68,7 +68,7 @@
       <span class="mobile-nav__label">Resources</span>
       <a href="index.html#how">How it works</a>
       <a href="architecture.html">Architecture</a>
-      <a href="case-studies.html">Case studies</a>
+      <a href="case-studies.html" aria-current="page">Case studies</a>
       <span class="mobile-nav__divider" aria-hidden="true"></span>
       <a href="pricing.html">Pricing</a>
       <a href="index.html#demo" class="btn btn--primary" data-demo-open>Book a walkthrough</a>
@@ -77,41 +77,97 @@
   <!-- END SHARED HEADER -->
 
   <main id="main">
+    <!-- Hero. No backlink: Case studies is a top-level Resources page like
+         Architecture and Pricing, not one of the four modules. -->
     <section class="subpage-hero">
       <div class="container">
-        <a class="backlink" href="index.html#delivers"><span class="backlink__chevron" aria-hidden="true">‹</span> All modules</a>
-        <h1 class="subpage-hero__title">AI Coach</h1>
-        <p class="subpage-hero__lead">Automated feedback sent to each operator after a call, with summaries and recommendations tailored to your call scripts and calling propositions.</p>
-        <div class="subpage-hero__cta">
-          <a href="index.html#demo" class="btn btn--primary btn--lg" data-demo-open>Book a walkthrough</a>
-        </div>
+        <span class="subpage-hero__eyebrow">Case studies</span>
+        <h1 class="subpage-hero__title">Case studies</h1>
+        <p class="subpage-hero__lead">Real deployments of AI Comms Inspector, running in production at enterprise scale.</p>
       </div>
     </section>
 
-    <!-- What each operator gets -->
-    <section class="section section--grey reveal" aria-labelledby="operatorHeading">
+    <!-- Home Credit. White, not grey: .proof-card's own background is
+         --grey-50, so on a grey band the cards would disappear into it -
+         the homepage hosts the same cards on white for that reason. -->
+    <section class="section section--white reveal" aria-labelledby="homeCreditHeading">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow-label">What each operator gets</span>
-          <h2 id="operatorHeading" class="section__title">Personal feedback after every call</h2>
-          <p class="section__sub">AI Coach turns quality findings into concrete, personal feedback for the agent who made the call — automatically, every time.</p>
+          <img src="Assets/home-credit-logo.svg" alt="Home Credit" class="case-study__logo" width="118" height="50" />
+          <a href="ai-quality-assurance.html" class="module-card__tag">AI Quality Assurance</a>
+          <h2 id="homeCreditHeading" class="section__title section__title--xl">100% AI-powered quality assurance call monitoring at Home Credit</h2>
         </div>
-        <ul class="feature-list">
-          <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Automated feedback sent to the operator after each call</li>
-          <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A short, clear summary of what happened on the call</li>
-          <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Recommendations tailored to your call script and propositions</li>
-          <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Specific, example-based guidance rather than generic tips</li>
-          <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> The same coaching for every agent, on every call</li>
-          <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Progress an agent can track over time</li>
-        </ul>
+
+        <!-- Same proof-card language as the homepage, three across, no
+             featured variant. -->
+        <div class="proof-grid">
+          <article class="proof-card">
+            <span class="proof-card__label">Coverage</span>
+            <h3 class="proof-card__title">100%</h3>
+            <p class="proof-card__body">Of calls automatically evaluated by AI.</p>
+          </article>
+          <article class="proof-card">
+            <span class="proof-card__label">Agent impact</span>
+            <h3 class="proof-card__title">Enhanced feedback</h3>
+            <p class="proof-card__body">Agents receive holistic, actionable insights.</p>
+          </article>
+          <article class="proof-card">
+            <span class="proof-card__label">Management impact</span>
+            <h3 class="proof-card__title">High-level metrics evaluation</h3>
+            <p class="proof-card__body">Enables identification of areas for improvement.</p>
+          </article>
+        </div>
+
+        <div class="case-body">
+          <h3 class="case-body__heading">About the client</h3>
+          <p class="case-body__text">Home Credit is a non-bank financial institution providing consumer financing solutions, designed to give customers simple, accessible and convenient access to credit.</p>
+
+          <h3 class="case-body__heading">The challenge</h3>
+          <p class="case-body__text">Home Credit runs a call centre with over 1,200 agents handling more than 3 million calls a month. Manual QA covered less than 2% of those calls, making it hard to catch issues consistently or give agents meaningful feedback. Taglish, a mix of Tagalog and English used in many calls, added further complexity to transcription accuracy and QA scoring.</p>
+
+          <h3 class="case-body__heading">The solution</h3>
+          <p class="case-body__text">Every meaningful call is now processed and evaluated automatically, end to end. Recordings are transcribed and cleaned up with noise cancellation and voice activity detection, then reviewed for any remaining transcription errors. Content is translated into English so every call is scored on the same standard, and an LLM evaluates each QA parameter with a performance score, reasoning behind it, and concrete suggestions for improvement.</p>
+          <ul class="feature-list">
+            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Speech-to-text transcription with noise cancellation and voice activity detection</li>
+            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> AI-assisted correction of remaining transcription inaccuracies</li>
+            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Standardised scoring through translation to a single evaluation language</li>
+            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> LLM scoring against every QA parameter, with reasoning and improvement suggestions</li>
+            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A dashboard giving agent performance, script adherence, communication skills and regulatory compliance in one view</li>
+          </ul>
+
+          <h3 class="case-body__heading">Results</h3>
+          <p class="case-body__text">Home Credit went from reviewing under 2% of calls by hand to evaluating 100% of them automatically &mdash; giving quality and compliance teams full visibility instead of a small sample, and giving every agent detailed, actionable feedback on every call, not just the rare few that got manually reviewed.</p>
+        </div>
+
+        <!-- Testimonial card, same shape as the Tuito/Pillow cards on
+             claimsense.app: tinted panel, oversized quote mark, divider,
+             then portrait and attribution. No company blurb under the name
+             - "About the client" above already covers it. -->
+        <figure class="testimonial">
+          <span class="testimonial__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="testimonial__quote">
+            <p>With our automated QA solution, our team can now evaluate a significantly higher volume of meaningful calls, allowing us to provide more detailed and actionable feedback to agents.</p>
+          </blockquote>
+          <div class="testimonial__divider" aria-hidden="true"></div>
+          <figcaption class="testimonial__by">
+            <img src="Assets/testimonial-home-credit-manager-Wojciech-Krotoszynski-facing-r.jpg" alt="Wojciech Antoni Krotoszynski" class="testimonial__avatar" width="64" height="64" loading="lazy" />
+            <div>
+              <cite class="testimonial__name">Wojciech Antoni Krotoszynski</cite>
+              <span class="testimonial__role">Head of Collections, Home Credit</span>
+            </div>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- CTA band -->
-    <section class="section section--white reveal cta-band" aria-labelledby="coachCtaHeading">
+    <!-- CTA band. Grey rather than the white in the brief: the case study
+         above had to become white for the proof cards, and the site's
+         bands always alternate (architecture.html and ai-call-inspector.html
+         both close on grey for the same reason). -->
+    <section class="section section--grey reveal cta-band" aria-labelledby="csCtaHeading">
       <div class="container">
-        <h2 id="coachCtaHeading" class="section__title">Give every agent feedback after every call</h2>
-        <p class="cta-band__sub">Book a walkthrough and see how one conversation becomes specific, actionable feedback for an agent.</p>
+        <h2 id="csCtaHeading" class="section__title">See what this looks like for your team</h2>
+        <p class="cta-band__sub">Book a walkthrough and we&rsquo;ll show you how AI Comms Inspector applies to your own call volumes and QA process.</p>
         <div class="cta-band__actions">
           <a href="index.html#demo" class="btn btn--primary btn--lg" data-demo-open>Book a walkthrough</a>
         </div>
