@@ -965,6 +965,7 @@ a { color: inherit; text-decoration: none; }
   .delivers__title-break { display: none; }
   .delivers__sub-break { display: none; }
   .voice__role-break { display: none; }
+  .case-hero__title-break { display: none; }
   .nav__byline { display: none; }
   .nav__divider { display: none; }
   .modules { grid-template-columns: 1fr; }
