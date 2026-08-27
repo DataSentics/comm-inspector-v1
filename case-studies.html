@@ -82,8 +82,8 @@
     <section class="subpage-hero">
       <div class="container">
         <span class="subpage-hero__eyebrow">Case studies</span>
-        <h1 class="subpage-hero__title">Proven<br class="case-hero__title-break"> in real deployments</h1>
-        <p class="subpage-hero__lead">Real deployments of AI Comms Inspector, running in production at enterprise scale.</p>
+        <h1 class="subpage-hero__title">What 100% call coverage actually looks like</h1>
+        <p class="subpage-hero__lead">Detailed deployments across contact centres, with real challenge, solution and outcome data.</p>
       </div>
     </section>
 
@@ -92,10 +92,17 @@
          the homepage hosts the same cards on white for that reason. -->
     <section class="section section--white reveal" aria-labelledby="homeCreditHeading">
       <div class="container">
-        <div class="section__head">
-          <img src="Assets/home-credit-logo.svg" alt="Home Credit" class="case-study__logo" width="118" height="50" />
-          <a href="ai-quality-assurance.html" class="module-card__tag">AI Quality Assurance</a>
-          <h2 id="homeCreditHeading" class="section__title section__title--xl">100% AI-powered quality assurance call monitoring at Home Credit</h2>
+        <!-- Two columns: pill and headline left, client logo right in a
+             fixed box so logos of differing proportions all occupy the same
+             footprint as more case studies are added. -->
+        <div class="section__head case-study__header">
+          <div class="case-study__header-text">
+            <a href="ai-quality-assurance.html" class="module-card__tag">AI Quality Assurance</a>
+            <h2 id="homeCreditHeading" class="section__title section__title--xl">How Home Credit went from spot-checking calls to monitoring every one</h2>
+          </div>
+          <div class="case-study__header-logo">
+            <img src="Assets/home-credit-logo.svg" alt="Home Credit" width="118" height="50" />
+          </div>
         </div>
 
         <!-- Same proof-card language as the homepage, three across, no
@@ -124,6 +131,17 @@
 
           <h3 class="case-body__heading">The challenge</h3>
           <p class="case-body__text">Home Credit runs a call centre with over 1,200 agents handling more than 3 million calls a month. Manual QA covered less than 2% of those calls, making it hard to catch issues consistently or give agents meaningful feedback. Taglish, a mix of Tagalog and English used in many calls, added further complexity to transcription accuracy and QA scoring.</p>
+
+          <!-- Standalone, not part of the three-card grid above: it lands
+               here as the scale figure the challenge has just set up. Body
+               copy is rewritten rather than reused from the homepage card,
+               which anonymises Home Credit as "a major financial-services
+               company in Asia" - wrong on a page that names them. -->
+          <article class="proof-card proof-card--featured case-body__stat">
+            <span class="proof-card__label">Production scale</span>
+            <h3 class="proof-card__title">30M+ calls analysed every year</h3>
+            <p class="proof-card__body">Continuous, automated coverage across Home Credit&rsquo;s full call volume &mdash; no sampling, no gaps.</p>
+          </article>
 
           <h3 class="case-body__heading">The solution</h3>
           <p class="case-body__text">Every meaningful call is now processed and evaluated automatically, end to end. Recordings are transcribed and cleaned up with noise cancellation and voice activity detection, then reviewed for any remaining transcription errors. Content is translated into English so every call is scored on the same standard, and an LLM evaluates each QA parameter with a performance score, reasoning behind it, and concrete suggestions for improvement.</p>

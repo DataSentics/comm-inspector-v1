@@ -965,7 +965,6 @@ a { color: inherit; text-decoration: none; }
   .delivers__title-break { display: none; }
   .delivers__sub-break { display: none; }
   .voice__role-break { display: none; }
-  .case-hero__title-break { display: none; }
   .nav__byline { display: none; }
   .nav__divider { display: none; }
   .modules { grid-template-columns: 1fr; }
@@ -1098,6 +1097,23 @@ a { color: inherit; text-decoration: none; }
 .proof-card--featured {
   grid-column: 1 / -1;
 }
+/* Whole-card link. The visible affordance is just the small CTA at the
+   bottom, but its ::after is stretched over the card so the entire tile is
+   the hit area - one anchor, so no nested-link or duplicate-announcement
+   problem for screen readers. */
+.proof-card--linked { position: relative; }
+.proof-card__cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 14px;
+  font-size: var(--fs-meta); font-weight: 700; color: var(--orange);
+  transition: gap .2s var(--ease);
+}
+.proof-card__cta::after { content: ""; position: absolute; inset: 0; }
+.proof-card--linked:hover { border-color: var(--orange); }
+.proof-card--linked:hover .proof-card__cta { gap: 10px; }
+/* The stretched ::after swallows the anchor's own outline, so the focus
+   ring has to be drawn on the card instead. */
+.proof-card--linked:focus-within { outline: 3px solid var(--orange); outline-offset: 2px; }
 .proof-card__label {
   display: block;
   font-family: var(--font-body);
@@ -1856,10 +1872,29 @@ a { color: inherit; text-decoration: none; }
 .testimonial__name { font-style: normal; font-weight: 700; font-size: 16px; color: var(--ink); display: block; }
 .testimonial__role { font-size: 14px; color: var(--ink-soft); }
 
-/* Client logo, first element of the case study block. display:block so it
-   sits on its own line above the tag chip (an inline img would share the
-   line with it) and so margin-bottom actually applies. */
-.case-study__logo { display: block; height: 32px; width: auto; margin-bottom: 16px; }
+/* Case study header: pill and headline left, client logo right. The logo
+   sits in a fixed box rather than being sized directly, so client marks of
+   different proportions all take up the same footprint once there is more
+   than one case study. */
+.case-study__header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: clamp(24px, 4vw, 48px); flex-wrap: wrap;
+}
+.case-study__header-text { flex: 1; min-width: 280px; }
+.case-study__header-text .module-card__tag { display: inline-block; margin-bottom: 12px; }
+.case-study__header-logo {
+  flex-shrink: 0;
+  width: 160px; height: 70px;
+  display: flex; align-items: center; justify-content: center;
+}
+.case-study__header-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+@media (max-width: 640px) {
+  .case-study__header { flex-direction: column; align-items: flex-start; }
+}
+
+/* The scale figure that sits inside the narrative rather than in the grid
+   above, so it needs its own vertical rhythm. */
+.case-body__stat { margin: clamp(24px, 3vw, 32px) 0; }
 
 /* Narrative body. Same measure as the privacy page's .legal block - long
    prose needs a shorter line than the full container gives it. */
