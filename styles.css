@@ -1896,6 +1896,28 @@ a { color: inherit; text-decoration: none; }
    above, so it needs its own vertical rhythm. */
 .case-body__stat { margin: clamp(24px, 3vw, 32px) 0; }
 
+/* Warm gradient hero, same recipe as the homepage's .hero.section--white.
+   A modifier rather than a change to .subpage-hero, which every other
+   subpage shares and which stays flat white. */
+.subpage-hero--tint {
+  background: linear-gradient(180deg, #FFF7F5 0%, var(--white) 70%);
+}
+
+/* Groups the solution's capability list into one panel so it reads as a
+   block of what was built, rather than loose bullets under the paragraph. */
+.solution-tile {
+  background: var(--grey-50);
+  border-radius: var(--r-card);
+  padding: clamp(24px, 3vw, 32px);
+  margin-top: 20px;
+}
+
+/* Figures carry the argument in these two paragraphs, so they lift to full
+   --ink out of the surrounding --ink-soft. Scoped rather than a global
+   `strong` rule: the site has none today, and a global one would restyle
+   every existing <strong> on the one-pager, homepage and privacy policy. */
+.case-body__text strong { font-weight: 700; color: var(--ink); }
+
 /* Narrative body. Same measure as the privacy page's .legal block - long
    prose needs a shorter line than the full container gives it. */
 .case-body { max-width: 74ch; margin-top: clamp(32px, 4vw, 48px); }

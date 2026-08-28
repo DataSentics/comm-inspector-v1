@@ -79,7 +79,7 @@
   <main id="main">
     <!-- Hero. No backlink: Case studies is a top-level Resources page like
          Architecture and Pricing, not one of the four modules. -->
-    <section class="subpage-hero">
+    <section class="subpage-hero subpage-hero--tint">
       <div class="container">
         <span class="subpage-hero__eyebrow">Case studies</span>
         <h1 class="subpage-hero__title">What 100% call coverage actually looks like</h1>
@@ -130,7 +130,7 @@
           <p class="case-body__text">Home Credit is a non-bank financial institution providing consumer financing solutions, designed to give customers simple, accessible and convenient access to credit.</p>
 
           <h3 class="case-body__heading">The challenge</h3>
-          <p class="case-body__text">Home Credit runs a call centre with over 1,200 agents handling more than 3 million calls a month. Manual QA covered less than 2% of those calls, making it hard to catch issues consistently or give agents meaningful feedback. Taglish, a mix of Tagalog and English used in many calls, added further complexity to transcription accuracy and QA scoring.</p>
+          <p class="case-body__text">Home Credit runs a call centre with over <strong>1,200 agents</strong> handling more than <strong>3 million calls a month</strong>. Manual QA covered <strong>less than 2%</strong> of those calls, making it hard to catch issues consistently or give agents meaningful feedback. Taglish, a mix of Tagalog and English used in many calls, added further complexity to transcription accuracy and QA scoring.</p>
 
           <!-- Standalone, not part of the three-card grid above: it lands
                here as the scale figure the challenge has just set up. Body
@@ -145,16 +145,18 @@
 
           <h3 class="case-body__heading">The solution</h3>
           <p class="case-body__text">Every meaningful call is now processed and evaluated automatically, end to end. Recordings are transcribed and cleaned up with noise cancellation and voice activity detection, then reviewed for any remaining transcription errors. Content is translated into English so every call is scored on the same standard, and an LLM evaluates each QA parameter with a performance score, reasoning behind it, and concrete suggestions for improvement.</p>
-          <ul class="feature-list">
-            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Speech-to-text transcription with noise cancellation and voice activity detection</li>
-            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> AI-assisted correction of remaining transcription inaccuracies</li>
-            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Standardised scoring through translation to a single evaluation language</li>
-            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> LLM scoring against every QA parameter, with reasoning and improvement suggestions</li>
-            <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A dashboard giving agent performance, script adherence, communication skills and regulatory compliance in one view</li>
-          </ul>
+          <div class="solution-tile">
+            <ul class="feature-list">
+              <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Speech-to-text transcription with noise cancellation and voice activity detection</li>
+              <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> AI-assisted correction of remaining transcription inaccuracies</li>
+              <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Standardised scoring through translation to a single evaluation language</li>
+              <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> LLM scoring against every QA parameter, with reasoning and improvement suggestions</li>
+              <li><svg class="feature-list__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A dashboard giving agent performance, script adherence, communication skills and regulatory compliance in one view</li>
+            </ul>
+          </div>
 
           <h3 class="case-body__heading">Results</h3>
-          <p class="case-body__text">Home Credit went from reviewing under 2% of calls by hand to evaluating 100% of them automatically &mdash; giving quality and compliance teams full visibility instead of a small sample, and giving every agent detailed, actionable feedback on every call, not just the rare few that got manually reviewed.</p>
+          <p class="case-body__text">Home Credit went from reviewing <strong>under 2%</strong> of calls by hand to evaluating <strong>100%</strong> of them automatically &mdash; giving quality and compliance teams full visibility instead of a small sample, and giving every agent detailed, actionable feedback on every call, not just the rare few that got manually reviewed.</p>
         </div>
 
         <!-- Testimonial card, same shape as the Tuito/Pillow cards on
