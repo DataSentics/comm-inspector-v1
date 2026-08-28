@@ -1911,6 +1911,12 @@ a { color: inherit; text-decoration: none; }
   padding: clamp(24px, 3vw, 32px);
   margin-top: 20px;
 }
+/* Label-to-list gap matched to .proof-card__label's 8px, rather than the
+   eyebrow's default 14px stacking on top of the list's own 18px top
+   margin. Three classes on the second rule so it wins over
+   `.case-body .feature-list` regardless of which comes first in the file. */
+.solution-tile .eyebrow-label { margin-bottom: 8px; }
+.case-body .solution-tile .feature-list { margin-top: 0; }
 
 /* Figures carry the argument in these two paragraphs, so they lift to full
    --ink out of the surrounding --ink-soft. Scoped rather than a global
