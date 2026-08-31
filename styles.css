@@ -1940,7 +1940,7 @@ a { color: inherit; text-decoration: none; }
    subordinate label rather than competing with the h3 above it. */
 .case-body__subhead {
   font-family: var(--font-body); font-weight: 700; font-size: 17px;
-  color: var(--ink); margin: 20px 0 10px;
+  color: var(--ink); margin: 32px 0 8px;
 }
 .case-body__text { font-size: var(--fs-body); color: var(--ink-soft); line-height: var(--lh-prose); }
 .case-body .feature-list { margin-top: 18px; }
