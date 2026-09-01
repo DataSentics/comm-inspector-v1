@@ -1935,6 +1935,13 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink); margin: clamp(26px, 3vw, 34px) 0 10px;
 }
 .case-body__heading:first-child { margin-top: 0; }
+/* Sits inside a .case-body__heading section rather than starting a new
+   one - bold at body size, not the display font, so it reads as a
+   subordinate label rather than competing with the h3 above it. */
+.case-body__subhead {
+  font-family: var(--font-body); font-weight: 700; font-size: 17px;
+  color: var(--ink); margin: 32px 0 8px;
+}
 .case-body__text { font-size: var(--fs-body); color: var(--ink-soft); line-height: var(--lh-prose); }
 .case-body .feature-list { margin-top: 18px; }
 
