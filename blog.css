@@ -25,6 +25,8 @@
 /* ---------- Index: filter bar ---------- */
 .blog-filterbar { background: var(--white); border-bottom: 1px solid var(--hairline); }
 .blog-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding-block: 18px; }
+/* 14px + the filter bar's 18px top padding = 32px from the H1 to the first pill */
+.subpage-hero--blog { padding-bottom: 14px; }
 .blog-filters__label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #7a8399; margin-right: 6px; }
 .blog-filter {
   appearance: none; border: 1px solid var(--hairline); background: var(--white); color: var(--ink-soft);
