@@ -284,6 +284,8 @@
             form.reset();
             fields.hidden = true;
             success.hidden = false;
+            /* GA4 conversion for ad measurement and audience exclusion. No form data is sent. */
+            if (typeof gtag === "function") gtag("event", "generate_lead", { form_id: "demo_walkthrough" });
           } else {
             note.textContent = "Something went wrong. Please try again or email us directly.";
             note.className = "demo-form__note is-err";
@@ -340,6 +342,7 @@
             quoteForm.reset();
             quoteFields.hidden = true;
             quoteSuccess.hidden = false;
+            if (typeof gtag === "function") gtag("event", "generate_lead", { form_id: "quote_request" });
           } else {
             quoteNote.textContent = "Something went wrong. Please try again or email us directly.";
             quoteNote.className = "demo-form__note is-err";
