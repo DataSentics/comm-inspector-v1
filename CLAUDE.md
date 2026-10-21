@@ -1,9 +1,27 @@
 # ACI Web — AI Communication Inspector site
 
 Static marketing site: plain HTML / CSS / vanilla JS, **no build step, no framework**.
-Homepage `index.html` + 4 module sub-pages (`comm-inspector.html`, `ai-call-inspector.html`,
-`ai-quality-assurance.html`, `ai-coach.html`) + `comm-inspector-onepager.html`.
-Shared `styles.css` and `script.js`. Bull / DataSentics brand.
+Homepage `index.html` + 4 module sub-pages + supporting pages + `comm-inspector-onepager.html`.
+Shared `styles.css` and `script.js` (blog pages also load `blog.css`). Bull / DataSentics brand.
+
+| File | Page |
+|---|---|
+| `index.html` | Homepage — "AI Comms Inspector — Read Every Conversation" |
+| `ai-customer-insights.html` | Module: AI Customer Insights (formerly `comm-inspector.html`) |
+| `ai-call-inspector.html` | Module: AI Call Inspector |
+| `ai-quality-assurance.html` | Module: AI Quality Assurance |
+| `ai-coach.html` | Module: AI Coach |
+| `architecture.html` | Architecture |
+| `pricing.html` | Pricing |
+| `case-studies.html` | Case Studies |
+| `blog.html` | Blog index |
+| `blog-500000-in-tokens.html` | Blog post: "A business question should not cost €500,000 in tokens" |
+| `blog-one-prompt-away.html` | Blog post: "Every conversation … is now one prompt away" |
+| `blog-paying-consultants-to-guess.html` | Blog post: "I spent years paying consultants to guess …" |
+| `privacy-policy.html` | Privacy Policy |
+| `comm-inspector-onepager.html` | One-pager (print/PDF companion: `AI-Communication-Inspector-1-pager.pdf`) |
+
+`sitemap.xml` and `robots.txt` live at the repo root; add new pages to the sitemap.
 
 Local preview: `python -m http.server 8087` from the repo root → http://localhost:8087/
 (also defined in `.claude/launch.json`). Line endings are CRLF (`core.autocrlf=true`).
