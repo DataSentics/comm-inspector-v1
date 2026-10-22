@@ -2007,15 +2007,6 @@ a.module-card__tag:hover { background: var(--orange-tint); color: var(--orange);
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
-/* Stat tiles above and below the player */
-.vid__tile {
-  background: rgba(255,255,255,.06); border: 1px solid var(--hairline-blue);
-  border-radius: 14px; padding: 16px 24px; text-align: center; max-width: 100%;
-}
-.vid__num { display: block; font-family: var(--font-display); font-weight: 900; font-size: 34px; line-height: 1; color: #fff; }
-.vid__tile--accent .vid__num { color: #7788F9; }
-.vid__label { display: block; margin-top: 8px; font-size: 13px; letter-spacing: .03em; color: var(--on-blue-soft); }
-
 /* Player: 16:9 on desktop, square on mobile (matches the 1:1 video file) */
 .vid__frame {
   width: 100%; max-width: 1040px; aspect-ratio: 16 / 9;
@@ -2065,11 +2056,14 @@ a.module-card__tag:hover { background: var(--orange-tint); color: var(--orange);
 .vid__stage button:focus-visible, .vid__seek:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 
 /* Lock line (shown while locked) and the box that replaces it after unlock */
+.vid__lead { max-width: 760px; text-align: center; font-size: clamp(18px, 2vw, 22px); font-weight: 600; line-height: 1.4; color: #fff; }
 .vid__lock {
   display: flex; align-items: flex-start; justify-content: center; gap: 8px;
-  max-width: 640px; text-align: center; font-size: 14px; line-height: 1.5; color: #fff;
+  text-align: center; font-size: 15px; line-height: 1.4; color: var(--on-blue-soft);
 }
-.vid__lock svg { flex: 0 0 auto; margin-top: 5px; }
+.vid__lock svg { flex: 0 0 auto; margin-top: .15em; }
+.vid__note { max-width: 640px; text-align: center; font-size: 17px; line-height: 1.5; color: #fff; }
+.vid__note strong { font-weight: 700; }
 .vid__cta {
   display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
   background: rgba(255,255,255,.06); border: 1px solid var(--hairline-blue); border-radius: 10px; padding: 16px 20px;
