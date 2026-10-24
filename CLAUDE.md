@@ -57,3 +57,28 @@ via CSS, never with hard `<br>`** (hard breaks look wrong at other viewport widt
   (`.hero__tick`), sub-page feature lists (`.feature-list__tick`), and the "THE SHIFT"
   before/after comparison (`.ba__tick`). Use a fixed px, not `em`, so the check reads
   identically across sections whose body text differs (14px hero vs 16px lists).
+
+## Homepage v2 (unlisted test variant for ad traffic)
+
+`index-v2.html` + `home-v2.css` + `Assets/v2/` are a test homepage: a faithful port of the shared draft
+"Customer intelligence for European companies" (the draft's own markup and CSS, so colours, type and layout
+match it). It is **not** the live homepage:
+
+- `noindex, nofollow` + canonical to `https://comms-inspector.com/`; **not** in `sitemap.xml`, **not**
+  linked from any page or nav. Reached only by direct URL (paid-campaign UTM links).
+- **Standalone design:** loads only `home-v2.css` (the draft's CSS, Tosh A from `Assets/Fonts`), not
+  `styles.css` or `script.js`. Site additions sit at the bottom of the CSS and in the inline script at the
+  end of the HTML (menu, reveal, sticky CTA, contact form, GA4).
+- The draft's own nav and footer, with links into the site added (Pricing, Case studies, Blog, the four
+  module pages, Architecture). The draft's partner-programme page is not ported on purpose (commission
+  terms, unconfirmed figures).
+- Contact form: Web3Forms via fetch, GA4 `generate_lead` with the same `form_id` as the live form (variants
+  are told apart by page path) and a hidden `variant=homepage-v2` field. The webinar gate posts natively to
+  Web3Forms and redirects to the recording.
+- People cards carry local corrections the draft may lack: Jiřina's current role and badges, LinkedIn links
+  for David and Jiřina. Re-check them if the draft is ported again.
+- **Swap procedure (when v2 wins):** replace `index.html` with `index-v2.html`'s content (it brings its own
+  CSS), drop the noindex + canonical lines, move the content that left the homepage (worked example, "how it
+  works", deployment detail) onto `ai-customer-insights.html` / `architecture.html`, and leave a meta-refresh
+  stub at `index-v2.html` if ad links still point at it. Other pages keep `styles.css`, so the site's look
+  changes only on the homepage unless they are restyled too.

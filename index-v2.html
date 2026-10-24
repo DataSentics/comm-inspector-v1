@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <!-- Cookiebot consent - must stay the first script in <head>, ahead of every other script and tracking tag, so data-blockingmode="auto" can hold them until consent. -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
   <!-- Google tag (gtag.js) -->
@@ -12,993 +12,529 @@
     gtag('js', new Date());
     gtag('config', 'G-X2SDXRFETN');
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Comms Inspector — Read Every Conversation</title>
-  <link rel="icon" type="image/svg+xml" href="Assets/comm-inspector-favicon_color.svg" />
-  <meta name="description" content="Analyse 100% of calls, chats and emails in your own cloud. Turn every conversation into signals for revenue, compliance and CX teams." />
-  <!-- TEST VARIANT of the homepage (not the live page). Kept out of search results and pointing at
-       index.html as canonical; paid-campaign test traffic only. Swap = replace index.html with this
-       file's content, then drop noindex + this canonical. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Customer intelligence for European companies — AI Comms Inspector</title>
+  <meta name="description" content="Understand 100% of your customers. Finally. We help European companies read every call, chat and email and answer the questions their board keeps asking." />
+  <!-- TEST VARIANT of the homepage (not the live page). Kept out of search results and pointing at index.html
+       as canonical; paid-campaign test traffic only. Standalone design (home-v2.css), not styles.css.
+       Swap = replace index.html with this file's content, then drop noindex + this canonical. -->
   <meta name="robots" content="noindex, nofollow" />
   <link rel="canonical" href="https://comms-inspector.com/" />
-
-  <!-- Fonts: Tosh A (brand headlines, self-hosted in Assets/Fonts, see styles.css) -->
-  <!-- + Roboto (body) + Roboto Mono (metrics/regulatory tokens). -->
+  <link rel="icon" type="image/svg+xml" href="Assets/comm-inspector-favicon_color.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="styles.css?v=20261022" />
-
-  <!-- Set a `js` flag before first paint so enhancement-only styles
-       (e.g. the coverage bars animating up from zero) never flash
-       their final state for non-JS / pre-script renders. -->
-  <script>document.documentElement.classList.add("js");</script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="home-v2.css?v=20261027" />
 </head>
-<body>
+<body id="top">
 
-  <!-- ============================================================= -->
-  <!-- SKIP LINK (accessibility)                                     -->
-  <!-- ============================================================= -->
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- ============================================================= -->
-  <!-- HEADER / NAV                                                  -->
-  <!-- ============================================================= -->
-  <header class="site-header" id="siteHeader">
-    <div class="container nav">
-      <a class="nav__brand" href="#top" aria-label="AI Comms Inspector — DataSentics, a Bull company">
-        <img src="Assets/comms-inspector-logo_tm.svg" alt="Comms Inspector" class="nav__logo" width="219" height="20" />
-      </a>
-
-      <nav class="nav__links" aria-label="Primary">
-        <div class="nav__dropdown">
-          <button class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="modulesMenu">
-            Modules
-            <svg class="nav__dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div class="nav__dropdown-menu" id="modulesMenu">
-            <a href="ai-customer-insights.html">AI Customer Insights</a>
-            <a href="ai-call-inspector.html">AI Call Inspector</a>
-            <a href="ai-quality-assurance.html">AI Quality Assurance</a>
-            <a href="ai-coach.html">AI Coach</a>
-          </div>
-        </div>
-        <div class="nav__dropdown">
-          <button class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="resourcesMenu">
-            Resources
-            <svg class="nav__dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div class="nav__dropdown-menu" id="resourcesMenu">
-            <a href="#how">How it works</a>
-            <a href="architecture.html">Architecture</a>
-            <a href="case-studies.html">Case studies</a>
-            <a href="blog.html">Blog</a>
-          </div>
-        </div>
-        <a href="pricing.html">Pricing</a>
-      </nav>
-
-      <span class="nav__byline"><span class="nav__backed">built by</span> <img src="Assets/BULL_LOGO_COLOR_RGB.svg" alt="Bull" class="nav__bull" /></span>
-      <span class="nav__cta-divider" aria-hidden="true"></span>
-
-      <!-- Primary CTA (built once, reused everywhere via .btn--primary) -->
-      <a href="#demo" class="btn btn--primary nav__cta" data-demo-open>Book a walkthrough</a>
-
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Mobile nav drawer -->
-    <div class="mobile-nav" id="mobileNav" hidden>
-      <span class="mobile-nav__label">Modules</span>
-      <a href="ai-customer-insights.html">AI Customer Insights</a>
-      <a href="ai-call-inspector.html">AI Call Inspector</a>
-      <a href="ai-quality-assurance.html">AI Quality Assurance</a>
-      <a href="ai-coach.html">AI Coach</a>
-      <span class="mobile-nav__divider" aria-hidden="true"></span>
-      <span class="mobile-nav__label">Resources</span>
-      <a href="#how">How it works</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="case-studies.html">Case studies</a>
-      <a href="blog.html">Blog</a>
-      <span class="mobile-nav__divider" aria-hidden="true"></span>
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="#top" aria-label="Comms Inspector"><img src="Assets/v2/comms-inspector-logo.svg" alt="Comms Inspector"></a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#questions">Insights</a>
+      <a href="#usecases">Use cases</a>
+      <a href="#how">How we work</a>
+      <a href="#people">Founders</a>
       <a href="pricing.html">Pricing</a>
-      <a href="#demo" class="btn btn--primary" data-demo-open>Book a walkthrough</a>
+      <a class="btn btn--primary" href="#contact">Book an inspiration session</a>
+    </nav>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobile-nav">
+    <a href="#questions">Insights</a>
+    <a href="#usecases">Use cases</a>
+    <a href="#how">How we work</a>
+    <a href="#people">Founders</a>
+    <a href="pricing.html">Pricing</a>
+    <a class="btn btn--primary" href="#contact">Book an inspiration session</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="section section--dark section--hero texture-glow texture-noise" style="padding-block: var(--sp-9) var(--section-pad-hero);">
+  <div class="container split">
+    <div class="reveal">
+      <p class="eyebrow">Customer intelligence, built in Europe</p>
+      <h1 class="hero-title">Understand 100% of your customers. Finally.</h1>
+      <p class="lead on-dark" style="margin-top: var(--sp-5); color: var(--text-on-dark-muted);">Ask all your customers a question at once. Hear every answer. Hold an executive summary for your next decision. Within minutes, not months.</p>
+      <div class="cluster" style="margin-top: var(--sp-6);">
+        <a class="btn btn--primary" href="#contact">Book an inspiration session</a>
+        <a class="btn btn--secondary" href="#webinar">Watch the webinar</a>
+      </div>
+      <a class="hero__founder" href="#keynotes"><img src="Assets/v2/david-vopelka-avatar.jpg" alt=""><span><strong>“With AI agents, business leaders can finally stay connected to what their customers need and improve their products and services faster than ever.”</strong>Founder’s keynotes · David Vopelka · why we believe every European company needs this</span></a>
     </div>
-  </header>
+    <div class="hero__visual reveal" data-delay="2">
+      <div class="card card--glass">
+        <svg class="diagram" viewBox="0 0 400 516" role="img" aria-labelledby="diagTitle">
+  <title id="diagTitle">Scattered customer communication flows into AI Comms Inspector agents, which answer your leadership's questions</title>
+  <defs>
+    <linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7788F9" stop-opacity="0.35"/><stop offset="1" stop-color="#7788F9" stop-opacity="0"/></linearGradient>
+    <linearGradient id="beamDown" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5539" stop-opacity="0.45"/><stop offset="1" stop-color="#FF5539" stop-opacity="0"/></linearGradient>
+    <radialGradient id="halo"><stop offset="0" stop-color="#FF5539" stop-opacity="0.55"/><stop offset="0.6" stop-color="#FF5539" stop-opacity="0.12"/><stop offset="1" stop-color="#FF5539" stop-opacity="0"/></radialGradient>
+    <marker id="mo" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1L7 4L0 7z" fill="#FF5539"/></marker>
+    <marker id="mb" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1L7 4L0 7z" fill="#7788F9"/></marker>
+  </defs>
 
-  <main id="main">
-    <span id="top"></span>
+  <!-- ===== TOP · leadership: six seats around a boardroom arc ===== -->
+  <g class="seat">
+    <g transform="translate(54 92)"><circle r="19"/><path class="ink" d="M-7 7a7 7 0 0 1 14 0M0 -7a4 4 0 1 0 0.01 0"/><text y="34">CEO</text></g>
+    <g transform="translate(112 66)"><circle r="19"/><path class="ink" d="M-7 7a7 7 0 0 1 14 0M0 -7a4 4 0 1 0 0.01 0"/><text y="34">COO</text></g>
+    <g transform="translate(170 50)"><circle r="19"/><path class="ink" d="M-7 7a7 7 0 0 1 14 0M0 -7a4 4 0 1 0 0.01 0"/><text y="34">CCO</text></g>
+    <g transform="translate(230 50)"><circle r="19"/><path class="ink" d="M-7 7a7 7 0 0 1 14 0M0 -7a4 4 0 1 0 0.01 0"/><text y="34">CX</text></g>
+    <g transform="translate(288 66)"><circle r="19"/><path class="ink" d="M-7 7a7 7 0 0 1 14 0M0 -7a4 4 0 1 0 0.01 0"/><text y="34">CPO</text></g>
+    <g transform="translate(346 92)"><circle r="19"/><path class="ink" d="M-7 7a7 7 0 0 1 14 0M0 -7a4 4 0 1 0 0.01 0"/><text y="34">CRO</text></g>
+  </g>
+  <!-- question marks hovering above two seats: what leadership keeps asking -->
+  <g class="ask"><text x="70" y="62" style="animation-delay:-0s">?</text><text x="128" y="36" style="animation-delay:-4.1s">?</text><text x="186" y="20" style="animation-delay:-7.7s">?</text><text x="246" y="20" style="animation-delay:-1.9s">?</text><text x="304" y="36" style="animation-delay:-6.2s">?</text><text x="362" y="62" style="animation-delay:-9.6s">?</text></g>
 
-    <!-- ============================================================= -->
-    <!-- 1 — HERO                                                      -->
-    <!-- Outcome: in one screen, grasp what this is, that it runs in   -->
-    <!-- their own environment, and what to do next.                   -->
-    <!-- ============================================================= -->
-    <section class="hero section--white" aria-labelledby="heroHeading">
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <!-- Eyebrow / trust signals -->
-          <!-- Three distinct signals only — kept to one line by cutting
-               redundancy, not by shrinking. "Your data never leaves" was the
-               same promise as "Runs in your cloud" (and the stack section
-               covers data residency in full). -->
-          <ul class="eyebrow-trust" aria-label="Trust signals">
-            <li>EU-based</li>
-            <li>GDPR by design</li>
-            <li>Runs in your cloud</li>
-          </ul>
+  <!-- ===== leadership <-> agent: questions reach down from each persona, answers reach back up ===== -->
+  <path d="M200 262 L96 132 L304 132 Z" fill="url(#beam)"/>
+  <g class="web web--top">
+    <path class="flow--down tentacle" pathLength="1" d="M58 134 C70 190 120 200 170 232" style="animation-duration:8s;animation-delay:-1.2s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M114 108 C120 170 150 200 180 226" style="animation-duration:7s;animation-delay:-4.6s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M172 92 C166 150 180 190 192 220" style="animation-duration:9s;animation-delay:-2.9s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M230 92 C236 150 220 190 208 220" style="animation-duration:6.5s;animation-delay:-6.1s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M288 108 C280 170 250 200 220 226" style="animation-duration:8.5s;animation-delay:-0.4s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M344 134 C330 190 280 200 230 232" style="animation-duration:7.5s;animation-delay:-3.7s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M176 226 C130 180 90 180 50 136" style="animation-duration:8.2s;animation-delay:-5.3s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M186 222 C170 170 130 150 106 110" style="animation-duration:7.2s;animation-delay:-1.8s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M196 218 C190 170 170 140 164 94" style="animation-duration:9.4s;animation-delay:-7.0s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M204 218 C210 170 230 140 238 94" style="animation-duration:6.8s;animation-delay:-3.1s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M214 222 C230 170 270 150 296 110" style="animation-duration:8.8s;animation-delay:-0.9s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M224 226 C270 180 310 180 352 136" style="animation-duration:7.6s;animation-delay:-6.6s"/>
+  </g>
 
-          <!-- ===================================================== -->
-          <!-- HERO H1 — ISOLATED, SWAPPABLE A/B BLOCK.              -->
-          <!-- To A/B test, replace ONLY the contents of <h1>.       -->
-          <!-- Sentence case per Bull tone of voice; "every" carries  -->
-          <!-- the single orange accent (the positive emphasis).      -->
-          <!-- ===================================================== -->
-          <h1 id="heroHeading" class="hero__h1">
-            Find insights in <span class="accent">every</span> interaction with clients
-          </h1>
-          <!-- END HERO H1 SWAPPABLE BLOCK -->
+  <!-- ===== MIDDLE · AI Comms Inspector with three agents ===== -->
+  <circle cx="200" cy="262" r="86" fill="url(#halo)"/>
+  <circle class="ring" cx="200" cy="262" r="74"/>
+  <circle class="ring ring--dash" cx="200" cy="262" r="60"/>
+  <circle class="node" cx="200" cy="262" r="46"/>
+  <g id="ci-logo-slot" transform="translate(174.49 245.72) scale(1.05)">
+    <path d="M45.3827 12.347C44.0003 12.347 42.8262 13.2275 42.3717 14.4585C42.0308 13.54 41.2828 12.8204 40.3454 12.5174C41.6426 12.1008 42.58 10.8983 42.58 9.46854C42.58 7.95357 41.529 6.69426 40.1182 6.34392C41.529 6.00305 42.58 4.73427 42.58 3.2193C42.58 1.43922 41.1313 0 39.3607 0C37.5901 0 36.1414 1.44869 36.1414 3.2193C36.1414 4.73427 37.1924 5.99359 38.6032 6.34392C37.1924 6.68479 36.1414 7.95357 36.1414 9.46854C36.1414 10.8983 37.0883 12.1008 38.376 12.5174C37.4386 12.8204 36.6906 13.54 36.3497 14.4585C35.8952 13.2275 34.7211 12.347 33.3387 12.347C31.9563 12.347 30.7822 13.2275 30.3277 14.4585C29.9869 13.54 29.2388 12.8204 28.3015 12.5174C29.5987 12.1008 30.536 10.8983 30.536 9.46854C30.536 7.68845 29.0874 6.24924 27.3167 6.24924C25.5461 6.24924 24.0974 7.69792 24.0974 9.46854C24.0974 10.8983 25.0443 12.1008 26.332 12.5174C25.3946 12.8204 24.6466 13.54 24.3057 14.4585C23.8513 13.2275 22.6772 12.347 21.2947 12.347C19.9123 12.347 18.7382 13.2275 18.2837 14.4585C17.9429 13.54 17.1949 12.8204 16.2575 12.5174C17.5547 12.1008 18.4921 10.8983 18.4921 9.46854C18.4921 8.03879 17.5831 6.88363 16.3238 6.43861C17.6778 6.0504 18.672 4.81949 18.672 3.35186C18.672 1.57178 17.2233 0.13256 15.4527 0.13256C15.4243 0.13256 15.3958 0.13256 15.358 0.13256C15.3296 0.13256 15.3012 0.13256 15.2633 0.13256C13.4832 0.13256 12.044 1.58125 12.044 3.35186C12.044 4.79108 13.0003 5.99359 14.2975 6.4102C13.3506 6.71319 12.5932 7.42333 12.2523 8.35125C11.7978 7.12034 10.6237 6.23977 9.24129 6.23977C7.46121 6.23977 6.02199 7.68845 6.02199 9.45907C6.02199 10.8888 6.96884 12.0913 8.25657 12.5079C7.31918 12.8109 6.57117 13.5305 6.2303 14.449C5.77581 13.2181 4.60171 12.3375 3.2193 12.3375C1.43922 12.3375 0 13.7862 0 15.5568C0 17.3274 1.44869 18.7761 3.2193 18.7761C4.60171 18.7761 5.77581 17.8955 6.2303 16.6646C6.58063 17.602 7.33812 18.3216 8.29444 18.6151C6.97831 19.0223 6.02199 20.2343 6.02199 21.6735C6.02199 23.4536 7.47068 24.8928 9.24129 24.8928C10.6237 24.8928 11.7978 24.0122 12.2523 22.7813C12.5932 23.7092 13.3506 24.4288 14.2975 24.7224C12.9908 25.139 12.044 26.3415 12.044 27.7807C12.044 29.5608 13.4927 31 15.2633 31C17.0339 31 18.4826 29.5513 18.4826 27.7807C18.4826 26.3415 17.5263 25.139 16.2291 24.7224C17.5357 24.3057 18.4826 23.1032 18.4826 21.664C18.4826 20.2248 17.5168 19.0128 16.2101 18.6057C17.1665 18.3122 17.9239 17.5925 18.2743 16.6552C18.7288 17.8861 19.9029 18.7666 21.2853 18.7666C22.6677 18.7666 23.8418 17.8861 24.2963 16.6552C24.6466 17.5925 25.4041 18.3122 26.3604 18.6057C25.0443 19.0128 24.088 20.2248 24.088 21.664C24.088 23.4441 25.5367 24.8833 27.3073 24.8833C29.0779 24.8833 30.5266 23.4346 30.5266 21.664C30.5266 20.2248 29.5608 19.0128 28.2541 18.6057C29.2104 18.3122 29.9679 17.5925 30.3183 16.6552C30.7728 17.8861 31.9469 18.7666 33.3293 18.7666C34.7117 18.7666 35.8858 17.8861 36.3403 16.6552C36.6906 17.5925 37.4481 18.3122 38.4044 18.6057C37.0883 19.0128 36.1319 20.2248 36.1319 21.664C36.1319 23.0275 36.9841 24.1827 38.1772 24.6561C36.9841 25.1295 36.1319 26.2847 36.1319 27.6481C36.1319 29.4282 37.5806 30.8674 39.3513 30.8674C41.1219 30.8674 42.5706 29.4188 42.5706 27.6481C42.5706 26.2847 41.7184 25.1295 40.5254 24.6561C41.7184 24.1827 42.5706 23.0275 42.5706 21.664C42.5706 20.2248 41.6048 19.0128 40.2981 18.6057C41.2544 18.3122 42.0119 17.5831 42.3622 16.6552C42.8167 17.8861 43.9908 18.7666 45.3732 18.7666C47.1533 18.7666 48.5925 17.318 48.5925 15.5473C48.5925 13.7767 47.1439 12.328 45.3732 12.328L45.3827 12.347ZM12.2523 10.5764C12.5932 11.4948 13.3412 12.2144 14.2786 12.5174C13.3412 12.8204 12.5932 13.54 12.2523 14.4585C11.9114 13.54 11.1634 12.8204 10.226 12.5174C11.1634 12.2144 11.9114 11.4948 12.2523 10.5764ZM12.2523 20.5846C11.902 19.6567 11.1445 18.9276 10.1881 18.6341C11.1445 18.3406 11.902 17.621 12.2523 16.6836C12.6026 17.621 13.3601 18.3406 14.3164 18.6341C13.3601 18.9276 12.6026 19.6472 12.2523 20.5846Z" fill="#FFFFFF"/>
+  </g>
+  <!-- AI Comms Inspector wordmark, white on a small pill under the node -->
+  <g class="brand-pill">
+    <rect x="256" y="247" width="140" height="30" rx="15"/>
+    <g transform="translate(265 256.42) scale(0.2792)" aria-label="AI Comms Inspector">
+<path d="M424.908 30.5154V8.6058H428.173V12.1715C429.935 9.16428 433.371 7.70364 436.636 8.30508V11.3552C431.782 10.539 428.173 13.3314 428.173 17.7133V30.5154H424.908Z" fill="#FFFFFF"/>
+<path d="M397.072 19.5563C397.072 13.0693 401.927 8.17188 408.414 8.17188C414.901 8.17188 419.755 13.0693 419.755 19.5563C419.755 26.0432 414.901 30.9407 408.414 30.9407C401.927 30.9407 397.072 26.0432 397.072 19.5563ZM400.423 19.5563C400.423 24.4108 403.903 28.1912 408.414 28.1912C412.925 28.1912 416.404 24.4108 416.404 19.5563C416.404 14.7018 412.925 10.9213 408.414 10.9213C403.903 10.9213 400.423 14.7018 400.423 19.5563Z" fill="#FFFFFF"/>
+<path d="M382.851 8.60806V2.16406H386.116V8.60806H393.848V11.4005H386.116V22.3553C386.116 26.8661 388.35 29.057 393.848 27.3816V30.174C386.244 32.4509 382.851 28.4126 382.851 22.2693V11.4005H378.34V8.60806H382.851Z" fill="#FFFFFF"/>
+<path d="M354.156 19.5563C354.156 13.0693 358.925 8.17188 365.283 8.17188C370.524 8.17188 374.734 11.4368 375.765 15.9906H372.328C371.125 12.9404 368.806 10.9213 365.283 10.9213C360.901 10.9213 357.507 14.7018 357.507 19.5563C357.507 24.4108 360.901 28.1912 365.283 28.1912C368.806 28.1912 371.125 26.1721 372.328 23.122H375.765C374.734 27.6757 370.524 30.9407 365.283 30.9407C358.925 30.9407 354.156 26.0432 354.156 19.5563Z" fill="#FFFFFF"/>
+<path d="M327.598 19.5563C327.598 13.0693 332.452 8.17188 338.939 8.17188C345.598 8.17188 350.753 13.413 350.238 20.5444H330.991C331.464 25.0122 334.815 28.1912 338.939 28.1912C342.333 28.1912 344.653 26.344 345.942 23.6804H349.464C347.961 28.1053 344.094 30.9407 338.939 30.9407C332.452 30.9407 327.598 26.0432 327.598 19.5563ZM331.12 17.709H346.758C346.156 14.1863 343.149 10.9213 338.939 10.9213C334.729 10.9213 331.765 14.1433 331.12 17.709Z" fill="#FFFFFF"/>
+<path d="M301.105 39.1031V8.60147H304.37V12.9834C306.218 10.0621 309.354 8.17188 313.091 8.17188C319.149 8.17188 323.702 13.0693 323.702 19.5563C323.702 26.0432 319.149 30.9407 313.091 30.9407C309.268 30.9407 306.218 29.1364 304.37 26.258V39.1031H301.105ZM304.37 19.5563C304.37 24.4108 307.85 28.1912 312.361 28.1912C316.872 28.1912 320.352 24.4108 320.352 19.5563C320.352 14.7018 316.872 10.9213 312.361 10.9213C307.85 10.9213 304.37 14.7018 304.37 19.5563Z" fill="#FFFFFF"/>
+<path d="M276.793 23.9812H280.101C280.53 26.5158 282.464 28.2772 286.373 28.2772C290.798 28.2772 292.602 26.6876 292.602 24.6256C292.602 18.4393 277.437 24.11 277.437 14.487C277.437 10.8784 280.917 8.17188 286.373 8.17188C291.528 8.17188 294.836 10.7495 295.309 15.1314H292.001C291.571 12.5968 289.638 10.8354 286.373 10.8354C282.593 10.8354 280.788 12.4249 280.788 14.487C280.788 20.6732 295.953 15.0025 295.953 24.6256C295.953 28.2342 292.473 30.9407 286.373 30.9407C280.573 30.9407 277.266 28.3631 276.793 23.9812Z" fill="#FFFFFF"/>
+<path d="M251.854 30.5111V8.60147H255.118V11.9524C256.665 9.63252 259.329 8.17188 262.679 8.17188C268.092 8.17188 271.873 11.9094 271.873 17.1505V30.5111H268.608V17.4942C268.608 13.6278 265.858 10.8784 261.863 10.8784C257.868 10.8784 255.118 13.6278 255.118 17.4942V30.5111H251.854Z" fill="#FFFFFF"/>
+<path d="M242.412 30.5173V0.445312H245.849V30.5173H242.412Z" fill="#FFFFFF"/>
+<path d="M204.369 23.3952H210.985C211.2 25.0277 212.489 26.1017 214.937 26.1017C217.429 26.1017 218.589 25.2855 218.589 24.1256C218.589 19.9155 204.842 24.2544 204.842 14.8032C204.842 11.0657 208.364 7.67188 214.68 7.67188C220.737 7.67188 223.959 10.5502 224.56 15.2328H217.945C217.73 13.5574 216.441 12.5264 214.465 12.5264C212.489 12.5264 211.329 13.3426 211.329 14.5025C211.329 18.6696 225.033 14.1588 225.033 23.7819C225.033 27.5624 221.553 30.9562 214.723 30.9562C208.193 30.9562 204.971 28.0349 204.369 23.3952Z" fill="#FFFFFF"/>
+<path d="M166.254 30.5266V8.10147H172.87V10.6361C174.244 8.78883 176.392 7.67188 178.97 7.67188C181.72 7.67188 183.953 8.91771 185.328 10.9798C186.789 8.91771 189.238 7.67188 192.159 7.67188C197.185 7.67188 200.708 11.1087 200.708 16.0061V30.5266H194.092V16.8653C194.092 14.7173 192.588 13.2137 190.397 13.2137C188.335 13.2137 186.789 14.7173 186.789 16.9083V30.5266H180.173V16.8653C180.173 14.7173 178.669 13.2137 176.521 13.2137C174.416 13.2137 172.87 14.7173 172.87 16.9083V30.5266H166.254Z" fill="#FFFFFF"/>
+<path d="M127.279 30.5266V8.10147H133.895V10.6361C135.27 8.78883 137.418 7.67188 139.995 7.67188C142.745 7.67188 144.979 8.91771 146.354 10.9798C147.814 8.91771 150.263 7.67188 153.184 7.67188C158.21 7.67188 161.733 11.1087 161.733 16.0061V30.5266H155.117V16.8653C155.117 14.7173 153.614 13.2137 151.423 13.2137C149.361 13.2137 147.814 14.7173 147.814 16.9083V30.5266H141.198V16.8653C141.198 14.7173 139.695 13.2137 137.547 13.2137C135.442 13.2137 133.895 14.7173 133.895 16.9083V30.5266H127.279Z" fill="#FFFFFF"/>
+<path d="M99.1934 19.314C99.1934 12.5264 104.263 7.67188 111.308 7.67188C118.354 7.67188 123.423 12.5264 123.423 19.314C123.423 26.1017 118.354 30.9562 111.308 30.9562C104.263 30.9562 99.1934 26.1017 99.1934 19.314ZM106.153 19.314C106.153 22.9656 108.344 25.4144 111.308 25.4144C114.272 25.4144 116.463 22.9656 116.463 19.314C116.463 15.6624 114.272 13.1708 111.308 13.1708C108.344 13.1708 106.153 15.6624 106.153 19.314Z" fill="#FFFFFF"/>
+<path d="M66.6367 15.4656C66.6367 6.70176 73.0378 0 81.9734 0C89.6633 0 95.291 4.98336 96.408 11.3844H88.6322C87.6012 8.42016 85.1954 6.2292 81.9734 6.2292C77.3338 6.2292 74.2836 10.2245 74.2836 15.4656C74.2836 20.7067 77.3338 24.702 81.9734 24.702C85.1954 24.702 87.6012 22.511 88.6322 19.5468H96.408C95.291 25.9478 89.6633 30.9312 81.9734 30.9312C73.0378 30.9312 66.6367 24.2294 66.6367 15.4656Z" fill="#FFFFFF"/>
+<path d="M45.3827 12.347C44.0003 12.347 42.8262 13.2275 42.3717 14.4585C42.0308 13.54 41.2828 12.8204 40.3454 12.5174C41.6426 12.1008 42.58 10.8983 42.58 9.46854C42.58 7.95357 41.529 6.69426 40.1182 6.34392C41.529 6.00305 42.58 4.73427 42.58 3.2193C42.58 1.43922 41.1313 0 39.3607 0C37.5901 0 36.1414 1.44869 36.1414 3.2193C36.1414 4.73427 37.1924 5.99359 38.6032 6.34392C37.1924 6.68479 36.1414 7.95357 36.1414 9.46854C36.1414 10.8983 37.0883 12.1008 38.376 12.5174C37.4386 12.8204 36.6906 13.54 36.3497 14.4585C35.8952 13.2275 34.7211 12.347 33.3387 12.347C31.9563 12.347 30.7822 13.2275 30.3277 14.4585C29.9869 13.54 29.2388 12.8204 28.3015 12.5174C29.5987 12.1008 30.536 10.8983 30.536 9.46854C30.536 7.68845 29.0874 6.24924 27.3167 6.24924C25.5461 6.24924 24.0974 7.69792 24.0974 9.46854C24.0974 10.8983 25.0443 12.1008 26.332 12.5174C25.3946 12.8204 24.6466 13.54 24.3057 14.4585C23.8513 13.2275 22.6772 12.347 21.2947 12.347C19.9123 12.347 18.7382 13.2275 18.2837 14.4585C17.9429 13.54 17.1949 12.8204 16.2575 12.5174C17.5547 12.1008 18.4921 10.8983 18.4921 9.46854C18.4921 8.03879 17.5831 6.88363 16.3238 6.43861C17.6778 6.0504 18.672 4.81949 18.672 3.35186C18.672 1.57178 17.2233 0.13256 15.4527 0.13256C15.4243 0.13256 15.3958 0.13256 15.358 0.13256C15.3296 0.13256 15.3012 0.13256 15.2633 0.13256C13.4832 0.13256 12.044 1.58125 12.044 3.35186C12.044 4.79108 13.0003 5.99359 14.2975 6.4102C13.3506 6.71319 12.5932 7.42333 12.2523 8.35125C11.7978 7.12034 10.6237 6.23977 9.24129 6.23977C7.46121 6.23977 6.02199 7.68845 6.02199 9.45907C6.02199 10.8888 6.96884 12.0913 8.25657 12.5079C7.31918 12.8109 6.57117 13.5305 6.2303 14.449C5.77581 13.2181 4.60171 12.3375 3.2193 12.3375C1.43922 12.3375 0 13.7862 0 15.5568C0 17.3274 1.44869 18.7761 3.2193 18.7761C4.60171 18.7761 5.77581 17.8955 6.2303 16.6646C6.58063 17.602 7.33812 18.3216 8.29444 18.6151C6.97831 19.0223 6.02199 20.2343 6.02199 21.6735C6.02199 23.4536 7.47068 24.8928 9.24129 24.8928C10.6237 24.8928 11.7978 24.0122 12.2523 22.7813C12.5932 23.7092 13.3506 24.4288 14.2975 24.7224C12.9908 25.139 12.044 26.3415 12.044 27.7807C12.044 29.5608 13.4927 31 15.2633 31C17.0339 31 18.4826 29.5513 18.4826 27.7807C18.4826 26.3415 17.5263 25.139 16.2291 24.7224C17.5357 24.3057 18.4826 23.1032 18.4826 21.664C18.4826 20.2248 17.5168 19.0128 16.2101 18.6057C17.1665 18.3122 17.9239 17.5925 18.2743 16.6552C18.7288 17.8861 19.9029 18.7666 21.2853 18.7666C22.6677 18.7666 23.8418 17.8861 24.2963 16.6552C24.6466 17.5925 25.4041 18.3122 26.3604 18.6057C25.0443 19.0128 24.088 20.2248 24.088 21.664C24.088 23.4441 25.5367 24.8833 27.3073 24.8833C29.0779 24.8833 30.5266 23.4346 30.5266 21.664C30.5266 20.2248 29.5608 19.0128 28.2541 18.6057C29.2104 18.3122 29.9679 17.5925 30.3183 16.6552C30.7728 17.8861 31.9469 18.7666 33.3293 18.7666C34.7117 18.7666 35.8858 17.8861 36.3403 16.6552C36.6906 17.5925 37.4481 18.3122 38.4044 18.6057C37.0883 19.0128 36.1319 20.2248 36.1319 21.664C36.1319 23.0275 36.9841 24.1827 38.1772 24.6561C36.9841 25.1295 36.1319 26.2847 36.1319 27.6481C36.1319 29.4282 37.5806 30.8674 39.3513 30.8674C41.1219 30.8674 42.5706 29.4188 42.5706 27.6481C42.5706 26.2847 41.7184 25.1295 40.5254 24.6561C41.7184 24.1827 42.5706 23.0275 42.5706 21.664C42.5706 20.2248 41.6048 19.0128 40.2981 18.6057C41.2544 18.3122 42.0119 17.5831 42.3622 16.6552C42.8167 17.8861 43.9908 18.7666 45.3732 18.7666C47.1533 18.7666 48.5925 17.318 48.5925 15.5473C48.5925 13.7767 47.1439 12.328 45.3732 12.328L45.3827 12.347ZM12.2523 10.5764C12.5932 11.4948 13.3412 12.2144 14.2786 12.5174C13.3412 12.8204 12.5932 13.54 12.2523 14.4585C11.9114 13.54 11.1634 12.8204 10.226 12.5174C11.1634 12.2144 11.9114 11.4948 12.2523 10.5764ZM12.2523 20.5846C11.902 19.6567 11.1445 18.9276 10.1881 18.6341C11.1445 18.3406 11.902 17.621 12.2523 16.6836C12.6026 17.621 13.3601 18.3406 14.3164 18.6341C13.3601 18.9276 12.6026 19.6472 12.2523 20.5846Z" fill="#FF5539"/>
+    </g>
+  </g>
+  <!-- three agents orbiting -->
+  <g class="agent orbit">
+    <path class="link pop" style="animation-delay:-2s" d="M162 236 L112 201"/><g class="pop" style="animation-delay:-2s" transform="translate(100 192)"><g class="counter"><g class="live live--b"><circle r="15"/><path class="ink" d="M-6 -3h12v9h-12zM0 -7v4M-3 2h.01M3 2h.01"/></g></g></g>
+    <path class="link pop" style="animation-duration:17s;animation-delay:-9s" d="M238 236 L288 201"/><g class="pop" style="animation-duration:17s;animation-delay:-9s" transform="translate(300 192)"><g class="counter"><g class="live live--c"><circle r="15"/><path class="ink" d="M-6 -3h12v9h-12zM0 -7v4M-3 2h.01M3 2h.01"/></g></g></g>
+    <path class="link pop" style="animation-duration:13s;animation-delay:-5.5s" d="M166 294 L124 334"/><g class="pop" style="animation-duration:13s;animation-delay:-5.5s" transform="translate(113 344)"><g class="counter"><g class="live live--a"><circle r="15"/><path class="ink" d="M-6 -3h12v9h-12zM0 -7v4M-3 2h.01M3 2h.01"/></g></g></g>
+  </g>
 
-          <p class="hero__subhead">
-            AI Comms Inspector analyses every customer conversation and
-            automatically surfaces what matters to your business.
-          </p>
+  <!-- ===== agents working iteratively with the sources: entangled, faint ===== -->
+  <path d="M200 262 L60 440 L340 440 Z" fill="url(#beamDown)" opacity="0.4"/>
+  <g class="web">
+    <path class="flow--down tentacle" pathLength="1" d="M182 302 C120 330 150 390 70 420" style="animation-duration:7s;animation-delay:-0.00s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M200 310 C260 350 150 400 190 458" style="animation-duration:8.5s;animation-delay:-1.37s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M218 302 C300 330 240 380 330 418" style="animation-duration:6.5s;animation-delay:-2.74s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M190 306 C150 360 260 380 120 452" style="animation-duration:9s;animation-delay:-4.11s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M226 298 C330 300 230 420 306 446" style="animation-duration:7.5s;animation-delay:-5.48s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M164 290 C60 300 60 380 112 452" style="animation-duration:8s;animation-delay:-6.85s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M236 290 C340 300 330 380 244 462" style="animation-duration:6s;animation-delay:-8.22s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M190 308 C140 380 160 430 178 460" style="animation-duration:9.5s;animation-delay:-0.59s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M210 308 C230 400 260 400 352 432" style="animation-duration:7s;animation-delay:-1.96s"/>
+    <path class="flow--down tentacle" pathLength="1" d="M232 282 C330 300 220 330 358 414" style="animation-duration:8.5s;animation-delay:-3.33s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M118 448 C180 420 110 350 190 312" style="animation-duration:6.5s;animation-delay:-4.70s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M254 456 C210 420 300 360 212 312" style="animation-duration:9s;animation-delay:-6.07s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M346 416 C280 380 300 300 232 296" style="animation-duration:7.5s;animation-delay:-7.44s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M74 420 C120 380 60 330 160 290" style="animation-duration:8s;animation-delay:-8.81s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M300 448 C260 420 300 330 236 286" style="animation-duration:6.8s;animation-delay:-1.18s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M180 462 C150 430 120 380 172 300" style="animation-duration:9.2s;animation-delay:-2.55s"/>
+    <path class="flow--up tentacle" pathLength="1" d="M60 436 C60 360 100 300 160 284" style="animation-duration:7.2s;animation-delay:-3.92s"/>
+  </g>
 
-          <!-- Outcomes made tangible right in the hero (skim-readable) -->
-          <ul class="hero__outcomes" aria-label="What it produces">
-            <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Sales &amp; engagement insights</li>
-            <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Compliance checked</li>
-            <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Quality supervised</li>
-            <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Agents coached</li>
-          </ul>
-
-          <div class="hero__cta">
-            <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Book a walkthrough</a>
-            <a class="hero__cta-alt" href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">or watch the 30-min webinar ↗</a>
-          </div>
-        </div>
-
-        <!-- Decorative hero illustration (column 2). Purely visual — empty alt
-             + aria-hidden. Intrinsic 1536×1024 set as width/height to reserve
-             the aspect ratio and avoid layout shift. Hidden ≤920px. -->
-        <div class="hero__viz" aria-hidden="true">
-          <img class="hero__viz-img" src="Assets/hero_photo_2dwsz.webp" alt="" width="425" height="538" decoding="async" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 2 — BUILT BY BULL  (vendor trust strip)                       -->
-    <!-- Outcome: immediate credibility — a serious European tech group -->
-    <!-- stands behind the product. Stat numbers count up on scroll,   -->
-    <!-- same [data-count] mechanism script.js already drives for the  -->
-    <!-- hero coverage card — just wired up here too.                  -->
-    <!-- ============================================================= -->
-    <section class="trust reveal" aria-labelledby="trustHeading">
-      <div class="container trust__inner">
-        <div class="trust__brand">
-          <span class="trust__eyebrow">Built by</span>
-          <h2 id="trustHeading" class="visually-hidden">Built by Bull</h2>
-          <a href="https://www.bull.com/en/" target="_blank" class="trust__logo-link" aria-label="Bull (opens in new window)">
-            <img src="Assets/BULL_LOGO_NAVY_RGB.svg" alt="Bull" class="trust__logo" />
-          </a>
-          <p class="trust__desc">Leading European technology group focused on sovereign AI and data.</p>
-        </div>
-        <div class="trust__stat trust__stat--first">
-          <div class="trust__num" data-count data-count-to="3" data-count-suffix="K+">3K+</div>
-          <div class="trust__label">engineers and experts</div>
-        </div>
-        <div class="trust__stat">
-          <div class="trust__num" data-count data-count-to="32">32</div>
-          <div class="trust__label">countries served</div>
-        </div>
-        <div class="trust__stat">
-          <div class="trust__num" data-count data-count-to="13" data-count-suffix="%">13%</div>
-          <div class="trust__label">of revenue invested in R&amp;D</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 2b — PROOF BAR                                                -->
-    <!-- Outcome: replace generic Bull corporate stats with concrete   -->
-    <!-- (anonymised, naming-pending) product proof — per              -->
-    <!-- content-draft-v1 §2. Names stay anonymised until the          -->
-    <!-- Raiffeisenbank CZ naming approval clears; swap the wording    -->
-    <!-- then, no layout change needed.                                -->
-    <!-- ============================================================= -->
-    <section class="section section--white reveal" id="proof" aria-labelledby="proofHeading">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow-label">Enterprise proof</span>
-          <h2 id="proofHeading" class="section__title">Proven in production</h2>
-          <p class="section__sub">AI Comms Inspector already processes customer conversations at enterprise scale and turns them into measurable business outcomes.</p>
-        </div>
-        <div class="proof-grid">
-          <article class="proof-card proof-card--featured proof-card--linked">
-            <span class="proof-card__label">Production scale</span>
-            <h3 class="proof-card__title">30M+ calls analysed every year</h3>
-            <p class="proof-card__body">Automated supervision and quality control running in production for a major financial-services company in Asia.</p>
-            <a href="case-studies.html" class="proof-card__cta">Read the full story <span aria-hidden="true">&rarr;</span></a>
-          </article>
-          <article class="proof-card">
-            <span class="proof-card__label">Commercial impact</span>
-            <h3 class="proof-card__title">Higher conversion</h3>
-            <p class="proof-card__body">AI-generated sales signals help target more relevant offers.</p>
-          </article>
-          <article class="proof-card">
-            <span class="proof-card__label">Operational impact</span>
-            <h3 class="proof-card__title">Quality control at scale</h3>
-            <p class="proof-card__body">Every selected interaction assessed consistently against predefined business, process and compliance rules.</p>
-          </article>
-          <article class="proof-card">
-            <span class="proof-card__label">Delivery credibility</span>
-            <h3 class="proof-card__title">300+ enterprise AI projects</h3>
-            <p class="proof-card__body">Proven delivery experience at enterprise scale. Built on <a href="https://www.bull.com/en/" target="_blank" class="proof-card__link">Bull Group</a>'s experience from more than 300 enterprise AI projects.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 3 — BEFORE -> WITH                                            -->
-    <!-- Outcome: scannable shift from status quo to outcome.          -->
-    <!-- ============================================================= -->
-    <section class="section section--tint reveal" id="before" aria-labelledby="beforeHeading">
-      <div class="container">
-        <span class="eyebrow-label">The impact</span>
-        <h2 id="beforeHeading" class="section__title">What changes when you analyse every conversation</h2>
-
-        <div class="ba">
-          <div class="ba__head ba__head--today">Today's standard</div>
-          <div class="ba__head ba__head--with">With AI Comms Inspector</div>
-
-          <!-- Pair 1 -->
-          <div class="ba__cell ba__cell--today">
-            <span class="ba__icon" aria-hidden="true">&minus;</span>
-            Quality of just 2-5% of calls reviewed
-          </div>
-          <div class="ba__cell ba__cell--with">
-            <svg class="ba__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            100% of communication analysed
-          </div>
-
-          <!-- Pair 2 -->
-          <div class="ba__cell ba__cell--today">
-            <span class="ba__icon" aria-hidden="true">&minus;</span>
-            Customer needs and sales opportunities remain<br class="ba__break"> hidden in communications
-          </div>
-          <div class="ba__cell ba__cell--with">
-            <svg class="ba__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Sales, engagement and CX signals identified<br class="ba__break"> and pushed to your CRM
-          </div>
-
-          <!-- Pair 3 -->
-          <div class="ba__cell ba__cell--today">
-            <span class="ba__icon" aria-hidden="true">&minus;</span>
-            Compliance and process issues are often<br class="ba__break"> discovered too late
-          </div>
-          <div class="ba__cell ba__cell--with">
-            <svg class="ba__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Issues are flagged as they arise, with evidence provided
-          </div>
-
-          <!-- Pair 4 -->
-          <div class="ba__cell ba__cell--today">
-            <span class="ba__icon" aria-hidden="true">&minus;</span>
-            After-call summaries and classifications require<br class="ba__break"> manual work
-          </div>
-          <div class="ba__cell ba__cell--with">
-            <svg class="ba__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Summaries, classification and structured insights generated automatically
-          </div>
-        </div>
-        <div class="scroll-cue" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6,9 12,15 18,9"/></svg>
-        </div>
-      </div>
-    </section>
-
-    <!-- Positioning callout — a quiet visual pause before Modules;
-         sets up "who benefits" ahead of "what it does". -->
-    <section class="positioning-bar" aria-label="Who this is for">
-      <div class="container positioning-bar__inner">
-        <span class="positioning-bar__label mono">WHO IT'S FOR</span>
-        <div class="positioning-bar__copy">
-          <p class="positioning-bar__text">AI Comms Inspector is designed for organisations with high volumes of customer interactions.</p>
-          <p class="positioning-bar__text">It is especially valuable when existing customer data provides only a limited view of customer needs and behaviour.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 4 — MODULES  (Bull-style use-case cards, each links to a sub-page) -->
-    <!-- Outcome: four modules of one platform, each explorable.        -->
-    <!-- ============================================================= -->
-    <section class="section section--blue-deep reveal" id="delivers" aria-labelledby="deliversHeading">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow-label">Modules</span>
-          <h2 id="deliversHeading" class="section__title section__title--xl">One platform.<br class="delivers__title-break"> <span class="accent">Four modules.</span></h2>
-          <p class="section__sub">One solution, tailored to answer<br class="delivers__sub-break"> the business questions that matter the most.</p>
-        </div>
-
-        <div class="modules">
-          <!-- 1 — AI Customer Insights (module) -->
-          <a class="module-card" href="ai-customer-insights.html">
-            <span class="module-card__media module-card__media--comm" aria-hidden="true">
-              <svg class="module-card__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>
-            </span>
-            <div class="module-card__body">
-              <h3 class="module-card__title">AI Customer Insights <span class="module-card__chevron" aria-hidden="true">›</span></h3>
-              <p class="module-card__desc">Automated communication analyser that detects sales and engagement insights — life events, financial needs, and voice of customer — from every conversation.</p>
-              <div class="module-card__bestfor">
-                <span class="module-card__bestfor-label">Best for</span>
-                <span class="module-card__tags">
-                  <span class="module-card__tag">CRM / CVM / CI</span>
-                  <span class="module-card__tag">Products</span>
-                  <span class="module-card__tag">CX / Research</span>
-                  <span class="module-card__tag">Data Science</span>
-                </span>
-              </div>
-            </div>
-          </a>
-
-          <!-- 2 — AI Call Inspector -->
-          <a class="module-card" href="ai-call-inspector.html">
-            <span class="module-card__media module-card__media--call" aria-hidden="true">
-              <img class="module-card__glyph" src="Assets/White Icons/ACI_new_modules_comm inspector.png" alt="" width="120" height="120" />
-            </span>
-            <div class="module-card__body">
-              <h3 class="module-card__title">AI Call Inspector <span class="module-card__chevron" aria-hidden="true">›</span></h3>
-              <p class="module-card__desc">Multi-level call categorisation and identification of clients, products, and regulated processes — <span class="mono">KYC</span>, <span class="mono">MiFID&nbsp;II</span>, <span class="mono">GDPR</span>, and promotion-condition checks.</p>
-              <div class="module-card__bestfor">
-                <span class="module-card__bestfor-label">Ideal for</span>
-                <span class="module-card__tags">
-                  <span class="module-card__tag">Product Management</span>
-                  <span class="module-card__tag">Contact Centre</span>
-                  <br class="tag-break">
-                  <span class="module-card__tag">Compliance</span>
-                </span>
-              </div>
-            </div>
-          </a>
-
-          <!-- 3 — AI Quality Assurance -->
-          <a class="module-card" href="ai-quality-assurance.html">
-            <span class="module-card__media module-card__media--qa" aria-hidden="true">
-              <img class="module-card__glyph" src="Assets/White Icons/ACI_new_modules_quality insurance.png" alt="" width="120" height="120" />
-            </span>
-            <div class="module-card__body">
-              <h3 class="module-card__title">AI Quality Assurance <span class="module-card__chevron" aria-hidden="true">›</span></h3>
-              <p class="module-card__desc">Checks agents follow your sales or support process, supervises chat and sales-conversation quality, and monitors performance across teams and agents.</p>
-              <div class="module-card__bestfor">
-                <span class="module-card__bestfor-label">Built for</span>
-                <span class="module-card__tags">
-                  <span class="module-card__tag">Sales Support</span>
-                  <span class="module-card__tag">Contact Centre</span>
-                  <span class="module-card__tag">Operations</span>
-                </span>
-              </div>
-            </div>
-          </a>
-
-          <!-- 4 — AI Coach -->
-          <a class="module-card" href="ai-coach.html">
-            <span class="module-card__media module-card__media--coach" aria-hidden="true">
-              <img class="module-card__glyph" src="Assets/White Icons/ACI_new_modules_AI coach.png" alt="" width="120" height="120" />
-            </span>
-            <div class="module-card__body">
-              <h3 class="module-card__title">AI Coach <span class="module-card__chevron" aria-hidden="true">›</span></h3>
-              <p class="module-card__desc">Automated call feedback sent to each operator, with summaries and recommendations tailored to your call scripts and calling propositions.</p>
-              <div class="module-card__bestfor">
-                <span class="module-card__bestfor-label">Recommended for</span>
-                <span class="module-card__tags">
-                  <span class="module-card__tag">Contact Centre</span>
-                  <span class="module-card__tag">Operations</span>
-                  <span class="module-card__tag">Collections</span>
-                </span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Springboard: keeps the eye moving DOWN the funnel toward the demo,
-             rather than sideways. Modules stay a static, scannable grid. -->
-        <div class="modules__more">
-          <a class="modules__more-link" href="#how">
-            <span class="modules__more-text">See how it works</span>
-            <span class="modules__more-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6,9 12,15 18,9"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 5 — HOW IT WORKS  (priority visual: horizontal flow)          -->
-    <!-- Outcome: understand the flow in under 5s; clearly more        -->
-    <!-- than transcription.                                           -->
-    <!-- ============================================================= -->
-    <section class="section section--tint reveal" id="how" aria-labelledby="howHeading">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow-label">How it works</span>
-          <h2 id="howHeading" class="section__title">From customer conversations to actionable insights</h2>
-          <p class="section__sub">AI Comms Inspector captures the full context of each interaction and answers the business questions behind every conversation.</p>
-        </div>
-
-        <ol class="flow" aria-label="How it works: four steps">
-          <li class="flow__step">
-            <div class="flow__head">
-              <div class="flow__num mono">01</div>
-              <span class="icon-chip" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg>
-              </span>
-            </div>
-            <h3 class="flow__title">Capture</h3>
-            <p class="flow__body">Calls, meetings, chats, emails and notes — as audio files or existing text.</p>
-          </li>
-          <li class="flow__connector" aria-hidden="true"></li>
-          <li class="flow__step">
-            <div class="flow__head">
-              <div class="flow__num mono">02</div>
-              <span class="icon-chip" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg>
-              </span>
-            </div>
-            <h3 class="flow__title">Process</h3>
-            <p class="flow__body">Audio is transcribed and all communication data is prepared for consistent AI analysis.</p>
-          </li>
-          <li class="flow__connector" aria-hidden="true"></li>
-          <li class="flow__step">
-            <div class="flow__head">
-              <div class="flow__num mono">03</div>
-              <span class="icon-chip" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
-              </span>
-            </div>
-            <h3 class="flow__title">Inspect</h3>
-            <p class="flow__body">AI evaluates every interaction against your predefined business, sales, customer experience or compliance questions.</p>
-          </li>
-          <li class="flow__connector" aria-hidden="true"></li>
-          <li class="flow__step">
-            <div class="flow__head">
-              <div class="flow__num mono">04</div>
-              <span class="icon-chip" aria-hidden="true">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
-              </span>
-            </div>
-            <h3 class="flow__title">Deliver</h3>
-            <p class="flow__body">Insights are delivered as structured data, dashboards and signals for CRM, campaigns, reporting and customer profile enrichment.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 5a — FOUNDER NOTE  (David Vopelka: half quote, half commentary) -->
-    <!-- Outcome: recognition + trust in a named person, then one       -->
-    <!-- personal CTA. Replaces the worked-example + business-value     -->
-    <!-- pair (both are slated for the module pages). Copy is condensed -->
-    <!-- from blog-paying-consultants-to-guess.html; David signs off    -->
-    <!-- the wording before this ships.                                 -->
-    <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="founder-note" aria-labelledby="founderHeading">
-      <div class="container">
-        <article class="founder-card">
-          <figure class="founder-card__media">
-            <img class="founder-card__photo" src="Assets/david-vopelka_2.webp" alt="David Vopelka" width="486" height="608" loading="lazy" decoding="async" />
-            <figcaption class="founder-card__caption">
-              <span class="founder-card__name">David Vopelka</span>
-              <span class="founder-card__role">Business AI Cluster Lead at Bull</span>
-            </figcaption>
-          </figure>
-          <div class="founder-card__copy">
-            <span class="eyebrow-label">I&rsquo;ve been on your side of this</span>
-            <h2 id="founderHeading" class="section__title founder-card__title">The best questions were the ones we never asked</h2>
-            <p class="founder-card__body">Even at one of Europe&rsquo;s largest banking groups, each answer about our customers cost months and a real budget, so we only asked the big questions. The sharper ones, the follow-ups, the &ldquo;wait, why did they say that?&rdquo;, never got asked. Curiosity had a price, and it was too high. Today the same question is a query over every conversation, answered with the evidence attached.</p>
-            <div class="founder-card__action">
-              <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Book a call with me</a>
-              <p class="founder-card__micro">Bring the question you could never afford to ask.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 5b — PROVEN RESULTS  (case study)                             -->
-    <!-- Outcome: show the product already working in production,      -->
-    <!-- not just how it works in theory — per content-draft-v1 §8.    -->
-    <!-- Copy is the cleared case-study one-pager verbatim; no invented -->
-    <!-- percentages or magnitudes anywhere (proof-assets.md §C5).      -->
-    <!-- ============================================================= -->
-    <section class="section section--white reveal" id="results" aria-labelledby="resultsHeading">
-      <div class="container">
-        <span class="eyebrow-label">Proven results</span>
-        <h2 id="resultsHeading" class="section__title">From hidden call signals to higher-converting campaigns</h2>
-        <p class="case-study__meta">Major banking group · European Union</p>
-
-        <div class="case-study">
-          <div class="case-study__grid">
-            <div class="case-study__col">
-              <h3 class="case-study__label">Challenge</h3>
-              <p class="case-study__claim">Valuable sales signals were hidden in call volume.</p>
-              <p>Customers mentioned life events, financial needs, and product interests during routine calls.</p>
-              <p>The volume made manual review impossible, so these opportunities never reached sales and marketing teams.</p>
-            </div>
-            <div class="case-study__col">
-              <h3 class="case-study__label">What AI Comms Inspector did</h3>
-              <p class="case-study__claim">Every conversation was analysed.</p>
-              <p>The solution evaluated calls and transcripts against predefined business questions to identify relevant customer needs and product-related signals.</p>
-              <p>It then turned these findings into structured insights for CRM campaigns.</p>
-            </div>
-            <div class="case-study__col case-study__col--result">
-              <h3 class="case-study__label">Business results</h3>
-              <p class="case-study__claim">Campaigns with AI-generated insights converted above average.</p>
-              <p>Valuable cross-sell and up-sell signals were extracted from customer conversations with the contact centre and fed into CRM campaigns.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 6 — FITS YOUR STACK  (dark "signature panel")                 -->
-    <!-- Outcome: pre-empt run-it-safely / adoption / build-it-myself. -->
-    <!-- Re-themed --blue-deep per Petr's request — matches            -->
-    <!-- claimsense.app's rhythm of breaking up white/grey bands with  -->
-    <!-- a dark navy section, and this site's own .section__head       -->
-    <!-- comment already earmarked centred-head sections (this one     -->
-    <!-- uses .section__head-center) as "the blue signature panels."   -->
-    <!-- ============================================================= -->
-    <section class="section section--blue-deep reveal" id="stack" aria-labelledby="stackHeading">
-      <div class="container">
-        <div class="section__head-center">
-          <h2 id="stackHeading" class="section__title">Deployed your way, customised to your needs</h2>
-        </div>
-
-        <div class="stack">
-          <article class="stack__item">
-            <h3 class="stack__title">Deploy in your environment</h3>
-            <p class="stack__body">Runs in your Azure, AWS or GCP environment and connects with your communication sources, data platform, CRM and reporting tools.</p>
-          </article>
-
-          <article class="stack__item">
-            <h3 class="stack__title">Configured for your use cases</h3>
-            <p class="stack__body">Business questions, taxonomies and outputs are tailored to your needs—from sales and service to compliance, risk and quality.</p>
-          </article>
-
-          <article class="stack__item">
-            <h3 class="stack__title">Delivered end to end</h3>
-            <p class="stack__body">We cover analysis, speech-to-text, data processing, configuration, integration, testing, training and go-live.</p>
-          </article>
-
-          <article class="stack__item">
-            <h3 class="stack__title">Production-ready and supported</h3>
-            <p class="stack__body">Monitoring, audit trails, retention controls and SLA-based support keep the solution reliable, explainable and secure.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 7a — BUILD vs. PARTNER vs. BUY                                -->
-    <!-- Outcome: pre-empt the "why not build it ourselves / just buy  -->
-    <!-- a SaaS tool" objection before the FAQ. Pro/con rows reuse the -->
-    <!-- .ba tick/minus language (no red/green/amber); middle column   -->
-    <!-- is elevated with an orange border + shadow, not a dark card.  -->
-    <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="build-partner-buy" aria-labelledby="bpbHeading">
-      <div class="container">
-        <div class="section__head-center">
-          <span class="eyebrow-label eyebrow-label--bpb">Build vs. <span class="accent">partner</span> vs. buy</span>
-          <h2 id="bpbHeading" class="section__title">Why choose<br class="bpb__title-break"> AI Comms Inspector</h2>
-          <p class="section__sub">Three ways to get AI-driven communication analysis —<br class="bpb__sub-break"> and what each one actually costs you.</p>
-        </div>
-
-        <div class="bpb__grid">
-          <!-- Build -->
-          <article class="bpb-card">
-            <h3 class="bpb-card__title">Build</h3>
-            <p class="bpb-card__lead">Develop a custom AI solution in-house with your own engineering team.</p>
-            <ul class="bpb-card__list">
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Slow time to market</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Expensive — no economy of scale + overhead costs</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Risky investment — what if an ideal solution already exists?</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Need to manage IT costs on your own</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Tailored to your needs</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> No lock-in — you own the intellectual property</li>
-            </ul>
-            <div class="bpb-card__rating">
-              <span class="bpb-card__rating-label">Overall value</span>
-              <div class="value-rating" role="img" aria-label="Overall value: 2 out of 5">
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot"></span>
-                <span class="value-rating__dot"></span>
-                <span class="value-rating__dot"></span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Partner w/ Bull — recommended -->
-          <article class="bpb-card bpb-card--featured">
-            <span class="bpb-card__pill">Our way</span>
-            <h3 class="bpb-card__title">Partner with Bull</h3>
-            <p class="bpb-card__lead">Leverage our proven AI products and pay only for results. Zero risk, maximum speed.</p>
-            <ul class="bpb-card__list">
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Quick time to market</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> No risk from product development</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Pay according to business impact</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Tailored to your needs — product adapted for you</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> No lock-in — you own the intellectual property</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> All costs included — implementation, IT, adoption</li>
-            </ul>
-            <div class="bpb-card__why">
-              <span class="bpb-card__why-label">Why can we offer this?</span>
-              <p class="bpb-card__why-body">We are backed by the <strong>French State (APE)</strong> and we are on a mission to create something impactful on an <strong>entire European level</strong>. No quick-ROI pressure, no squeezing gains before the product can truly shape Europe's competitiveness.</p>
-            </div>
-            <div class="bpb-card__rating">
-              <span class="bpb-card__rating-label">Overall value</span>
-              <div class="value-rating" role="img" aria-label="Overall value: 5 out of 5">
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot is-filled"></span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Buy SaaS -->
-          <article class="bpb-card">
-            <h3 class="bpb-card__title">Buy SaaS</h3>
-            <p class="bpb-card__lead">Subscribe to an off-the-shelf AI platform from a third-party vendor.</p>
-            <ul class="bpb-card__list">
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Quick time to market</li>
-              <li><svg class="bpb-card__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> No risk from product development</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Pay for usage</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Vendor lock-in — you can't buy it, it's their IP</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Business outcome not guaranteed</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Extra costs for implementation services — consulting / IT partners</li>
-              <li><span class="bpb-card__icon" aria-hidden="true">✕</span> Duplicating IT investments — your IT already built data platforms</li>
-            </ul>
-            <div class="bpb-card__rating">
-              <span class="bpb-card__rating-label">Overall value</span>
-              <div class="value-rating" role="img" aria-label="Overall value: 3 out of 5">
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot is-filled"></span>
-                <span class="value-rating__dot"></span>
-                <span class="value-rating__dot"></span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 7b — FAQ                                                      -->
-    <!-- Outcome: answer the recurring evaluation questions on-page.   -->
-    <!-- Two independent disclosure layers: each question is its own   -->
-    <!-- accordion, and the list itself shows 4 of 12 until expanded.  -->
-    <!-- Both are .js-gated, so with JS off all 12 Q&As are visible.   -->
-    <!-- ============================================================= -->
-    <section class="section section--white reveal" id="faq" aria-labelledby="faqHeading">
-      <div class="container">
-        <div class="section__head">
-          <h2 id="faqHeading" class="section__title">Common questions</h2>
-          <p class="section__sub">Quick answers to the questions we hear most from teams evaluating AI Comms Inspector.</p>
-        </div>
-
-        <div class="faq__list">
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-1">
-                <span class="faq__q-text">What is AI Comms Inspector?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-1" role="region">
-              <p>AI Comms Inspector analyses customer conversations and turns them into structured, actionable insights for CRM, contact centre, customer experience, sales, compliance and risk processes.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-2">
-                <span class="faq__q-text">What types of communication can it analyse?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-2" role="region">
-              <p>It can process call recordings, meeting recordings, existing transcripts, chats, emails and agent notes. Audio can be converted into text before analysis.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-3">
-                <span class="faq__q-text">What can the solution identify?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-3" role="region">
-              <p>It can detect customer needs, life events, sales opportunities, product feedback, service issues, compliance risks and process gaps based on business questions defined with your team.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-4">
-                <span class="faq__q-text">How does AI Comms Inspector work?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-4" role="region">
-              <p>The solution captures communication data, prepares and analyses it against predefined questions, and delivers the results as structured data, dashboards, alerts or signals for other business systems.</p>
-            </div>
-          </div>
-
-          <button class="faq__toggle" data-faq-more aria-expanded="false" aria-controls="faqMore">
-            View all frequently asked questions
-            <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-
-          <div class="faq__more" id="faqMore">
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-5">
-                  <span class="faq__q-text">Can it classify and summarise conversations?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-5" role="region">
-                <p>Yes. It can automatically generate conversation summaries and classify interactions using a tailored, multi-level taxonomy.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-6">
-                  <span class="faq__q-text">Can it support quality assurance and compliance monitoring?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-6" role="region">
-                <p>Yes. The solution can evaluate whether agents follow required scripts, processes and regulatory rules, while providing the relevant conversation context as supporting evidence.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-7">
-                  <span class="faq__q-text">Are the results explainable?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-7" role="region">
-                <p>Yes. Each detected insight can be linked to the relevant part of the conversation, the question evaluated and other supporting information, allowing users to review the result.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-8">
-                  <span class="faq__q-text">Can the outputs be integrated into our existing systems?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-8" role="region">
-                <p>Yes. Results can be delivered to CRM, data warehouses, campaign tools, reporting platforms and dashboards as structured fields, files or other agreed formats.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-9">
-                  <span class="faq__q-text">Can the solution be customised for different business teams?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-9" role="region">
-                <p>Yes. The same platform can be configured for different use cases across sales, service, contact centre operations, compliance, risk, product management, customer experience and data teams.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-10">
-                  <span class="faq__q-text">Where can AI Comms Inspector be deployed?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-10" role="region">
-                <p>It can be deployed in your Azure, AWS or GCP environment and integrated with your existing communication sources, data platform and business applications. The delivery can include analysis, configuration, integration, testing, training, monitoring and ongoing support.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-11">
-                  <span class="faq__q-text">Can the AI understand different languages and dialects?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-11" role="region">
-                <p>Yes. For instance, in one implementation, the AI successfully supervised millions of calls in "Taglish" (a mix of Tagalog and English) for a large-scale collections centre.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-12">
-                  <span class="faq__q-text">What are the specific deliverables of the implementation package?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-12" role="region">
-                <p>The package includes data ingestion support, prompt definition, report customisation, monitoring setup, and full team enablement.</p>
-              </div>
-            </div>
-
-            <button class="faq__collapse" data-faq-less aria-label="Show fewer questions">
-              <svg class="faq__chevron faq__chevron--up" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 8 — FINAL CTA                                                 -->
-    <!-- Outcome: single, obvious next step.                           -->
-    <!-- ============================================================= -->
-    <section class="section section--grey final-cta reveal" id="demo" aria-labelledby="finalHeading">
-      <div class="container final-cta__inner">
-        <div class="final-cta__copy">
-          <h2 id="finalHeading" class="section__title">See what's hiding<br class="final-cta__title-break"> in your own<br class="final-cta__title-break"> conversations</h2>
-          <p class="section__sub">Meet the team, see the solution in action, and identify the best use cases for your business.</p>
-          <ol class="cta-points">
-            <li class="cta-point">
-              <span class="cta-point__num" aria-hidden="true">1</span>
-              <div class="cta-point__body">
-                <span class="cta-point__title">A walkthrough</span>
-                <span class="cta-point__desc">Most teams only ever review a fraction of their conversations. In one walkthrough, we'll show you what AI Comms Inspector finds across 100% of them.</span>
-              </div>
-            </li>
-            <li class="cta-point">
-              <span class="cta-point__num" aria-hidden="true">2</span>
-              <div class="cta-point__body">
-                <span class="cta-point__title">Focused on your role</span>
-                <span class="cta-point__desc">Whether you own CRM, compliance, QA or coaching, we centre the session on the outcomes your team is measured on.</span>
-              </div>
-            </li>
-            <li class="cta-point">
-              <span class="cta-point__num" aria-hidden="true">3</span>
-              <div class="cta-point__body">
-                <span class="cta-point__title">A clear path to live</span>
-                <span class="cta-point__desc">Integrations, deployment in your cloud, and what it takes to move from pilot to production.</span>
-              </div>
-            </li>
-          </ol>
-          <p class="cta-trust">Trusted where every conversation counts — including a 30M+ calls-a-year production deployment, built by Bull.</p>
-        </div>
-
-        <!-- Demo request form. Submits to Web3Forms; script.js intercepts
-             the submit to show the inline confirmation copy below.
-             Single-step only. No competing CTAs. -->
-        <form class="demo-form" id="demoForm" action="https://api.web3forms.com/submit" method="post" novalidate>
-          <input type="hidden" name="access_key" value="8cf94256-3ecf-442a-9c0c-69c4c50f3c9d" />
-          <input type="hidden" name="subject" value="New walkthrough request — AI Comms Inspector" />
-          <div class="demo-form__fields" id="demoFormFields">
-            <div class="demo-form__row">
-              <label for="df-name">Full name</label>
-              <input id="df-name" name="name" type="text" autocomplete="name" required />
-            </div>
-            <div class="demo-form__row">
-              <label for="df-email">Work email</label>
-              <input id="df-email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="demo-form__row">
-              <label for="df-company">Company</label>
-              <input id="df-company" name="company" type="text" autocomplete="organization" required />
-            </div>
-            <div class="demo-form__row">
-              <label for="df-message">Message <span class="optional">(optional)</span></label>
-              <textarea id="df-message" name="message" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--lg btn--block">Book a walkthrough</button>
-            <p class="demo-form__note" id="demoFormNote" role="status" aria-live="polite"></p>
-            <p class="demo-form__privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We'll never share your information.</p>
-          </div>
-          <div class="demo-form__success" id="demoFormSuccess" role="status" aria-live="polite" hidden>
-            <div class="demo-form__success-icon" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13L11 19L21 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 class="demo-form__success-title">Thank you. Your walkthrough request is in.</h3>
-            <p class="demo-form__success-sub">We will email you within one business day to schedule it. A confirmation is on its way to your inbox now.</p>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- ============================================================= -->
-  <!-- FOOTER                                                        -->
-  <!-- ============================================================= -->
-  <footer class="site-footer section--blue-deep">
-    <!-- Bull symbol watermark — same treatment as claimsense.app's dark
-         final-CTA section: low-opacity monogram, lower-right, decorative only. -->
-    <img src="Assets/Bull_symbol_white.svg" alt="" aria-hidden="true" class="footer__watermark" />
-    <div class="container footer__grid">
-      <!-- Column 1 — brand -->
-      <div class="footer__col footer__col--brand">
-        <img src="Assets/comms-inspector-logo_tm-white.svg" alt="Comms Inspector" class="footer__logo-mark" />
-        <p class="footer__tagline">Analyse 100% of your customer conversations — insights, compliance, quality, coaching.</p>
-        <span class="footer__rule" aria-hidden="true"></span>
-        <p class="footer__built">
-          <!-- White Bull logo on the dark footer (brand-correct variant; the
-               "Built by Bull" strip uses the colour variant for its light band). -->
-          <a class="footer__bull-link" href="https://www.bull.com/en/about-bull" target="_blank" rel="noopener" aria-label="About Bull (opens in a new tab)">
-            <img src="Assets/BULL_LOGO_WHITE_RGB.svg" alt="Bull" class="footer__bull" />
-          </a>
-          <span>AI Comms Inspector is built by DataSentics, a Bull company.</span>
-        </p>
-      </div>
-
-      <!-- Column 2 — Product (anchors to existing sections) -->
-      <nav class="footer__col" aria-label="Product">
-        <h2 class="footer__heading">Product</h2>
-        <ul class="footer__list">
-          <li><a class="footer__link" href="#delivers">Modules</a></li>
-          <li><a class="footer__link" href="pricing.html">Pricing</a></li>
-          <li><a class="footer__link" href="#stack">Deployment</a></li>
-          <li><a class="footer__link" href="#demo" data-demo-open>Book a walkthrough</a></li>
-        </ul>
-      </nav>
-
-      <!-- Column 3 — Modules -->
-      <nav class="footer__col" aria-label="Modules">
-        <h2 class="footer__heading">Modules</h2>
-        <ul class="footer__list">
-          <li><a class="footer__link" href="ai-customer-insights.html">AI Customer Insights</a></li>
-          <li><a class="footer__link" href="ai-call-inspector.html">AI Call Inspector</a></li>
-          <li><a class="footer__link" href="ai-quality-assurance.html">AI Quality Assurance</a></li>
-          <li><a class="footer__link" href="ai-coach.html">AI Coach</a></li>
-        </ul>
-      </nav>
-
-      <!-- Column 4 — Resources -->
-      <nav class="footer__col" aria-label="Resources">
-        <h2 class="footer__heading">Resources</h2>
-        <ul class="footer__list">
-          <li><a class="footer__link" href="#how">How it works</a></li>
-          <li><a class="footer__link" href="architecture.html">Architecture</a></li>
-          <li><a class="footer__link" href="case-studies.html">Case studies</a></li>
-          <li><a class="footer__link" href="blog.html">Blog</a></li>
-          <li><a class="footer__link" href="#faq">FAQ</a></li>
-          <li><a class="footer__link" href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">Webinar: Find insights in every interaction ↗</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="footer__base">
-      <div class="container footer__base-inner">
-        <span>&copy; <span id="year"></span> AI Comms Inspector. All rights reserved.</span>
-        <!-- TODO_PRIVACY_URL: link to the real Privacy Policy. -->
-        <a href="privacy-policy.html" class="footer__link footer__link--subtle">Privacy Policy</a>
+  <!-- ===== BOTTOM · every conversation, scattered along the floor ===== -->
+  <g class="src">
+    <g transform="translate(56 442) rotate(-8)"><circle r="23"/><g class="ink" transform="translate(-10 -10)"><path d="M4 1h9l4 4v14H4z"/><path d="M13 1v4h4M7 10h7M7 14h7"/></g></g>
+    <g transform="translate(116 472) rotate(5)"><circle r="19"/><g class="ink" transform="translate(-10 -10)"><path d="M3 9v2M7 6v8M11 3v14M15 7v6M18 9v2"/></g></g>
+    <g transform="translate(178 484) rotate(-3)"><circle r="24"/><g class="ink" transform="translate(-10 -10)"><rect x="2" y="5" width="16" height="11" rx="2"/><path d="M2 7l8 5 8-5"/></g></g>
+    <g transform="translate(244 484) rotate(6)"><circle r="20"/><g class="ink" transform="translate(-10 -10)"><path d="M3 4h14v9H9l-4 4v-4H3z"/><path d="M7 8.5h6"/></g></g>
+    <g transform="translate(306 468) rotate(-6)"><circle r="23"/><g class="ink" transform="translate(-10 -10)"><rect x="3" y="7" width="14" height="10" rx="2"/><path d="M10 3v4M7 12h.01M13 12h.01"/></g></g>
+    <g transform="translate(356 436) rotate(8)"><circle r="21"/><g class="ink" transform="translate(-10 -10)"><path d="M10 2l2 5.2L17 9l-5 1.8L10 16l-2-5.2L3 9l5-1.8z"/><path d="M16 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></g></g>
+  </g>
+</svg>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="watermark" aria-hidden="true"><img src="Assets/v2/bull-symbol-watermark.svg" alt=""></div>
+</section>
 
-  <script src="script.js"></script>
+<!-- ===== WHY WE EXIST ===== -->
+<section class="section section--white" id="why" style="padding-bottom: var(--sp-8);">
+  <div class="container container--narrow">
+    <div class="reveal">
+      <p class="eyebrow">Why we exist</p>
+      <h2>Helping European companies understand their customers better, so they can build better products and services</h2>
+      <div class="accent-line"></div>
+      <p class="lead">Thanks to the backing of Bull, we can use our AI factories in Europe, so you do not pay per token or lock yourself in. Your own AI infrastructure is the only way to unleash AI agents on every single customer communication, at full scale, as often as you need, without worrying about unpredictable costs.</p>
+    </div>
+    <div class="faq reveal" style="margin-top: var(--sp-6);">
+      <details><summary>What we believe</summary><p>Better products and services are how European companies win, and understanding customers is where better products start. Every call, chat and email already holds that understanding. A company that reads all of it makes better decisions than one that still guesses from a sample.</p></details>
+      <details><summary>Why there should be no token limit</summary><p>Curiosity should not be metered. If every question you put to your customer conversations is billed per token by someone outside Europe, you ask fewer questions and decide on less. We believe a European company should be able to ask every question, as often as it likes, at a cost it controls.</p></details>
+      <details><summary>Why we are backed by Bull</summary><p><a href="https://www.bull.com/en/" style="color: var(--dream-in-blue);">Bull</a> is a leading European provider of AI and high-performance computing infrastructure. Its AI factories let us run customer intelligence on infrastructure in Europe, without anyone’s token meter in between. That independence is the edge we give European companies.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FROM MONTHS TO MINUTES ===== -->
+<section class="section section--cool texture-dots" id="shift" style="padding-top: var(--sp-8);">
+  <div class="container">
+    <div class="text-center reveal" style="max-width: 62ch; margin-inline: auto; margin-bottom: var(--sp-8);">
+      <h2>From months and a sample to minutes and 100%</h2>
+      <p class="lead" style="margin-top: var(--sp-4);">The biggest problem of European companies is staying close to their customers while innovating fast. With AI agents, leadership can finally decide on full evidence, in minutes.</p>
+    </div>
+    <div class="shift">
+      <div class="card shift__before reveal" data-delay="1">
+        <p class="shift__label">Decisions today</p>
+        <div class="shift__row"><div class="stat__value">Months</div><p>from the question to a usable answer, by which time the market moved</p></div>
+        <div class="shift__row"><div class="stat__value">2–5%</div><p>of the information hidden in your customer communication is typically used for decision making</p></div>
+        <div class="shift__row"><div class="stat__value">~5%</div><p>of customers who answer a survey, rarely the ones you are losing</p></div>
+        <div class="shift__row"><div class="stat__value">Reports</div><p>from consultants reading a sample, or a solution you build yourself</p></div>
+      </div>
+      <div class="shift__arrow reveal" data-delay="2" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><path d="M8 60h88" stroke="#FF5539" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M78 40l24 20-24 20" stroke="#FF5539" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="60" r="5" fill="#FF5539"/></svg>
+      </div>
+      <div class="card shift__after reveal" data-delay="3">
+        <p class="shift__label">Decisions with AI agents</p>
+        <div class="shift__row"><div class="stat__value">Minutes</div><p>from the question to an executive summary for your decision</p></div>
+        <div class="shift__row"><div class="stat__value">100%</div><p>of the information in your customer communication, every call, chat and email, feeding your decisions</p></div>
+        <div class="shift__row"><div class="stat__value">100%</div><p>of your customers heard, including the ones about to leave</p></div>
+        <div class="shift__row"><div class="stat__value">Ask again</div><p>tomorrow, and the day after; curiosity is no longer rationed</p></div>
+      </div>
+    </div>
+    <div class="container--narrow faq reveal" style="margin-inline: auto; margin-top: var(--sp-7);">
+      <details><summary>What changes for management and leadership</summary><p>Before any product, pricing or service decision, you ask the AI agents to go through every single customer communication and return an executive summary with the evidence. Informed, qualified decisions, taken way faster, and revisited whenever the question changes. This is where we see the biggest value of AI in business today.</p></details>
+      <details><summary>Instead of consultants, and instead of building it yourself</summary><p>You no longer pay a consulting firm to read a sample and write a report months later, and you do not have to assemble a data team, models and infrastructure to do it in-house. The agents, the infrastructure in Europe and the people who have done this in banks come as one service.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE HELP YOU ANSWER ===== -->
+<section class="section section--warm" id="questions">
+  <div class="container">
+    <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
+      <p class="eyebrow">What we help you answer</p>
+      <h2>The questions your board keeps asking</h2>
+      <p class="lead" style="margin-top: var(--sp-4);">Answered from your customers’ own words, with the evidence attached. Open your role.</p>
+    </div>
+    <div class="grid grid--3 grid--expand">
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 17V9M10 17V5M15 17v-7M20 17V3"/></svg></div>
+        <h3>CEO and board</h3>
+        <p class="lede-small">If we could fix only three things this year, which three would move the numbers most?</p>
+        <details class="more"><summary>Four more we answer</summary><ul><li>What is the single biggest thing our customers know about us that we do not?</li><li>What is the cost of doing nothing?</li><li>Is the customer experience getting better or worse quarter on quarter?</li><li>Where does our strategy promise one thing and our front line deliver another?</li></ul><p>You get: a prioritised fix list with the revenue, cost and churn impact estimated from the conversations.</p></details>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>COO and contact centre</h3>
+        <p class="lede-small">What are our agents and bots getting wrong every day, and which contacts should never have happened?</p>
+        <details class="more"><summary>Four more we answer</summary><ul><li>What would it take to cut contact volume by 20%?</li><li>Which conversations could be automated tomorrow, and which should never be?</li><li>Who are our best agents, and what do they do differently?</li><li>Which teams, sites or outsourcers deliver a visibly different quality of service?</li></ul><p>You get: contact-reason taxonomy, ranked agent errors with examples, and the fixes the conversations imply.</p></details>
+      </article>
+      <article class="card reveal" data-delay="3">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <h3>Commercial and CRM</h3>
+        <p class="lede-small">Where are we leaving money on the table in conversations we already have?</p>
+        <details class="more"><summary>Four more we answer</summary><ul><li>Which customers asked for something we sell and were never offered it?</li><li>Which customers are ready to buy more right now?</li><li>Which competitors are customers mentioning, and in what context?</li><li>Which life events are customers mentioning that our CRM knows nothing about?</li></ul><p>You get: missed-offer lists per product line and warm accounts with the buying signal quoted, into your CRM.</p></details>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0z"/><path d="M8 13s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+        <h3>Customer experience</h3>
+        <p class="lede-small">What are customers most frustrated about right now, and is it getting worse?</p>
+        <details class="more"><summary>Four more we answer</summary><ul><li>Which customers are about to leave us, and why?</li><li>What do customers really think of us, beyond the survey score?</li><li>Which promises did we make to customers and not keep?</li><li>Are customers telling us things nobody inside the company is listening to?</li></ul><p>You get: frustration and praise themes with volume, trend and quotes, from 100% of conversations.</p></details>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 15h4"/></svg></div>
+        <h3>Product and pricing</h3>
+        <p class="lede-small">What are customers asking for that we do not offer, and did our last price change hurt us?</p>
+        <details class="more"><summary>Four more we answer</summary><ul><li>Which product or service generates the most pain per customer?</li><li>Which parts of our offer do customers not understand?</li><li>Is our marketing promising something the service does not deliver?</li><li>What do customers say when they compare us to the alternative?</li></ul><p>You get: request lists with volume and willingness to pay, and a price-reaction timeline in customers’ words.</p></details>
+      </article>
+      <article class="card reveal" data-delay="3">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Risk, collections, compliance</h3>
+        <p class="lede-small">Are our agents saying things that could get us fined, and what would an auditor find?</p>
+        <details class="more"><summary>Four more we answer</summary><ul><li>How many vulnerable customers did we handle badly?</li><li>Which promises to pay are real, and which collections approaches actually work?</li><li>Where is fraud hiding in our customer conversations?</li><li>What are our people putting into AI tools, and is it allowed?</li></ul><p>You get: breach lists with the conversation reference, script adherence on regulated steps, audit results on the full population.</p></details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROOF ===== -->
+<section class="section section--dark texture-dots" id="proof">
+  <div class="container">
+    <h2 class="text-center reveal" style="margin-bottom: var(--sp-8);">Already reading every conversation at scale</h2>
+    <div class="grid grid--3 text-center">
+      <div class="stat reveal" data-delay="1"><div class="stat__value">30M+</div><div class="stat__label">calls a year read for Home Credit, 1,200 agents, in Taglish</div></div>
+      <div class="stat reveal" data-delay="2"><div class="stat__value">100%</div><div class="stat__label">of calls evaluated, up from under 2% reviewed by hand</div></div>
+      <div class="stat reveal" data-delay="3"><div class="stat__value">300+</div><div class="stat__label">enterprise AI projects delivered by Bull, 3,000+ engineers, 32 countries</div></div>
+    </div>
+    <div class="container--narrow faq reveal" style="margin-inline: auto; margin-top: var(--sp-7);">
+      <details><summary>Home Credit: from spot-checking to every call</summary><p>A collections centre handling 3 million calls a month covered under 2% with manual QA. Every meaningful call is now scored on the same standard with the reasoning and a coaching note, giving quality and compliance teams full visibility. <a href="case-studies.html" style="color:#fff">Read the case study</a>.</p></details>
+      <details><summary>A European banking group: hidden signals into CRM</summary><p>Life events, financial needs and product interests mentioned in routine calls were extracted and fed into campaigns. Campaigns built on those signals converted above average.</p></details>
+    </div>
+    <div class="text-center mid-cta reveal"><a class="btn btn--primary" href="#contact">Book an inspiration session</a></div>
+  </div>
+</section>
+
+<!-- ===== USE CASES ===== -->
+<section class="section section--white" id="usecases">
+  <div class="container">
+    <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
+      <h2>Pains we help you solve</h2>
+      <p class="lead" style="margin-top: var(--sp-4);">Our customer intelligence experts and agents help our clients with these business problems.</p>
+    </div>
+    <div class="grid grid--3 grid--expand">
+      <article class="card reveal" data-delay="1"><h3>Customer experience insights</h3><p class="who">Head of CX, CMO, Customer Insights</p><p>Know what customers think about any topic, product or journey, from everyone who contacted you, with trend and quotes.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>Surveys reach 5% of customers, and the wrong 5%. Reading every conversation for meaning, not keywords, gives a complete picture that refreshes every month.</p><ul><li>Frustration and praise themes with volume and trend</li><li>Effort and repeat-contact picture per journey</li><li>What customers keep saying that no internal report captures</li></ul></details></article>
+      <article class="card reveal" data-delay="2"><h3>Compliance on every conversation</h3><p class="who">Compliance, Risk, Legal</p><p>Mis-selling, missing disclosures and script breaches found across 100% of calls, with evidence, instead of a 2% audit sample.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>A sample tells you a breach rate. The full population tells you which conversations, agents and products, so you act before the regulator does.</p><ul><li>Breach list with conversation reference</li><li>Script adherence on regulated steps</li><li>Vulnerable-customer treatment check</li></ul></details></article>
+      <article class="card reveal" data-delay="3"><h3>Quality assurance and coaching</h3><p class="who">Head of Contact Centre, Operations</p><p>Every call scored on your own standard, every agent given a concrete note, consistently across teams and outsourcers.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>Manual QA covers a handful of calls per agent per month and depends on who reviews them. Reading all of them removes the sample, the inconsistency and the delay.</p><ul><li>Per-call score with the reasoning</li><li>Coaching notes per agent and skill gap</li><li>Team, site and outsourcer comparison</li></ul></details></article>
+      <article class="card reveal" data-delay="1"><h3>Voicebot and chatbot experience</h3><p class="who">Head of Digital, CDO, Automation</p><p>See where your bots lose customers, what those customers do next, and which conversations to automate next or never.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>Bot analytics show completion rates. Reading bot sessions together with the human calls that follow shows what the bot failed to understand and what it cost.</p><ul><li>Bot failure map: misunderstood intents, loops, dead ends</li><li>Abandonment rate and what happened next</li><li>Automation candidates ranked by volume and tolerance</li></ul></details></article>
+      <article class="card reveal" data-delay="2"><h3>Sales from missed opportunities</h3><p class="who">CCO, Head of Sales, CRM and CVM</p><p>Customers who asked for something you sell and were never offered it, or are ready to buy now, with the signal quoted.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>These signals occur in routine service calls nobody in sales ever hears. A bank that read them saw campaigns built on those signals convert above average.</p><ul><li>Missed-offer list per product line</li><li>Warm accounts with the buying signal</li><li>Offers and scripts that work, and those that fall flat</li></ul></details></article>
+      <article class="card reveal" data-delay="3"><h3>Collections that work</h3><p class="who">Head of Collections, Risk Operations</p><p>Which promises to pay are real, which arguments lead to payment, and where tone or vulnerability rules are broken, in any language.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>Collections is the highest-volume, highest-risk conversation a company has. The 30M-calls-a-year deployment started here, with 100% coverage in Taglish.</p><ul><li>Promise-to-pay quality by agent and script</li><li>Script adherence and vulnerability treatment</li><li>What top collectors say that others do not</li></ul></details></article>
+      <article class="card reveal" data-delay="1"><h3>New data for customer 360</h3><p class="who">CRM, Data, Marketing</p><p>Life events, needs and intentions customers say out loud, turned into structured attributes on the profile and into campaigns.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>Your customer 360 is built from transactions and clicks. The richest attributes are spoken, not clicked, and until now they were unreachable at scale.</p><ul><li>Conversation-derived attributes per customer</li><li>Campaign triggers with the evidence</li><li>Enrichment delivered to your data platform</li></ul></details></article>
+      <article class="card reveal" data-delay="2"><h3>New signals for risk models</h3><p class="who">CRO, Pricing, Data Science</p><p>Financial distress, intent and life changes expressed in conversations, as tested features for your risk, churn and pricing models.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>Models are built on what customers did. Conversations hold what they are about to do. We test the lift on your own data before you change a model.</p><ul><li>Candidate features from conversations</li><li>Lift measured on your own history</li><li>Explainable, auditable feature definitions</li></ul></details></article>
+      <article class="card reveal" data-delay="3"><h3>AI governance and inspection</h3><p class="who">CIO, CDO, Compliance, Security</p><p>Know what your people put into AI tools, what comes back, and whether it follows policy, with the discipline you apply to calls.</p>
+        <details class="more"><summary>Why reading everything matters</summary><p>Conversations with AI assistants are the newest pile of unread, sensitive communication in the company. Reading them is the only way to govern them.</p><ul><li>Inspection of prompts and outputs against policy</li><li>Sensitive-data and breach cases with evidence</li><li>Usage patterns showing where AI helps and where it risks</li></ul></details></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW WE WORK ===== -->
+<section class="section section--cool texture-grid" id="how">
+  <div class="container">
+    <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
+      <h2>Three ways to start</h2>
+      <p class="lead" style="margin-top: var(--sp-4);">From a conversation, to a one-off project, to agents you ask every day. Fixed price, inside your own environment.</p>
+    </div>
+    <div class="steps" style="--steps: 3;">
+      <div class="step reveal" data-delay="1"><div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></div><h3>An inspiration session</h3><p>Free, one hour. You bring the decisions ahead of you; we show what your customer conversations could answer, and what they cannot.</p></div>
+      <div class="step reveal" data-delay="2"><div class="step__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 13l2 2 4-4"/></svg></div><h3>A one-off analysis</h3><p>One use case, your full history, analysed once. A board-ready report with the evidence, delivered as a fixed-scope project in weeks.</p></div>
+      <div class="step step--live reveal" data-delay="3"><div class="step__icon"><span class="step__ring" aria-hidden="true"></span><span class="step__ring step__ring--2" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16h6"/></svg></div><h3>Your analytical agents <span class="live-badge"><i aria-hidden="true"></i>continuous</span></h3><p>AI Comms Inspector as analytical agents for your customer intelligence: ask continuously, get insights, signals and triggers for action as new conversations arrive.</p></div>
+    </div>
+    <div class="container--narrow faq reveal" style="margin-inline: auto; margin-top: var(--sp-8);">
+      <details><summary>What is Comms Inspector</summary><p>Comms Inspector is the software: the agents, plus the interface to manage them and chat with them. Imagine your AI tool with pre-built use cases and 100% of your communication data in context. It massively automates the analysis of customer communication, every call, chat and email, so you can extract insights, detect opportunities and generate triggers for your other systems, such as CRM, quality or compliance. Enterprise-grade, running in your existing infrastructure or on top of our AI factory infrastructure in Europe.</p><div class="shots"><figure><img src="Assets/v2/product-ask-the-data.jpg" alt="Ask the data: a business question answered with a chart, the evidence and its limits" loading="lazy"><figcaption>Ask the data</figcaption></figure><figure><img src="Assets/v2/product-review-queue.jpg" alt="Review queue: every call checked, with the passages the model used as evidence" loading="lazy"><figcaption>Review queue</figcaption></figure><figure><img src="Assets/v2/product-conversation-analysis.jpg" alt="Conversation analysis: transcript, QA scorecard, classification and compliance verdicts" loading="lazy"><figcaption>Conversation analysis</figcaption></figure></div></details>
+      <details><summary>What the one-off analysis includes</summary><p>A board-ready report with the evidence behind each finding, the customer lists your teams can act on, and the three fixes that would move the numbers most. We need one export of recordings or transcripts, chats and emails, read-only, inside your own cloud. Fixed price quoted on your volume.</p></details>
+      <details><summary>Where it runs, and who owns what</summary><p>In your own Azure, AWS or GCP environment, in the EU, on models you are not renting. Your conversations never leave your perimeter and you keep the intellectual property. That is the one thing we will say about the engine.</p></details>
+      <details><summary>Who this is not for</summary><p>If you have a few thousand conversations a year, a good analyst can read them. If you keep no recordings or transcripts, there is nothing to read yet. If what you want is another dashboard, there are cheaper ones. We will tell you so in the session.</p></details>
+          </div>
+  </div>
+</section>
+
+<!-- ===== PEOPLE ===== -->
+<section class="section section--warm" id="people">
+  <div class="container">
+    <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
+      <h2>We bring your company AI-first customer intelligence competence</h2>
+      <p class="lead" style="margin-top: var(--sp-4);">For years we have run customer intelligence inside banks, insurers and telcos: the analyses, the projects, the automations, the transformations. Now we have packaged that experience, and ourselves, into a pre-built set of AI agents. You get our brains, not only a platform.</p>
+    </div>
+    <div class="grid grid--3 grid--expand">
+      <article class="card reveal" data-delay="1">
+        <div class="person"><img src="Assets/v2/david-vopelka-avatar.jpg" alt="David Vopelka"><div><strong>David Vopelka</strong><span>Business AI Cluster Lead at Bull · Co-founder, DataSentics</span></div></div>
+        <div class="years"><div class="stat__value">15+</div><span>years in customer intelligence and data/AI consulting</span></div>
+        <p>Co-founded DataSentics and led 20+ data-driven innovations for 10+ financial institutions. Before that, marketing automation lead at Erste Group.</p>
+        <div class="tag-list tag-list--card"><span class="badge">Erste Group</span><span class="badge">CPEX</span><span class="badge">NN</span><span class="badge">VIG</span><span class="badge">Moneta</span><span class="badge">Home Credit</span><span class="badge">AXA</span><span class="badge">KBC</span><span class="badge">UNIQA</span></div>
+        <p class="li"><a href="https://www.linkedin.com/in/davidvopelka/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Connect on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="person"><img src="Assets/v2/jirina-nedbalkova-avatar.jpg" alt="Jiřina Nedbálková"><div><strong>Jiřina Nedbálková</strong><span>AI Use Case Architect &amp; Customer Intelligence Lead</span></div></div>
+        <div class="years"><div class="stat__value">20+</div><span>years in financial services, telecom and consultancy</span></div>
+        <p>Jiřina helps organisations turn data into actionable insights, build smarter customer engagement strategies, and implement AI solutions that deliver measurable business value.</p>
+        <div class="tag-list tag-list--card"><span class="badge">ING</span><span class="badge">Komerční banka</span><span class="badge">Česká spořitelna</span><span class="badge">Raiffeisenbank</span><span class="badge">Home Credit</span><span class="badge">O2</span><span class="badge">T-Mobile</span></div>
+        <p class="li"><a href="https://www.linkedin.com/in/jirinanedbalkova" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Connect on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </article>
+      <article class="card reveal" data-delay="3">
+        <div class="person"><img src="Assets/v2/jiri-jelinek-avatar.jpg" alt="Jiří Jelínek"><div><strong>Jiří Jelínek</strong><span>AI Consultant, digital marketing and personalisation</span></div></div>
+        <div class="years"><div class="stat__value">15+</div><span>years in digital marketing and AdTech</span></div>
+        <p>Personalisation project owner for Erste Group and NN Group, product lead for AdPicker at CPEX, the largest Czech online publisher network.</p>
+        <div class="tag-list tag-list--card"><span class="badge">Erste Group</span><span class="badge">NN Group</span><span class="badge">CPEX</span><span class="badge">AXA</span><span class="badge">AdPicker</span><span class="badge">Adform</span><span class="badge">Mindshare</span></div>
+      </article>
+    </div>
+    <div class="container--narrow keynotes reveal" id="keynotes" style="margin-inline: auto; margin-top: var(--sp-8);">
+      <h3>Why we believe every European company needs this</h3>
+      <p>Where we come from, and why we think reading every customer conversation is the shortest route to better products and services. Three short pieces by David Vopelka.</p>
+      <ol>
+        <li><a href="blog-one-prompt-away.html"><strong>Every conversation your company has ever had with a customer is now one prompt away</strong><span>The C-level imperative · 7 min read</span></a></li>
+        <li><a href="blog-paying-consultants-to-guess.html"><strong>I spent years paying consultants to guess what our customers thought</strong><span>A personal account · 6 min read</span></a></li>
+        <li><a href="blog-500000-in-tokens.html"><strong>A business question should not cost €500,000 in tokens</strong><span>The economics of insight · 6 min read</span></a></li>
+      </ol>
+      <p><a href="blog.html" style="color: var(--dream-in-blue);">See all articles</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEBINAR + FAQ ===== -->
+<section class="section section--white" id="webinar">
+  <div class="container split">
+    <div class="reveal">
+      <p class="eyebrow">Webinar · 30 minutes</p>
+      <h2>An on-demand walkthrough of a new way of doing customer intelligence</h2>
+      <div class="accent-line"></div>
+      <p class="lead">See on real examples how you could work with communication data in the age of AI agents. Watch the webinar now.</p>
+      <form class="gate" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="8cf94256-3ecf-442a-9c0c-69c4c50f3c9d">
+        <input type="hidden" name="subject" value="Webinar request (homepage v2) — AI Comms Inspector">
+        <input type="hidden" name="variant" value="homepage-v2">
+        <input type="hidden" name="redirect" value="https://www.youtube.com/watch?v=VWt3kWAvXJ0">
+        <div class="cluster" style="align-items: end;">
+          <div class="field"><label for="gname">Name</label><input id="gname" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="gemail">Work email</label><input id="gemail" name="email" type="email" required autocomplete="email"></div>
+          <button class="btn btn--secondary" type="submit">Watch the webinar</button>
+        </div>
+      </form>
+    </div>
+    <div class="faq reveal" data-delay="1">
+      <h3 style="margin-bottom: var(--sp-3);">Before you ask</h3>
+      <details><summary>Our CRM, NPS and speech analytics already tell us this</summary><p>CRM records what customers did. Surveys record what the 5% who answer chose to say. Speech analytics spots keywords. None of them reads a conversation for meaning and answers a business question with evidence.</p></details>
+      <details><summary>Contact-centre data is biased towards people with problems</summary><p>It is. It is also the largest unfiltered account of what your customers think, and it includes the ones you are about to lose. We report the base, segment every finding, and read it alongside your survey.</p></details>
+      <details><summary>What do we need to give you?</summary><p>For a Pulse: one export of recordings or transcripts, chats and emails, into your own cloud. Read-only. Nothing changes for your agents or systems.</p></details>
+      <details><summary>Is our data safe, and is this allowed under GDPR?</summary><p>Everything runs inside your own European environment. Conversations never leave your perimeter, every finding is traceable to its source, and retention stays under your control. We can walk your DPO through it.</p></details>
+      <details><summary>Which languages?</summary><p>Any your customers use. The largest deployment runs on millions of calls in Taglish, a mix of Tagalog and English, scored on one standard.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="section cta-band" id="contact">
+  <div class="container text-center reveal" style="max-width: 60ch; margin-inline: auto;">
+    <h2>See how AI helps you understand your customers</h2>
+    <p class="lead" style="color: rgba(255,255,255,0.85); margin-top: var(--sp-4);">A knowledge exchange on customer intelligence and how it changes your strategic decisions. David, Jiřina or Jiří are happy to meet you.</p>
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="cta-form" style="max-width: 40rem; margin: var(--sp-6) auto 0; text-align: left;">
+      <input type="hidden" name="access_key" value="8cf94256-3ecf-442a-9c0c-69c4c50f3c9d">
+      <input type="hidden" name="subject" value="New inspiration session request (homepage v2) — AI Comms Inspector">
+      <input type="hidden" name="variant" value="homepage-v2">
+      <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+      <div class="field field--wide"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization"></div>
+            <button class="btn btn--primary" type="submit" style="width: 100%; grid-column: 1 / -1;">Book an inspiration session</button>
+      <p class="form-note" id="contactNote" role="status" aria-live="polite"></p>
+      <p class="form-privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+    </form>
+    <div class="form-success" id="contactSuccess" role="status" aria-live="polite" hidden>
+      <h3>Thank you. Your inspiration session request is in.</h3>
+      <p>We will email you within one business day to schedule it.</p>
+    </div>
+    <p class="alt">Not ready? <a href="#webinar">Watch the webinar first</a>.</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__logo"><img src="Assets/v2/datasentics-bull-logo-white.svg" alt="DataSentics, a Bull company"><p>Master your AI destiny</p></div>
+      <div class="stack"><strong style="color:#fff">Links</strong><a href="#questions">Insights</a><a href="#usecases">Use cases</a><a href="#how">How we work</a><a href="pricing.html">Pricing</a><a href="case-studies.html">Case studies</a><a href="blog.html">Blog</a></div>
+      <div class="stack"><strong style="color:#fff">Modules</strong><a href="ai-customer-insights.html">AI Customer Insights</a><a href="ai-call-inspector.html">AI Call Inspector</a><a href="ai-quality-assurance.html">AI Quality Assurance</a><a href="ai-coach.html">AI Coach</a><a href="architecture.html">Architecture</a></div>
+      <div class="stack"><strong style="color:#fff">Contact</strong><a href="#contact">Book an inspiration session</a><a href="https://www.linkedin.com/in/davidvopelka/">David Vopelka on LinkedIn</a><a href="https://www.bull.com/en/">bull.com</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Bull · DataSentics, a Bull company</span><span><a href="privacy-policy.html">Privacy</a></span></div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE STICKY CTA ===== -->
+<div class="sticky-cta" id="sticky-cta"><a class="btn btn--primary" href="#contact" style="width:100%">Book an inspiration session</a></div>
+
+<script>
+(function () {
+  /* Mobile menu */
+  var toggle = document.querySelector('.nav__toggle');
+  var mobile = document.getElementById('mobile-nav');
+  if (toggle && mobile) {
+    toggle.addEventListener('click', function () {
+      var open = mobile.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    mobile.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { mobile.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); });
+    });
+  }
+
+  /* Reveal on scroll, once per element */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-visible'); }); }
+  else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+
+  /* Sticky mobile CTA: visible once the hero is gone, hidden at the form */
+  var sticky = document.getElementById('sticky-cta');
+  var hero = document.querySelector('.section--dark');
+  var contact = document.querySelector('.cta-band');
+  if (sticky && hero && 'IntersectionObserver' in window) {
+    var heroGone = false, contactSeen = false;
+    var update = function () { sticky.classList.toggle('is-visible', heroGone && !contactSeen); };
+    new IntersectionObserver(function (e) { heroGone = !e[0].isIntersecting; update(); }).observe(hero);
+    if (contact) new IntersectionObserver(function (e) { contactSeen = e[0].isIntersecting; update(); }, { threshold: 0.2 }).observe(contact);
+  }
+
+  /* Contact form: Web3Forms via fetch, inline confirmation, GA4 lead event (same event id as the live form) */
+  var form = document.getElementById('contactForm');
+  var note = document.getElementById('contactNote');
+  var success = document.getElementById('contactSuccess');
+  if (form && note && success) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var btn = form.querySelector('button[type=submit]');
+      var data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
+      note.textContent = '';
+      if (btn) btn.disabled = true;
+      fetch(form.getAttribute('action'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (result) {
+          if (result.success) {
+            form.reset(); form.hidden = true; success.hidden = false;
+            if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_id: 'demo_walkthrough' });
+          } else { note.textContent = 'Something went wrong. Please try again or email us directly.'; }
+        })
+        .catch(function () { note.textContent = 'Something went wrong. Please try again or email us directly.'; })
+        .then(function () { if (btn) btn.disabled = false; });
+    });
+  }
+
+  /* Webinar gate posts natively and redirects to the recording: count it as a lead, sent as a beacon */
+  var gate = document.querySelector('.gate');
+  if (gate) gate.addEventListener('submit', function () {
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_id: 'webinar_gate_v2', transport_type: 'beacon' });
+  });
+})();
+</script>
 </body>
 </html>
