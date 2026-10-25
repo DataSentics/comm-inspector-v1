@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <!-- Cookiebot consent - must stay the first script in <head>, ahead of every other script and tracking tag, so data-blockingmode="auto" can hold them until consent. -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
+  <script src="analytics.js?v=20261027"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2SDXRFETN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-X2SDXRFETN');
+    gtag('config', 'G-X2SDXRFETN', { homepage_variant: window.ciVariant ? window.ciVariant() : 'none' });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case Studies — AI Comms Inspector</title>
+  <link rel="canonical" href="https://comms-inspector.com/case-studies.html" />
   <link rel="icon" type="image/svg+xml" href="Assets/comm-inspector-favicon_color.svg" />
   <meta name="description" content="See how AI Comms Inspector performs in production — real deployments, real results." />
   <meta name="robots" content="index, follow" />

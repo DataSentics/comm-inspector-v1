@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <!-- Cookiebot consent - must stay the first script in <head>, ahead of every other script and tracking tag, so data-blockingmode="auto" can hold them until consent. -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
+  <script src="analytics.js?v=20261027"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2SDXRFETN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-X2SDXRFETN');
+    gtag('config', 'G-X2SDXRFETN', { homepage_variant: window.ciVariant ? window.ciVariant() : 'none' });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Comms Inspector — Read Every Conversation</title>
+  <link rel="canonical" href="https://comms-inspector.com/" />
   <link rel="icon" type="image/svg+xml" href="Assets/comm-inspector-favicon_color.svg" />
   <meta name="description" content="Analyse 100% of calls, chats and emails in your own cloud. Turn every conversation into signals for revenue, compliance and CX teams." />
   <meta name="robots" content="index, follow" />
@@ -113,7 +115,7 @@
     <!-- Outcome: in one screen, grasp what this is, that it runs in   -->
     <!-- their own environment, and what to do next.                   -->
     <!-- ============================================================= -->
-    <section class="hero section--white" aria-labelledby="heroHeading">
+    <section class="hero section--white" aria-labelledby="heroHeading" data-section="hero" data-step="hero">
       <div class="container hero__inner">
         <div class="hero__copy">
           <!-- Eyebrow / trust signals -->
@@ -173,7 +175,7 @@
     <!-- same [data-count] mechanism script.js already drives for the  -->
     <!-- hero coverage card — just wired up here too.                  -->
     <!-- ============================================================= -->
-    <section class="trust reveal" aria-labelledby="trustHeading">
+    <section class="trust reveal" aria-labelledby="trustHeading" data-section="trust" data-step="proof">
       <div class="container trust__inner">
         <div class="trust__brand">
           <span class="trust__eyebrow">Built by</span>
@@ -206,7 +208,7 @@
     <!-- Raiffeisenbank CZ naming approval clears; swap the wording    -->
     <!-- then, no layout change needed.                                -->
     <!-- ============================================================= -->
-    <section class="section section--white reveal" id="proof" aria-labelledby="proofHeading">
+    <section class="section section--white reveal" id="proof" aria-labelledby="proofHeading" data-section="proof" data-step="proof">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow-label">Enterprise proof</span>
@@ -248,7 +250,7 @@
     <!-- 3 — BEFORE -> WITH                                            -->
     <!-- Outcome: scannable shift from status quo to outcome.          -->
     <!-- ============================================================= -->
-    <section class="section section--tint reveal" id="before" aria-labelledby="beforeHeading">
+    <section class="section section--tint reveal" id="before" aria-labelledby="beforeHeading" data-section="before" data-step="problem">
       <div class="container">
         <span class="eyebrow-label">The impact</span>
         <h2 id="beforeHeading" class="section__title">What changes when you analyse every conversation</h2>
@@ -305,7 +307,7 @@
 
     <!-- Positioning callout — a quiet visual pause before Modules;
          sets up "who benefits" ahead of "what it does". -->
-    <section class="positioning-bar" aria-label="Who this is for">
+    <section class="positioning-bar" aria-label="Who this is for" data-section="who-for" data-step="problem">
       <div class="container positioning-bar__inner">
         <span class="positioning-bar__label mono">WHO IT'S FOR</span>
         <div class="positioning-bar__copy">
@@ -319,7 +321,7 @@
     <!-- 4 — MODULES  (Bull-style use-case cards, each links to a sub-page) -->
     <!-- Outcome: four modules of one platform, each explorable.        -->
     <!-- ============================================================= -->
-    <section class="section section--blue-deep reveal" id="delivers" aria-labelledby="deliversHeading">
+    <section class="section section--blue-deep reveal" id="delivers" aria-labelledby="deliversHeading" data-section="modules" data-step="offer">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow-label">Modules</span>
@@ -425,7 +427,7 @@
     <!-- Outcome: understand the flow in under 5s; clearly more        -->
     <!-- than transcription.                                           -->
     <!-- ============================================================= -->
-    <section class="section section--tint reveal" id="how" aria-labelledby="howHeading">
+    <section class="section section--tint reveal" id="how" aria-labelledby="howHeading" data-section="how" data-step="how">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow-label">How it works</span>
@@ -486,7 +488,7 @@
     <!-- Shares grey with #business-value so call→outcome reads as one  -->
     <!-- arc via the bridge; sits between peach #how and grey outcomes. -->
     <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="worked-example" aria-labelledby="showcaseHeading">
+    <section class="section section--grey reveal" id="worked-example" aria-labelledby="showcaseHeading" data-section="worked-example" data-step="evidence">
       <div class="container">
         <!-- Worked example: one real call, from transcript to business value -->
         <div class="showcase">
@@ -595,7 +597,7 @@
     <!-- of the same arc before the grey→white break into #results.     -->
     <!-- Distinct from the later #value section (measurable impact).     -->
     <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="business-value" aria-labelledby="businessValueHeading">
+    <section class="section section--grey reveal" id="business-value" aria-labelledby="businessValueHeading" data-section="business-value" data-step="evidence">
       <div class="container">
         <div class="section__head-center">
           <span class="eyebrow-label">Business value delivered</span>
@@ -659,7 +661,7 @@
     <!-- Copy is the cleared case-study one-pager verbatim; no invented -->
     <!-- percentages or magnitudes anywhere (proof-assets.md §C5).      -->
     <!-- ============================================================= -->
-    <section class="section section--white reveal" id="results" aria-labelledby="resultsHeading">
+    <section class="section section--white reveal" id="results" aria-labelledby="resultsHeading" data-section="results" data-step="evidence">
       <div class="container">
         <span class="eyebrow-label">Proven results</span>
         <h2 id="resultsHeading" class="section__title">From hidden call signals to higher-converting campaigns</h2>
@@ -698,7 +700,7 @@
     <!-- comment already earmarked centred-head sections (this one     -->
     <!-- uses .section__head-center) as "the blue signature panels."   -->
     <!-- ============================================================= -->
-    <section class="section section--blue-deep reveal" id="stack" aria-labelledby="stackHeading">
+    <section class="section section--blue-deep reveal" id="stack" aria-labelledby="stackHeading" data-section="stack" data-step="fit">
       <div class="container">
         <div class="section__head-center">
           <h2 id="stackHeading" class="section__title">Deployed your way, customised to your needs</h2>
@@ -735,7 +737,7 @@
     <!-- .ba tick/minus language (no red/green/amber); middle column   -->
     <!-- is elevated with an orange border + shadow, not a dark card.  -->
     <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="build-partner-buy" aria-labelledby="bpbHeading">
+    <section class="section section--grey reveal" id="build-partner-buy" aria-labelledby="bpbHeading" data-section="build-partner-buy" data-step="fit">
       <div class="container">
         <div class="section__head-center">
           <span class="eyebrow-label eyebrow-label--bpb">Build vs. <span class="accent">partner</span> vs. buy</span>
@@ -832,7 +834,7 @@
     <!-- accordion, and the list itself shows 4 of 12 until expanded.  -->
     <!-- Both are .js-gated, so with JS off all 12 Q&As are visible.   -->
     <!-- ============================================================= -->
-    <section class="section section--white reveal" id="faq" aria-labelledby="faqHeading">
+    <section class="section section--white reveal" id="faq" aria-labelledby="faqHeading" data-section="faq" data-step="faq">
       <div class="container">
         <div class="section__head">
           <h2 id="faqHeading" class="section__title">Common questions</h2>
@@ -1002,7 +1004,7 @@
     <!-- 8 — FINAL CTA                                                 -->
     <!-- Outcome: single, obvious next step.                           -->
     <!-- ============================================================= -->
-    <section class="section section--grey final-cta reveal" id="demo" aria-labelledby="finalHeading">
+    <section class="section section--grey final-cta reveal" id="demo" aria-labelledby="finalHeading" data-section="contact" data-step="contact">
       <div class="container final-cta__inner">
         <div class="final-cta__copy">
           <h2 id="finalHeading" class="section__title">See what's hiding<br class="final-cta__title-break"> in your own<br class="final-cta__title-break"> conversations</h2>
@@ -1075,7 +1077,7 @@
   <!-- ============================================================= -->
   <!-- FOOTER                                                        -->
   <!-- ============================================================= -->
-  <footer class="site-footer section--blue-deep">
+  <footer class="site-footer section--blue-deep" data-section="footer" data-step="footer">
     <!-- Bull symbol watermark — same treatment as claimsense.app's dark
          final-CTA section: low-opacity monogram, lower-right, decorative only. -->
     <img src="Assets/Bull_symbol_white.svg" alt="" aria-hidden="true" class="footer__watermark" />

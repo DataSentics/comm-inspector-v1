@@ -82,3 +82,30 @@ match it). It is **not** the live homepage:
   works", deployment detail) onto `ai-customer-insights.html` / `architecture.html`, and leave a meta-refresh
   stub at `index-v2.html` if ad links still point at it. Other pages keep `styles.css`, so the site's look
   changes only on the homepage unless they are restyled too.
+
+## Analytics layer (`analytics.js`)
+
+Loaded synchronously on every page right after the Cookiebot script (Cookiebot must stay first). Bump the
+`?v=` on its `<script>` tag in all pages when it changes. All calls are wrapped, so a blocked or missing
+`gtag` (no cookie consent) never breaks a page. Test pages locally with the Browser pane only after
+checking that `styles.css` loaded (a second stale server on port 8087 once reset it); the pane does not run
+`requestAnimationFrame` / `IntersectionObserver`, so stub both when testing scroll events.
+
+- **`homepage_variant`**: `v1` on `index.html`, `v2` on `index-v2.html` or any page opened with `?hp=v2`, else
+  `none`. Set on the GA4 `config` call (so `page_view` carries it) and on every custom event.
+- **Keeping V2 visitors on V2**: on V2 pages internal links get `?hp=v2`, links to `index.html` become
+  `index-v2.html`, and homepage anchors are mapped (`#demo` to `#contact`, `#delivers` to `#questions`,
+  `#faq` to `#webinar`, `#stack` to `architecture.html`). Never put `utm_*` on internal links: GA4 would start a
+  new session and overwrite the real source. Ad links carry `utm_*` only.
+- **Events**: `scroll_depth` (`percent` 10/25/50/75/90/100), `section_view` (`section_id`, `section_step`,
+  `section_order`), `scroll_summary` (furthest section and `max_percent` on exit), `cta_click` (`cta_type`
+  book/webinar/linkedin, `cta_location`, `cta_text`), `internal_click` (`target_page`, `link_location`),
+  `form_start` (`form_id`, same ids as `generate_lead`: `demo_walkthrough`, `quote_request`, `video_gate`,
+  `webinar_gate_v2`). `generate_lead` is unchanged.
+- **Sections**: tag a block with `data-section="<id>"` and `data-step="<step>"`. Comparable steps across V1 and V2:
+  `hero`, `proof`, `problem`, `offer`, `how`, `contact` (+ `footer`); V1-only `evidence`, `fit`, `faq`; V2-only
+  `mission`, `people`, `webinar`.
+- **Lead attribution**: every Web3Forms form gets hidden fields `utm_*`, `gclid`, `li_fat_id`, `landing_page`,
+  `landing_variant`, `referrer`, `homepage_variant`, `page_url` at submit time. First-touch values are kept in
+  `sessionStorage` only after Cookiebot statistics consent; without consent only the current URL is used.
+- Every page now has a `canonical` (absolute, no query), so `?hp=v2` URLs never compete in search.

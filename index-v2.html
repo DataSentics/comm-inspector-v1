@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <!-- Cookiebot consent - must stay the first script in <head>, ahead of every other script and tracking tag, so data-blockingmode="auto" can hold them until consent. -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
+  <script src="analytics.js?v=20261027"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2SDXRFETN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-X2SDXRFETN');
+    gtag('config', 'G-X2SDXRFETN', { homepage_variant: window.ciVariant ? window.ciVariant() : 'none' });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Customer intelligence for European companies — AI Comms Inspector</title>
@@ -54,7 +55,7 @@
 </header>
 
 <!-- ===== HERO ===== -->
-<section class="section section--dark section--hero texture-glow texture-noise" style="padding-block: var(--sp-9) var(--section-pad-hero);">
+<section class="section section--dark section--hero texture-glow texture-noise" style="padding-block: var(--sp-9) var(--section-pad-hero);" data-section="hero" data-step="hero">
   <div class="container split">
     <div class="reveal">
       <p class="eyebrow">Customer intelligence, built in Europe</p>
@@ -182,7 +183,7 @@
 </section>
 
 <!-- ===== WHY WE EXIST ===== -->
-<section class="section section--white" id="why" style="padding-bottom: var(--sp-8);">
+<section class="section section--white" id="why" style="padding-bottom: var(--sp-8);" data-section="why" data-step="mission">
   <div class="container container--narrow">
     <div class="reveal">
       <p class="eyebrow">Why we exist</p>
@@ -199,7 +200,7 @@
 </section>
 
 <!-- ===== FROM MONTHS TO MINUTES ===== -->
-<section class="section section--cool texture-dots" id="shift" style="padding-top: var(--sp-8);">
+<section class="section section--cool texture-dots" id="shift" style="padding-top: var(--sp-8);" data-section="shift" data-step="problem">
   <div class="container">
     <div class="text-center reveal" style="max-width: 62ch; margin-inline: auto; margin-bottom: var(--sp-8);">
       <h2>From months and a sample to minutes and 100%</h2>
@@ -232,7 +233,7 @@
 </section>
 
 <!-- ===== WHAT WE HELP YOU ANSWER ===== -->
-<section class="section section--warm" id="questions">
+<section class="section section--warm" id="questions" data-section="questions" data-step="offer">
   <div class="container">
     <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
       <p class="eyebrow">What we help you answer</p>
@@ -281,7 +282,7 @@
 </section>
 
 <!-- ===== PROOF ===== -->
-<section class="section section--dark texture-dots" id="proof">
+<section class="section section--dark texture-dots" id="proof" data-section="proof" data-step="proof">
   <div class="container">
     <h2 class="text-center reveal" style="margin-bottom: var(--sp-8);">Already reading every conversation at scale</h2>
     <div class="grid grid--3 text-center">
@@ -298,7 +299,7 @@
 </section>
 
 <!-- ===== USE CASES ===== -->
-<section class="section section--white" id="usecases">
+<section class="section section--white" id="usecases" data-section="usecases" data-step="offer">
   <div class="container">
     <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
       <h2>Pains we help you solve</h2>
@@ -328,7 +329,7 @@
 </section>
 
 <!-- ===== HOW WE WORK ===== -->
-<section class="section section--cool texture-grid" id="how">
+<section class="section section--cool texture-grid" id="how" data-section="how" data-step="how">
   <div class="container">
     <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
       <h2>Three ways to start</h2>
@@ -349,7 +350,7 @@
 </section>
 
 <!-- ===== PEOPLE ===== -->
-<section class="section section--warm" id="people">
+<section class="section section--warm" id="people" data-section="people" data-step="people">
   <div class="container">
     <div class="text-center reveal" style="max-width: 60ch; margin-inline: auto; margin-bottom: var(--sp-8);">
       <h2>We bring your company AI-first customer intelligence competence</h2>
@@ -391,7 +392,7 @@
 </section>
 
 <!-- ===== WEBINAR + FAQ ===== -->
-<section class="section section--white" id="webinar">
+<section class="section section--white" id="webinar" data-section="webinar" data-step="webinar">
   <div class="container split">
     <div class="reveal">
       <p class="eyebrow">Webinar · 30 minutes</p>
@@ -422,7 +423,7 @@
 </section>
 
 <!-- ===== CTA BAND ===== -->
-<section class="section cta-band" id="contact">
+<section class="section cta-band" id="contact" data-section="contact" data-step="contact">
   <div class="container text-center reveal" style="max-width: 60ch; margin-inline: auto;">
     <h2>See how AI helps you understand your customers</h2>
     <p class="lead" style="color: rgba(255,255,255,0.85); margin-top: var(--sp-4);">A knowledge exchange on customer intelligence and how it changes your strategic decisions. David, Jiřina or Jiří are happy to meet you.</p>
@@ -446,7 +447,7 @@
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="footer">
+<footer class="footer" data-section="footer" data-step="footer">
   <div class="container">
     <div class="footer__top">
       <div class="footer__logo"><img src="Assets/v2/datasentics-bull-logo-white.svg" alt="DataSentics, a Bull company"><p>Master your AI destiny</p></div>
