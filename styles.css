@@ -2114,6 +2114,7 @@ a.module-card__tag:hover { background: var(--orange-tint); color: var(--orange);
 .vid__gate-error { margin-top: 8px; font-size: 13px; font-weight: 500; line-height: 1.4; color: #b3261e; }
 .vid__gate-submit { margin-top: 12px; }
 .vid__gate-submit:disabled { opacity: .7; cursor: wait; }
+.vid__gate-note { margin-top: 14px; font-size: 14px; font-weight: 600; line-height: 1.4; color: var(--ink); }
 .vid__gate-consent { margin-top: 12px; font-size: 12px; line-height: 1.45; color: var(--ink-soft); }
 .vid__gate-consent a { color: var(--blue-deep); text-decoration: underline; }
 .vid__gate :focus-visible { outline: 3px solid var(--blue-deep); outline-offset: 2px; }
@@ -2122,6 +2123,8 @@ html.vid-gate-open { overflow: hidden; }
 
 @media (max-width: 640px) {
   .vid__frame { aspect-ratio: 1 / 1; border-radius: 12px; }
+  /* Pages with no square video file (no data-vid-src-small) keep the 16:9 frame on mobile */
+  .vid--wide .vid__frame { aspect-ratio: 16 / 9; }
   .vid__play { width: 64px; height: 64px; }
   .vid__time { min-width: 0; }
   .vid__gate { align-items: flex-start; padding-top: max(16px, 6vh); }
