@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <!-- Cookiebot consent - must stay the first script in <head>, ahead of every other script and tracking tag, so data-blockingmode="auto" can hold them until consent. -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
-  <script src="analytics.js?v=20261027"></script>
+  <script src="analytics.js?v=20261101"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2SDXRFETN"></script>
   <script>
@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=20260749" />
+  <link rel="stylesheet" href="styles.css?v=20261101" />
 
   <!-- Set a `js` flag before first paint so enhancement-only styles
        (e.g. the coverage bars animating up from zero) never flash
@@ -81,7 +81,7 @@
       <span class="nav__cta-divider" aria-hidden="true"></span>
 
       <!-- Primary CTA (built once, reused everywhere via .btn--primary) -->
-      <a href="#demo" class="btn btn--primary nav__cta" data-demo-open>Book a walkthrough</a>
+      <a href="#demo" class="btn btn--primary nav__cta" data-demo-open>Book a use-case session</a>
 
       <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
@@ -103,7 +103,7 @@
       <a href="blog.html">Blog</a>
       <span class="mobile-nav__divider" aria-hidden="true"></span>
       <a href="pricing.html">Pricing</a>
-      <a href="#demo" class="btn btn--primary" data-demo-open>Book a walkthrough</a>
+      <a href="#demo" class="btn btn--primary" data-demo-open>Book a use-case session</a>
     </div>
   </header>
 
@@ -154,7 +154,7 @@
           </ul>
 
           <div class="hero__cta">
-            <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Book a walkthrough</a>
+            <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Book a use-case session</a>
             <a class="hero__cta-alt" href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">or watch the 30-min webinar ↗</a>
           </div>
         </div>
@@ -201,56 +201,10 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- 2b — PROOF BAR                                                -->
-    <!-- Outcome: replace generic Bull corporate stats with concrete   -->
-    <!-- (anonymised, naming-pending) product proof — per              -->
-    <!-- content-draft-v1 §2. Names stay anonymised until the          -->
-    <!-- Raiffeisenbank CZ naming approval clears; swap the wording    -->
-    <!-- then, no layout change needed.                                -->
-    <!-- ============================================================= -->
-    <section class="section section--white reveal" id="proof" aria-labelledby="proofHeading" data-section="proof" data-step="proof">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow-label">Enterprise proof</span>
-          <h2 id="proofHeading" class="section__title">Proven in production</h2>
-          <p class="section__sub">AI Comms Inspector already processes customer conversations at enterprise scale and turns them into measurable business outcomes.</p>
-        </div>
-        <div class="proof-grid">
-          <article class="proof-card proof-card--featured proof-card--linked proof-card--logo">
-            <div class="proof-card__text">
-              <span class="proof-card__label">Production scale</span>
-              <h3 class="proof-card__title">30M+ calls analysed every year</h3>
-              <p class="proof-card__body">Automated supervision and quality control running in production at Home Credit Philippines.</p>
-              <a href="case-studies.html" class="proof-card__cta">Read the full story <span aria-hidden="true">&rarr;</span></a>
-            </div>
-            <div class="proof-card__logo">
-              <img src="Assets/home-credit-logo.svg" alt="Home Credit" width="118" height="50" />
-            </div>
-          </article>
-          <article class="proof-card">
-            <span class="proof-card__label">Commercial impact</span>
-            <h3 class="proof-card__title">Higher conversion</h3>
-            <p class="proof-card__body">AI-generated sales signals help target more relevant offers.</p>
-          </article>
-          <article class="proof-card">
-            <span class="proof-card__label">Operational impact</span>
-            <h3 class="proof-card__title">Quality control at scale</h3>
-            <p class="proof-card__body">Every selected interaction assessed consistently against predefined business, process and compliance rules.</p>
-          </article>
-          <article class="proof-card">
-            <span class="proof-card__label">Delivery credibility</span>
-            <h3 class="proof-card__title">300+ enterprise AI projects</h3>
-            <p class="proof-card__body">Proven delivery experience at enterprise scale. Built on <a href="https://www.bull.com/en/" target="_blank" class="proof-card__link">Bull Group</a>'s experience from more than 300 enterprise AI projects.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
     <!-- 3 — BEFORE -> WITH                                            -->
     <!-- Outcome: scannable shift from status quo to outcome.          -->
     <!-- ============================================================= -->
-    <section class="section section--tint reveal" id="before" aria-labelledby="beforeHeading" data-section="before" data-step="problem">
+    <section class="section section--white reveal" id="before" aria-labelledby="beforeHeading" data-section="before" data-step="problem">
       <div class="container">
         <span class="eyebrow-label">The impact</span>
         <h2 id="beforeHeading" class="section__title">What changes when you analyse every conversation</h2>
@@ -305,9 +259,155 @@
       </div>
     </section>
 
+    <section class="section section--grey reveal" id="pains" aria-labelledby="painsHeading" data-section="pains" data-step="problem">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow-label">Blind spots to uncover</span>
+          <h2 id="painsHeading" class="section__title">What a sample of calls cannot show you</h2>
+          <p class="section__sub">Every day, customers tell you what they want, what frustrates them and when they plan to leave. Most companies hear a small share of those conversations and guess the rest.</p>
+        </div>
+        <ol class="pains">
+          <li class="pains__row">
+            <div class="pains__problem reveal" data-delay="1">
+              <p class="pains__label">The problem</p>
+              <p class="pains__text">Buying signals are spoken in service calls that sales never hears.</p>
+            </div>
+            <div class="pains__arrow reveal" data-delay="2" aria-hidden="true">
+              <svg viewBox="0 0 120 120" focusable="false"><path d="M8 60h88" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M78 40l24 20-24 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="60" r="5" fill="currentColor"/></svg>
+            </div>
+            <div class="pains__answer reveal" data-delay="3">
+              <p class="pains__label">Question we answer</p>
+              <p class="pains__q">Where are we leaving money on the table in conversations we already have?</p>
+              <p class="pains__for">For: Sales, CRM, customer value management</p>
+            </div>
+          </li>
+          <li class="pains__row">
+            <div class="pains__problem reveal" data-delay="1">
+              <p class="pains__label">The problem</p>
+              <p class="pains__text">Churn models track behaviour, not the call where a customer says they are leaving.</p>
+            </div>
+            <div class="pains__arrow reveal" data-delay="2" aria-hidden="true">
+              <svg viewBox="0 0 120 120" focusable="false"><path d="M8 60h88" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M78 40l24 20-24 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="60" r="5" fill="currentColor"/></svg>
+            </div>
+            <div class="pains__answer reveal" data-delay="3">
+              <p class="pains__label">Question we answer</p>
+              <p class="pains__q">Which customers are about to leave us, and why?</p>
+              <p class="pains__for">For: Customer experience, retention, CRM</p>
+            </div>
+          </li>
+          <li class="pains__row">
+            <div class="pains__problem reveal" data-delay="1">
+              <p class="pains__label">The problem</p>
+              <p class="pains__text">Call reasons are picked by the agent, so nobody sees the real ones.</p>
+            </div>
+            <div class="pains__arrow reveal" data-delay="2" aria-hidden="true">
+              <svg viewBox="0 0 120 120" focusable="false"><path d="M8 60h88" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M78 40l24 20-24 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="60" r="5" fill="currentColor"/></svg>
+            </div>
+            <div class="pains__answer reveal" data-delay="3">
+              <p class="pains__label">Question we answer</p>
+              <p class="pains__q">Which complaints are costing us customers?</p>
+              <p class="pains__for">For: Customer experience, operations, complaints</p>
+            </div>
+          </li>
+          <li class="pains__row">
+            <div class="pains__problem reveal" data-delay="1">
+              <p class="pains__label">The problem</p>
+              <p class="pains__text">Rules apply to every call, but compliance checks cover only a few.</p>
+            </div>
+            <div class="pains__arrow reveal" data-delay="2" aria-hidden="true">
+              <svg viewBox="0 0 120 120" focusable="false"><path d="M8 60h88" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M78 40l24 20-24 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="60" r="5" fill="currentColor"/></svg>
+            </div>
+            <div class="pains__answer reveal" data-delay="3">
+              <p class="pains__label">Question we answer</p>
+              <p class="pains__q">Are our agents saying things that could get us fined?</p>
+              <p class="pains__for">For: Compliance, risk, legal</p>
+            </div>
+          </li>
+          <li class="pains__row">
+            <div class="pains__problem reveal" data-delay="1">
+              <p class="pains__label">The problem</p>
+              <p class="pains__text">A few calls per agent, scored by different people, is not a standard.</p>
+            </div>
+            <div class="pains__arrow reveal" data-delay="2" aria-hidden="true">
+              <svg viewBox="0 0 120 120" focusable="false"><path d="M8 60h88" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M78 40l24 20-24 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="60" r="5" fill="currentColor"/></svg>
+            </div>
+            <div class="pains__answer reveal" data-delay="3">
+              <p class="pains__label">Question we answer</p>
+              <p class="pains__q">Which teams, sites or outsourcers deliver a measurably different quality of service?</p>
+              <p class="pains__for">For: Contact centre, operations, quality</p>
+            </div>
+          </li>
+          <li class="pains__row">
+            <div class="pains__problem reveal" data-delay="1">
+              <p class="pains__label">The problem</p>
+              <p class="pains__text">Feedback reaches the agent long after the call it is about.</p>
+            </div>
+            <div class="pains__arrow reveal" data-delay="2" aria-hidden="true">
+              <svg viewBox="0 0 120 120" focusable="false"><path d="M8 60h88" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M78 40l24 20-24 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="8" cy="60" r="5" fill="currentColor"/></svg>
+            </div>
+            <div class="pains__answer reveal" data-delay="3">
+              <p class="pains__label">Question we answer</p>
+              <p class="pains__q">What should each agent learn from their own calls, right after they end?</p>
+              <p class="pains__for">For: Contact centre, team leaders</p>
+            </div>
+          </li>
+        </ol>
+        <div class="pains__cta">
+          <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Book a use-case session</a>
+          <p class="pains__micro">These are six blind spots of many. Bring the one you most need to see.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 2b — PROOF BAR                                                -->
+    <!-- Outcome: replace generic Bull corporate stats with concrete   -->
+    <!-- (anonymised, naming-pending) product proof — per              -->
+    <!-- content-draft-v1 §2. Names stay anonymised until the          -->
+    <!-- Raiffeisenbank CZ naming approval clears; swap the wording    -->
+    <!-- then, no layout change needed.                                -->
+    <!-- ============================================================= -->
+    <section class="section section--white reveal" id="proof" aria-labelledby="proofHeading" data-section="proof" data-step="proof">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow-label">Enterprise proof</span>
+          <h2 id="proofHeading" class="section__title">Proven in production</h2>
+          <p class="section__sub">AI Comms Inspector already processes customer conversations at enterprise scale and turns them into measurable business outcomes.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card proof-card--featured proof-card--linked proof-card--logo">
+            <div class="proof-card__text">
+              <span class="proof-card__label">Production scale</span>
+              <h3 class="proof-card__title">30M+ calls analysed every year</h3>
+              <p class="proof-card__body">Automated supervision and quality control running in production at Home Credit Philippines.</p>
+              <a href="case-studies.html" class="proof-card__cta">Read the full story <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <div class="proof-card__logo">
+              <img src="Assets/home-credit-logo.svg" alt="Home Credit" width="118" height="50" />
+            </div>
+          </article>
+          <article class="proof-card">
+            <span class="proof-card__label">Commercial impact</span>
+            <h3 class="proof-card__title">Higher conversion</h3>
+            <p class="proof-card__body">AI-generated sales signals help target more relevant offers.</p>
+          </article>
+          <article class="proof-card">
+            <span class="proof-card__label">Operational impact</span>
+            <h3 class="proof-card__title">Quality control at scale</h3>
+            <p class="proof-card__body">Every selected interaction assessed consistently against predefined business, process and compliance rules.</p>
+          </article>
+          <article class="proof-card">
+            <span class="proof-card__label">Delivery credibility</span>
+            <h3 class="proof-card__title">300+ enterprise AI projects</h3>
+            <p class="proof-card__body">Proven delivery experience at enterprise scale. Built on <a href="https://www.bull.com/en/" target="_blank" class="proof-card__link">Bull Group</a>'s experience from more than 300 enterprise AI projects.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Positioning callout — a quiet visual pause before Modules;
          sets up "who benefits" ahead of "what it does". -->
-    <section class="positioning-bar" aria-label="Who this is for" data-section="who-for" data-step="problem">
+    <section class="positioning-bar positioning-bar--tint" aria-label="Who this is for" data-section="who-for" data-step="problem">
       <div class="container positioning-bar__inner">
         <span class="positioning-bar__label mono">WHO IT'S FOR</span>
         <div class="positioning-bar__copy">
@@ -423,6 +523,37 @@
     </section>
 
     <!-- ============================================================= -->
+    <!-- 5a — FOUNDER NOTE  (David Vopelka: half quote, half commentary) -->
+    <!-- Outcome: recognition + trust in a named person, then one       -->
+    <!-- personal CTA. Replaces the worked-example + business-value     -->
+    <!-- pair (both are slated for the module pages). Copy is condensed -->
+    <!-- from blog-paying-consultants-to-guess.html; David signs off    -->
+    <!-- the wording before this ships.                                 -->
+    <!-- ============================================================= -->
+    <section class="section section--grey reveal" id="founder-note" aria-labelledby="founderHeading" data-section="founder" data-step="people">
+      <div class="container">
+        <article class="founder-card">
+          <figure class="founder-card__media">
+            <img class="founder-card__photo" src="Assets/david-vopelka_hp.webp" alt="David Vopelka" width="840" height="1027" loading="lazy" decoding="async" />
+            <figcaption class="founder-card__caption">
+              <span class="founder-card__name">David Vopelka</span>
+              <span class="founder-card__role">Business AI Cluster Lead at Bull</span>
+            </figcaption>
+          </figure>
+          <div class="founder-card__copy">
+            <span class="eyebrow-label">I&rsquo;ve been on your side of this</span>
+            <h2 id="founderHeading" class="section__title founder-card__title">The best questions were the ones we never asked</h2>
+            <p class="founder-card__body">Even at one of Europe&rsquo;s largest banking groups, each answer about our customers cost months and a real budget, so we only asked the big questions. The sharper ones, the follow-ups, the &ldquo;wait, why did they say that?&rdquo;, never got asked. Curiosity had a price, and it was too high. <span class="founder-card__now">Today, with AI Comms Inspector, the same question is a query over every conversation, answered with the evidence attached.</span></p>
+            <div class="founder-card__action">
+              <a href="#demo" class="btn btn--primary btn--lg" data-demo-open>Book a use-case session</a>
+              <p class="founder-card__micro">Bring the question you could never afford to ask.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
     <!-- 5 — HOW IT WORKS  (priority visual: horizontal flow)          -->
     <!-- Outcome: understand the flow in under 5s; clearly more        -->
     <!-- than transcription.                                           -->
@@ -483,174 +614,74 @@
       </div>
     </section>
 
-    <!-- ============================================================= -->
-    <!-- 5a — WORKED EXAMPLE  (its own grey band)                      -->
-    <!-- Shares grey with #business-value so call→outcome reads as one  -->
-    <!-- arc via the bridge; sits between peach #how and grey outcomes. -->
-    <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="worked-example" aria-labelledby="showcaseHeading" data-section="worked-example" data-step="evidence">
-      <div class="container">
-        <!-- Worked example: one real call, from transcript to business value -->
-        <div class="showcase">
-          <div class="showcase__head">
-            <span class="eyebrow-label">Worked example</span>
-            <h3 id="showcaseHeading" class="showcase__title">From one call to business value</h3>
-            <ul class="showcase__caption-steps">
-              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Speech-to-text</li>
-              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> LLM analysis</li>
-              <li><svg class="hero__tick" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M4 10.5L8.5 15L16 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Insight detection</li>
-            </ul>
-          </div>
+    <!-- Demo video, behind a work-email gate. Behaviour lives in script.js (data-vid-* component, "Gated demo video" block).
+         No square video file exists for this page, so the 16:9 file is used on mobile too (vid--wide);
+         no mp4 is requested until the gate is unlocked. -->
+    <section class="section section--blue-deep vid vid--wide" id="demo-video" aria-labelledby="vidHeading"
+             data-section="video" data-step="proof"
+             data-vid-root
+             data-vid-src="Assets/video/comms-inspector-demo-16x9.mp4"
+             data-vid-subject="Video gate: Comms Inspector platform demo"
+             data-vid-source="video-gate-homepage"
+             data-vid-form-id="video_gate_homepage">
+      <div class="container vid__inner">
+        <h2 id="vidHeading" class="vid__sr">Comms Inspector demo video</h2>
 
-          <!-- Single-column interleaved narrative: each spoken line is followed
-               by the insight(s) Comms Inspector extracted from it. Identical
-               layout at desktop and mobile. Agent lines that produced no signal
-               show no cluster — that asymmetry is intentional and honest. -->
-          <p class="showcase__caption-sentence reveal">See how each part of a real conversation becomes insight your teams can act on.</p>
+        <p class="vid__lead">Most teams hear only 1&ndash;5% of customer conversations. See what Comms Inspector finds in the rest.</p>
 
-          <div class="showcase__seq">
-
-            <!-- Agent — greeting (no signal) -->
-            <div class="chat__bubble chat__bubble--agent reveal">
-              <span class="chat__speaker">Agent</span>
-              <p class="chat__text">Good day, Laura Simon speaking. How can I help you?</p>
+        <div class="vid__frame" data-vid-frame>
+          <div class="vid__stage" data-vid-stage>
+            <picture>
+              <img class="vid__poster" src="Assets/video/comms-inspector-demo-poster-16x9.webp" width="1920" height="1080" alt="Comms Inspector demo: the AI Customer Insights, AI Call Inspector and AI Quality Assurance modules" />
+            </picture>
+            <video class="vid__video" data-vid-el preload="none" playsinline disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"></video>
+            <span class="vid__badge" data-vid-badge>2:37</span>
+            <div class="vid__playlayer" data-vid-playlayer>
+              <button class="vid__play" data-vid-play type="button" aria-label="Play demo video">
+                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
             </div>
-
-            <!-- Client — reason for call -->
-            <div class="chat__bubble chat__bubble--client reveal">
-              <span class="chat__speaker">Client</span>
-              <p class="chat__text">Hello, this is David Lambert. I'm calling because <span class="chat__hl">when I travel to South America, to Chile</span>, my card payments sometimes get blocked — I wanted to let you know in advance.</p>
-            </div>
-            <div class="insight reveal" role="group" aria-label="AI analysis by Comms Inspector">
-              <span class="insight__cue" aria-hidden="true">↳</span>
-              <span class="insight__label mono">AI analysis by Comms Inspector</span>
-              <ul class="insight__rows">
-                <li class="analysis-row">
-                  <span class="sig sig--life">Travel notification</span>
-                  <span class="analysis-row__val">Client travelling to South America (Chile)</span>
-                </li>
-                <li class="analysis-row">
-                  <span class="sig sig--risk">Reason for call</span>
-                  <span class="analysis-row__val">Prevent account monitoring blocking payments</span>
-                </li>
-                <li class="analysis-row">
-                  <span class="sig sig--comp">Client</span>
-                  <span class="analysis-row__val">David Lambert</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Agent — follow-up question (no signal) -->
-            <div class="chat__bubble chat__bubble--agent reveal">
-              <span class="chat__speaker">Agent</span>
-              <p class="chat__text">Thank you for telling us in advance. And how long will you be there, from when to when?</p>
-            </div>
-
-            <!-- Client — travel dates -->
-            <div class="chat__bubble chat__bubble--client reveal">
-              <span class="chat__speaker">Client</span>
-              <p class="chat__text">I'll be there <span class="chat__hl">from the 17<sup>th</sup> until the 27<sup>th</sup></span>.</p>
-            </div>
-            <div class="insight reveal" role="group" aria-label="AI analysis by Comms Inspector">
-              <span class="insight__cue" aria-hidden="true">↳</span>
-              <span class="insight__label mono">AI analysis by Comms Inspector</span>
-              <ul class="insight__rows">
-                <li class="analysis-row">
-                  <span class="sig sig--life">Travel dates</span>
-                  <span class="analysis-row__val">17<sup>th</sup> &ndash; 27<sup>th</sup> <span class="mono">(10 days)</span></span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Agent — records the outcome -->
-            <div class="chat__bubble chat__bubble--agent reveal">
-              <span class="chat__speaker">Agent</span>
-              <p class="chat__text">Noted — I'll record this so our security team won't block your payments. Have a nice trip, goodbye.</p>
-            </div>
-            <div class="insight reveal" role="group" aria-label="AI analysis by Comms Inspector">
-              <span class="insight__cue" aria-hidden="true">↳</span>
-              <span class="insight__label mono">AI analysis by Comms Inspector</span>
-              <ul class="insight__rows">
-                <li class="analysis-row">
-                  <span class="sig sig--revenue">Interaction outcome</span>
-                  <span class="analysis-row__val">Travel note recorded in the system</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Bridge into the business-value section below -->
-            <div class="showcase__bridge reveal">
-              <p class="showcase__bridge-text">One two-minute call — here's what it's worth to the business.</p>
-              <span class="showcase__bridge-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
-              </span>
+            <div class="vid__controls" data-vid-controls hidden>
+              <button class="vid__btn" data-vid-toggle type="button" aria-label="Pause"></button>
+              <input class="vid__seek" data-vid-seek type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+              <span class="vid__time" data-vid-time>0:00 / 2:37</span>
+              <button class="vid__btn" data-vid-mute type="button" aria-label="Mute"></button>
+              <button class="vid__btn" data-vid-fs type="button" aria-label="Enter fullscreen">
+                <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+              </button>
             </div>
           </div>
+        </div>
+
+        <p class="vid__note">Insights for sales, checks for compliance, scores for quality and answers in plain language, from every call, chat and email.</p>
+        <p class="vid__lock" data-vid-lock>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+          <span>Enter your work email to watch the demo.</span>
+        </p>
+        <div class="vid__cta" data-vid-cta hidden>
+          <p class="vid__cta-title">Want to see it on your own conversations?</p>
+          <a href="#demo" class="btn btn--primary" data-demo-open>Book a use-case session</a>
         </div>
       </div>
-    </section>
 
-    <!-- ============================================================= -->
-    <!-- 5a2 — BUSINESS VALUE  (call-specific outcomes)                -->
-    <!-- Lifted out of the worked example above; the bridge line hands  -->
-    <!-- off into here. Kept section--grey so it reads as a continuation -->
-    <!-- of the same arc before the grey→white break into #results.     -->
-    <!-- Distinct from the later #value section (measurable impact).     -->
-    <!-- ============================================================= -->
-    <section class="section section--grey reveal" id="business-value" aria-labelledby="businessValueHeading" data-section="business-value" data-step="evidence">
-      <div class="container">
-        <div class="section__head-center">
-          <span class="eyebrow-label">Business value delivered</span>
-          <h2 id="businessValueHeading" class="section__title">Five outcomes from a single conversation</h2>
+      <div class="vid__gate" data-vid-gate hidden>
+        <div class="vid__gate-box" role="dialog" aria-modal="true" aria-labelledby="vidGateTitle">
+          <button class="vid__gate-close" data-vid-gate-close type="button" aria-label="Close">&times;</button>
+          <h3 id="vidGateTitle" class="vid__gate-title">See what 100% of customer conversations can tell you</h3>
+          <form data-vid-gate-form action="https://api.web3forms.com/submit" method="post" novalidate>
+            <input type="hidden" name="access_key" value="1f0674fa-be4b-41b7-9f59-8e1a3639d5d9" />
+            <input type="hidden" name="subject" value="" />
+            <input type="hidden" name="source" value="" />
+            <input type="hidden" name="page" value="" />
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden />
+            <label class="vid__sr" for="vidGateEmail">Work email</label>
+            <input class="vid__gate-input" id="vidGateEmail" data-vid-gate-email type="email" name="email" autocomplete="email" placeholder="Work email" required />
+            <p class="vid__gate-error" data-vid-gate-error role="alert" hidden></p>
+            <button type="submit" class="btn btn--primary btn--block vid__gate-submit">Watch the demo</button>
+            <p class="vid__gate-note">The video starts right away. One conversation, seen through three modules.</p>
+            <p class="vid__gate-consent">By continuing, you agree that Comms Inspector may contact you about its solution. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+          </form>
         </div>
-        <ul class="value-list value-list--grid">
-          <li class="value-item">
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </span>
-            <div>
-              <h4 class="value-item__title">Stronger client experience</h4>
-              <p class="value-item__body">Proactive support and smooth payments while the client travels.</p>
-            </div>
-          </li>
-          <li class="value-item">
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-            </span>
-            <div>
-              <h4 class="value-item__title">Reduced risk &amp; false alerts</h4>
-              <p class="value-item__body">Security is informed, so genuine payments aren't blocked as fraud.</p>
-            </div>
-          </li>
-          <li class="value-item">
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </span>
-            <div>
-              <h4 class="value-item__title">Operational efficiency</h4>
-              <p class="value-item__body">Key call outcomes captured and logged automatically.</p>
-            </div>
-          </li>
-          <li class="value-item">
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
-            </span>
-            <div>
-              <h4 class="value-item__title">CRM-ready insights</h4>
-              <p class="value-item__body">Structured output ready for CRM and downstream processes.</p>
-            </div>
-          </li>
-          <!-- Most important outcome — placed last and centred under the 2×2 grid. -->
-          <li class="value-item value-item--feature">
-            <span class="icon-chip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-            </span>
-            <div>
-              <h4 class="value-item__title">Revenue &amp; relationship growth</h4>
-              <p class="value-item__body">Richer client context supports cross-sell and retention.</p>
-            </div>
-          </li>
-        </ul>
       </div>
     </section>
 
@@ -687,45 +718,6 @@
               <p>Valuable cross-sell and up-sell signals were extracted from customer conversations with the contact centre and fed into CRM campaigns.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- 6 — FITS YOUR STACK  (dark "signature panel")                 -->
-    <!-- Outcome: pre-empt run-it-safely / adoption / build-it-myself. -->
-    <!-- Re-themed --blue-deep per Petr's request — matches            -->
-    <!-- claimsense.app's rhythm of breaking up white/grey bands with  -->
-    <!-- a dark navy section, and this site's own .section__head       -->
-    <!-- comment already earmarked centred-head sections (this one     -->
-    <!-- uses .section__head-center) as "the blue signature panels."   -->
-    <!-- ============================================================= -->
-    <section class="section section--blue-deep reveal" id="stack" aria-labelledby="stackHeading" data-section="stack" data-step="fit">
-      <div class="container">
-        <div class="section__head-center">
-          <h2 id="stackHeading" class="section__title">Deployed your way, customised to your needs</h2>
-        </div>
-
-        <div class="stack">
-          <article class="stack__item">
-            <h3 class="stack__title">Deploy in your environment</h3>
-            <p class="stack__body">Runs in your Azure, AWS or GCP environment and connects with your communication sources, data platform, CRM and reporting tools.</p>
-          </article>
-
-          <article class="stack__item">
-            <h3 class="stack__title">Configured for your use cases</h3>
-            <p class="stack__body">Business questions, taxonomies and outputs are tailored to your needs—from sales and service to compliance, risk and quality.</p>
-          </article>
-
-          <article class="stack__item">
-            <h3 class="stack__title">Delivered end to end</h3>
-            <p class="stack__body">We cover analysis, speech-to-text, data processing, configuration, integration, testing, training and go-live.</p>
-          </article>
-
-          <article class="stack__item">
-            <h3 class="stack__title">Production-ready and supported</h3>
-            <p class="stack__body">Monitoring, audit trails, retention controls and SLA-based support keep the solution reliable, explainable and secure.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -828,222 +820,82 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- 7b — FAQ                                                      -->
-    <!-- Outcome: answer the recurring evaluation questions on-page.   -->
-    <!-- Two independent disclosure layers: each question is its own   -->
-    <!-- accordion, and the list itself shows 4 of 12 until expanded.  -->
-    <!-- Both are .js-gated, so with JS off all 12 Q&As are visible.   -->
+    <!-- 8 — FINAL CTA                                                 -->
+    <!-- Outcome: single, obvious next step.                           -->
     <!-- ============================================================= -->
-    <section class="section section--white reveal" id="faq" aria-labelledby="faqHeading" data-section="faq" data-step="faq">
+    <!-- Team: three people the visitor will meet in the session. -->
+    <section class="section section--tint reveal" id="team" aria-labelledby="teamHeading" data-section="team" data-step="people">
       <div class="container">
-        <div class="section__head">
-          <h2 id="faqHeading" class="section__title">Common questions</h2>
-          <p class="section__sub">Quick answers to the questions we hear most from teams evaluating AI Comms Inspector.</p>
+        <div class="section__head-center">
+          <h2 id="teamHeading" class="section__title">You get our brains, not only a platform</h2>
+          <p class="section__sub">For years we ran customer intelligence inside banks, insurers, and telcos. Now we have built that experience into the AI agents at the core of Comms Inspector, and the people below work with you on them.</p>
         </div>
-
-        <div class="faq__list">
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-1">
-                <span class="faq__q-text">What is AI Comms Inspector?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-1" role="region">
-              <p>AI Comms Inspector analyses customer conversations and turns them into structured, actionable insights for CRM, contact centre, customer experience, sales, compliance and risk processes.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-2">
-                <span class="faq__q-text">What types of communication can it analyse?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-2" role="region">
-              <p>It can process call recordings, meeting recordings, existing transcripts, chats, emails and agent notes. Audio can be converted into text before analysis.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-3">
-                <span class="faq__q-text">What can the solution identify?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-3" role="region">
-              <p>It can detect customer needs, life events, sales opportunities, product feedback, service issues, compliance risks and process gaps based on business questions defined with your team.</p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <h3 class="faq__q-wrap">
-              <button class="faq__q" aria-expanded="false" aria-controls="faqA-4">
-                <span class="faq__q-text">How does AI Comms Inspector work?</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </h3>
-            <div class="faq__a" id="faqA-4" role="region">
-              <p>The solution captures communication data, prepares and analyses it against predefined questions, and delivers the results as structured data, dashboards, alerts or signals for other business systems.</p>
-            </div>
-          </div>
-
-          <button class="faq__toggle" data-faq-more aria-expanded="false" aria-controls="faqMore">
-            View all frequently asked questions
-            <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-
-          <div class="faq__more" id="faqMore">
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-5">
-                  <span class="faq__q-text">Can it classify and summarise conversations?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-5" role="region">
-                <p>Yes. It can automatically generate conversation summaries and classify interactions using a tailored, multi-level taxonomy.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-6">
-                  <span class="faq__q-text">Can it support quality assurance and compliance monitoring?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-6" role="region">
-                <p>Yes. The solution can evaluate whether agents follow required scripts, processes and regulatory rules, while providing the relevant conversation context as supporting evidence.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-7">
-                  <span class="faq__q-text">Are the results explainable?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-7" role="region">
-                <p>Yes. Each detected insight can be linked to the relevant part of the conversation, the question evaluated and other supporting information, allowing users to review the result.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-8">
-                  <span class="faq__q-text">Can the outputs be integrated into our existing systems?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-8" role="region">
-                <p>Yes. Results can be delivered to CRM, data warehouses, campaign tools, reporting platforms and dashboards as structured fields, files or other agreed formats.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-9">
-                  <span class="faq__q-text">Can the solution be customised for different business teams?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-9" role="region">
-                <p>Yes. The same platform can be configured for different use cases across sales, service, contact centre operations, compliance, risk, product management, customer experience and data teams.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-10">
-                  <span class="faq__q-text">Where can AI Comms Inspector be deployed?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-10" role="region">
-                <p>It can be deployed in your Azure, AWS or GCP environment and integrated with your existing communication sources, data platform and business applications. The delivery can include analysis, configuration, integration, testing, training, monitoring and ongoing support.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-11">
-                  <span class="faq__q-text">Can the AI understand different languages and dialects?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-11" role="region">
-                <p>Yes. For instance, in one implementation, the AI successfully supervised millions of calls in "Taglish" (a mix of Tagalog and English) for a large-scale collections centre.</p>
-              </div>
-            </div>
-
-            <div class="faq__item">
-              <h3 class="faq__q-wrap">
-                <button class="faq__q" aria-expanded="false" aria-controls="faqA-12">
-                  <span class="faq__q-text">What are the specific deliverables of the implementation package?</span>
-                  <svg class="faq__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-              </h3>
-              <div class="faq__a" id="faqA-12" role="region">
-                <p>The package includes data ingestion support, prompt definition, report customisation, monitoring setup, and full team enablement.</p>
-              </div>
-            </div>
-
-            <button class="faq__collapse" data-faq-less aria-label="Show fewer questions">
-              <svg class="faq__chevron faq__chevron--up" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6,9 12,15 18,9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
+        <p class="eyebrow-label team__label">The people you will meet in the session</p>
+        <div class="team__grid">
+      <article class="team__card reveal" data-delay="1">
+        <div class="team__person"><img src="Assets/v2/david-vopelka-avatar.jpg" alt="David Vopelka" width="200" height="200" loading="lazy"><div><strong>David Vopelka</strong><span>Business AI Cluster Lead at Bull · Co-founder, DataSentics</span></div></div>
+        <div class="team__years"><div class="team__years-num">15+</div><span>years in customer intelligence and data/AI consulting</span></div>
+        <p>Co-founded DataSentics and led 20+ data-driven innovations for 10+ financial institutions. Before that, marketing automation lead at Erste Group.</p>
+        <div class="team__tags"><span class="team__badge">Erste Group</span><span class="team__badge">CPEX</span><span class="team__badge">NN</span><span class="team__badge">VIG</span><span class="team__badge">Moneta</span><span class="team__badge">Home Credit</span><span class="team__badge">AXA</span><span class="team__badge">KBC</span><span class="team__badge">UNIQA</span></div>
+        <p class="team__li"><a href="https://www.linkedin.com/in/davidvopelka/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Connect on LinkedIn<svg class="team__li-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden"> with David Vopelka (opens in a new tab)</span></a></p>
+      </article>
+      <article class="team__card reveal" data-delay="2">
+        <div class="team__person"><img src="Assets/v2/jirina-nedbalkova-avatar.jpg" alt="Jiřina Nedbálková" width="200" height="200" loading="lazy"><div><strong>Jiřina Nedbálková</strong><span>AI Use Case Architect &amp; Customer Intelligence Lead</span></div></div>
+        <div class="team__years"><div class="team__years-num">20+</div><span>years in financial services, telecom and consultancy</span></div>
+        <p>Jiřina helps organisations turn data into actionable insights, build smarter customer engagement strategies, and implement AI solutions that deliver measurable business value.</p>
+        <div class="team__tags"><span class="team__badge">ING</span><span class="team__badge">Komerční banka</span><span class="team__badge">Česká spořitelna</span><span class="team__badge">Raiffeisenbank</span><span class="team__badge">Home Credit</span><span class="team__badge">O2</span><span class="team__badge">T-Mobile</span></div>
+        <p class="team__li"><a href="https://www.linkedin.com/in/jirinanedbalkova" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Connect on LinkedIn<svg class="team__li-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden"> with Jiřina Nedbálková (opens in a new tab)</span></a></p>
+      </article>
+      <article class="team__card reveal" data-delay="3">
+        <div class="team__person"><img src="Assets/v2/jiri-jelinek-avatar.jpg" alt="Jiří Jelínek" width="200" height="200" loading="lazy"><div><strong>Jiří Jelínek</strong><span>AI Consultant, digital marketing and personalisation</span></div></div>
+        <div class="team__years"><div class="team__years-num">15+</div><span>years in digital marketing and AdTech</span></div>
+        <p>Personalisation project owner for Erste Group and NN Group, product lead for AdPicker at CPEX, the largest Czech online publisher network.</p>
+        <div class="team__tags"><span class="team__badge">Erste Group</span><span class="team__badge">NN Group</span><span class="team__badge">CPEX</span><span class="team__badge">AXA</span><span class="team__badge">AdPicker</span><span class="team__badge">Adform</span><span class="team__badge">Mindshare</span></div>
+        <p class="team__li"><a href="https://www.linkedin.com/in/jirijel" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Connect on LinkedIn<svg class="team__li-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden"> with Jiří Jelínek (opens in a new tab)</span></a></p>
+      </article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================= -->
-    <!-- 8 — FINAL CTA                                                 -->
-    <!-- Outcome: single, obvious next step.                           -->
-    <!-- ============================================================= -->
-    <section class="section section--grey final-cta reveal" id="demo" aria-labelledby="finalHeading" data-section="contact" data-step="contact">
-      <div class="container final-cta__inner">
-        <div class="final-cta__copy">
-          <h2 id="finalHeading" class="section__title">See what's hiding<br class="final-cta__title-break"> in your own<br class="final-cta__title-break"> conversations</h2>
-          <p class="section__sub">Meet the team, see the solution in action, and identify the best use cases for your business.</p>
-          <ol class="cta-points">
-            <li class="cta-point">
-              <span class="cta-point__num" aria-hidden="true">1</span>
-              <div class="cta-point__body">
-                <span class="cta-point__title">A walkthrough</span>
-                <span class="cta-point__desc">Most teams only ever review a fraction of their conversations. In one walkthrough, we'll show you what AI Comms Inspector finds across 100% of them.</span>
-              </div>
-            </li>
-            <li class="cta-point">
-              <span class="cta-point__num" aria-hidden="true">2</span>
-              <div class="cta-point__body">
-                <span class="cta-point__title">Focused on your role</span>
-                <span class="cta-point__desc">Whether you own CRM, compliance, QA or coaching, we centre the session on the outcomes your team is measured on.</span>
-              </div>
-            </li>
-            <li class="cta-point">
-              <span class="cta-point__num" aria-hidden="true">3</span>
-              <div class="cta-point__body">
-                <span class="cta-point__title">A clear path to live</span>
-                <span class="cta-point__desc">Integrations, deployment in your cloud, and what it takes to move from pilot to production.</span>
-              </div>
-            </li>
-          </ol>
-          <p class="cta-trust">Trusted where every conversation counts — including a 30M+ calls-a-year production deployment, built by Bull.</p>
+    <!-- How we work together: three separate decisions, then the bridge to the form. -->
+    <section class="section section--white together reveal" id="together" aria-labelledby="togetherHeading" data-section="together" data-step="how">
+      <div class="container">
+        <div class="section__head-center">
+          <h2 id="togetherHeading" class="section__title">How we work together</h2>
+          <p class="section__sub">Three steps. Each one is a separate decision, and you continue only if the previous step gave you a reason to.</p>
+        </div>
+        <div class="together__steps">
+          <div class="together__step reveal" data-delay="1"><div class="together__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></div><h3>A use-case session</h3><p>One hour. You bring a decision you face this year; we show what your customer conversations could answer about it, and what they cannot.</p></div>
+          <div class="together__step reveal" data-delay="2"><div class="together__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 13l2 2 4-4"/></svg></div><h3>A one-off analysis</h3><p>One use case, your full history, analysed once. You get a board-ready report with the evidence, as a fixed-scope project delivered in weeks, at a fixed price.</p></div>
+          <div class="together__step together__step--live reveal" data-delay="3"><div class="together__icon"><span class="together__ring" aria-hidden="true"></span><span class="together__ring together__ring--2" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16h6"/></svg></div><h3>Your analytical agents <span class="together__live"><i aria-hidden="true"></i>continuous</span></h3><p>If the analysis proves its value, the agents work on your conversations every day. We set them up around your CRM, your processes, and the signals that matter to you, and they surface insights and triggers as new conversations arrive.</p></div>
+        </div>
+        <div class="together__faq reveal">
+          <details><summary>What the one-off analysis includes</summary><p>A board-ready report with the evidence behind each finding, the customer lists your teams can act on, and the three fixes that would move the numbers most. We need one export of recordings or transcripts, chats, and emails, read-only, inside your own cloud. Fixed price quoted on your volume.</p></details>
+          <details><summary>Where it runs, and who owns what</summary><p>In your own Azure, AWS, or GCP environment, in the EU, on models you are not renting. Your conversations never leave your perimeter and you keep the intellectual property. That is the one thing we will say about the engine.</p></details>
+          <details><summary>Who this is not for</summary><p>If you have a few thousand conversations a year, a good analyst can read them. If you keep no recordings or transcripts, there is nothing to read yet. If what you want is another dashboard, there are cheaper ones. We will tell you so in the session.</p></details>
+        </div>
+        <div class="together__bridge reveal">
+          <p>Only the first step needs a decision today.</p>
+          <a class="btn together__btn" href="#demo" data-demo-open>Continue to the form&nbsp;&darr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--grey reveal" id="demo" aria-labelledby="finalHeading" data-section="contact" data-step="contact">
+      <div class="container">
+        <div class="section__head-center">
+          <h2 id="finalHeading" class="section__title">Start with one decision</h2>
+          <p class="section__sub">Choose a decision you face this year. David, Jiřina, or Jiří will spend an hour with you on what your customer conversations can say about it.</p>
         </div>
 
-        <!-- Demo request form. Submits to Web3Forms; script.js intercepts
-             the submit to show the inline confirmation copy below.
-             Single-step only. No competing CTAs. -->
-        <form class="demo-form" id="demoForm" action="https://api.web3forms.com/submit" method="post" novalidate>
+        <!-- Use-case session request. Submits to Web3Forms; script.js intercepts
+             the submit and swaps the fields for the confirmation below. -->
+        <form class="demo-form decision__form" id="demoForm" action="https://api.web3forms.com/submit" method="post" novalidate>
           <input type="hidden" name="access_key" value="8cf94256-3ecf-442a-9c0c-69c4c50f3c9d" />
-          <input type="hidden" name="subject" value="New walkthrough request — AI Comms Inspector" />
+          <input type="hidden" name="subject" value="New use-case session request — AI Comms Inspector" />
           <div class="demo-form__fields" id="demoFormFields">
             <div class="demo-form__row">
-              <label for="df-name">Full name</label>
+              <label for="df-name">Name</label>
               <input id="df-name" name="name" type="text" autocomplete="name" required />
             </div>
             <div class="demo-form__row">
@@ -1055,23 +907,26 @@
               <input id="df-company" name="company" type="text" autocomplete="organization" required />
             </div>
             <div class="demo-form__row">
-              <label for="df-message">Message <span class="optional">(optional)</span></label>
-              <textarea id="df-message" name="message" rows="3"></textarea>
+              <label for="df-role">Your role <span class="optional">(optional), so we can prepare the session around it</span></label>
+              <input id="df-role" name="role" type="text" autocomplete="organization-title" />
             </div>
-            <button type="submit" class="btn btn--primary btn--lg btn--block">Book a walkthrough</button>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">Book a use-case session</button>
             <p class="demo-form__note" id="demoFormNote" role="status" aria-live="polite"></p>
-            <p class="demo-form__privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. We'll never share your information.</p>
+            <p class="demo-form__privacy">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+            <p class="demo-form__privacy">Prefer to watch first? <a href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">The 30-minute on-demand webinar.</a></p>
           </div>
-          <div class="demo-form__success" id="demoFormSuccess" role="status" aria-live="polite" hidden>
-            <div class="demo-form__success-icon" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13L11 19L21 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="decision__success" id="demoFormSuccess" role="status" aria-live="polite" hidden>
+            <h3>Your use-case session request is in</h3>
+            <p>Within one working day, Jiřina will email you details about the session and a link to pick a time that suits you.</p>
+            <div class="decision__who">
+              <img src="Assets/v2/jirina-nedbalkova-avatar.jpg" alt="Jiřina Nedbálková" width="60" height="60" />
+              <div><strong>Jiřina Nedbálková</strong><span>AI Use Case Architect &amp; Customer Intelligence Lead</span></div>
             </div>
-            <h3 class="demo-form__success-title">Thank you. Your walkthrough request is in.</h3>
-            <p class="demo-form__success-sub">We will email you within one business day to schedule it. A confirmation is on its way to your inbox now.</p>
           </div>
         </form>
       </div>
     </section>
+
   </main>
 
   <!-- ============================================================= -->
@@ -1080,7 +935,7 @@
   <footer class="site-footer section--blue-deep" data-section="footer" data-step="footer">
     <!-- Bull symbol watermark — same treatment as claimsense.app's dark
          final-CTA section: low-opacity monogram, lower-right, decorative only. -->
-    <img src="Assets/Bull_symbol_white.svg" alt="" aria-hidden="true" class="footer__watermark" />
+    <img src="Assets/Bull%20Symbol/SVG/Bull_symbol_white.svg" alt="" aria-hidden="true" class="footer__watermark" />
     <div class="container footer__grid">
       <!-- Column 1 — brand -->
       <div class="footer__col footer__col--brand">
@@ -1103,8 +958,8 @@
         <ul class="footer__list">
           <li><a class="footer__link" href="#delivers">Modules</a></li>
           <li><a class="footer__link" href="pricing.html">Pricing</a></li>
-          <li><a class="footer__link" href="#stack">Deployment</a></li>
-          <li><a class="footer__link" href="#demo" data-demo-open>Book a walkthrough</a></li>
+          <li><a class="footer__link" href="architecture.html">Deployment</a></li>
+          <li><a class="footer__link" href="#demo" data-demo-open>Book a use-case session</a></li>
         </ul>
       </nav>
 
@@ -1127,7 +982,7 @@
           <li><a class="footer__link" href="architecture.html">Architecture</a></li>
           <li><a class="footer__link" href="case-studies.html">Case studies</a></li>
           <li><a class="footer__link" href="blog.html">Blog</a></li>
-          <li><a class="footer__link" href="#faq">FAQ</a></li>
+          <li><a class="footer__link" href="faq.html">FAQ</a></li>
           <li><a class="footer__link" href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">Webinar: Find insights in every interaction ↗</a></li>
         </ul>
       </nav>
