@@ -1,12 +1,15 @@
 # ACI Web — AI Communication Inspector site
 
 Static marketing site: plain HTML / CSS / vanilla JS, **no build step, no framework**.
-Homepage `index.html` + 4 module sub-pages + supporting pages + `comm-inspector-onepager.html`.
+Homepage `index.html` + 4 module sub-pages + supporting pages + `comm-inspector-onepager.html`, plus
+`index-v2.html`, a long-term unlisted test variant of the homepage (see below).
 Shared `styles.css` and `script.js` (blog pages also load `blog.css`). Bull / DataSentics brand.
 
 | File | Page |
 |---|---|
-| `index.html` | Homepage — "AI Comms Inspector — Read Every Conversation" |
+| `index.html` | Homepage — "AI Comms Inspector — Read Every Conversation" (new design, analytics variant `v3`) |
+| `index-v2.html` | Unlisted long-term test variant of the homepage (own CSS `home-v2.css`, `noindex`) |
+| `faq.html` | Common questions (the 12 Q&As that used to sit on the homepage) |
 | `ai-customer-insights.html` | Module: AI Customer Insights (formerly `comm-inspector.html`) |
 | `ai-call-inspector.html` | Module: AI Call Inspector |
 | `ai-quality-assurance.html` | Module: AI Quality Assurance |
@@ -58,7 +61,24 @@ via CSS, never with hard `<br>`** (hard breaks look wrong at other viewport widt
   before/after comparison (`.ba__tick`). Use a fixed px, not `em`, so the check reads
   identically across sections whose body text differs (14px hero vs 16px lists).
 
-## Homepage v2 (unlisted test variant for ad traffic)
+## Homepage (live since 2026-11, analytics variant `v3`)
+
+`index.html` is the redesigned homepage: pain-led and short. Order: hero, Built by Bull, "The impact",
+"What a sample hides" (`#pains`), Enterprise proof, "Who it's for", Modules, founder card
+(`#founder-note`), How it works, gated demo video (`#demo-video`), Proven results, Build vs. partner vs. buy,
+team (`#team`), How we work together (`#together`), contact form (`#demo`). The old worked example,
+business-value, deployment (`#stack`) and FAQ sections left the page; the FAQ is now `faq.html`, and the
+footer "Deployment" link goes to `architecture.html`. Anchors that other pages still use and that exist:
+`#demo`, `#how`, `#delivers`.
+
+- Reuses `styles.css` and `script.js` (the video gate, `data-vid-*`, and the form handlers live in
+  `script.js`; both forms submit with `fetch`, so visitors never land on a Web3Forms page).
+- Every `<section>` and the footer carry `data-section` / `data-step` for the analytics layer.
+- Main action label on the homepage is "Book a use-case session". The other pages still say
+  "Book a walkthrough"; they are to be aligned in a follow-up.
+- The previous homepage is kept only in git: tag `homepage-v1-backup`.
+
+## Homepage v2 (unlisted long-term test variant for ad traffic)
 
 `index-v2.html` + `home-v2.css` + `Assets/v2/` are a test homepage: a faithful port of the shared draft
 "Customer intelligence for European companies" (the draft's own markup and CSS, so colours, type and layout
@@ -77,7 +97,10 @@ match it). It is **not** the live homepage:
   Web3Forms and redirects to the recording.
 - People cards carry local corrections the draft may lack: Jiřina's current role and badges, LinkedIn links
   for David and Jiřina. Re-check them if the draft is ported again.
-- **Swap procedure (when v2 wins):** replace `index.html` with `index-v2.html`'s content (it brings its own
+- Known issue: the webinar gate's `redirect` to YouTube is ignored by the free Web3Forms plan (cross-domain
+  redirects are paid), so visitors see Web3Forms' default success page and no recording. Fix by unlocking the
+  recording on the page instead of redirecting.
+- **Swap procedure (if v2 ever wins over the live homepage):** replace `index.html` with `index-v2.html`'s content (it brings its own
   CSS), drop the noindex + canonical lines, move the content that left the homepage (worked example, "how it
   works", deployment detail) onto `ai-customer-insights.html` / `architecture.html`, and leave a meta-refresh
   stub at `index-v2.html` if ad links still point at it. Other pages keep `styles.css`, so the site's look
@@ -91,8 +114,8 @@ Loaded synchronously on every page right after the Cookiebot script (Cookiebot m
 checking that `styles.css` loaded (a second stale server on port 8087 once reset it); the pane does not run
 `requestAnimationFrame` / `IntersectionObserver`, so stub both when testing scroll events.
 
-- **`homepage_variant`**: `v1` on `index.html`, `v2` on `index-v2.html` or any page opened with `?hp=v2`, else
-  `none`. Set on the GA4 `config` call (so `page_view` carries it) and on every custom event.
+- **`homepage_variant`**: `v3` on `index.html` (the current homepage), `v2` on `index-v2.html` or any page opened
+  with `?hp=v2`, else `none`. `v1` was the old homepage and is retired (history stays in GA4). Set on the GA4 `config` call (so `page_view` carries it) and on every custom event.
 - **Keeping V2 visitors on V2**: on V2 pages internal links get `?hp=v2`, links to `index.html` become
   `index-v2.html`, and homepage anchors are mapped (`#demo` to `#contact`, `#delivers` to `#questions`,
   `#faq` to `#webinar`, `#stack` to `architecture.html`). Never put `utm_*` on internal links: GA4 would start a
@@ -102,9 +125,9 @@ checking that `styles.css` loaded (a second stale server on port 8087 once reset
   book/webinar/linkedin, `cta_location`, `cta_text`), `internal_click` (`target_page`, `link_location`),
   `form_start` (`form_id`, same ids as `generate_lead`: `demo_walkthrough`, `quote_request`, `video_gate`,
   `webinar_gate_v2`). `generate_lead` is unchanged.
-- **Sections**: tag a block with `data-section="<id>"` and `data-step="<step>"`. Comparable steps across V1 and V2:
-  `hero`, `proof`, `problem`, `offer`, `how`, `contact` (+ `footer`); V1-only `evidence`, `fit`, `faq`; V2-only
-  `mission`, `people`, `webinar`.
+- **Sections**: tag a block with `data-section="<id>"` and `data-step="<step>"`. Steps shared by `v2` and
+  `v3`: `hero`, `proof`, `problem`, `offer`, `how`, `people`, `contact` (+ `footer`); `v3` also uses
+  `evidence` and `fit`; `v2` also uses `mission` and `webinar`; `faq` is the step of `faq.html`.
 - **Lead attribution**: every Web3Forms form gets hidden fields `utm_*`, `gclid`, `li_fat_id`, `landing_page`,
   `landing_variant`, `referrer`, `homepage_variant`, `page_url` at submit time. First-touch values are kept in
   `sessionStorage` only after Cookiebot statistics consent; without consent only the current URL is used.
