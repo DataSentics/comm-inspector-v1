@@ -1982,35 +1982,169 @@ a.module-card__tag:hover { background: var(--orange-tint); color: var(--orange);
    and wraps with text-wrap: pretty (see CLAUDE.md).
    ================================================================= */
 .founder-card {
-  display: grid; grid-template-columns: minmax(240px, 340px) 1fr;
-  gap: clamp(28px, 5vw, 64px); align-items: stretch;
+  display: grid; grid-template-columns: minmax(220px, 300px) 1fr;
+  gap: clamp(28px, 4vw, 48px); align-items: stretch;
   background: var(--white); border: 1px solid var(--hairline);
   border-radius: var(--r-card-lg); box-shadow: var(--shadow-md);
   padding: clamp(20px, 3vw, 36px);
 }
-.founder-card__media {
-  position: relative; margin: 0; overflow: hidden;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  background: var(--orange-tint); border-radius: var(--r-card);
-  padding: clamp(24px, 3vw, 36px) 0 0;   /* no side padding: the photo sits flush against the panel's left edge */
-}
-.founder-card__photo { align-self: flex-start; width: 90.6%; height: auto; aspect-ratio: 486 / 608; object-fit: contain; object-position: bottom; }
+.founder-card__media { margin: 0; display: flex; flex-direction: column; }   /* the photo carries its own background; its top edge lines up with the eyebrow. The photo fills whatever height the text column sets (cropped at the bottom, never below 320px), so the role line ends level with the microtext. */
+.founder-card__photo { display: block; width: 100%; height: auto; flex: 1 1 0; min-height: 320px; object-fit: cover; object-position: center top; border-radius: var(--r-btn); }
 .founder-card__caption {
   display: flex; flex-direction: column; gap: 2px;
-  padding: 14px clamp(24px, 3vw, 36px);
-  background: var(--white); border-top: 1px solid var(--hairline);
+  padding: 14px 0 0;
 }
 .founder-card__name { font-family: var(--font-display); font-weight: 500; font-size: 18px; color: var(--ink); }
 .founder-card__role { font-size: var(--fs-meta); color: var(--ink-soft); }
-.founder-card__copy { align-self: center; padding-block: clamp(4px, 1vw, 12px); }
-.founder-card__title { max-width: 20ch; text-wrap: balance; }
-.founder-card__body { margin-top: 20px; max-width: 58ch; font-size: clamp(16px, 1.3vw, 18px); font-weight: 400; line-height: var(--lh-prose); color: var(--ink-soft); text-wrap: pretty; }
+.founder-card__copy { align-self: start; }
+.founder-card__copy .eyebrow-label { display: block; line-height: 1; }   /* box top = text top, so the photo's top edge lines up with the eyebrow */
+.founder-card__title { max-width: 26ch; text-wrap: balance; }
+.founder-card__body { margin-top: 20px; max-width: none; font-size: clamp(16px, 1.3vw, 18px); font-weight: 400; line-height: var(--lh-prose); color: var(--ink-soft); text-wrap: pretty; }
 .founder-card__action { margin-top: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .founder-card__micro { font-size: var(--fs-meta); color: var(--ink-soft); }
+/* The "today" sentence starts its own line: it separates before from now without extra vertical space. */
+.founder-card__now { display: block; }
 @media (max-width: 860px) {
   .founder-card { grid-template-columns: 1fr; }
-  .founder-card__media { max-width: 320px; }
+  .founder-card__media { max-width: 300px; }
+  .founder-card__photo { flex: none; min-height: 0; aspect-ratio: 840 / 1027; }
 }
+
+/* PAINS UNDER THE IMPACT (#pains) */
+.pains { list-style: none; margin: 0; padding: 0; max-width: 1020px; }
+.pains__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(16px, 2vw, 28px);
+  padding: clamp(20px, 2.4vw, 28px) 0;
+  border-top: 1px solid var(--hairline);
+}
+.pains__row:last-child { border-bottom: 1px solid var(--hairline); }
+.pains__problem { text-align: right; }
+.pains__label { margin: 0 0 6px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); }
+.pains__text { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(19px, 1.9vw, 23px); line-height: 1.3; color: var(--ink); text-wrap: pretty; }
+.pains__q { margin: 0; font-size: clamp(16px, 1.4vw, 18px); font-weight: 400; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
+.pains__for { margin: 8px 0 0; font-size: 14px; color: var(--ink-soft); }
+.pains__arrow { width: 88px; color: var(--orange); }
+.pains__arrow svg { display: block; width: 100%; height: auto; }
+.pains__cta { margin-top: clamp(28px, 4vw, 44px); text-align: center; }
+.pains__micro { margin: 14px 0 0; font-size: 15px; color: var(--ink-soft); }
+
+/* Problem, then arrow, then question: same timing as the artifact's
+   arrow sequence. Scoped to #pains; the global .reveal is untouched. */
+#pains .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 640ms cubic-bezier(0.22, 1, 0.36, 1), transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+#pains .reveal.is-in { opacity: 1; transform: none; }
+#pains .reveal[data-delay="1"] { transition-delay: 90ms; }
+#pains .reveal[data-delay="2"] { transition-delay: 180ms; }
+#pains .reveal[data-delay="3"] { transition-delay: 270ms; }
+@media (prefers-reduced-motion: reduce) {
+  #pains .reveal, #pains .reveal.is-in { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 760px) {
+  .pains__row { grid-template-columns: minmax(0, 1fr); row-gap: 14px; align-items: start; }
+  .pains__problem { text-align: left; }
+  .pains__arrow { width: 44px; }
+  .pains__arrow svg { transform: rotate(90deg); }
+}
+
+.positioning-bar--tint { background: var(--tint-50); }
+
+/* TEAM, HOW WE WORK TOGETHER, DECISION FORM (#team, #together, #demo) */
+#team .reveal, #together .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 640ms cubic-bezier(0.22, 1, 0.36, 1), transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+#team .reveal.is-in, #together .reveal.is-in { opacity: 1; transform: none; }
+#team .reveal[data-delay="1"], #together .reveal[data-delay="1"] { transition-delay: 90ms; }
+#team .reveal[data-delay="2"], #together .reveal[data-delay="2"] { transition-delay: 180ms; }
+#team .reveal[data-delay="3"], #together .reveal[data-delay="3"] { transition-delay: 270ms; }
+
+.team__label { display: block; text-align: center; margin-bottom: 24px; }
+.team__grid { display: grid; grid-template-columns: 1fr; gap: clamp(20px, 2.5vw, 32px); align-items: stretch; }
+@media (min-width: 900px) { .team__grid { grid-template-columns: repeat(3, 1fr); } }
+.team__card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--hairline); border-radius: var(--r-card-lg); padding: clamp(22px, 2.4vw, 32px); box-shadow: var(--shadow-sm); }
+.team__card p { margin-top: 0; margin-bottom: 14px; font-size: var(--fs-compact); color: var(--ink-soft); text-wrap: pretty; }
+.team__card p:last-child { margin-bottom: 0; }
+.team__person { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+.team__person img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: none; }
+.team__person strong { display: block; font-family: var(--font-display); font-weight: 500; font-size: clamp(19px, 1.8vw, 22px); line-height: 1.2; color: var(--ink); }
+.team__person span { display: block; margin-top: 4px; font-size: var(--fs-meta); line-height: 1.35; color: var(--ink-soft); }
+.team__years { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+.team__years-num { flex: none; font-family: var(--font-display); font-weight: 900; font-size: clamp(25px, 3vw, 36px); line-height: 1; color: var(--orange); }
+.team__years span { font-size: var(--fs-meta); line-height: 1.35; color: var(--ink-soft); }
+.team__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; margin-bottom: 24px; padding-top: 16px; border-top: 1px solid var(--hairline); }
+.team__badge { display: inline-flex; padding: 4px 12px; border-radius: 999px; font-size: var(--fs-meta); font-weight: 500; background: rgba(255,85,57,.12); color: var(--orange-hover); }
+.team__card .team__li { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline); }
+.team__li a { display: inline-flex; align-items: center; gap: 8px; min-height: 24px; color: var(--blue-deep); font-weight: 600; text-decoration: none; }
+.team__li a:hover { text-decoration: underline; }
+.team__li svg { width: 20px; height: 20px; }
+.team__li .team__li-arrow { width: 14px; height: 14px; flex: none; }
+
+.together { position: relative; isolation: isolate; }
+.together::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(0,40,112,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,40,112,.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 20%, transparent 100%);
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 20%, transparent 100%);
+}
+.together > .container { position: relative; z-index: 1; }
+.together__steps { display: grid; grid-template-columns: 1fr; gap: 32px; position: relative; margin-top: 8px; }
+@media (min-width: 768px) { .together__steps { grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.5vw, 32px); } }
+.together__step { position: relative; padding-top: 40px; text-align: center; }
+.together__step h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.2; color: var(--ink); margin-bottom: 8px; }
+.together__step p { margin: 0 auto; max-width: 36ch; font-size: var(--fs-body); color: var(--ink-soft); text-wrap: pretty; }
+.together__icon { position: absolute; top: 0; left: 50%; width: 44px; height: 44px; border-radius: 50%; background: var(--orange); color: #fff; display: grid; place-items: center; transform: translate(-50%, -50%); }
+.together__icon svg { width: 22px; height: 22px; position: relative; }
+.together__step::after { content: ''; position: absolute; top: 0; left: calc(50% + 26px); right: calc(-1 * clamp(20px, 2.5vw, 32px)); height: 2px; background: linear-gradient(90deg, var(--orange), rgba(255,85,57,.15)); }
+.together__step:last-child::after { display: none; }
+.together__ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--orange); opacity: 0; animation: together-ring 3s ease-out infinite; }
+.together__ring--2 { animation-delay: 1.5s; }
+@keyframes together-ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(2.1); opacity: 0; } }
+.together__live { display: inline-flex; align-items: center; gap: 8px; vertical-align: middle; margin-left: 8px; padding: 3px 10px; border-radius: 999px; font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); background: rgba(255,85,57,.12); }
+.together__live i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); animation: together-blink 1.6s ease-in-out infinite; }
+@keyframes together-blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.75); } }
+.together__faq { max-width: 720px; margin: clamp(40px, 5vw, 64px) auto 0; }
+.together__faq details { border-bottom: 1px solid var(--hairline); padding: 16px 0; }
+.together__faq summary { cursor: pointer; font-weight: 600; color: var(--ink); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.together__faq summary::-webkit-details-marker { display: none; }
+.together__faq summary::after { content: '+'; color: var(--orange); font-size: 24px; line-height: 1; }
+.together__faq details[open] summary::after { content: '\2013'; }
+.together__faq details p { margin: 12px 0 0; color: var(--ink-soft); text-wrap: pretty; }
+.together__bridge { margin-top: clamp(32px, 4vw, 48px); text-align: center; }
+.together__bridge p { margin: 0 0 16px; font-family: var(--font-display); font-weight: 500; font-size: clamp(19px, 1.8vw, 22px); color: var(--ink); }
+.together__btn { background: transparent; color: var(--ink); border-color: var(--ink); }
+.together__btn:hover { background: rgba(13,27,62,.06); }
+@media (max-width: 767px) {
+  .together__step { padding-top: 0; padding-left: 60px; text-align: left; }
+  .together__step p { margin-inline: 0; }
+  .together__icon { left: 0; transform: none; }
+  .together__step::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #team .reveal, #team .reveal.is-in, #together .reveal, #together .reveal.is-in { opacity: 1; transform: none; transition: none; }
+  .together__ring { display: none; animation: none; }
+  .together__live i { animation: none; }
+}
+
+.decision__form { max-width: 560px; margin-inline: auto; }
+.decision__form:has(.decision__success:not([hidden])) { background: none; border: 0; box-shadow: none; padding: 0; }
+.decision__success { background: var(--blue-deep); color: var(--on-blue); border-radius: var(--r-card-lg); padding: clamp(28px, 4vw, 44px); text-align: center; }
+.decision__success[hidden] { display: none; }
+.decision__success h3 { text-wrap: balance; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2.2vw, 26px); color: var(--on-blue); margin: 0 0 12px; }
+.decision__success p { margin: 0 auto; max-width: 44ch; color: var(--on-blue-soft); line-height: 1.6; }
+.decision__who { display: flex; gap: 14px; align-items: center; justify-content: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--hairline-blue); text-align: left; }
+.decision__who img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; flex: none; }
+.decision__who strong { display: block; color: var(--on-blue); }
+.decision__who span { display: block; margin-top: 2px; font-size: var(--fs-meta); color: var(--on-blue-soft); }
 
 /* =================================================================
    Gated demo video  ([data-vid-root] component)
@@ -2135,3 +2269,6 @@ html.vid-gate-open { overflow: hidden; }
   .vid__stage:hover .vid__play, .vid__play:focus-visible { transform: none; }
   .vid__gate { animation: none; }
 }
+
+/* Balanced lines so the team heading does not leave 'a' alone at the end of a line */
+#teamHeading { text-wrap: balance; }
