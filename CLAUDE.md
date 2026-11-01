@@ -74,8 +74,8 @@ footer "Deployment" link goes to `architecture.html`. Anchors that other pages s
 - Reuses `styles.css` and `script.js` (the video gate, `data-vid-*`, and the form handlers live in
   `script.js`; both forms submit with `fetch`, so visitors never land on a Web3Forms page).
 - Every `<section>` and the footer carry `data-section` / `data-step` for the analytics layer.
-- Main action label on the homepage is "Book a use-case session". The other pages still say
-  "Book a walkthrough"; they are to be aligned in a follow-up.
+- Main action label across the site is "Book a use-case session" (the internal form id `demo_walkthrough`
+  in analytics stays for continuity).
 - The previous homepage is kept only in git: tag `homepage-v1-backup`.
 
 ## Homepage v2 (unlisted long-term test variant for ad traffic)
