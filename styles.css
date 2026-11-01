@@ -337,23 +337,43 @@ a { color: inherit; text-decoration: none; }
   margin: 0;
 }
 /* Illustration column — right-aligned to the container gutter, never bleeding
-   past it. Decorative only (see aria-hidden in the markup). */
+   past it. Holds the hero animation (hero-anim.js). */
 .hero__viz { display: flex; justify-content: flex-end; }
-.hero__viz-img {
-  display: block;
-  width: 100%;
-  /* Sized (not just capped) so the photo's own height — driven purely by
-     this width via its locked aspect ratio, no cropping — sits inside the
-     copy column's own vertical span. .hero__inner centers the two columns
-     (align-items: center), so as long as the photo is shorter than the
-     copy block, centering alone keeps its top above the eyebrow row and
-     its bottom above the CTA — no separate top/bottom rules needed. */
-  max-width: clamp(260px, 27vw, 330px);
-  height: auto;
-  border-radius: var(--r-card-lg);         /* rounded corners to match the Bull photo (~16–20px) */
-  object-fit: cover;
-  box-shadow: var(--shadow-md);            /* subtle depth for the framed look — drop if you prefer flat */
-}
+
+/* Hero animation. Same footprint as the old photo: width capped at
+   clamp(260px, 27vw, 330px), photo aspect 425×538, so the column's vertical
+   centering is unchanged. Everything inside is drawn on a fixed 425×538 stage
+   that hero-anim.js scales with CSS zoom (sets --s), which keeps text sharp. */
+.ci-anim { position: relative; width: 100%; max-width: clamp(260px, 27vw, 330px); aspect-ratio: 425 / 538; }
+.ci-stage { position: absolute; left: 0; top: 0; width: 425px; height: 538px; zoom: var(--s, 1); }
+.ci-photo { position: absolute; left: 0; top: 0; width: 425px; height: 538px; object-fit: cover; object-position: 50% 50%; border-radius: var(--r-card-lg); box-shadow: var(--shadow-md); z-index: 5; }
+
+.ci-tile { position: absolute; width: 52px; height: 52px; border-radius: 12px; background: #E6EAF1; color: #A3ACBD; display: grid; place-items: center; opacity: 0; }
+.ci-tile svg { width: 23px; height: 23px; }
+
+.ci-label { position: absolute; left: 0; right: 0; top: 12px; display: flex; justify-content: center; z-index: 10; white-space: nowrap; }
+.ci-label__in { background: var(--white); border: 1px solid var(--hairline); border-radius: 14px; padding: 10px 20px 11px; box-shadow: 0 1px 2px rgba(13,27,62,.06), 0 8px 20px rgba(13,27,62,.09); text-align: center; opacity: 0; }
+.ci-label__eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; color: var(--ink-soft); height: 21px; display: flex; align-items: center; justify-content: center; }
+.ci-label__logo { display: block; height: 21px; width: auto; }
+.ci-label__main { margin-top: 5px; font-family: var(--font-display); font-weight: 900; font-size: 27px; line-height: 1.1; letter-spacing: -.02em; color: var(--ink); }
+.ci-label__main b { font-weight: 900; color: var(--orange); }
+
+/* Channel legend: one pill per channel, spread across the grid width (x 10–416). */
+.ci-legend { position: absolute; left: 10px; right: 9px; top: 470px; z-index: 10; white-space: nowrap; }
+.ci-legend__in { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 16px; font-weight: 500; color: var(--ink); opacity: 0; }
+.ci-legend__in span { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 0; background: var(--white); border: 1px solid var(--hairline); border-radius: 999px; box-shadow: 0 1px 2px rgba(13,27,62,.06), 0 6px 16px rgba(13,27,62,.08); }
+.ci-legend__in svg { width: 19px; height: 19px; color: var(--blue-deep); }
+
+.ci-chip { position: absolute; z-index: 12; white-space: nowrap; }
+.ci-chip__in { display: inline-flex; align-items: center; gap: 9px; background: var(--white); border-radius: 999px; padding: 9px 16px 9px 13px; box-shadow: 0 1px 2px rgba(13,27,62,.1), 0 6px 16px rgba(13,27,62,.14); font-size: 21px; line-height: 1.15; font-weight: 500; color: var(--ink); opacity: 0; }
+.ci-chip__dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+
+/* Replay sits outside the frame (real px, not zoomed) so it reads as a control. */
+.ci-replay { position: absolute; right: 0; top: calc(100% + 12px); display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px 7px 11px; border-radius: 999px; border: 1px solid #bfe3d3; background: #e8f6ef; color: #157a52; font: 600 13px/1 var(--font-body); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .4s, background .2s; }
+.ci-replay:hover { background: #d5efe2; }
+.ci-replay:focus-visible { outline: 2px solid #157a52; outline-offset: 2px; }
+.ci-replay.is-on { opacity: 1; pointer-events: auto; }
+.ci-replay svg { width: 15px; height: 15px; }
 .hero__h1 {
   font-family: var(--font-display);
   font-weight: 900;
