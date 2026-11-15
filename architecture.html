@@ -13,6 +13,17 @@
     gtag('js', new Date());
     gtag('config', 'G-X2SDXRFETN', { homepage_variant: window.ciVariant ? window.ciVariant() : 'none' });
   </script>
+  <!-- RB2B visitor identification (consent-gated: Cookiebot holds it until the visitor accepts marketing cookies) -->
+  <script type="text/plain" data-cookieconsent="marketing">
+    !function(key) {
+      if (window.reb2b) return;
+      window.reb2b = {loaded: true};
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";
+      document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);
+    }("Z6PVLHZ3YD6R");
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Architecture — AI Comms Inspector</title>
   <link rel="canonical" href="https://comms-inspector.com/architecture.html" />
