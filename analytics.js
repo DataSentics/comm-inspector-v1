@@ -4,7 +4,8 @@
    or blocked gtag (no cookie consent yet) never breaks the page.
 
    What it does
-   1. homepage_variant: "v1" (index.html), "v2" (index-v2.html, or any page opened with ?hp=v2),
+   1. homepage_variant: "v3" (index.html, the current homepage; "v1" was the old homepage and is retired),
+      "v2" (index-v2.html, or any page opened with ?hp=v2),
       otherwise "none". Exposed as window.ciVariant() so the GA snippet can put it on page_view, and
       added to every custom event below.
    2. Keeps V2 visitors on V2: on V2 pages, internal links get ?hp=v2, links to index.html become
@@ -28,7 +29,7 @@
 
   var VARIANT = "none";
   if (/^index-v2(\.html)?$/.test(file) || params.get("hp") === "v2") VARIANT = "v2";
-  else if (file === "index.html") VARIANT = "v1";
+  else if (file === "index.html") VARIANT = "v3";
   window.ciVariant = function () { return VARIANT; };
 
   var send = function (name, extra) {

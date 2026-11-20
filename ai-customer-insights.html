@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <!-- Cookiebot consent - must stay the first script in <head>, ahead of every other script and tracking tag, so data-blockingmode="auto" can hold them until consent. -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
-  <script src="analytics.js?v=20261027"></script>
+  <script src="analytics.js?v=20261101"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2SDXRFETN"></script>
   <script>
@@ -30,6 +30,17 @@
       b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
       s.parentNode.insertBefore(b, s);})(window.lintrk);
   </script>
+  <!-- RB2B visitor identification (consent-gated: Cookiebot holds it until the visitor accepts marketing cookies) -->
+  <script type="text/plain" data-cookieconsent="marketing">
+    !function(key) {
+      if (window.reb2b) return;
+      window.reb2b = {loaded: true};
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";
+      document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);
+    }("Z6PVLHZ3YD6R");
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Customer Insights — Sales Signals from Every Call</title>
   <link rel="canonical" href="https://comms-inspector.com/ai-customer-insights.html" />
@@ -40,7 +51,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261102" />
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -81,7 +92,7 @@
       </nav>
       <span class="nav__byline"><span class="nav__backed">built by</span> <img src="Assets/BULL_LOGO_COLOR_RGB.svg" alt="Bull" class="nav__bull" /></span>
       <span class="nav__cta-divider" aria-hidden="true"></span>
-      <a href="index.html#demo" class="btn btn--primary nav__cta" data-demo-open>Book a walkthrough</a>
+      <a href="index.html#demo" class="btn btn--primary nav__cta" data-demo-open>Book a use-case session</a>
       <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
       </button>
@@ -100,7 +111,7 @@
       <a href="blog.html">Blog</a>
       <span class="mobile-nav__divider" aria-hidden="true"></span>
       <a href="pricing.html">Pricing</a>
-      <a href="index.html#demo" class="btn btn--primary" data-demo-open>Book a walkthrough</a>
+      <a href="index.html#demo" class="btn btn--primary" data-demo-open>Book a use-case session</a>
     </div>
   </header>
   <!-- END SHARED HEADER -->
@@ -112,7 +123,7 @@
         <h1 class="subpage-hero__title">AI Customer Insights</h1>
         <p class="subpage-hero__lead">Automated communication analyser that detects sales and engagement insights across every conversation — and turns them into structured signals your teams can act on.</p>
         <div class="subpage-hero__cta">
-          <a href="index.html#demo" class="btn btn--primary btn--lg" data-demo-open>Book a walkthrough</a>
+          <a href="index.html#demo" class="btn btn--primary btn--lg" data-demo-open>Book a use-case session</a>
         </div>
       </div>
     </section>
@@ -164,7 +175,7 @@
         </p>
         <div class="vid__cta" data-vid-cta hidden>
           <p class="vid__cta-title">Want to see it on your own conversations?</p>
-          <a href="index.html#demo" class="btn btn--primary" data-demo-open>Book a walkthrough</a>
+          <a href="index.html#demo" class="btn btn--primary" data-demo-open>Book a use-case session</a>
         </div>
       </div>
 
@@ -236,9 +247,9 @@
     <section class="section section--grey reveal cta-band" aria-labelledby="commCtaHeading">
       <div class="container">
         <h2 id="commCtaHeading" class="section__title">See a real conversation analysed</h2>
-        <p class="cta-band__sub">Watch a single call turn into structured insights, or book a walkthrough to discuss how this would fit your CRM.</p>
+        <p class="cta-band__sub">Watch a single call turn into structured insights, or book a use-case session to discuss how this would fit your CRM.</p>
         <div class="cta-band__actions">
-          <a href="index.html#demo" class="btn btn--primary btn--lg" data-demo-open>Book a walkthrough</a>
+          <a href="index.html#demo" class="btn btn--primary btn--lg" data-demo-open>Book a use-case session</a>
           <a href="#demo-video" class="cta-band__link">See how a call is analysed</a>
         </div>
       </div>
@@ -247,9 +258,6 @@
 
   <!-- SHARED FOOTER — keep in sync with index.html -->
   <footer class="site-footer section--blue-deep">
-    <!-- Bull symbol watermark — same treatment as claimsense.app's dark
-         final-CTA section: low-opacity monogram, lower-right, decorative only. -->
-    <img src="Assets/Bull_symbol_white.svg" alt="" aria-hidden="true" class="footer__watermark" />
     <div class="container footer__grid">
       <!-- Column 1 — brand -->
       <div class="footer__col footer__col--brand">
@@ -272,8 +280,8 @@
         <ul class="footer__list">
           <li><a class="footer__link" href="index.html#delivers">Modules</a></li>
           <li><a class="footer__link" href="pricing.html">Pricing</a></li>
-          <li><a class="footer__link" href="index.html#stack">Deployment</a></li>
-          <li><a class="footer__link" href="index.html#demo" data-demo-open>Book a walkthrough</a></li>
+          <li><a class="footer__link" href="architecture.html">Deployment</a></li>
+          <li><a class="footer__link" href="index.html#demo" data-demo-open>Book a use-case session</a></li>
         </ul>
       </nav>
 
@@ -296,7 +304,7 @@
           <li><a class="footer__link" href="architecture.html">Architecture</a></li>
           <li><a class="footer__link" href="case-studies.html">Case studies</a></li>
           <li><a class="footer__link" href="blog.html">Blog</a></li>
-          <li><a class="footer__link" href="index.html#faq">FAQ</a></li>
+          <li><a class="footer__link" href="faq.html">FAQ</a></li>
           <li><a class="footer__link" href="https://datasentics.com/13-may-webinar-ai-communication-inspector-find-insights-in-every-interaction-with-clients" target="_blank" rel="noopener">Webinar: Find insights in every interaction ↗</a></li>
         </ul>
       </nav>
