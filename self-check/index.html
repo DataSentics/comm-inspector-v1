@@ -80,8 +80,8 @@ th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-
 .next{background:var(--blue-deep);color:#fff;border-radius:var(--r-card-lg);padding:30px;margin-top:26px}
 .next h2{color:#fff}.next p{color:var(--on-blue-soft)}.next .eyebrow{color:#ffb4a6}
 .sc-foot{background:var(--blue-deep);color:var(--on-blue-soft);padding:28px 0;font-size:14px}
-.sc-foot .container{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.sc-foot img{height:22px}
+.sc-foot .container{display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}.sc-foot p{margin:0}.sc-foot a{display:inline-block;line-height:0}
+.sc-foot img{height:26px}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:96px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;z-index:60}
 .hide{display:none!important}
 @media print{.pk,.actions,.no-print,.toast,.next,.sc-foot{display:none!important}.sc-main{background:#fff;padding:0}body{font-size:12.5pt}.print-only{display:block!important}}
@@ -154,7 +154,7 @@ th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-
 <header class="sc-head"><div class="container">
   <div class="ci-head">
     <a class="ci-head__product" href="/" target="_blank" rel="noopener" aria-label="AI Comms Inspector"><img src="/Assets/self-check/comms-inspector-logo_tm.svg" alt="Comms Inspector" width="219" height="20"></a>
-    <span class="ci-head__endorse"><span class="ci-head__label">built by</span><img src="/Assets/self-check/BULL_LOGO_COLOR_RGB.svg" alt="Bull" width="70" height="26"></span>
+    <span class="ci-head__endorse"><span class="ci-head__label">built by</span><a href="https://www.bull.com/en/about-bull" target="_blank" rel="noopener" aria-label="Bull"><img src="/Assets/self-check/BULL_LOGO_COLOR_RGB.svg" alt="Bull" width="70" height="26"></a></span>
   </div>
 </div></header>
 <main class="sc-main"><div class="sc-wrap">
@@ -171,7 +171,7 @@ th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-
     </ul>
     <p class="vnote">Not sure you can answer everything? That is fine.<br>At the end you get the questions you skipped, with a note on who is most likely to know, and you can change your answer.</p>
     <p class="privnote"><b>Your answers never leave this page.</b> We cannot see them and keep no copy.</p>
-    <div class="card" id="gate"><div id="noGate"><button class="btn btn--primary" id="startBtn">Start the self-check</button><p class="small" id="noGateNote" style="margin-top:12px"></p></div></div>
+    <div class="card" id="gate"><div id="noGate"><button class="btn btn--primary" id="startBtn">Start the self-check</button></div></div>
   </section>
 
 
@@ -260,7 +260,7 @@ th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-
     </details>
   </section>
 </div></main>
-<footer class="sc-foot"><div class="container"><img src="/Assets/self-check/comms-inspector-logo_tm-white.svg" alt="Comms Inspector"><span>AI Comms Inspector is built by DataSentics, a Bull company. The self-check is a self-assessment based on your answers, not an audit.</span><img src="/Assets/self-check/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="margin-left:auto"></div></footer>
+<footer class="sc-foot"><div class="container"><a href="https://comms-inspector.com/" target="_blank" rel="noopener" aria-label="Comms Inspector"><img src="/Assets/self-check/comms-inspector-logo_tm-white.svg" alt="Comms Inspector"></a><p>Analyse 100% of your customer conversations — insights, compliance, quality, coaching.</p></div></footer>
 
 <div class="toast hide" id="toast"></div>
 
@@ -375,7 +375,7 @@ function calc(eff){var d={},n=0,pts=0,max=0;ORDER.forEach(function(k){d[k]={pts:
 function merge(){return{eff:sess.leader.ans.map(function(a){return isUnk(a)?null:a})}}
 
 // ---------- routing and intro ----------
-function initIntro(){$("noGateNote").textContent="Your result opens at the end, after you enter your work email."}
+function initIntro(){}
 $("startBtn").onclick=function(){ev("selfcheck_start",{gate:mode()});begin(CORE.slice())};
 
 // ---------- quiz ----------
