@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /self-check-open-qs/
 
 Sitemap: https://comms-inspector.com/sitemap.xml

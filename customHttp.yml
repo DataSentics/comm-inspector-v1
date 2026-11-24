@@ -1,0 +1,5 @@
+customHeaders:
+  - pattern: '/self-check-open-qs/*'
+    headers:
+      - key: 'X-Robots-Tag'
+        value: 'noindex, nofollow'
