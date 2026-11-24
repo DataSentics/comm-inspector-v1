@@ -94,7 +94,7 @@ th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-
 .vals li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--hairline);border-radius:var(--r-card);padding:14px}
 .vi{flex:0 0 40px;height:40px;border-radius:50%;background:var(--tint-50);color:var(--orange);display:flex;align-items:center;justify-content:center}
 .vals b{display:block;font-size:15px;line-height:1.25;margin-bottom:2px;color:var(--ink)}.vals li>span:last-child{font-size:14px;color:var(--ink-soft);line-height:1.35}
-.vals{margin-bottom:10px}[tabindex="-1"]:focus{outline:none}.privnote{font-size:16px;line-height:1.5;margin:0 0 16px}.savenote{margin:22px 0 10px;padding:12px 16px;border-left:4px solid var(--orange);background:#FFF7F5;border-radius:0 10px 10px 0;font-size:16px;line-height:1.5}.vnote{font-size:18px;font-style:italic;color:var(--ink-soft);margin:30px 0 28px}
+.vals{margin-bottom:10px}[tabindex="-1"]:focus{outline:none}.privnote{font-size:16px;line-height:1.5;margin:0 0 16px}.savenote{margin:22px 0 10px;padding:12px 16px;border-left:4px solid var(--orange);background:#FFF7F5;border-radius:0 10px 10px 0;font-size:16px;line-height:1.5}.savenote .sn-h{margin:0 0 8px}.savenote ul{list-style:none;margin:0;padding:0}.savenote li{position:relative;padding-left:22px;margin:0 0 8px}.savenote li:last-child{margin-bottom:0}.savenote li:before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--orange)}.vnote{font-size:18px;font-style:italic;color:var(--ink-soft);margin:30px 0 28px}
 @media(max-width:760px){.vals{grid-template-columns:1fr}}
 .rule{border:0;border-top:1px solid var(--hairline);margin:32px 0 6px}
 @media(max-width:760px){.pgrid{grid-template-columns:1fr}}
@@ -230,7 +230,7 @@ th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-
     <div id="printActions" class="print-only"></div>
     <div id="printAnswers" class="print-only"></div>
     <div class="no-print hide" id="openQs" style="margin-top:22px"></div>
-    <div class="savenote no-print"><b>Save your result now.</b> Your answers stay only on this page and we keep no copy, so closing or refreshing it makes the result disappear. The PDF is the way to keep it. It holds your level, what each area means, your answers and the questions you were unsure about, with tick boxes. Send it to your colleagues and go through it together in a short meeting.</div>
+    <div class="savenote no-print"><p class="sn-h"><b>Save your result now.</b></p><ul><li><b>Nothing is saved.</b> Your answers stay only on this page and we keep no copy. Closing or refreshing it makes the result disappear.</li><li><b>The PDF is the way to keep it.</b> It holds your level, what each area means, your answers and the questions you were unsure about, with tick boxes.</li><li><b>Share it.</b> Send it to your colleagues and go through it together in a short meeting.</li></ul></div>
     <div class="actions no-print">
       <button class="btn btn--primary" id="bPrint">Print or save as PDF</button>
       <button class="link" id="bRestart">Start again</button>
